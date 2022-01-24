@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface Ship : IShip
+    class Ship : IShip
     {
 		// Instance Variables
 		int length;
@@ -23,15 +23,13 @@ namespace BattleshipsNS
 
 		public void SetShipPosition(GridCell startingPosition, int orientation)
 		{
-			return;
 		}
 
-		public void UpdateSunkFlag();
+		public void UpdateSunkFlag()
 		{
-			return;
 		}
 
-		public bool GetSunkFlag();
+		public bool GetSunkFlag()
 		{
 			return sunkFlag;
 		}
