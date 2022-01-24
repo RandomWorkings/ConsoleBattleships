@@ -10,6 +10,10 @@ namespace BattleshipsNS
     {
         static void Main(string[] args)
         {
+
+            //Console Hold-Open Message
+            Console.WriteLine("Program Finished. Press any Key to Close...");
+            System.Console.ReadLine();
         }
     }
 }
