@@ -8,6 +8,6 @@ namespace BattleshipsNS
 {
     interface IShip
     {
-        
+        bool HasShipBeenSunk { get; }
     }
 }
