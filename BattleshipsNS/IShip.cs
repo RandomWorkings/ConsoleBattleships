@@ -8,6 +8,9 @@ namespace BattleshipsNS
 {
     interface IShip
     {
+        /*
+         * A method to check if all ships are sunk
+        */
         bool HasShipBeenSunk { get; }
     }
 }

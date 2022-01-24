@@ -8,5 +8,15 @@ namespace BattleshipsNS
 {
     interface IGridCell
     {
+        /*
+         * Value: gridCellHit, Boolean.
+         * Method: setGridCellHit
+         *  Inputs: Void.  
+         *  Returns: Void.
+         * Method: getGridCellHit
+         *  Inputs: Void.
+         *  Returns: Boolean.
+         */
+
     }
 }

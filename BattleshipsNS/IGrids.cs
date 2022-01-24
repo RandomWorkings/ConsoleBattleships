@@ -8,5 +8,13 @@ namespace BattleshipsNS
 {
     interface IGrids
     {
+        /*
+         * Value: gameBoard, Array of Arrays of Grid Cells
+         * Method: getTargetCell.
+         *  Inputs: String.
+         *  Returns: GridCell.
+         *  
+         * An array of ships
+         */
     }
 }
