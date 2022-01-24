@@ -8,5 +8,6 @@ namespace BattleshipsNS
 {
     interface IShip
     {
+        
     }
 }

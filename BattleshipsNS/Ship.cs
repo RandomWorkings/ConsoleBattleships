@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface Ship
+    interface Ship : IShip
     {
+
     }
 }
