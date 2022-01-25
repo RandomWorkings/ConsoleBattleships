@@ -29,9 +29,10 @@ namespace BatttleshipsNSTests
             //Arrange
             char expectedContents = 'o';
             GridCell TestCell = new GridCell(1, 'A');
-
+            {
+                TestCell.Contents = 'o';
+            }
             //Act
-            TestCell.Contents = 'o';
 
             //Assess
             char? actualContents = TestCell.Contents;

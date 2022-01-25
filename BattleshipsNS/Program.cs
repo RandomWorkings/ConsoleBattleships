@@ -19,19 +19,23 @@ namespace BattleshipsNS
             Destroyer = 3
         };
 
-        static void Main(string[] args)
+        static void Main( )
         {
             //Program Instances
-            ValueGenerator Generator = new ValueGenerator();
-            InputHandler Inputs = new InputHandler();
+            //ValueGenerator Generator = new ValueGenerator();
+            //InputHandler Inputs = new InputHandler();
             OutputHandler Outputs = new OutputHandler();
 
             // Program Default settings
             int gridSize = 10;
-            string[] roster = {"Battleship","Destroyer","Destroyer"};
+            //string[] roster = {"Battleship","Destroyer","Destroyer"};
 
             // Game Setup
             Grid PlayGrid = new Grid(gridSize);
+
+            // Game Play
+
+            Outputs.DisplayPlayGrid(PlayGrid);
 
             //Console Hold-Open Message
             Console.WriteLine("Program Finished. Press any Key to Close...");

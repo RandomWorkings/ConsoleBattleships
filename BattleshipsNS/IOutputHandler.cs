@@ -9,5 +9,7 @@ namespace BattleshipsNS
     interface IOutputHandler
     {
         void GenerateMessage(int MessageID);
+
+        void DisplayPlayGrid(Grid playGrid);
     }
 }

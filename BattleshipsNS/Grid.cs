@@ -16,17 +16,16 @@ namespace BattleshipsNS
         public Grid(int gridSize)
         {
             Size = gridSize;
+            PlayGrid = new GridCell[gridSize, gridSize];
             char columnLetter = 'A';
 
-            GridCell[,] GameGrid = new GridCell[gridSize, gridSize];
 
             for (int column = 0; column < gridSize; column++)
             {
                 for (int row = 0; row < gridSize; row++)
                 {
-                    GameGrid[column, row] = new GridCell(row + 1, columnLetter);
+                    PlayGrid[column, row] = new GridCell(row + 1, columnLetter);
                 }
-                Console.WriteLine();
                 columnLetter++;
             }
         }
