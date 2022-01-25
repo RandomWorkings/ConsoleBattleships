@@ -8,11 +8,12 @@ namespace BattleshipsNS
 {
     class GridCell : IGridCell
     {
-        // Instance Variables
+        // Fields or Properties
 
         // Constructor Declaration of Class
         GridCell()
         { }
 
+        // Methods, Events, Operators
     }
 }

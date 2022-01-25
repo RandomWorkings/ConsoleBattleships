@@ -8,20 +8,10 @@ namespace BattleshipsNS
 {
     interface IGridCell
     {
-        /*
-         * Responsibility: Management of Grid Cell Class.
-         * 
-         * A grid cell should have (Fields or Properties):
-         *      •	ID.
-         *          o	String.
-         *      •	Contents.
-         *          o	Char.
-         *
-         * The system should be able to (Methods, Events, Operators):
-         *      •	Get the contents.
-         *      •	Set the contents.
-         *      
-         */
+        string ID { get; set; }
+        char Contents { get; set; }
 
+        void SetCellContents(char contents);
+        char GetCellContents();
     }
 }

@@ -9,11 +9,12 @@ namespace BattleshipsNS
     
     class Grid : IGrid
     {
-        // Instance Variables
-        
+        // Fields or Properties
+
         // Constructor Declaration of Class
         Grid()
         { }
 
+        // Methods, Events, Operators
     }
 }
