@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using BattleshipsNS;
 
 namespace BatttleshipsNSTests
@@ -7,11 +8,11 @@ namespace BatttleshipsNSTests
     public class ShipTests
     {  
         [TestMethod]
-        public void Ship_WhenCalled_UpdateNextShipNumber()
+        public void Ship_WhenCalled_UpdatesNextShipNumber()
         {
             //Arrange
-            int ShipCount = 3;
-            string expected = "ship-4";
+            int ShipCount = 2;
+            string expected = "ship-3";
 
             //Act
             for (int i = 0; i < ShipCount; i++)
@@ -22,8 +23,8 @@ namespace BatttleshipsNSTests
 
             //Assess
             string actual = TestShip.ID;
-            Assert.AreEqual(expected, actual, false, "Ship ID is not Incremented Correctly");
-
+            // areEqual - expected, actual, case-insensitive, fail message
+            Assert.AreEqual(expected, actual, true, "Ship ID is not Incremented Correctly");
         }
     }
 }
