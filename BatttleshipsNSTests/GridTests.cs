@@ -19,17 +19,6 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void Size_WhenInputIsValid_ShouldSet()
-        {
-            //Arrange
-
-            //Act
-
-            //Assess
-            //Assert.AreEqual(expectedContents, actualContents, "GridCellTests - Contents - Contents incorrecly set");
-        }
-
-        [TestMethod]
         public void PlayGrid_WhenInputIsValid_ShouldSet()
         {
             //Arrange
@@ -41,7 +30,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GetTargetGridCell_()
+        public void GetTargetGridCell_WhenValidInput_ShouldReturnGridCell()
         {
             //Arrange
 

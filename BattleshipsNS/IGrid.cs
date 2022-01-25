@@ -8,7 +8,7 @@ namespace BattleshipsNS
 {
     interface IGrid
     {
-        int Size { get; set; }
+        int Size { get; }
         GridCell[,] PlayGrid { get; set; }
 
         GridCell GetTargetGridCell(string gridCell);

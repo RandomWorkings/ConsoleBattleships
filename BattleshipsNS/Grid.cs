@@ -9,7 +9,7 @@ namespace BattleshipsNS
     public class Grid : IGrid
     {
         // Fields, Properties
-        public int Size { get; set; }
+        public int Size { get; private set; }
         public GridCell[,] PlayGrid { get; set; }
 
         // Constructor Declaration of Class
