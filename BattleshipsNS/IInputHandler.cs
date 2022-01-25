@@ -8,6 +8,6 @@ namespace BattleshipsNS
 {
     interface IInputHandler
     {        
-        bool ValidateInput();
+        bool ValidateInput(string userInput);
     }
 }

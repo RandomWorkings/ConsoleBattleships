@@ -15,7 +15,7 @@ namespace BattleshipsNS
         { }
 
         // Methods, Events, Operators
-        public bool ValidateInput()
+        public bool ValidateInput(string userInput)
         { return true; }
 
     }
