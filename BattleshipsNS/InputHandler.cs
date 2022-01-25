@@ -8,5 +8,15 @@ namespace BattleshipsNS
 {
     class InputHandler : IInputHandler
     {
+        // Fields, Properties
+
+        // Constructor Declaration of Class
+        public InputHandler()
+        { }
+
+        // Methods, Events, Operators
+        public bool ValidateInput()
+        { return true; }
+
     }
 }

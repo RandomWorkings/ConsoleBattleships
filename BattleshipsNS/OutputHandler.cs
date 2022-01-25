@@ -8,5 +8,14 @@ namespace BattleshipsNS
 {
     class OutputHandler : IOutputHandler
     {
+        // Fields, Properties
+
+        // Constructor Declaration of Class
+        public OutputHandler()
+        { }
+
+        // Methods, Events, Operators
+        public void GenerateMessage(int MessageID)
+        { }
     }
 }
