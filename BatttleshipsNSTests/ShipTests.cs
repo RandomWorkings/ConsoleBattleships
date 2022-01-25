@@ -11,9 +11,9 @@ namespace BatttleshipsNSTests
         public void Ship_WhenCalled_UpdatesNextShipNumberAndLength()
         {
             //Arrange
-            string[] roster = {"Battleship", "Destroyer", "Destroyer" };
-            string expectedID = "ship-3";
-            int expectedLength = 3;
+            string[] roster = {"Battleship", "Destroyer", "Battleship" };
+            string expectedID = "Battleship - s3";
+            int expectedLength = 4;
 
             //Act
             for (int i = 0; i < roster.Length-1; i++)
