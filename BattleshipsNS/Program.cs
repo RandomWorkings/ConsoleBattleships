@@ -28,7 +28,7 @@ namespace BattleshipsNS
 
             // Program Default settings
             int gridSize = 10;
-            //string[] roster = {"Battleship","Destroyer","Destroyer"};
+            string[] roster = {"Battleship","Destroyer","Destroyer"};
 
             // Game Setup
             Grid PlayGrid = new Grid(gridSize);

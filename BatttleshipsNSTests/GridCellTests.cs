@@ -12,7 +12,7 @@ namespace BatttleshipsNSTests
         {
             //Arrange
             string expectedID = "A1";
-            char expectedContents = ' ';
+            char? expectedContents = null;
             GridCell TestCell = new GridCell(1, 'A');
 
             //Act
