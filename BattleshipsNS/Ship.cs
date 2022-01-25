@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    public enum ShipLengths
+    public enum ShipTypes
     {
         Battleship = 4,
         Destroyer = 3
@@ -24,9 +24,13 @@ namespace BattleshipsNS
         public bool SunkFlag { get; private set; }
 
         // Constructor Declaration of Class
-        public Ship()
+        public Ship(string ship)
 		{
-            ID = "Ship-" + NextShipNumber++;
+            ID = "ship-"+NextShipNumber++;
+
+            ShipTypes shipType = (ShipTypes)Enum.Parse(typeof(ShipTypes), ship);
+
+            Length = (int)shipType;
         }
 
         // Methods, Events, Operators
