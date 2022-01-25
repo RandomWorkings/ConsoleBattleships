@@ -16,6 +16,7 @@ namespace BattleshipsNS
         public GridCell(int row, char column)
         {
             ID = "" + column + row + "";
+            Contents = ' ';
         }
 
         // Methods, Events, Operators
