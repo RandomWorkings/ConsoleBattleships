@@ -8,12 +8,19 @@ namespace BattleshipsNS
 {
     class GridCell : IGridCell
     {
-        // Fields or Properties
+        // Fields, Properties
+        public string ID { get; set; }
+        public char Contents { get; set; }
 
+        
         // Constructor Declaration of Class
-        GridCell()
+        public GridCell()
         { }
 
         // Methods, Events, Operators
+        public void SetCellContents(char contents)
+        { }
+        public char GetCellContents()
+        { return 'a'; }
     }
 }
