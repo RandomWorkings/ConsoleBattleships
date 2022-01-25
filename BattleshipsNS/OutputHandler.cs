@@ -20,18 +20,48 @@ namespace BattleshipsNS
 
         public void DisplayPlayGrid(Grid UIGrid)
         {
-            //char columnLetter = 'A';
-                        
+            char columnLetter = 'A';
+            int rowNumber = 1;
+
+            //Top Corner
+            Console.Write("    |");
+
+            //Column Headers
+            for (int column = 1; column <= UIGrid.Size; column++)
+            {
+                Console.Write(" " + columnLetter + " |");
+                columnLetter++;
+            }
+            Console.WriteLine();
+
+            //
             for (int column = 0; column < UIGrid.Size; column++)
-            { 
-                for(int row = 0; row < UIGrid.Size; row++)
+            {
+                if(column<9)
+                {
+                    Console.Write("  " + rowNumber + " |"); 
+                }
+                else
+                {
+                    Console.Write(" " + rowNumber + " |");
+                }
+                rowNumber++;
+
+                for (int row = 0; row < UIGrid.Size; row++)
                 {
                     GridCell cell = UIGrid.PlayGrid[column, row];
 
-                    Console.Write(" " + cell.ID + " ");
+                    if(cell.Contents == null)
+                    {
+                        Console.Write("   |"); 
+                    }
+                    else
+                    {
+                        Console.Write(" " + cell.Contents + " |");
+                    }
                     
                 }
-                Console.WriteLine();
+                Console.WriteLine("");
             }
         }
     }
