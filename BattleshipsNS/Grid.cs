@@ -14,12 +14,10 @@ namespace BattleshipsNS
         public GridCell[,] PlayGrid { get; set; }
 
         // Constructor Declaration of Class
-        public Grid()
+        public Grid(int gridSize)
         { }
 
         // Methods, Events, Operators
-        public void CreateNewGrid(int gridSize)
-        { }
         public void PlaceShipRoster()
         { }
         public void DisplayPlayGrid()
