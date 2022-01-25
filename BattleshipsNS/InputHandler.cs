@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    class InputHandler : IInputHandler
+    public class InputHandler : IInputHandler
     {
         // Fields, Properties
 

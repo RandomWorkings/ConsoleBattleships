@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    class ValueGenerator : IValueGenerator
+    public class ValueGenerator : IValueGenerator
     {
         // Fields, Properties
         Random rand = new Random();

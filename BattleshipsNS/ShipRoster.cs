@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    class ShipRoster : IShipRoster
+    public class ShipRoster : IShipRoster
     {
         // Fields, Properties
         public Ship[] Roster { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    class GridCell : IGridCell
+    public class GridCell : IGridCell
     {
         // Fields, Properties
         public string ID { get; set; }

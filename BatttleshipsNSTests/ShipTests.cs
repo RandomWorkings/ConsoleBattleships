@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BatttleshipsNS;
+using BattleshipsNS;
 
 namespace BatttleshipsNSTests
 {
     [TestClass]
     public class ShipTests
-    {
+    {  
         [TestMethod]
         public void Ship_WhenCalled_UpdateNextShipNumber()
         {

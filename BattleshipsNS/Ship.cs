@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    class Ship : IShip
+    public class Ship : IShip
     {
         // Fields, Properties
         static int NextShipNumber = 1;
