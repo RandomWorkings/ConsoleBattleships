@@ -12,18 +12,24 @@ namespace BatttleshipsNSTests
         {
             //Arrange
             int ShipCount = 2;
+            string[] roster = {"Battleship", "Destroyer"};
             string expectedID = "ship-3";
+            int expectedLength = 3;
 
             //Act
             for (int i = 0; i < ShipCount; i++)
             {
-                new Ship();
+                new Ship(roster[i]);
             }
-            Ship TestShip = new Ship();
+
+            Ship TestShip = new Ship(roster[roster.Length]);
 
             //Assess
             string actualID = TestShip.ID;
-            Assert.AreEqual(expectedID, actualID, true, "Ship ID is not Incremented Correctly");
+            Assert.AreEqual(expectedID, actualID, true, "Ship Tests - Ship - ID is not incremented correctly");
+
+            int actualLength = TestShip.Length;
+            Assert.AreEqual(expectedLength, actualLength, "Ship Tests - Ship - Length is not assigned correctly");
         }
 
         public void Orientation__WhenInputIsValid_ShouldSet()
