@@ -9,13 +9,18 @@ namespace BattleshipsNS
     interface IGridCell
     {
         /*
-         * Value: gridCellHit, Boolean.
-         * Method: setGridCellHit
-         *  Inputs: Void.  
-         *  Returns: Void.
-         * Method: getGridCellHit
-         *  Inputs: Void.
-         *  Returns: Boolean.
+         * Responsibility: Management of Grid Cell Class.
+         * 
+         * A grid cell should have (Fields or Properties):
+         *      •	ID.
+         *          o	String.
+         *      •	Contents.
+         *          o	Char.
+         *
+         * The system should be able to (Methods, Events, Operators):
+         *      •	Get the contents.
+         *      •	Set the contents.
+         *      
          */
 
     }

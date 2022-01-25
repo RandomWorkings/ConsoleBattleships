@@ -44,9 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GridCell.cs" />
-    <Compile Include="Grids.cs" />
+    <Compile Include="Grid.cs" />
     <Compile Include="IGridCell.cs" />
-    <Compile Include="IGrids.cs" />
+    <Compile Include="IGrid.cs" />
     <Compile Include="IInputHandler.cs" />
     <Compile Include="InputHandler.cs" />
     <Compile Include="IOutputHandler.cs" />

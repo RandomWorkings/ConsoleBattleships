@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    class Grids : IGrids
+    
+    class Grid : IGrid
     {
+        // Instance Variables
+        
+        // Constructor Declaration of Class
+        Grid()
+        { }
+
     }
 }
