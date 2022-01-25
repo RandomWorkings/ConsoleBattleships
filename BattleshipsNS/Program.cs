@@ -21,17 +21,26 @@ namespace BattleshipsNS
 
         static void Main(string[] args)
         {
+            //Program Instances
+            ValueGenerator Generator = new ValueGenerator();
+            InputHandler Inputs = new InputHandler();
+            OutputHandler Outputs = new OutputHandler();
+
             // Program Default settings
             int gridSize = 10;
             string[] roster = {"Battleship","Destroyer","Destroyer"};
 
-            //Create Play grid
-            new Grid(gridSize);
+            // Game Setup
+            Grid PlayGrid = new Grid(gridSize);
 
-            //Create 3 Ship
+            //Testing Ship
             new Ship();
             new Ship();
             new Ship();
+
+            //Testing ValueGenerator
+            Console.WriteLine(Generator.GetRandomOrientation());
+            Console.WriteLine(Generator.GetRandomLocation());
 
             //Console Hold-Open Message
             Console.WriteLine("Program Finished. Press any Key to Close...");
