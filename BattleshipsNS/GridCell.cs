@@ -14,8 +14,11 @@ namespace BattleshipsNS
 
         
         // Constructor Declaration of Class
-        public GridCell()
-        { }
+        public GridCell(int row, char column)
+        {
+            ID = "" + column + row + " ";
+            Console.Write(ID);
+        }
 
         // Methods, Events, Operators
         public void SetCellContents(char contents)

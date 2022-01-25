@@ -9,6 +9,7 @@ namespace BattleshipsNS
     class Ship : IShip
     {
         // Fields, Properties
+        static int nextShipNumber=0;
         public string ID { get; set; }
         public int Length { get; set; }
         public int Orientation { get; set; }
@@ -18,7 +19,10 @@ namespace BattleshipsNS
 
         // Constructor Declaration of Class
         public Ship()
-		{ }
+		{
+            ID = "Ship-" + nextShipNumber++;
+            Console.WriteLine(ID + " : READY");
+        }
 
         // Methods, Events, Operators
         public void SetOrientation(int orientation)

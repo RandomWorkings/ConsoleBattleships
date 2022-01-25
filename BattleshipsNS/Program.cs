@@ -28,6 +28,11 @@ namespace BattleshipsNS
             //Create Play grid
             new Grid(gridSize);
 
+            //Create 3 Ship
+            new Ship();
+            new Ship();
+            new Ship();
+
             //Console Hold-Open Message
             Console.WriteLine("Program Finished. Press any Key to Close...");
             System.Console.ReadLine();
