@@ -22,7 +22,7 @@ namespace BatttleshipsNSTests
                 new Ship(roster[i]);
             }
 
-            Ship TestShip = new Ship(roster[roster.Length]);
+            Ship TestShip = new Ship(roster[ShipCount-1]);
 
             //Assess
             string actualID = TestShip.ID;
