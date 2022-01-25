@@ -16,7 +16,7 @@ namespace BattleshipsNS
         { }
 
         // Methods, Events, Operators
-        public void SetShipRoster(Enum[] roster)
+        public void SetShipRoster(string[] roster)
         { }
 
         public bool CheckRosterSunk()
