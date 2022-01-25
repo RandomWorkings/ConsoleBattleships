@@ -8,7 +8,7 @@ namespace BatttleshipsNSTests
     public class ShipRosterTests
     {
         [TestMethod]
-        public void ShipRoster_With_DoesSomething()
+        public void ShipRoster_WithArrayofShipNames_CreatesAnArrayofShips()
         {
             //Arrange
 
