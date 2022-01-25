@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
+    public enum ShipLengths
+    {
+        Battleship = 4,
+        Destroyer = 3
+    };
+
     public class Ship : IShip
     {
         // Fields, Properties
