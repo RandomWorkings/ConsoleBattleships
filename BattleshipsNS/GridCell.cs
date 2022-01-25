@@ -10,13 +10,13 @@ namespace BattleshipsNS
     {
         // Fields, Properties
         public string ID { get; private set; }
-        public char Contents { get; set; }
+        public char? Contents { get; set; }
         
         // Constructor Declaration of Class
         public GridCell(int row, char column)
         {
             ID = "" + column + row + "";
-            Contents = ' ';
+            Contents = null;
         }
 
         // Methods, Events, Operators

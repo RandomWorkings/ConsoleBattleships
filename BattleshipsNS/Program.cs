@@ -33,10 +33,6 @@ namespace BattleshipsNS
             // Game Setup
             Grid PlayGrid = new Grid(gridSize);
 
-            //Testing ValueGenerator
-            Console.WriteLine(Generator.GetRandomOrientation());
-            Console.WriteLine(Generator.GetRandomLocation());
-
             //Console Hold-Open Message
             Console.WriteLine("Program Finished. Press any Key to Close...");
             System.Console.ReadLine();

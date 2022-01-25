@@ -8,7 +8,7 @@ namespace BatttleshipsNSTests
     public class OutputHandlerTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GenerateMessage_WithValidMessageID_OutputMessage()
         {
             //Arrange
 

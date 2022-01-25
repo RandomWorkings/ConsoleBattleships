@@ -8,17 +8,14 @@ namespace BattleshipsNS
 {
     interface IShip
     {
-        string ID { get; set; }
-        int Length { get; set; }
+        string ID { get; }
+        int Length { get; }
         int Orientation { get; set; }
         GridCell StartLocation { get; set; }
-        GridCell[] SectionLocations { get; set; }
-        bool SunkFlag { get; set; }
+        GridCell[] SectionLocations { get; }
+        bool SunkFlag { get; }
 
-        void SetOrientation(int orientation);
-        void SetStartLocation(GridCell startLocation);
         void UpdateSectionLocations();
         void UpdateSunkFlag();
-        bool GetSunkFlag();
     }
 }
