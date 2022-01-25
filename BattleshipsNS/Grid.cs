@@ -18,11 +18,9 @@ namespace BattleshipsNS
         { }
 
         // Methods, Events, Operators
-        public void PlaceShipRoster()
-        { }
         public void DisplayPlayGrid()
         { }
-        public GridCell AccessPlayGridCell(string gridCell)
+        public GridCell GetTargetGridCell(string gridCell)
         { return new GridCell(); }
     }
 }
