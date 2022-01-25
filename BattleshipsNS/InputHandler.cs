@@ -16,8 +16,27 @@ namespace BattleshipsNS
 
         // Methods, Events, Operators
         public bool ValidateInput(int gridSize, string userInput)
-        { 
-            return true;
+        {
+            //char ColumnLetter = 'A';
+
+            //Check Length
+            // Grid Size limit of 26 mean inputs can only be 2 or 3 char long
+            if (userInput.Length >= 3)
+            { return false; }
+
+            /*
+            //Check Letter
+            else if ()
+            { return false; }
+
+            //Check Number
+            else if ()
+            { return false; }
+            */
+
+            else
+            { return true; }
+            
         }
 
     }
