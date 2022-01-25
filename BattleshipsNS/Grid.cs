@@ -32,8 +32,6 @@ namespace BattleshipsNS
         }
 
         // Methods, Events, Operators
-        public void DisplayPlayGrid()
-        { }
         public GridCell GetTargetGridCell(string gridCell)
         { return new GridCell(1,'A'); }
     }

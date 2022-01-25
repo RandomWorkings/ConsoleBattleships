@@ -11,7 +11,6 @@ namespace BattleshipsNS
         int Size { get; set; }
         GridCell[,] PlayGrid { get; set; }
 
-        void DisplayPlayGrid();
         GridCell GetTargetGridCell(string gridCell);
 
     }
