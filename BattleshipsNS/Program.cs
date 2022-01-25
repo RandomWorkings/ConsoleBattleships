@@ -37,11 +37,6 @@ namespace BattleshipsNS
             Console.WriteLine(Generator.GetRandomOrientation());
             Console.WriteLine(Generator.GetRandomLocation());
 
-            //Testing Input Handler
-            Console.WriteLine(Inputs.ValidateInput(gridSize, "A1"));
-            Console.WriteLine(Inputs.ValidateInput(gridSize, "Butts"));
-            Console.WriteLine(Inputs.ValidateInput(gridSize, "K11"));
-
             //Console Hold-Open Message
             Console.WriteLine("Program Finished. Press any Key to Close...");
             System.Console.ReadLine();

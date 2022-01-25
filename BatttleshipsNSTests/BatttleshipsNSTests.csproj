@@ -51,7 +51,7 @@
     <Compile Include="GridTests.cs" />
     <Compile Include="ShipRosterTests.cs" />
     <Compile Include="ShipTests.cs" />
-    <Compile Include="ValueGenerator.cs" />
+    <Compile Include="ValueGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BattleshipsNS\BattleshipsNS.csproj">
