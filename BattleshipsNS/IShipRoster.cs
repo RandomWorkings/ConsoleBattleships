@@ -8,9 +8,8 @@ namespace BattleshipsNS
 {
     interface IShipRoster
     {
-        Ship[] Roster { get; set; }
+        Ship[] Roster { get; }
 
-        void SetShipRoster(string[] roster);
         bool CheckRosterSunk();
     }
 }

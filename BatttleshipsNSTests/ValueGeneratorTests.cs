@@ -21,7 +21,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GetRandomLocation_WhenCalled_ReturnsAnGridCellFromGrid()
+        public void GetRandomLocation_WhenCalled_ReturnsAGridCellFromGrid()
         {
             //Arrange
             Grid TestGrid = new Grid(10);

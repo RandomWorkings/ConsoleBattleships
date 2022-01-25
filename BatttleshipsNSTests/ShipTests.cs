@@ -8,11 +8,11 @@ namespace BatttleshipsNSTests
     public class ShipTests
     {  
         [TestMethod]
-        public void Ship_WhenCalled_UpdatesNextShipNumber()
+        public void Ship_WhenCalled_UpdatesNextShipNumberAndLength()
         {
             //Arrange
             int ShipCount = 2;
-            string expected = "ship-3";
+            string expectedID = "ship-3";
 
             //Act
             for (int i = 0; i < ShipCount; i++)
@@ -22,29 +22,29 @@ namespace BatttleshipsNSTests
             Ship TestShip = new Ship();
 
             //Assess
-            string actual = TestShip.ID;
-            // areEqual - expected, actual, case-insensitive, fail message
-            Assert.AreEqual(expected, actual, true, "Ship ID is not Incremented Correctly");
+            string actualID = TestShip.ID;
+            Assert.AreEqual(expectedID, actualID, true, "Ship ID is not Incremented Correctly");
         }
 
-        public void Ship_WhenCalled_UpdatesNextShipNumber()
+        public void Orientation__WhenInputIsValid_ShouldSet()
         {
             //Arrange
-            int ShipCount = 2;
-            string expected = "ship-3";
 
             //Act
-            for (int i = 0; i < ShipCount; i++)
-            {
-                new Ship();
-            }
-            Ship TestShip = new Ship();
 
             //Assess
-            string actual = TestShip.ID;
-            // areEqual - expected, actual, case-insensitive, fail message
-            Assert.AreEqual(expected, actual, true, "Ship ID is not Incremented Correctly");
+            //Assert.AreEqual(expectedID, actualID, true, "MEthod is not Working Correctly");
         }
+        public void StartLocation_WhenInputIsValid_ShouldSet()
+        {
+            //Arrange
+
+            //Act
+
+            //Assess
+            //Assert.AreEqual(expectedID, actualID, true, "MEthod is not Working Correctly");
+        }
+
         public void UpdateSectionLocationsip_WithSetOrientationAndStartLocation_UpdatesSectionContents()
         {
             //Arrange
@@ -63,8 +63,6 @@ namespace BatttleshipsNSTests
             //Assess
             //Assert.AreEqual(expected, actual, true, "Ship ID is not Incremented Correctly");
         }
-      
-        
 
     }
 }

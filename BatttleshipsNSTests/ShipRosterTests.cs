@@ -8,7 +8,17 @@ namespace BatttleshipsNSTests
     public class ShipRosterTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ShipRoster_With_DoesSomething()
+        {
+            //Arrange
+
+            //Act
+
+            //Assess
+
+        }
+        [TestMethod]
+        public void CheckRosterSunk_With_DoesSomething()
         {
             //Arrange
 

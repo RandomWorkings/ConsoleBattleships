@@ -17,7 +17,7 @@ namespace BatttleshipsNSTests
 
             //Act
             string actualID = TestCell.ID;
-            char actualContents = TestCell.Contents;
+            char? actualContents = TestCell.Contents;
 
             //Assess
             Assert.AreEqual(expectedID, actualID, true , "GridCellTests - GridCell - ID incorrecly set");          
@@ -34,7 +34,7 @@ namespace BatttleshipsNSTests
             TestCell.Contents = 'o';
 
             //Assess
-            char actualContents = TestCell.Contents;
+            char? actualContents = TestCell.Contents;
             Assert.AreEqual(expectedContents, actualContents, "GridCellTests - Contents - Contents incorrecly set");
         }
     }

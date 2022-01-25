@@ -9,16 +9,13 @@ namespace BattleshipsNS
     public class ShipRoster : IShipRoster
     {
         // Fields, Properties
-        public Ship[] Roster { get; set; }
+        public Ship[] Roster { get; private set; }
 
         // Constructor Declaration of Class
         public ShipRoster()
         { }
 
         // Methods, Events, Operators
-        public void SetShipRoster(string[] roster)
-        { }
-
         public bool CheckRosterSunk()
         { return true; }
 
