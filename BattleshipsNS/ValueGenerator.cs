@@ -19,6 +19,6 @@ namespace BattleshipsNS
         { return 1; }
         
         public GridCell GetRandomLocation()
-        { return new GridCell(); }
+        { return new GridCell(1,'A'); }
     }
 }
