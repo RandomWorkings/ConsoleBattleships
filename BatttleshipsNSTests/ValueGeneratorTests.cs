@@ -17,19 +17,22 @@ namespace BatttleshipsNSTests
             int actual = TestGenerator.GetRandomOrientation();
 
             //Assess
-            Assert.IsTrue(actual <= 2 && actual >= 1, "ValueGenerator - GetRandomOrientation - Value outside scope");
+            Assert.IsTrue(actual >= 1 && actual <= 2, "ValueGenerator - GetRandomOrientation - Value outside scope");
         }
 
-/*        [TestMethod]
+        [TestMethod]
         public void GetRandomLocation_WhenCalled_ReturnsAnGridCellFromGrid()
         {
             //Arrange
+            Grid TestGrid = new Grid(10);
             ValueGenerator TestGenerator = new ValueGenerator();
 
             //Act
+            GridCell TestCell = TestGenerator.GetRandomLocation();
+            
 
             //Assess
             Assert.AreEqual(expectedContents, actualContents, "GridCellTests - Contents - Contents incorrecly set");
-        }*/
+        }
     }
 }
