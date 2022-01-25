@@ -18,7 +18,7 @@ namespace BattleshipsNS
 
             for(int i = 0; i < roster.Length; i++)
             {
-                Roster[i] = new Ship(roster[i]);
+                Roster[i] = new Ship(roster[i], i+1);
             }
         }
 

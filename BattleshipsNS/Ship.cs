@@ -15,7 +15,6 @@ namespace BattleshipsNS
     public class Ship : IShip
     {
         // Fields, Properties
-        static int NextShipNumber = 1;
         public string ID { get; private set; }
         public int Length { get; private set; }
         public int Orientation { get; set; }
@@ -24,9 +23,9 @@ namespace BattleshipsNS
         public bool SunkFlag { get; private set; }
 
         // Constructor Declaration of Class
-        public Ship(string ship)
+        public Ship(string ship, int shipCount)
 		{
-            ID = "ship-" + NextShipNumber++;
+            ID = "ship-" + shipCount;
 
             ShipTypes shipType = (ShipTypes)Enum.Parse(typeof(ShipTypes), ship);
 
