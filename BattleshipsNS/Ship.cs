@@ -26,7 +26,7 @@ namespace BattleshipsNS
         // Constructor Declaration of Class
         public Ship(string ship)
 		{
-            ID = "ship-"+NextShipNumber++;
+            ID = "ship-" + NextShipNumber++;
 
             ShipTypes shipType = (ShipTypes)Enum.Parse(typeof(ShipTypes), ship);
 
