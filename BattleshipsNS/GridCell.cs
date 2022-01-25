@@ -15,7 +15,7 @@ namespace BattleshipsNS
         // Constructor Declaration of Class
         public GridCell(int row, char column)
         {
-            ID = "" + column + row + " ";
+            ID = "" + column + row + "";
         }
 
         // Methods, Events, Operators
