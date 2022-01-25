@@ -43,9 +43,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameplayTests.cs" />
+    <Compile Include="BattleshipNSTests.cs" />
+    <Compile Include="GridCellTests.cs" />
+    <Compile Include="InputHandlerTests.cs" />
+    <Compile Include="OutputHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GameSetupTests.cs" />
+    <Compile Include="GridTests.cs" />
+    <Compile Include="ShipRosterTests.cs" />
+    <Compile Include="ShipTests.cs" />
+    <Compile Include="ValueGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BattleshipsNS\BattleshipsNS.csproj">
