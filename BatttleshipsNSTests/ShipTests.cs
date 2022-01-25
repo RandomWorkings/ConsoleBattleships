@@ -10,11 +10,20 @@ namespace BatttleshipsNSTests
         public void Ship_WhenCalled_UpdateNextShipNumber()
         {
             //Arrange
-            Ship testShip = new Ship();
+            int ShipCount = 3;
+            string expected = "ship-4";
 
             //Act
+            for (int i = 0; i < ShipCount; i++)
+            {
+                new Ship();
+            }
+            Ship TestShip = new Ship();
 
             //Assess
+            string actual = TestShip.ID;
+            Assert.AreEqual(expected, actual, false, "Ship ID is not Incremented Correctly");
+
         }
     }
 }
