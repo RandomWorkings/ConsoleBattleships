@@ -8,6 +8,17 @@ namespace BattleshipsNS
 {
     class Program
     {
+        public enum Orientation
+        {
+            Vertical,
+            Horizontal
+        };
+        public enum ShipType
+        {
+            Battleship = 4,
+            Destroyer = 3
+        };
+
         static void Main(string[] args)
         {
 
