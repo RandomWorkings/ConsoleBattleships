@@ -21,7 +21,7 @@ namespace BattleshipsNS
 
             //Check Length
             // Grid Size limit of 26 mean inputs can only be 2 or 3 char long
-            if (userInput.Length >= 3)
+            if (userInput.Length >= 4)
             { return false; }
 
             /*
