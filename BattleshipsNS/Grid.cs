@@ -15,11 +15,12 @@ namespace BattleshipsNS
         // Constructor Declaration of Class
         public Grid(int gridSize)
         {
+            //Parameter Assignment
             Size = gridSize;
+            
+            //Array Initialization and Population
             PlayGrid = new GridCell[gridSize, gridSize];
             char columnLetter = 'A';
-
-
             for (int column = 0; column < gridSize; column++)
             {
                 for (int row = 0; row < gridSize; row++)
@@ -28,6 +29,7 @@ namespace BattleshipsNS
                 }
                 columnLetter++;
             }
+
         }
 
         // Methods, Events, Operators
