@@ -10,7 +10,7 @@ namespace BattleshipsNS
     {
         Ship[] Roster { get; set; }
 
-        void SetShipRoster(Enum[] roster);
+        void SetShipRoster(string[] roster);
         bool CheckRosterSunk();
     }
 }

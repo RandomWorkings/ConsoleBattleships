@@ -13,7 +13,7 @@ namespace BattleshipsNS
             Vertical,
             Horizontal
         };
-        public enum ShipType
+        public enum ShipLengths
         {
             Battleship = 4,
             Destroyer = 3
@@ -21,6 +21,12 @@ namespace BattleshipsNS
 
         static void Main(string[] args)
         {
+            // Program Default settings
+            int gridSize = 10;
+            string[] roster = {"Battleship","Destroyer","Destroyer"};
+
+            //Create Play grid
+            new Grid(gridSize);
 
             //Console Hold-Open Message
             Console.WriteLine("Program Finished. Press any Key to Close...");

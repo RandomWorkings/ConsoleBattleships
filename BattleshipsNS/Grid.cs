@@ -15,7 +15,22 @@ namespace BattleshipsNS
 
         // Constructor Declaration of Class
         public Grid(int gridSize)
-        { }
+        {
+            Size = gridSize;
+            char columnLetter = 'A';
+
+            GridCell[,] GameGrid = new GridCell[gridSize, gridSize];
+
+            for (int column = 0; column < gridSize; column++)
+            {
+                for (int row = 0; row < gridSize; row++)
+                {
+                    GameGrid[column, row] = new GridCell(row + 1, columnLetter);
+                }
+                Console.WriteLine();
+                columnLetter++;
+            }
+        }
 
         // Methods, Events, Operators
         public void DisplayPlayGrid()
