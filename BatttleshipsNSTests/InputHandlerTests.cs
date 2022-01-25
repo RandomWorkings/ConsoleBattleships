@@ -8,7 +8,7 @@ namespace BatttleshipsNSTests
     public class InputHandlerTests
     {
         [TestMethod]
-        public void ValidateInput_WithValidInput_ReturnTrue()
+        public void ValidateInput_WithValidInput_ReturnsTrue()
         {
             //Arrange
             int gridSize = 10;
@@ -24,7 +24,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void ValidateInput_WithInvalidInput_ReturnFalse()
+        public void ValidateInput_WithInvalidInput_ReturnsFalse()
         {
             //Arrange
             int gridSize = 10;

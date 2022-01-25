@@ -10,8 +10,5 @@ namespace BattleshipsNS
     {
         string ID { get; set; }
         char Contents { get; set; }
-
-        void SetCellContents(char contents);
-        char GetCellContents();
     }
 }

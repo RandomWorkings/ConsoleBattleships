@@ -21,9 +21,5 @@ namespace BattleshipsNS
         }
 
         // Methods, Events, Operators
-        public void SetCellContents(char contents)
-        { }
-        public char GetCellContents()
-        { return 'a'; }
     }
 }
