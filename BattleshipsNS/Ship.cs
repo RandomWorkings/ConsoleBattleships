@@ -45,12 +45,11 @@ namespace BattleshipsNS
             while(true)
             {
                 Orientation = generator.GetRandomOrientation();
-                (int column, int row) = generator.GetRandomLocation(refGrid.Size);
+                (int column, int row) = generator.GetRandomLocation(Orientation, Length, refGrid.Size);
 
                 StartLocation = (column, row);
                 int sectionColumn = column;
                 int sectionRow = row;
-
 
                 switch (Orientation)
                 {

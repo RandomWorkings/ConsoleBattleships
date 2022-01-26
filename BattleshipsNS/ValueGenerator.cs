@@ -21,13 +21,26 @@ namespace BattleshipsNS
             return rand.Next(1, 3); // number between 1 and 2
         }
         
-        public (int, int) GetRandomLocation(int gridSize)
+        public (int, int) GetRandomLocation(int refOrientation, int refLength, int refSize)
         {
-            int uppperLimit = gridSize + 1;
+            int columnLimit;
+            int rowLimit;
 
-            int column = rand.Next(1, uppperLimit);
-            int row = rand.Next(1, uppperLimit);
-             
+            switch (refOrientation)
+            {
+                case 2: //Vertical
+                    columnLimit = refSize + 1 - refLength;
+                    rowLimit = refSize + 1;
+                    break;
+
+                default: // Horizontal
+                    columnLimit = refSize + 1;
+                    rowLimit = refSize + 1 - refLength;
+                    break;
+            }
+            
+            int column = rand.Next(1, columnLimit);
+            int row = rand.Next(1, rowLimit);             
             return (column, row);
         }
     }
