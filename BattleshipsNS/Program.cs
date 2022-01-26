@@ -17,17 +17,16 @@ namespace BattleshipsNS
         static void Main( )
         {
             //Program Instances
-            //ValueGenerator Generator = new ValueGenerator();
             //InputHandler Inputs = new InputHandler();
             OutputHandler Outputs = new OutputHandler();
 
             // Program Default settings
-            int gridSize = 10;
+            int boardSize = 10;
             string[] roster = {"Battleship","Destroyer","Destroyer"};
 
             // Game Setup
             ShipRoster GameParts = new ShipRoster(roster);
-            Grid GameBoard = new Grid(gridSize);        
+            Grid GameBoard = new Grid(boardSize, GameParts);
 
             // Game Play
             Outputs.DisplayPlayGrid(GameBoard);

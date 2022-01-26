@@ -13,9 +13,10 @@ namespace BattleshipsNS
         public GridCell[,] PlayGrid { get; set; }
 
         // Constructor Declaration of Class
-        public Grid(int gridSize)
+        public Grid(int gridSize, ShipRoster ships)
         {
             //Parameter Assignment
+
             Size = gridSize;
             
             //Array Initialization and Population
@@ -28,6 +29,11 @@ namespace BattleshipsNS
                     PlayGrid[column, row] = new GridCell(row + 1, columnLetter);
                 }
                 columnLetter++;
+            }
+
+            foreach(Ship ship in ships.Roster)
+            {
+                
             }
 
         }
