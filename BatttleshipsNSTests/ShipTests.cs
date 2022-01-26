@@ -50,15 +50,21 @@ namespace BatttleshipsNSTests
             //Assert.AreEqual(expectedID, actualID, true, "MEthod is not Working Correctly");
         }
 
-        public void UpdateSectionLocationsip_WithSetOrientationAndStartLocation_UpdatesSectionContents()
+        public void PlaceShip_WithValidInput_UpdatesSectionContents()
         {
             //Arrange
-            
+            Ship TestShip = new Ship("Battleship", 1);
+            Grid refGrid = new Grid(10, TestShip);
+
+            ship.PlaceShip(refGrid);
+
             //Act
 
             //Assess
             //Assert.AreEqual(expected, actual, true, "Ship ID is not Incremented Correctly");
         }
+
+
         public void UpdateSunkFlag_WithAllSectionGridCellsContentsNotNull_UpdatesSunkFlag()
         {
             //Arrange

@@ -14,7 +14,7 @@ namespace BattleshipsNS
         public GridCell[,] PlayGrid { get; set; }
 
         // Constructor Declaration of Class
-        public Grid(int gridSize, ShipRoster ships)
+        public Grid(int gridSize)
         {
            //Parameter Assignment
            Size = gridSize;
