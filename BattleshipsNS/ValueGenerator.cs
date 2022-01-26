@@ -8,8 +8,7 @@ namespace BattleshipsNS
 {
     public class ValueGenerator : IValueGenerator
     {
-        // Fields, Properties
-        readonly Random rand = new Random();
+        // Fields, Properties        
 
         // Constructor Declaration of Class
         public ValueGenerator()
@@ -18,11 +17,14 @@ namespace BattleshipsNS
         // Methods, Events, Operators
         public int GetRandomOrientation()
         {
+            Random rand = new Random();
             return rand.Next(1, 3); // number between 1 and 2
         }
         
         public (int, int) GetRandomLocation(int refOrientation, int refLength, int refSize)
         {
+            Random rand = new Random();
+            Console.WriteLine("Random Location - Randomizer Inputs : [" + refOrientation + ", " + refLength + ", " + refSize + "]");
             int columnLimit;
             int rowLimit;
 
@@ -40,7 +42,9 @@ namespace BattleshipsNS
             }
             
             int column = rand.Next(0, columnLimit);
-            int row = rand.Next(0, rowLimit);             
+            int row = rand.Next(0, rowLimit);
+            Console.WriteLine("Random Location - Randomizer Limits : [" + rowLimit + ", " + columnLimit + "]");
+            Console.WriteLine("Random Location - Start Location : [" + row + ", " + column + "]");
             return (row, column);
         }
     }

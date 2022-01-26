@@ -41,14 +41,17 @@ namespace BattleshipsNS
         {
             ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
-
             while(true)
             {
                 Orientation = generator.GetRandomOrientation();
-                (int row, int column) = generator.GetRandomLocation(Orientation, Length, refGrid.Size);
 
-                Console.WriteLine("Orientation : [" + Orientation + "]");
-                Console.WriteLine("Start Location : [" +row+", "+column+"]");
+                Console.WriteLine("Place Ship - Ship Length : [" + Length + "]");
+                Console.WriteLine("Place Ship - Orientation : [" + Orientation + "]");
+
+                (int row, int column) = generator.GetRandomLocation(Orientation, Length, refGrid.Size);
+                
+                Console.WriteLine("Place Ship - Start Location : [" + row + ", " + column + "]");
+
                 StartLocation = (row, column);
                 int sectionColumn = column;
                 int sectionRow = row;
