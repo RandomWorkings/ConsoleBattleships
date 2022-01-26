@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
+    public enum Orientation
+    {
+        Horizontal,
+        Vertical
+    };
+
     public class Grid : IGrid
     {
         // Fields, Properties
@@ -26,7 +32,7 @@ namespace BattleshipsNS
             {
                 for (int row = 0; row < gridSize; row++)
                 {
-                    PlayGrid[column, row] = new GridCell(row + 1, columnLetter);
+                    PlayGrid[column, row] = new GridCell(columnLetter, row + 1);
                 }
                 columnLetter++;
             }
@@ -34,7 +40,8 @@ namespace BattleshipsNS
             foreach(Ship ship in ships.Roster)
             {
                 ship.Orientation = generator.GetRandomOrientation();
-                ship.StartLocation = generator.GetRandomLocation();
+                (int column, int row) = generator.GetRandomLocation(gridSize);
+                ship.StartLocation = PlayGrid[]
             }
 
         }
