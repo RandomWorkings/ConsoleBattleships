@@ -39,7 +39,7 @@ namespace BattleshipsNS
         // Methods, Events, Operators
         public void PlaceShip(Grid refGrid)
         {
-                        ValueGenerator generator = new ValueGenerator();
+            ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
 
             while(true)
@@ -47,10 +47,13 @@ namespace BattleshipsNS
                 Orientation = generator.GetRandomOrientation();
                 (int row, int column) = generator.GetRandomLocation(Orientation, Length, refGrid.Size);
 
+                Console.WriteLine("Orientation : [" + Orientation + "]");
+                Console.WriteLine("Start Location : [" +row+", "+column+"]");
                 StartLocation = (row, column);
                 int sectionColumn = column;
                 int sectionRow = row;
 
+                /*
                 switch (Orientation)
                 {
                     case 2: //Vertical
@@ -58,7 +61,6 @@ namespace BattleshipsNS
                         for (int v = 0; v < Length; v++)
                         {
                             Console.WriteLine("Vert: " + sectionRow + " " + sectionColumn);
-
                             GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
 
                             if (refCell.Occupied)
@@ -88,10 +90,10 @@ namespace BattleshipsNS
                             sectionColumn++;
                         }
                         break;
-                }
-
+                }*/
+                clearSpace = true;
                 //Loop breaker
-                if(clearSpace)
+                if (clearSpace)
                 { break; }
 
             }
