@@ -12,7 +12,7 @@ namespace BattleshipsNS
         int Length { get; }
         bool SunkFlag { get; }
         int Orientation { get; set; }
-        GridCell StartLocation { get; set; }
+        (int, int) StartLocation { get; set; }
         GridCell[] Sections { get; }
 
         void UpdateSections();

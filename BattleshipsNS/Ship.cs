@@ -19,7 +19,7 @@ namespace BattleshipsNS
         public int Length { get; private set; }
         public bool SunkFlag { get; private set; }
         public int Orientation { get; set; }
-        public GridCell StartLocation { get; set; }
+        public (int, int) StartLocation { get; set; }
         public GridCell[] Sections { get; private set; }
 
         // Constructor Declaration of Class
@@ -44,20 +44,20 @@ namespace BattleshipsNS
             
             switch (Orientation)
             {
-                case 2:
-                        for (int i = 0; i < Sections.Length; i++)
+                case 2: //Vertical
+                    for (int i = 0; i < Sections.Length; i++)
                     {
                         Sections[i] = Location;
+
                     }
                     break;
 
-                default:
+                default: // Horizontal
                     for (int i = 0; i < Sections.Length; i++)
                     {
                         Sections[i] = Location;
                     }
                     break;
-
 
             }
 
