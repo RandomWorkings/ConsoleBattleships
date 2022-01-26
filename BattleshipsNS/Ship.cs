@@ -33,6 +33,10 @@ namespace BattleshipsNS
 
             SunkFlag = false;
 
+            Orientation = 1;
+
+            StartLocation = (0, 0);
+
             Sections = new GridCell[Length];
         }
 

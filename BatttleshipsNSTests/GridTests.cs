@@ -8,27 +8,25 @@ namespace BatttleshipsNSTests
     public class GridTests
     {
         //Shared Test Inputs
-        private static readonly int testSize = 10;
+        private static readonly int TestSize = 10;
 
         [TestMethod]
-        public void Size_WhenCalled_WithoutArguments_ShouldGetSize()
+        public void Size_WhenCalled_WithoutArguments_GetSize()
         {
-            int expected = testSize;
-            Grid TestGrid = new Grid(testSize);
+            int expected = TestSize;
+            Grid TestGrid = new Grid(TestSize);
 
             int actual = TestGrid.Size;
 
             Assert.AreEqual(expected, actual, ($@"GridTests_Size : Incorrect Grid Size Returned"));
         }
-
         [TestMethod]
-
-        public void PlayGrid_WhenCalled_WithValidArguments_ShouldGet2DArrayOfGridCells()
+        public void PlayGrid_WhenCalled_WithValidArguments_GetPlayGrid()
         {
             int expectedRank = 2;
-            int expectedRowCount = testSize;
-            int expectedColCount = testSize;
-            Grid TestGrid = new Grid(testSize);
+            int expectedRowCount = TestSize;
+            int expectedColCount = TestSize;
+            Grid TestGrid = new Grid(TestSize);
 
             int actualRank = TestGrid.PlayGrid.Rank;
             int actualRowCount = TestGrid.PlayGrid.GetLength(0);
@@ -37,24 +35,46 @@ namespace BatttleshipsNSTests
             Assert.AreEqual(expectedRank, actualRank, ($@"GridTests_PlayGrid : Incorrect 2-Dimensional Array rank returned"));
             Assert.AreEqual(expectedRowCount, actualRowCount, ($@"GridTests_PlayGrid : Incorrect 2-Dimensional Array rows count"));
             Assert.AreEqual(expectedColCount, actualColCount, ($@"GridTests_PlayGrid : Incorrect 2-Dimensional Array columns count"));
-            for (int row = 0; row < testSize; row++)
+            for (int row = 0; row < TestSize; row++)
             {
-                for (int col = 0; col < testSize; col++)
+                for (int col = 0; col < TestSize; col++)
                 {
                     Assert.IsInstanceOfType((TestGrid.PlayGrid[row,col]), typeof(GridCell), ($@"GridTests_PlayGrid: Incorrect 2-Dimensional Array Contents Type returned"));
                 }
             }
         }
 
+
         [TestMethod]
-        public void GetTargetGridCell_WhenValidInput_ShouldReturnGridCell()
+        public void Grid_WhenCalled__WithValidParameters_InitializeDefaultGridValues()
+        {
+            /*
+            GridCell TestCell = new GridCell(TestNumber, TestLetter);
+            string expectedID = "" + TestLetter + TestNumber + "";
+            bool expectedOccupied = false;
+            char? expectedContents = null;
+
+            string actualID = TestCell.ID;
+            bool actualOccupied = TestCell.Occupied;
+            char? actualContents = TestCell.Contents;
+
+            Assert.AreEqual(expectedID, actualID, ($@"GridCellTests_GridCell : Incorrect ID value returned"));
+            Assert.AreEqual(expectedOccupied, actualOccupied, ($@"GridCellTests_GridCell : Incorrect Default Occupied returned"));
+            Assert.AreEqual(expectedContents, actualContents, ($@"GridCellTests_GridCell : Incorrect Default Contents returned"));
+            */
+        }
+
+
+        /*Code To Test Not Implemented*/
+        [TestMethod]
+        public void GetTargetGridCell_WhenValidInput_GetTargetGridCell()
         {
             //Arrange
 
             //Act
 
             //Assess
-            //Assert.AreEqual(expectedContents, actualContents, "GridCellTests - Contents - Contents incorrecly set");
+            //Assert.AreEqual(expected, actual, ($@"CLASS_METHOD : ERROR"));
         }
 
         
