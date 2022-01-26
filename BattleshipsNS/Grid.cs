@@ -15,7 +15,7 @@ namespace BattleshipsNS
         // Constructor Declaration of Class
         public Grid(int gridSize, ShipRoster ships)
         {
-            ValueGenerator generator = new ValueGenerator;
+            ValueGenerator generator = new ValueGenerator();
            //Parameter Assignment
            Size = gridSize;
             

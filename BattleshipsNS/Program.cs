@@ -8,12 +8,6 @@ namespace BattleshipsNS
 {
     class Program
     {
-        public enum Orientation
-        {
-            Vertical,
-            Horizontal
-        };
-
         static void Main( )
         {
             //Program Instances
