@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace BattleshipsNS
 {
 
-
     public class Grid : IGrid
     {
         // Fields, Properties

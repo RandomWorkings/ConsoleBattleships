@@ -17,26 +17,28 @@ namespace BatttleshipsNSTests
             int actual = TestGenerator.GetRandomOrientation();
 
             //Assess
-            Assert.IsTrue(actual >= 1 && actual <= 2, "ValueGenerator - GetRandomOrientation - Value outside scope");
+            Assert.IsTrue(actual >= 1 && actual <= 2, "ValueGenerator - GetRandomOrientation - Value outside acceptable scope");
         }
 
         [TestMethod]
-        public void GetRandomLocation_WhenCalled_ReturnsAGridCellFromGrid()
+        public void GetRandomLocation_WithVAlidInputs_ReturnsTuple()
         {
-            /*
-            
             //Arrange
-            Grid TestGrid = new Grid(10);
+            int TestSize = 10;
+            int TestOrientation = 1;
+            int TestLength = 4;
             ValueGenerator TestGenerator = new ValueGenerator();
 
+            int ExpectedSmallest = 1;
+            int ExpectedLargest = 6; //TestSize - TesLength
+
             //Act
-            GridCell TestCell = TestGenerator.GetRandomLocation();
-            
+            (int actualColumn, int actualRow)= TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
 
             //Assess
-            //Assert.AreEqual(expectedContents, actualContents, "GridCellTests - Contents - Contents incorrecly set");
-            
-            */
+            Assert.IsTrue(ExpectedLargest >= actualColumn && actualColumn >= ExpectedSmallest, "ValueGenerator - GetRandomLocation - Value outside acceptable scope");
+            Assert.IsTrue(ExpectedLargest >= actualRow && actualRow >= ExpectedSmallest, "ValueGenerator - GetRandomLocation - Value outside acceptable  scope");
+
         }
     }
 }
