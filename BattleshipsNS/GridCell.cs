@@ -14,7 +14,7 @@ namespace BattleshipsNS
         public char? Contents { get; set; }
         
         // Constructor Declaration of Class
-        public GridCell(char column, int row)
+        public GridCell(int row, char column)
         {
             ID = "" + column + row + "";
             Occupied = false;

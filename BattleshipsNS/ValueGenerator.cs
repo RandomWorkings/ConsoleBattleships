@@ -41,7 +41,7 @@ namespace BattleshipsNS
             
             int column = rand.Next(1, columnLimit);
             int row = rand.Next(1, rowLimit);             
-            return (column, row);
+            return (row, column);
         }
     }
 }

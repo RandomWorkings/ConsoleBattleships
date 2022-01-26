@@ -20,7 +20,7 @@ namespace BattleshipsNS
 
             // Game Setup
             ShipRoster GameParts = new ShipRoster(roster);
-            Grid GameBoard = new Grid(boardSize, GameParts);
+            Grid GameBoard = new Grid(boardSize);
 
             foreach (Ship ship in GameParts.Roster)
             {

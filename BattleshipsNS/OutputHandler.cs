@@ -35,9 +35,9 @@ namespace BattleshipsNS
             Console.WriteLine();
 
             //
-            for (int column = 0; column < UIGrid.Size; column++)
+            for (int row = 0; row < UIGrid.Size; row++)
             {
-                if(column<9)
+                if(row<9)
                 {
                     Console.Write("  " + rowNumber + " |"); 
                 }
@@ -47,9 +47,9 @@ namespace BattleshipsNS
                 }
                 rowNumber++;
 
-                for (int row = 0; row < UIGrid.Size; row++)
+                for (int column = 0; column < UIGrid.Size; column++)
                 {
-                    GridCell cell = UIGrid.PlayGrid[column, row];
+                    GridCell cell = UIGrid.PlayGrid[row, column];
 
                     if(cell.Contents == null)
                     {

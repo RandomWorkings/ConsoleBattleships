@@ -22,11 +22,11 @@ namespace BattleshipsNS
             //Array Initialization and Population
             PlayGrid = new GridCell[gridSize, gridSize];
             char columnLetter = 'A';
-            for (int column = 0; column < gridSize; column++)
+            for (int row = 0; row < gridSize; row++)
             {
-                for (int row = 0; row < gridSize; row++)
+                for (int column = 0; row < gridSize; column++)
                 {
-                    PlayGrid[column, row] = new GridCell(columnLetter, row + 1);
+                    PlayGrid[row, column] = new GridCell(row + 1, columnLetter,);
                 }
                 columnLetter++;
             }
@@ -34,6 +34,6 @@ namespace BattleshipsNS
 
         // Methods, Events, Operators
         public GridCell GetTargetGridCell(string gridCell)
-        { return new GridCell('A', 1); }
+        { return new GridCell(1, 'A'); }
     }
 }

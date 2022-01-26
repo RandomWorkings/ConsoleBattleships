@@ -36,7 +36,7 @@ namespace BatttleshipsNSTests
             int ExpectedRowMax = 6; //TestSize - TesLength
 
             //Act
-            (int actualColumn, int actualRow)= TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
+            (int actualRow, int actualColumn) = TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
 
             //Assess
             Assert.IsTrue(ExpectedColMax >= actualColumn && actualColumn >= ExpectedColMin, "ValueGenerator - GetRandomLocation - Column value outside acceptable scope:"+actualColumn);
@@ -60,7 +60,7 @@ namespace BatttleshipsNSTests
             int ExpectedRowMax = 10;
 
             //Act
-            (int actualColumn, int actualRow) = TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
+            (int actualRow, int actualColumn) = TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
 
             //Assess
             Assert.IsTrue(ExpectedColMax >= actualColumn && actualColumn >= ExpectedColMin, "ValueGenerator - GetRandomLocation - Column value outside acceptable scope:" + actualColumn);

@@ -13,7 +13,7 @@ namespace BatttleshipsNSTests
             //Arrange
             string expectedID = "A1";
             char? expectedContents = null;
-            GridCell TestCell = new GridCell('A', 1);
+            GridCell TestCell = new GridCell(1, 'A');
 
             //Act
             string actualID = TestCell.ID;
@@ -28,7 +28,7 @@ namespace BatttleshipsNSTests
         {
             //Arrange
             char expectedContents = 'o';
-            GridCell TestCell = new GridCell('A', 1);
+            GridCell TestCell = new GridCell(1, 'A');
             {
                 TestCell.Contents = 'o';
             }

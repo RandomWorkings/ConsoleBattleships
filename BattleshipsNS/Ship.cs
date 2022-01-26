@@ -45,37 +45,37 @@ namespace BattleshipsNS
             while(true)
             {
                 Orientation = generator.GetRandomOrientation();
-                (int column, int row) = generator.GetRandomLocation(Orientation, Length, refGrid.Size);
+                (int row, int column) = generator.GetRandomLocation(Orientation, Length, refGrid.Size);
 
-                StartLocation = (column, row);
+                StartLocation = (row, column);
                 int sectionColumn = column;
                 int sectionRow = row;
 
                 switch (Orientation)
                 {
                     case 2: //Vertical
-                        for (int i = 0; i < Sections.Length; i++)
+                        for (int i = 0; i < Sections.Length-1; i++)
                         {
-                            if (refGrid.PlayGrid[sectionColumn, sectionRow].Occupied)
+                            if (refGrid.PlayGrid[sectionRow, sectionColumn].Occupied)
                             {
                                 clearSpace = false;
                                 break;
                             }
-                            Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
+                            Sections[i] = refGrid.PlayGrid[sectionRow, sectionColumn];
                             clearSpace = true;
                             sectionRow++;                            
                         }
                         break;
 
                     default: // Horizontal
-                        for (int i = 0; i < Sections.Length; i++)
+                        for (int i = 0; i < Sections.Length-1; i++)
                         {
-                            if (refGrid.PlayGrid[sectionColumn, sectionRow].Occupied)
+                            if (refGrid.PlayGrid[sectionRow, sectionColumn].Occupied)
                             {
                                 clearSpace = false;
                                 break;
                             }
-                            Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
+                            Sections[i] = refGrid.PlayGrid[sectionRow, sectionColumn];
                             clearSpace = true;
                             sectionColumn++;
                         }
