@@ -12,12 +12,6 @@ namespace BattleshipsNS
         Destroyer = 3
     };
 
-    public enum Orientation
-    {
-        Horizontal,
-        Vertical
-    };
-
     public class Ship : IShip
     {
         // Fields, Properties
@@ -26,7 +20,7 @@ namespace BattleshipsNS
         public bool SunkFlag { get; private set; }
         public int Orientation { get; set; }
         public GridCell StartLocation { get; set; }
-        public GridCell[] SectionLocations { get; private set; }
+        public GridCell[] Sections { get; private set; }
 
         // Constructor Declaration of Class
         public Ship(string ship, int shipCount)
@@ -39,14 +33,19 @@ namespace BattleshipsNS
 
             SunkFlag = false;
 
-            SectionLocations = new GridCell[Length];
+            Sections = new GridCell[Length];
         }
 
         // Methods, Events, Operators
 
         public void UpdateSectionLocations()
         {
-
+            GridCell Location = StartLocation;
+            
+            for(int i = 0; i < Sections.Length; i++)
+            { 
+                Sections[i] = Location;
+            }
         }
         
         public void UpdateSunkFlag()
