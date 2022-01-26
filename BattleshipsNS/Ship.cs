@@ -38,14 +38,30 @@ namespace BattleshipsNS
 
         // Methods, Events, Operators
 
-        public void UpdateSectionLocations()
+        public void UpdateSections()
         {
             GridCell Location = StartLocation;
             
-            for(int i = 0; i < Sections.Length; i++)
-            { 
-                Sections[i] = Location;
+            switch (Orientation)
+            {
+                case 2:
+                        for (int i = 0; i < Sections.Length; i++)
+                    {
+                        Sections[i] = Location;
+                    }
+                    break;
+
+                default:
+                    for (int i = 0; i < Sections.Length; i++)
+                    {
+                        Sections[i] = Location;
+                    }
+                    break;
+
+
             }
+
+
         }
         
         public void UpdateSunkFlag()

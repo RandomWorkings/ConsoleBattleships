@@ -28,7 +28,7 @@ namespace BattleshipsNS
                 ship.Orientation = generator.GetRandomOrientation();
                 (int column, int row) = generator.GetRandomLocation(GameBoard.Size);
                 ship.StartLocation = GameBoard.PlayGrid[column, row];
-                ship.UpdateSectionLocations();
+                ship.UpdateSections();
             }
 
             // Game Play
