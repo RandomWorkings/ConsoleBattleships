@@ -39,7 +39,7 @@ namespace BattleshipsNS
         // Methods, Events, Operators
         public void PlaceShip(Grid refGrid)
         {
-            Console.WriteLine("New Ship";
+            Console.WriteLine("New Ship");
 
             ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
