@@ -45,26 +45,6 @@ namespace BatttleshipsNSTests
         }
 
 
-        [TestMethod]
-        public void Grid_WhenCalled__WithValidParameters_InitializeDefaultGridValues()
-        {
-            /*
-            GridCell TestCell = new GridCell(TestNumber, TestLetter);
-            string expectedID = "" + TestLetter + TestNumber + "";
-            bool expectedOccupied = false;
-            char? expectedContents = null;
-
-            string actualID = TestCell.ID;
-            bool actualOccupied = TestCell.Occupied;
-            char? actualContents = TestCell.Contents;
-
-            Assert.AreEqual(expectedID, actualID, ($@"GridCellTests_GridCell : Incorrect ID value returned"));
-            Assert.AreEqual(expectedOccupied, actualOccupied, ($@"GridCellTests_GridCell : Incorrect Default Occupied returned"));
-            Assert.AreEqual(expectedContents, actualContents, ($@"GridCellTests_GridCell : Incorrect Default Contents returned"));
-            */
-        }
-
-
         /*Code To Test Not Implemented*/
         [TestMethod]
         public void GetTargetGridCell_WhenValidInput_GetTargetGridCell()
