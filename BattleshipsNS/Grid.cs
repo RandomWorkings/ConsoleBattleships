@@ -15,9 +15,9 @@ namespace BattleshipsNS
         // Constructor Declaration of Class
         public Grid(int gridSize, ShipRoster ships)
         {
-            //Parameter Assignment
-
-            Size = gridSize;
+            ValueGenerator generator = new ValueGenerator;
+           //Parameter Assignment
+           Size = gridSize;
             
             //Array Initialization and Population
             PlayGrid = new GridCell[gridSize, gridSize];
@@ -33,7 +33,8 @@ namespace BattleshipsNS
 
             foreach(Ship ship in ships.Roster)
             {
-                
+                ship.Orientation = generator.GetRandomOrientation();
+                ship.StartLocation = generator.GetRandomLocation();
             }
 
         }
