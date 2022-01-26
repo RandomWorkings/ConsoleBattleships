@@ -99,8 +99,7 @@ namespace BattleshipsNS
             }
 
         }
-       
-            
+                 
         public void UpdateSunkFlag()
         {
             foreach (GridCell section in Sections)

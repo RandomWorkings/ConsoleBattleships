@@ -31,9 +31,30 @@ namespace BattleshipsNS
                     ship.PlaceShip(GameBoard);
                 }
 
-                // Game Play
+                // Game Play Loop
 
+                // Receive and Validate User Input
+                int targetRow = 0;
+                int targetColumn = 0;
+
+                // Assess Target - Display Appropriate Message
+                GridCell TargetCell = GameBoard.PlayGrid[targetRow, targetColumn];
+                
+                if (TargetCell.Occupied)
+                {
+                    TargetCell.Contents = 'x';
+                }
+                else
+                {
+                    TargetCell.Contents = 'o';
+                }
+                
+                //Check Win Condition
+                GameParts.CheckRosterSunk();
+                
+                //Display Latest Board State
                 Outputs.DisplayPlayGrid(GameBoard);
+                
 
                 //Repeat Program Option
                 Console.WriteLine();
