@@ -14,7 +14,7 @@ namespace BatttleshipsNSTests
         {
             //Arrange
             int expectedArraySize = 2;
-            string[] roster = { "Battleship", "Destroyer" };
+            ShipTypes[] roster = { ShipTypes.Battleship, ShipTypes.Destroyer };
 
             //Act
             Ship[] Roster = new Ship[roster.Length];

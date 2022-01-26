@@ -9,28 +9,36 @@ namespace BatttleshipsNSTests
     {
         //Shared Test Inputs
         private static readonly bool TestSunk = false;
-        private static readonly int TestSize = 10;
         private static readonly int TestCount = 1;
         private static readonly int TestOrientation = 2;
         private static readonly (int, int) TestLocation = (10, 10);
-        private static readonly string TestShip = "Battleship"; // "Battleship" "Destroyer"
-        private static readonly int TestLength = 4; // 4 3
-        private static readonly GridCell[] TestSections = new GridCell[TestLength];
+        private static readonly ShipTypes TestType = ShipTypes.Battleship;
+        private static readonly int TestLength = (int)TestType;
 
         [TestMethod]
         public void ID_WhenCalled_GetShipID()
         {
-            Ship ship = new Ship(TestShip, TestCount);
-            string expected = TestShip + " - s" + TestCount;
+            Ship ship = new Ship(TestType, TestCount);
+            string expected = TestType + " - s" + TestCount;
 
             string actual = ship.ID;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_ID : Returned incorrect Ship ID value"));
         }
         [TestMethod]
+        public void Type_WhenCalled_GetShipType()
+        {
+            Ship ship = new Ship(TestType, TestCount);
+            ShipTypes expected = TestType;
+
+            ShipTypes actual = ship.Type;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Length : Returned incorrect Ship Length value"));
+        }
+        [TestMethod]
         public void Length_WhenCalled_GetShipLength()
         {
-            Ship ship = new Ship(TestShip, TestCount);
+            Ship ship = new Ship(TestType, TestCount);
             int expected = TestLength;
 
             int actual = ship.Length;
@@ -40,7 +48,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void SunkFlag_WhenCalled_GetShipSunkFlag()
         {
-            Ship ship = new Ship(TestShip, TestCount);
+            Ship ship = new Ship(TestType, TestCount);
             bool expected = TestSunk;
 
             bool actual = ship.SunkFlag;
@@ -50,7 +58,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Orientation_WhenCalled_WithValidAssignment_SetShipOrientation()
         {
-            Ship ship = new Ship(TestShip, TestCount);
+            Ship ship = new Ship(TestType, TestCount);
             int expected = TestOrientation;
 
             ship.Orientation = TestOrientation;
@@ -61,7 +69,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void StartLocation_WhenCalled_WithValidAssignment_SetShipStartLocation()
         {
-            Ship ship = new Ship(TestShip, TestCount);
+            Ship ship = new Ship(TestType, TestCount);
             (int, int) expected = TestLocation;
 
             ship.StartLocation = TestLocation;
@@ -73,7 +81,7 @@ namespace BatttleshipsNSTests
         public void Sections_WhenCalled_GetSections()
         {
             int expectedSectionCount = TestLength;
-            Ship ship = new Ship(TestShip, TestCount);
+            Ship ship = new Ship(TestType, TestCount);
 
             int actualSectionCount = ship.Sections.GetLength(0);
 
@@ -89,7 +97,7 @@ namespace BatttleshipsNSTests
         public void Ship_WhenCalled_WithValidParameters_InitializeDefaultShipValues()
         {
             //Arrange
-            Ship ship = new Ship(TestShip, TestCount);
+            Ship ship = new Ship(TestType, TestCount);
             bool expectedSunkFlag = false;
             int expectedOrientation = 1;
             (int, int) expectedLocation = (0, 0);
