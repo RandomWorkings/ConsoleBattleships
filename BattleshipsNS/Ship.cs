@@ -57,7 +57,6 @@ namespace BattleshipsNS
                         for (int v = 0; v < Length; v++)
                         {
                             GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
-
                             if (refCell.Occupied)
                             {
                                 clearSpace = false;
@@ -65,7 +64,7 @@ namespace BattleshipsNS
                             }
                             Sections[v] = refCell;
                             clearSpace = true;
-                            sectionRow++;                            
+                            sectionRow++;
                         }
                         break;
 
@@ -88,7 +87,15 @@ namespace BattleshipsNS
 
                 //Loop breaker
                 if (clearSpace)
-                { break; }
+                {
+                    
+                    for(int i = 0, i < Length; i++)
+                    {
+                        Sections[i].Occupied = true;
+                        Sections[i].Contents = 'x';
+                    }
+                    break;
+                }
 
             }
 
