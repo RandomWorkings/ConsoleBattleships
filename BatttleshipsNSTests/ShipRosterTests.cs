@@ -9,13 +9,14 @@ namespace BatttleshipsNSTests
     {
         //Shared Test Inputs
         private static readonly ShipTypes[] TestRoster = { ShipTypes.Battleship, ShipTypes.Destroyer };
-        private static readonly int TestSize = TestRoster.Length;
+        private static readonly int TestArrayLength = TestRoster.Length;
+        private static readonly int TestGridSize = 10;
 
         [TestMethod]
         public void ShipRoster_WhenCalled_WithValidInputs_SetsShipsArray()
         {
             //Arrange
-            int expectedSize = TestSize;
+            int expectedSize = TestArrayLength;
             ShipRoster roster = new ShipRoster(TestRoster);
 
             //Act
@@ -34,9 +35,13 @@ namespace BatttleshipsNSTests
         {
             bool expected = false;
             ShipRoster roster = new ShipRoster(TestRoster);
+            Grid grid = new Grid(TestGridSize);
+            foreach (Ship ship in roster.Ships)
+            {
+                ship.PlaceShip(grid);
+            }
 
             bool actual = roster.CheckRosterSunk();
-
 
             Assert.AreEqual(expected, actual, "ShipRosterTests_CheckSunkFlag : Flag in incorrect state");
         }
@@ -47,7 +52,13 @@ namespace BatttleshipsNSTests
             bool expected = true;
             ShipRoster roster = new ShipRoster(TestRoster);
 
-            for(int i = 0; i < roster.Ships.Length; i++)
+            Grid grid = new Grid(TestGridSize);
+            foreach (Ship ship in roster.Ships)
+            {
+                ship.PlaceShip(grid);
+            }
+
+            for (int i = 0; i < roster.Ships.Length; i++)
             {
                 Ship ship = roster.Ships[i];
                 for (int j = 0; j < ship.Sections.Length; j++)

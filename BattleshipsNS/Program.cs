@@ -32,7 +32,7 @@ namespace BattleshipsNS
                 ShipRoster GameParts = new ShipRoster(roster);
                 Grid GameBoard = new Grid(boardSize);
 
-                foreach (Ship ship in GameParts.Roster)
+                foreach (Ship ship in GameParts.Ships)
                 {
                     ship.PlaceShip(GameBoard);
                 }
