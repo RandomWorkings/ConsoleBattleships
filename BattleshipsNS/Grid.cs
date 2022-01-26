@@ -11,7 +11,7 @@ namespace BattleshipsNS
     {
         // Fields, Properties
         public int Size { get; private set; }
-        public GridCell[,] PlayGrid { get; set; }
+        public GridCell[,] PlayGrid { get; private set; }
 
         // Constructor Declaration of Class
         public Grid(int gridSize)
