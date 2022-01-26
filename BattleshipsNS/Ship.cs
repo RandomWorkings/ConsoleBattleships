@@ -17,10 +17,10 @@ namespace BattleshipsNS
         // Fields, Properties
         public string ID { get; private set; }
         public int Length { get; private set; }
+        public bool SunkFlag { get; private set; }
         public int Orientation { get; set; }
         public GridCell StartLocation { get; set; }
         public GridCell[] SectionLocations { get; private set; }
-        public bool SunkFlag { get; private set; }
 
         // Constructor Declaration of Class
         public Ship(string ship, int shipCount)
