@@ -31,8 +31,8 @@ namespace BattleshipsNS
                     ship.PlaceShip(GameBoard);
                 }
 
-
                 // Game Play
+
                 Outputs.DisplayPlayGrid(GameBoard);
 
                 //Repeat Program Option

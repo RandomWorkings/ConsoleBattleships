@@ -24,7 +24,24 @@ namespace BattleshipsNS
 
         // Methods, Events, Operators
         public bool CheckRosterSunk()
-        { return true; }
+        {
+            bool AllSunk = false;
+           
+            foreach(Ship ship in Roster)
+            {
+                ship.UpdateSunkFlag();
+                if (ship.SunkFlag)
+                {
+                    AllSunk = true;
+                }
+                else
+                {
+                    AllSunk = false;
+                }
+            }
+
+            return AllSunk;
+        }
 
     }
 }
