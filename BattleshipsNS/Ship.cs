@@ -12,6 +12,12 @@ namespace BattleshipsNS
         Destroyer = 3
     };
 
+    public enum Orientation
+    {
+        Horizontal,
+        Vertical
+    };
+
     public class Ship : IShip
     {
         // Fields, Properties

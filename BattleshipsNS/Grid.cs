@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    public enum Orientation
-    {
-        Horizontal,
-        Vertical
-    };
+
 
     public class Grid : IGrid
     {
@@ -21,7 +17,6 @@ namespace BattleshipsNS
         // Constructor Declaration of Class
         public Grid(int gridSize, ShipRoster ships)
         {
-            ValueGenerator generator = new ValueGenerator();
            //Parameter Assignment
            Size = gridSize;
             
@@ -36,18 +31,10 @@ namespace BattleshipsNS
                 }
                 columnLetter++;
             }
-
-            foreach(Ship ship in ships.Roster)
-            {
-                ship.Orientation = generator.GetRandomOrientation();
-                (int column, int row) = generator.GetRandomLocation(gridSize);
-                ship.StartLocation = PlayGrid[]
-            }
-
         }
 
         // Methods, Events, Operators
         public GridCell GetTargetGridCell(string gridCell)
-        { return new GridCell(1,'A'); }
+        { return new GridCell('A', 1); }
     }
 }

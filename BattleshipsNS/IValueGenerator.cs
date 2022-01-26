@@ -10,6 +10,6 @@ namespace BattleshipsNS
     interface IValueGenerator
     {
         int GetRandomOrientation();
-        Tuple GetRandomLocation(int gridSize);
+        (int, int) GetRandomLocation(int gridSize);
     }
 }

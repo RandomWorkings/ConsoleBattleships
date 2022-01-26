@@ -9,7 +9,7 @@ namespace BattleshipsNS
     public class ValueGenerator : IValueGenerator
     {
         // Fields, Properties
-        Random rand = new Random();
+        readonly Random rand = new Random();
 
         // Constructor Declaration of Class
         public ValueGenerator()
@@ -21,7 +21,7 @@ namespace BattleshipsNS
             return rand.Next(1, 3); // number between 1 and 2
         }
         
-        public (int column, int row) GetRandomLocation(int gridSize)
+        public (int, int) GetRandomLocation(int gridSize)
         {
             int uppperLimit = gridSize + 1;
 
