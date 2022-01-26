@@ -39,6 +39,8 @@ namespace BattleshipsNS
         // Methods, Events, Operators
         public void PlaceShip(Grid refGrid)
         {
+            Console.WriteLine("New Ship";
+
             ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
 
@@ -54,28 +56,36 @@ namespace BattleshipsNS
                 switch (Orientation)
                 {
                     case 2: //Vertical
-                        for (int v = 0; v < Length; v++)
+                        
+                        for (int v = 0; v < Length-1; v++)
                         {
-                            if (refGrid.PlayGrid[sectionRow, sectionColumn].Occupied)
+                            Console.WriteLine("Vert: " + sectionRow + " " + sectionColumn);
+
+                            GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
+
+                            if (refCell.Occupied)
                             {
                                 clearSpace = false;
                                 break;
                             }
-                            Sections[v] = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            Sections[v] = refCell;
                             clearSpace = true;
                             sectionRow++;                            
                         }
                         break;
 
                     default: // Horizontal
-                        for (int h = 0; h < Length; h++)
+                        for (int h = 0; h < Length-1; h++)
                         {
-                            if (refGrid.PlayGrid[sectionRow, sectionColumn].Occupied)
+                            Console.WriteLine("Horz: "+sectionRow+" "+sectionColumn);
+                            GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            
+                            if (refCell.Occupied)
                             {
                                 clearSpace = false;
                                 break;
                             }
-                            Sections[h] = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            Sections[h] = refCell;
                             clearSpace = true;
                             sectionColumn++;
                         }
