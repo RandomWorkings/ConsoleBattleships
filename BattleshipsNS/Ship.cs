@@ -39,9 +39,7 @@ namespace BattleshipsNS
         // Methods, Events, Operators
         public void PlaceShip(Grid refGrid)
         {
-            Console.WriteLine("New Ship");
-
-            ValueGenerator generator = new ValueGenerator();
+                        ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
 
             while(true)
@@ -57,7 +55,7 @@ namespace BattleshipsNS
                 {
                     case 2: //Vertical
                         
-                        for (int v = 0; v < Length-1; v++)
+                        for (int v = 0; v < Length; v++)
                         {
                             Console.WriteLine("Vert: " + sectionRow + " " + sectionColumn);
 
@@ -75,7 +73,7 @@ namespace BattleshipsNS
                         break;
 
                     default: // Horizontal
-                        for (int h = 0; h < Length-1; h++)
+                        for (int h = 0; h < Length; h++)
                         {
                             Console.WriteLine("Horz: "+sectionRow+" "+sectionColumn);
                             GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];

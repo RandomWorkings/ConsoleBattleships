@@ -22,9 +22,11 @@ namespace BattleshipsNS
             ShipRoster GameParts = new ShipRoster(roster);
             Grid GameBoard = new Grid(boardSize);
 
+            int i = 1;
             foreach (Ship ship in GameParts.Roster)
             {
-                //ship.PlaceShip(GameBoard);
+                Console.WriteLine("New Ship" + i++);
+                ship.PlaceShip(GameBoard);
             }
             
 
