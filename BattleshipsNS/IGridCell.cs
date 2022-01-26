@@ -9,6 +9,7 @@ namespace BattleshipsNS
     interface IGridCell
     {
         string ID { get; }
+        bool Occupied { get; set; }
         char? Contents { get; set; }
     }
 }

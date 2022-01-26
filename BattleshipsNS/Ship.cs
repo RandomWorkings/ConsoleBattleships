@@ -41,10 +41,11 @@ namespace BattleshipsNS
         {
             ValueGenerator generator = new ValueGenerator();
             Orientation = generator.GetRandomOrientation();
-            (int column, int row) StartLocation = generator.GetRandomLocation(refGrid.Size);
+            (int column, int row)  = generator.GetRandomLocation(refGrid.Size);
 
-            int sectionColumn = StartLocation.column;
-            int sectionRow = StartLocation.row;
+            StartLocation = (column, row);
+            int sectionColumn = column;
+            int sectionRow = row;
 
             switch (Orientation)
             {
@@ -63,9 +64,7 @@ namespace BattleshipsNS
                         sectionColumn++;
                     }
                     break;
-
             }
-
 
         }
         
