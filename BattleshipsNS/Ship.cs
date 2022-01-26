@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    public enum ShipTypes
-    {
-        Battleship = 4,
-        Destroyer = 3
-    };
-
+    
     public class Ship : IShip
     {
         // Fields, Properties
         public string ID { get; private set; }
+        public ShipTypes Type { get; private set; }
         public int Length { get; private set; }
         public bool SunkFlag { get; private set; }
         public int Orientation { get; set; }
@@ -23,13 +19,13 @@ namespace BattleshipsNS
         public GridCell[] Sections { get; private set; }
 
         // Constructor Declaration of Class
-        public Ship(string ship, int shipCount)
+        public Ship(ShipTypes ship, int shipCount)
 		{
             ID = ship + " - s" + shipCount;
 
-            ShipTypes shipType = (ShipTypes)Enum.Parse(typeof(ShipTypes), ship);
+            Type = ship;
 
-            Length = (int)shipType;
+            Length = (int)Type;
 
             SunkFlag = false;
 

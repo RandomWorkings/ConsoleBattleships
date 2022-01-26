@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
+    public enum ShipTypes
+    {
+        Battleship = 4,
+        Destroyer = 3
+    };
+
+
     class Program
     {
         static void Main()
@@ -20,7 +27,7 @@ namespace BattleshipsNS
 
                 // Program Default settings
                 int boardSize = 10;
-                string[] roster = { "Battleship", "Destroyer", "Destroyer" };
+                ShipTypes[] roster = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer};
 
                 // Game Setup
                 ShipRoster GameParts = new ShipRoster(roster);

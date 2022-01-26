@@ -12,7 +12,7 @@ namespace BattleshipsNS
         public Ship[] Roster { get; private set; }
 
         // Constructor Declaration of Class
-        public ShipRoster(string[] roster)
+        public ShipRoster(ShipTypes[] roster)
         {
             Roster = new Ship[roster.Length];
 

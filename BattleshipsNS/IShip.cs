@@ -9,6 +9,7 @@ namespace BattleshipsNS
     interface IShip
     {
         string ID { get; }
+        ShipTypes Type { get;}
         int Length { get; }
         bool SunkFlag { get; }
         int Orientation { get; set; }

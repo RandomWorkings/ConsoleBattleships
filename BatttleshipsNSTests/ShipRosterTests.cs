@@ -7,6 +7,8 @@ namespace BatttleshipsNSTests
     [TestClass]
     public class ShipRosterTests
     {
+        //Shared Test Inputs
+
         [TestMethod]
         public void ShipRoster_WithArrayofShipNames_CreatesAnArrayofShips()
         {
@@ -28,8 +30,18 @@ namespace BatttleshipsNSTests
                 Assert.IsInstanceOfType((Roster[i]), typeof(Ship), "Ship Roster Tests - Ship Roster - Array contents incorrect type");
             }
         }
+
         [TestMethod]
-        public void CheckRosterSunk_With_DoesSomething()
+        public void CheckRosterSunk_WhenCalled_WithAllShipsSunk_SetSunkFlag()
+        {
+            //Arrange
+
+            //Act
+
+            //Assess
+        }
+
+        public void CheckRosterSunk_WhenCalled_WithAllShipsUnSunk_SetSunkFlag()
         {
             //Arrange
 
@@ -38,5 +50,6 @@ namespace BatttleshipsNSTests
             //Assess
 
         }
+
     }
 }
