@@ -54,14 +54,13 @@ namespace BatttleshipsNSTests
         {
             //Arrange
             Ship TestShip = new Ship("Battleship", 1);
-            Grid refGrid = new Grid(10, TestShip);
-
-            ship.PlaceShip(refGrid);
+            Grid refGrid = new Grid(10);
 
             //Act
+            TestShip.PlaceShip(refGrid);
 
             //Assess
-            //Assert.AreEqual(expected, actual, true, "Ship ID is not Incremented Correctly");
+            //Assert.Fail()
         }
 
 
