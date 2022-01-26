@@ -38,12 +38,16 @@ namespace BattleshipsNS
             Length = (int)shipType;
 
             SunkFlag = false;
+
+            SectionLocations = new GridCell[Length];
         }
 
         // Methods, Events, Operators
 
         public void UpdateSectionLocations()
-        { }
+        {
+
+        }
         
         public void UpdateSunkFlag()
         { }

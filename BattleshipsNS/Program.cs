@@ -25,13 +25,10 @@ namespace BattleshipsNS
 
             foreach (Ship ship in GameParts.Roster)
             {
-
                 ship.Orientation = generator.GetRandomOrientation();
-                (int column, int row) = generator.GetRandomLocation(gridSize);
-                ship.StartLocation = PlayGrid[column, row];
-
+                (int column, int row) = generator.GetRandomLocation(GameBoard.Size);
+                ship.StartLocation = GameBoard.PlayGrid[column, row];
                 ship.UpdateSectionLocations();
-
             }
 
             // Game Play
