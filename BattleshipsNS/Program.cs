@@ -24,7 +24,7 @@ namespace BattleshipsNS
 
             foreach (Ship ship in GameParts.Roster)
             {
-                
+                ship.PlaceShip(GameBoard);
             }
 
             // Game Play
