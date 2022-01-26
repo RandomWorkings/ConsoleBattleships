@@ -40,34 +40,61 @@ namespace BattleshipsNS
         public void PlaceShip(Grid refGrid)
         {
             ValueGenerator generator = new ValueGenerator();
-            Orientation = generator.GetRandomOrientation();
-            (int column, int row)  = generator.GetRandomLocation(refGrid.Size);
+            bool clearSpace = true;
 
-            StartLocation = (column, row);
-            int sectionColumn = column;
-            int sectionRow = row;
-
-            switch (Orientation)
+            while(true)
             {
-                case 2: //Vertical
-                    for (int i = 0; i < Sections.Length; i++)
-                    {
-                        Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
-                        sectionRow++;
-                    }
-                    break;
+                Orientation = generator.GetRandomOrientation();
+                (int column, int row) = generator.GetRandomLocation(refGrid.Size);
 
-                default: // Horizontal
-                    for (int i = 0; i < Sections.Length; i++)
-                    {
-                        Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
-                        sectionColumn++;
-                    }
-                    break;
+                StartLocation = (column, row);
+                int sectionColumn = column;
+                int sectionRow = row;
+
+
+                switch (Orientation)
+                {
+                    case 2: //Vertical
+                        for (int i = 0; i < Sections.Length; i++)
+                        {
+                            if (refGrid.PlayGrid[sectionColumn, sectionRow].Occupied)
+                            {
+                                clearSpace = false;
+                                break;
+                            }
+                            Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
+                            clearSpace = true;
+
+                            sectionRow++;
+                            
+                        }
+                        break;
+
+                    default: // Horizontal
+                        for (int i = 0; i < Sections.Length; i++)
+                        {
+                            if (refGrid.PlayGrid[sectionColumn, sectionRow].Occupied)
+                            {
+                                clearSpace = false;
+                                break;
+                            }
+                            Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
+                            clearSpace = true;
+
+                            sectionColumn++;
+                        }
+                        break;
+                }
+
+                //Loop breaker
+                if(clearSpace)
+                { break; }
+
             }
 
         }
-        
+       
+            
         public void UpdateSunkFlag()
         { }
         
