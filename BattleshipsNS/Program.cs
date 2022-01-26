@@ -37,17 +37,17 @@ namespace BattleshipsNS
 
                 //Repeat Program Option
                 Console.WriteLine();
-                Console.WriteLine("Press Esc to quit");
-                Console.WriteLine("Press any other Key to repeat");
+                Console.WriteLine("Press Enter to repeat");
+                Console.WriteLine("Press any other button to quit");
                 Console.WriteLine();
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.Enter:
-                        Running = false;
                         break;
 
                     default:
+                        Running = false;
                         break;
                 }
             }
