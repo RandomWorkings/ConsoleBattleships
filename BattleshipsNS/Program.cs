@@ -51,10 +51,6 @@ namespace BattleshipsNS
                         break;
                 }
             }
-                //Console Hold-Open Message
-                Console.WriteLine();
-                Console.WriteLine("Program Finished. Press any Key to Close...");
-                System.Console.ReadLine();
         }
     }
 }
