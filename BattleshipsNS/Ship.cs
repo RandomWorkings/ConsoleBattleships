@@ -41,25 +41,26 @@ namespace BattleshipsNS
         {
             ValueGenerator generator = new ValueGenerator();
             Orientation = generator.GetRandomOrientation();
-            StartLocation = generator.GetRandomLocation(GameBoard.Size);
-                
+            (int column, int row) StartLocation = generator.GetRandomLocation(refGrid.Size);
 
-            GridCell Location = StartLocation;
-            
+            int sectionColumn = StartLocation.column;
+            int sectionRow = StartLocation.row;
+
             switch (Orientation)
             {
                 case 2: //Vertical
                     for (int i = 0; i < Sections.Length; i++)
                     {
-                        Sections[i] = Location;
-
+                        Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
+                        sectionRow++;
                     }
                     break;
 
                 default: // Horizontal
                     for (int i = 0; i < Sections.Length; i++)
                     {
-                        Sections[i] = Location;
+                        Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
+                        sectionColumn++;
                     }
                     break;
 
