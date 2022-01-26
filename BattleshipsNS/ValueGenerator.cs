@@ -28,8 +28,6 @@ namespace BattleshipsNS
         
         public (int, int) GetRandomLocation(int refOrientation, int refLength, int refSize)
         {
-
-            Console.WriteLine("Random Location - Randomizer Inputs : [" + refOrientation + ", " + refLength + ", " + refSize + "]");
             int columnLimit;
             int rowLimit;
 
@@ -38,23 +36,18 @@ namespace BattleshipsNS
                 case 2: //Vertical, Limit Rows
                     columnLimit = refSize;
                     rowLimit = refSize - refLength;
-                    Console.WriteLine("case 2");
 
                     break;
 
                 default: // Horizontal, Limit Columns
                     columnLimit = refSize - refLength;
                     rowLimit = refSize;
-                    Console.WriteLine("case default or 1");
-
                     break;
             }
             lock (Synclock)
             {
                 int column = Rand.Next(0, columnLimit);
                 int row = Rand.Next(0, rowLimit);
-                Console.WriteLine("Random Location - Randomizer Limits : [" + rowLimit + ", " + columnLimit + "]");
-                Console.WriteLine("Random Location - Start Location : [" + row + ", " + column + "]");
                 return (row, column);
             }  
             

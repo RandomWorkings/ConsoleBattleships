@@ -25,14 +25,12 @@ namespace BattleshipsNS
             int i = 1;
             foreach (Ship ship in GameParts.Roster)
             {
-                Console.WriteLine();
-                Console.WriteLine("New Ship " + i++);
                 ship.PlaceShip(GameBoard);
             }
             
 
             // Game Play
-            //Outputs.DisplayPlayGrid(GameBoard);
+            Outputs.DisplayPlayGrid(GameBoard);
 
             //Console Hold-Open Message
             Console.WriteLine();

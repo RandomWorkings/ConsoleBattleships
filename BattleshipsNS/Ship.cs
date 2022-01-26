@@ -44,26 +44,18 @@ namespace BattleshipsNS
             while(true)
             {
                 Orientation = generator.GetRandomOrientation();
-
-                Console.WriteLine("Place Ship - Ship Length : [" + Length + "]");
-                Console.WriteLine("Place Ship - Orientation : [" + Orientation + "]");
-
                 (int row, int column) = generator.GetRandomLocation(Orientation, Length, refGrid.Size);
                 
-                Console.WriteLine("Place Ship - Start Location : [" + row + ", " + column + "]");
-
                 StartLocation = (row, column);
                 int sectionColumn = column;
                 int sectionRow = row;
 
-                /*
                 switch (Orientation)
                 {
                     case 2: //Vertical
                         
                         for (int v = 0; v < Length; v++)
                         {
-                            Console.WriteLine("Vert: " + sectionRow + " " + sectionColumn);
                             GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
 
                             if (refCell.Occupied)
@@ -80,7 +72,6 @@ namespace BattleshipsNS
                     default: // Horizontal
                         for (int h = 0; h < Length; h++)
                         {
-                            Console.WriteLine("Horz: "+sectionRow+" "+sectionColumn);
                             GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
                             
                             if (refCell.Occupied)
@@ -93,8 +84,8 @@ namespace BattleshipsNS
                             sectionColumn++;
                         }
                         break;
-                }*/
-                clearSpace = true;
+                }
+
                 //Loop breaker
                 if (clearSpace)
                 { break; }
