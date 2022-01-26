@@ -25,36 +25,12 @@ namespace BatttleshipsNSTests
         {
             //Arrange
             int TestSize = 10;
-            int TestOrientation = 1;
+            int TestOrientation = 1; //Horizontal, Step through Columns
             int TestLength = 4;
             ValueGenerator TestGenerator = new ValueGenerator();
 
             int ExpectedColMin = 0;
-            int ExpectedColMax = 9; //TestSize - 1
-
-            int ExpectedRowMin = 0;
-            int ExpectedRowMax = 5; //TestSize - 1 - TestLength
-
-            //Act
-            (int actualRow, int actualColumn) = TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
-
-            //Assess
-            Assert.IsTrue(ExpectedColMax >= actualColumn && actualColumn >= ExpectedColMin, "ValueGenerator - GetRandomLocation - Column value outside acceptable scope:"+actualColumn);
-            Assert.IsTrue(ExpectedRowMax >= actualRow && actualRow >= ExpectedRowMin, "ValueGenerator - GetRandomLocation - Row value outside acceptable  scope:" + actualRow);
-
-        }
-
-        [TestMethod]
-        public void GetRandomLocation_ValidInputsAndOrientation2__ReturnsValidTuple()
-        {
-            //Arrange
-            int TestSize = 10;
-            int TestOrientation = 2;
-            int TestLength = 4;
-            ValueGenerator TestGenerator = new ValueGenerator();
-
-            int ExpectedColMin = 0;
-            int ExpectedColMax = 5; //TestSize - 1 - TestLength
+            int ExpectedColMax = 5; //TestSize - 1  - TestLength
 
             int ExpectedRowMin = 0;
             int ExpectedRowMax = 9; //TestSize - 1
@@ -63,8 +39,32 @@ namespace BatttleshipsNSTests
             (int actualRow, int actualColumn) = TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
 
             //Assess
-            Assert.IsTrue(ExpectedColMax >= actualColumn && actualColumn >= ExpectedColMin, "ValueGenerator - GetRandomLocation - Column value outside acceptable scope:" + actualColumn);
-            Assert.IsTrue(ExpectedRowMax >= actualRow && actualRow >= ExpectedRowMin, "ValueGenerator - GetRandomLocation - Row value outside acceptable  scope:" + actualRow);
+            Assert.IsTrue(ExpectedColMax >= actualColumn && actualColumn >= ExpectedColMin, "ValueGenerator - GetRandomLocation - Column value outside acceptable scope: " + actualRow + ", "+ actualColumn);
+            Assert.IsTrue(ExpectedRowMax >= actualRow && actualRow >= ExpectedRowMin, "ValueGenerator - GetRandomLocation - Row value outside acceptable  scope: " + actualRow + ", " + actualColumn);
+
+        }
+
+        [TestMethod]
+        public void GetRandomLocation_ValidInputsAndOrientation2__ReturnsValidTuple()
+        {
+            //Arrange
+            ValueGenerator TestGenerator = new ValueGenerator();
+            int TestSize = 10;
+            int TestOrientation = 2; //Vertical, Step through Rows
+            int TestLength = 4;
+
+            int ExpectedColMin = 0;
+            int ExpectedColMax = 9; //TestSize - 1 
+
+            int ExpectedRowMin = 0;
+            int ExpectedRowMax = 5; //TestSize - 1 - TestLength
+
+            //Act
+            (int actualRow, int actualColumn) = TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
+
+            //Assess
+            Assert.IsTrue(ExpectedColMax >= actualColumn && actualColumn >= ExpectedColMin, "ValueGenerator - GetRandomLocation - Column value outside acceptable scope: " + actualRow + ", " + actualColumn);
+            Assert.IsTrue(ExpectedRowMax >= actualRow && actualRow >= ExpectedRowMin, "ValueGenerator - GetRandomLocation - Row value outside acceptable  scope: " + actualRow + ", " + actualColumn);
 
         }
 

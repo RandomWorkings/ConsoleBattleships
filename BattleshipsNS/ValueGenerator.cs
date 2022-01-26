@@ -28,14 +28,14 @@ namespace BattleshipsNS
 
             switch (refOrientation)
             {
-                case 2: //Vertical
-                    columnLimit = refSize - refLength;
-                    rowLimit = refSize;
-                    break;
-
-                default: // Horizontal
+                case 2: //Vertical, Limit Rows
                     columnLimit = refSize;
                     rowLimit = refSize - refLength;
+                    break;
+
+                default: // Horizontal, Limit Columns
+                    columnLimit = refSize - refLength;
+                    rowLimit = refSize;
                     break;
             }
             
