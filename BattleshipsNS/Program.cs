@@ -26,12 +26,11 @@ namespace BattleshipsNS
             string[] roster = {"Battleship","Destroyer","Destroyer"};
 
             // Game Setup
-            Grid PlayGrid = new Grid(gridSize);
             ShipRoster GameParts = new ShipRoster(roster);
+            Grid GameBoard = new Grid(gridSize);        
 
             // Game Play
-
-            Outputs.DisplayPlayGrid(PlayGrid);
+            Outputs.DisplayPlayGrid(GameBoard);
 
             //Console Hold-Open Message
             Console.WriteLine();
