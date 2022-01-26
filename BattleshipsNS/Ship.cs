@@ -102,7 +102,22 @@ namespace BattleshipsNS
        
             
         public void UpdateSunkFlag()
-        { }
+        {
+            foreach (GridCell section in Sections)
+            {
+                switch (section.Contents)
+                { 
+                    case null:
+                        SunkFlag = false;
+                        break;
+
+                    default:
+                        SunkFlag = true;
+                        break;
+                }
+            }
+
+        }
         
     }
 }
