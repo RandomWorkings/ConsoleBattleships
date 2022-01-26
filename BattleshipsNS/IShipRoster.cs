@@ -8,7 +8,7 @@ namespace BattleshipsNS
 {
     interface IShipRoster
     {
-        Ship[] Roster { get; }
+        Ship[] Ships { get; }
 
         bool CheckRosterSunk();
     }

@@ -9,16 +9,16 @@ namespace BattleshipsNS
     public class ShipRoster : IShipRoster
     {
         // Fields, Properties
-        public Ship[] Roster { get; private set; }
+        public Ship[] Ships { get; private set; }
 
         // Constructor Declaration of Class
         public ShipRoster(ShipTypes[] roster)
         {
-            Roster = new Ship[roster.Length];
+            Ships = new Ship[roster.Length];
 
             for(int i = 0; i < roster.Length; i++)
             {
-                Roster[i] = new Ship(roster[i], i+1);
+                Ships[i] = new Ship(roster[i], i+1);
             }
         }
 
@@ -27,7 +27,7 @@ namespace BattleshipsNS
         {
             bool AllSunk = false;
            
-            foreach(Ship ship in Roster)
+            foreach(Ship ship in Ships)
             {
                 ship.UpdateSunkFlag();
                 if (ship.SunkFlag)

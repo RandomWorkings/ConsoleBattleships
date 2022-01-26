@@ -8,47 +8,58 @@ namespace BatttleshipsNSTests
     public class ShipRosterTests
     {
         //Shared Test Inputs
+        private static readonly ShipTypes[] TestRoster = { ShipTypes.Battleship, ShipTypes.Destroyer };
+        private static readonly int TestSize = TestRoster.Length;
 
         [TestMethod]
-        public void ShipRoster_WithArrayofShipNames_CreatesAnArrayofShips()
+        public void ShipRoster_WhenCalled_WithValidInputs_SetsShipsArray()
         {
             //Arrange
-            int expectedArraySize = 2;
-            ShipTypes[] roster = { ShipTypes.Battleship, ShipTypes.Destroyer };
+            int expectedSize = TestSize;
+            ShipRoster roster = new ShipRoster(TestRoster);
 
             //Act
-            Ship[] Roster = new Ship[roster.Length];
-            for (int i = 0; i < roster.Length; i++)
-            {
-                Roster[i] = new Ship(roster[i], i+1);
-            }
+            int actualSize = roster.Ships.Length;
 
             //Assess
-            Assert.AreEqual(expectedArraySize, Roster.Length, "Ship Roster Tests - Ship Roster - Array incorrect size");
-            for (int i = 0; i < roster.Length; i++)
+            Assert.AreEqual(expectedSize, actualSize, "ShipRosterTests_ShipRoster : Array incorrect size");
+            for (int i = 0; i < actualSize; i++)
             {
-                Assert.IsInstanceOfType((Roster[i]), typeof(Ship), "Ship Roster Tests - Ship Roster - Array contents incorrect type");
+                Assert.IsInstanceOfType((roster.Ships[i]), typeof(Ship), "ShipRosterTests_ShipRoster : Array contents incorrect type");
             }
+        }
+
+        [TestMethod]
+        public void CheckRosterSunk_WhenCalled_WithUnSunkShips_SetSunkFlag()
+        {
+            bool expected = false;
+            ShipRoster roster = new ShipRoster(TestRoster);
+
+            bool actual = roster.CheckRosterSunk();
+
+
+            Assert.AreEqual(expected, actual, "ShipRosterTests_CheckSunkFlag : Flag in incorrect state");
         }
 
         [TestMethod]
         public void CheckRosterSunk_WhenCalled_WithAllShipsSunk_SetSunkFlag()
         {
-            //Arrange
+            bool expected = true;
+            ShipRoster roster = new ShipRoster(TestRoster);
 
-            //Act
+            for(int i = 0; i < roster.Ships.Length; i++)
+            {
+                Ship ship = roster.Ships[i];
+                for (int j = 0; j < ship.Sections.Length; j++)
+                {
+                    GridCell cell = ship.Sections[j];
+                    cell.Contents='x';
+                }
+            }
 
-            //Assess
-        }
+            bool actual = roster.CheckRosterSunk();
 
-        public void CheckRosterSunk_WhenCalled_WithAllShipsUnSunk_SetSunkFlag()
-        {
-            //Arrange
-
-            //Act
-
-            //Assess
-
+            Assert.AreEqual(expected, actual, "ShipRosterTests_CheckSunkFlag : Flag in incorrect state");
         }
 
     }
