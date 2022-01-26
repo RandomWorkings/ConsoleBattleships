@@ -63,9 +63,7 @@ namespace BattleshipsNS
                             }
                             Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
                             clearSpace = true;
-
-                            sectionRow++;
-                            
+                            sectionRow++;                            
                         }
                         break;
 
@@ -79,7 +77,6 @@ namespace BattleshipsNS
                             }
                             Sections[i] = refGrid.PlayGrid[sectionColumn, sectionRow];
                             clearSpace = true;
-
                             sectionColumn++;
                         }
                         break;
