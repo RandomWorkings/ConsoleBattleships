@@ -8,12 +8,10 @@ namespace BattleshipsNS
 {
     public class GridCell : IGridCell
     {
-        // Fields, Properties
         public string ID { get; private set; }
         public bool Occupied { get; set; }
         public char? Contents { get; set; }
         
-        // Constructor Declaration of Class
         public GridCell(int row, char column)
         {
             ID = "" + column + row + "";
@@ -21,6 +19,5 @@ namespace BattleshipsNS
             Contents = null;
         }
 
-        // Methods, Events, Operators
     }
 }
