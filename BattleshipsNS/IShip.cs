@@ -15,7 +15,7 @@ namespace BattleshipsNS
         (int, int) StartLocation { get; set; }
         GridCell[] Sections { get; }
 
-        void UpdateSections();
+        void PlaceShip(Grid refGrid);
         void UpdateSunkFlag();
     }
 }

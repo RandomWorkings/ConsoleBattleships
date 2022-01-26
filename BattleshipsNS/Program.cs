@@ -11,7 +11,6 @@ namespace BattleshipsNS
         static void Main( )
         {
             //Program Instances
-            ValueGenerator generator = new ValueGenerator();
             //InputHandler Inputs = new InputHandler();
             OutputHandler Outputs = new OutputHandler();
 
@@ -25,10 +24,7 @@ namespace BattleshipsNS
 
             foreach (Ship ship in GameParts.Roster)
             {
-                ship.Orientation = generator.GetRandomOrientation();
-                (int column, int row) = generator.GetRandomLocation(GameBoard.Size);
-                ship.StartLocation = GameBoard.PlayGrid[column, row];
-                ship.UpdateSections();
+                
             }
 
             // Game Play

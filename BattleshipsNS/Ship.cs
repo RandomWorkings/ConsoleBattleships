@@ -37,9 +37,13 @@ namespace BattleshipsNS
         }
 
         // Methods, Events, Operators
-
-        public void UpdateSections()
+        public void PlaceShip(Grid refGrid)
         {
+            ValueGenerator generator = new ValueGenerator();
+            Orientation = generator.GetRandomOrientation();
+            StartLocation = generator.GetRandomLocation(GameBoard.Size);
+                
+
             GridCell Location = StartLocation;
             
             switch (Orientation)
