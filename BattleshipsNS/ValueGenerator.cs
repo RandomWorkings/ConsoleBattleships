@@ -29,18 +29,18 @@ namespace BattleshipsNS
             switch (refOrientation)
             {
                 case 2: //Vertical
-                    columnLimit = refSize + 1 - refLength;
-                    rowLimit = refSize + 1;
+                    columnLimit = refSize - refLength;
+                    rowLimit = refSize;
                     break;
 
                 default: // Horizontal
-                    columnLimit = refSize + 1;
-                    rowLimit = refSize + 1 - refLength;
+                    columnLimit = refSize;
+                    rowLimit = refSize - refLength;
                     break;
             }
             
-            int column = rand.Next(1, columnLimit);
-            int row = rand.Next(1, rowLimit);             
+            int column = rand.Next(0, columnLimit);
+            int row = rand.Next(0, rowLimit);             
             return (row, column);
         }
     }

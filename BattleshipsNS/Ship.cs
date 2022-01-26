@@ -54,28 +54,28 @@ namespace BattleshipsNS
                 switch (Orientation)
                 {
                     case 2: //Vertical
-                        for (int i = 0; i < Sections.Length-1; i++)
+                        for (int v = 0; v < Length; v++)
                         {
                             if (refGrid.PlayGrid[sectionRow, sectionColumn].Occupied)
                             {
                                 clearSpace = false;
                                 break;
                             }
-                            Sections[i] = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            Sections[v] = refGrid.PlayGrid[sectionRow, sectionColumn];
                             clearSpace = true;
                             sectionRow++;                            
                         }
                         break;
 
                     default: // Horizontal
-                        for (int i = 0; i < Sections.Length-1; i++)
+                        for (int h = 0; h < Length; h++)
                         {
                             if (refGrid.PlayGrid[sectionRow, sectionColumn].Occupied)
                             {
                                 clearSpace = false;
                                 break;
                             }
-                            Sections[i] = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            Sections[h] = refGrid.PlayGrid[sectionRow, sectionColumn];
                             clearSpace = true;
                             sectionColumn++;
                         }

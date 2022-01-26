@@ -29,11 +29,11 @@ namespace BatttleshipsNSTests
             int TestLength = 4;
             ValueGenerator TestGenerator = new ValueGenerator();
 
-            int ExpectedColMin = 1;
-            int ExpectedColMax = 10;
+            int ExpectedColMin = 0;
+            int ExpectedColMax = 9; //TestSize - 1
 
-            int ExpectedRowMin = 1;
-            int ExpectedRowMax = 6; //TestSize - TesLength
+            int ExpectedRowMin = 0;
+            int ExpectedRowMax = 5; //TestSize - 1 - TestLength
 
             //Act
             (int actualRow, int actualColumn) = TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);
@@ -53,11 +53,11 @@ namespace BatttleshipsNSTests
             int TestLength = 4;
             ValueGenerator TestGenerator = new ValueGenerator();
 
-            int ExpectedColMin = 1;
-            int ExpectedColMax = 6; //TestSize - TesLength
+            int ExpectedColMin = 0;
+            int ExpectedColMax = 5; //TestSize - 1 - TestLength
 
-            int ExpectedRowMin = 1;
-            int ExpectedRowMax = 10;
+            int ExpectedRowMin = 0;
+            int ExpectedRowMax = 9; //TestSize - 1
 
             //Act
             (int actualRow, int actualColumn) = TestGenerator.GetRandomLocation(TestOrientation, TestLength, TestSize);

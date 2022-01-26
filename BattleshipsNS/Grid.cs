@@ -24,9 +24,9 @@ namespace BattleshipsNS
             char columnLetter = 'A';
             for (int row = 0; row < gridSize; row++)
             {
-                for (int column = 0; row < gridSize; column++)
+                for (int column = 0; column < gridSize; column++)
                 {
-                    PlayGrid[row, column] = new GridCell(row + 1, columnLetter,);
+                    PlayGrid[row, column] = new GridCell(row + 1, columnLetter);
                 }
                 columnLetter++;
             }
