@@ -12,7 +12,6 @@ namespace BattleshipsNS
         Destroyer = 3
     };
 
-
     class Program
     {
         static void Main()

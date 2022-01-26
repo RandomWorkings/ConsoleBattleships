@@ -92,6 +92,7 @@ namespace BattleshipsNS
                     for(int i = 0; i < Length; i++)
                     {
                         Sections[i].Occupied = true;
+                        //Sections[i].Contents = 'x';
                     }
                     break;
                 }
