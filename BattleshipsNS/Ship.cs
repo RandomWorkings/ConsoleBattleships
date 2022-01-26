@@ -30,6 +30,8 @@ namespace BattleshipsNS
             ShipTypes shipType = (ShipTypes)Enum.Parse(typeof(ShipTypes), ship);
 
             Length = (int)shipType;
+
+            SunkFlag = false;
         }
 
         // Methods, Events, Operators
