@@ -89,7 +89,7 @@ namespace BattleshipsNS
                 if (clearSpace)
                 {
                     
-                    for(int i = 0, i < Length; i++)
+                    for(int i = 0; i < Length; i++)
                     {
                         Sections[i].Occupied = true;
                         Sections[i].Contents = 'x';
