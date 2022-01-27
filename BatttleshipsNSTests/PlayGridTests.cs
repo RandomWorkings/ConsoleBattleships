@@ -5,7 +5,7 @@ using BattleshipsNS;
 namespace BatttleshipsNSTests
 {
     [TestClass]
-    public class GridTests
+    public class PlayGridTests
     {
         //Shared Test Inputs
         private static readonly int TestSize = 10;
@@ -14,11 +14,11 @@ namespace BatttleshipsNSTests
         public void Size_WhenCalled_WithoutArguments_GetSize()
         {
             int expected = TestSize;
-            Grid TestGrid = new Grid(TestSize);
+            GameBoard TestGrid = new GameBoard(TestSize);
 
             int actual = TestGrid.Size;
 
-            Assert.AreEqual(expected, actual, ($@"GridTests_Size : Incorrect Grid Size Returned"));
+            Assert.AreEqual(expected, actual, ($@"PlayGridTests_Size : Incorrect Grid Size Returned"));
         }
         [TestMethod]
         public void PlayGrid_WhenCalled_WithValidArguments_GetPlayGrid()
@@ -26,20 +26,20 @@ namespace BatttleshipsNSTests
             int expectedRank = 2;
             int expectedRowCount = TestSize;
             int expectedColCount = TestSize;
-            Grid TestGrid = new Grid(TestSize);
+            GameBoard TestGrid = new GameBoard(TestSize);
 
             int actualRank = TestGrid.PlayGrid.Rank;
             int actualRowCount = TestGrid.PlayGrid.GetLength(0);
             int actualColCount = TestGrid.PlayGrid.GetLength(actualRank - 1);
 
-            Assert.AreEqual(expectedRank, actualRank, ($@"GridTests_PlayGrid : Incorrect 2-Dimensional Array rank returned"));
-            Assert.AreEqual(expectedRowCount, actualRowCount, ($@"GridTests_PlayGrid : Incorrect 2-Dimensional Array rows count"));
-            Assert.AreEqual(expectedColCount, actualColCount, ($@"GridTests_PlayGrid : Incorrect 2-Dimensional Array columns count"));
+            Assert.AreEqual(expectedRank, actualRank, ($@"PlayGridTests_PlayGrid : Incorrect 2-Dimensional Array rank returned"));
+            Assert.AreEqual(expectedRowCount, actualRowCount, ($@"PlayGridTests_PlayGrid : Incorrect 2-Dimensional Array rows count"));
+            Assert.AreEqual(expectedColCount, actualColCount, ($@"PlayGridTests_PlayGrid : Incorrect 2-Dimensional Array columns count"));
             for (int row = 0; row < TestSize; row++)
             {
                 for (int col = 0; col < TestSize; col++)
                 {
-                    Assert.IsInstanceOfType((TestGrid.PlayGrid[row,col]), typeof(GridCell), ($@"GridTests_PlayGrid: Incorrect 2-Dimensional Array Contents Type returned"));
+                    Assert.IsInstanceOfType((TestGrid.PlayGrid[row,col]), typeof(BoardSpace), ($@"PlayGridTests_PlayGrid: Incorrect 2-Dimensional Array Contents Type returned"));
                 }
             }
         }

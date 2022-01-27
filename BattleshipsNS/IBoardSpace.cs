@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IGrid
+    interface IBoardSpace
     {
-        int Size { get; }
-        GridCell[,] PlayGrid { get; }
-
-        GridCell GetTargetGridCell(string gridCell);
-
+        string ID { get; }
+        bool Occupied { get; set; }
+        char? Contents { get; set; }
     }
 }

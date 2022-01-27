@@ -4,10 +4,10 @@ using System;
 namespace BatttleshipsNSTests
 {
     [TestClass]
-    public class GameSetupTests
+    public class BattleshipsSetupTests
     {
         [TestMethod]
-        public void GameSetupTests_WhenSetupStarting_AGridIsCreated()
+        public void BattleshipsSetupTests_WhenSetupStarting_AGridIsCreated()
         {
             //Arrange, Given the application has started.
 
@@ -18,7 +18,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GameSetupTests_WhenThereAreNoUnplacedShips_SetupEnds()
+        public void BattleshipsSetupTests_WhenThereAreNoUnplacedShips_SetupEnds()
         {
             //Arrange, Given a play grid exists.
 
@@ -29,7 +29,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GameSetupTests_WhenThereAreUnplacedShips_ThatAnUnplacedShipIsSelected()
+        public void BattleshipsSetupTests_WhenThereAreUnplacedShips_ThatAnUnplacedShipIsSelected()
         {
             //Arrange, Given a play grid exists.
 
@@ -40,7 +40,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GameSetupTests_WhenShipHasPositionNotOverlappingOtherShip_AndNotOverhangingPlayGrid_ThatShipisPlaced()
+        public void BattleshipsSetupTests_WhenShipHasPositionNotOverlappingOtherShip_AndNotOverhangingPlayGrid_ThatShipisPlaced()
         {
             //Arrange, Given a ship is selected.
 
@@ -52,7 +52,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GameSetupTests_WhenShipHasPositionOverlappingOtherShip_AndNotOverhangingPlayGrid_ThatShipisGivenNewPosition()
+        public void BattleshipsSetupTests_WhenShipHasPositionOverlappingOtherShip_AndNotOverhangingPlayGrid_ThatShipisGivenNewPosition()
         {
             //Arrange, Given a ship is selected.
 
@@ -64,7 +64,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GameSetupTests_WhenShipHasPositionNotOverlappingOtherShip_AndOverhangingPlayGrid_ThatShipisGivenNewPosition()
+        public void BattleshipsSetupTests_WhenShipHasPositionNotOverlappingOtherShip_AndOverhangingPlayGrid_ThatShipisGivenNewPosition()
         {
             //Arrange, Given a ship is selected.
 

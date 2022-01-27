@@ -16,7 +16,7 @@ namespace BattleshipsNS
         public bool SunkFlag { get; private set; }
         public int Orientation { get; set; }
         public (int, int) StartLocation { get; set; }
-        public GridCell[] Sections { get; private set; }
+        public BoardSpace[] Sections { get; private set; }
 
         // Constructor Declaration of Class
         public Ship(ShipTypes ship, int shipCount)
@@ -33,11 +33,11 @@ namespace BattleshipsNS
 
             StartLocation = (0, 0);
 
-            Sections = new GridCell[Length];
+            Sections = new BoardSpace[Length];
         }
 
         // Methods, Events, Operators
-        public void PlaceShip(Grid refGrid)
+        public void PlaceShip(GameBoard refGrid)
         {
             ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
@@ -56,7 +56,7 @@ namespace BattleshipsNS
                         
                         for (int v = 0; v < Length; v++)
                         {
-                            GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            BoardSpace refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
                             if (refCell.Occupied)
                             {
                                 clearSpace = false;
@@ -71,7 +71,7 @@ namespace BattleshipsNS
                     default: // Horizontal
                         for (int h = 0; h < Length; h++)
                         {
-                            GridCell refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            BoardSpace refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
                             
                             if (refCell.Occupied)
                             {
@@ -103,7 +103,7 @@ namespace BattleshipsNS
                  
         public void UpdateSunkFlag()
         {
-            foreach (GridCell section in Sections)
+            foreach (BoardSpace section in Sections)
             {
                 switch (section.Contents)
                 { 

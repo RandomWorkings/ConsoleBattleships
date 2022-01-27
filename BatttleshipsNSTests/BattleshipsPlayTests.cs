@@ -4,10 +4,10 @@ using System;
 namespace BatttleshipsNSTests
 {
     [TestClass]
-    public class GamePlayTests
+    public class BattleshipsPlayTests
     {
         [TestMethod]
-        public void GamePlayTests_WhenGameplayStarts_ThenTheSystemChecksForUnsunkShips()
+        public void BattleshipsPlayTests_WhenGameplayStarts_ThenTheSystemChecksForUnsunkShips()
         {
             //Arrange, Given the application has started.
 
@@ -18,7 +18,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenThereAreUnsunkShips_ThenThePlayerIsAskedForAnInput()
+        public void BattleshipsPlayTests_WhenThereAreUnsunkShips_ThenThePlayerIsAskedForAnInput()
         {
             //Arrange, Given the system has checked for unsunk ships.
 
@@ -29,7 +29,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenThereAreNoSunkShips_ThenThePlayerIsTold_AndGameplayEnds()
+        public void BattleshipsPlayTests_WhenThereAreNoSunkShips_ThenThePlayerIsTold_AndGameplayEnds()
         {
             //Arrange, Given the system has checked for unsunk ships.
 
@@ -41,7 +41,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenUserInputsInvalidValue_ThenThePlayerIsInformedOfInvalidInput()
+        public void BattleshipsPlayTests_WhenUserInputsInvalidValue_ThenThePlayerIsInformedOfInvalidInput()
         {
             //Arrange, Given the user has been asked for an input.
 
@@ -52,7 +52,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenUserInputsValidValue_ThenInputHistoryIsRetrieved()
+        public void BattleshipsPlayTests_WhenUserInputsValidValue_ThenInputHistoryIsRetrieved()
         {
             //Arrange, Given the user has been asked for an input.
 
@@ -63,7 +63,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenAUserInputMatchesAnItemInHistory_ThenTheUserIsInformedOfDuplicate()
+        public void BattleshipsPlayTests_WhenAUserInputMatchesAnItemInHistory_ThenTheUserIsInformedOfDuplicate()
         {
             //Arrange, Given the system has retrieved the input history.
 
@@ -74,7 +74,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenAUserInputMatchesAnItemInHistory_ThenHistoryIsUpdated_AndGridLocationIsChecked()
+        public void BattleshipsPlayTests_WhenAUserInputMatchesAnItemInHistory_ThenHistoryIsUpdated_AndGridLocationIsChecked()
         {
             //Arrange, Given the system has retrieved the input history.
 
@@ -86,7 +86,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenALocationIsUnoccupied_ThenThePlayerIsInformedOfMissing()
+        public void BattleshipsPlayTests_WhenALocationIsUnoccupied_ThenThePlayerIsInformedOfMissing()
         {
             //Arrange, Given the system has checked the target grid location.
 
@@ -97,7 +97,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenALocationIsOccupied_ThenThePlayerIsInformedOfHitting_AndTheOccupyingShipSectionIsUpdated()
+        public void BattleshipsPlayTests_WhenALocationIsOccupied_ThenThePlayerIsInformedOfHitting_AndTheOccupyingShipSectionIsUpdated()
         {
             //Arrange, Given the system has checked the target grid location.
 
@@ -109,7 +109,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GamePlayTests_WhenAllShipSectionsAreHit_ThenTheShipIsSunk_AndThePlayerIsInformedOfSinking()
+        public void BattleshipsPlayTests_WhenAllShipSectionsAreHit_ThenTheShipIsSunk_AndThePlayerIsInformedOfSinking()
         {
             //Arrange, Given the system updated a ship's section.
 

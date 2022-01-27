@@ -14,9 +14,9 @@ namespace BattleshipsNS
         bool SunkFlag { get; }
         int Orientation { get; set; }
         (int, int) StartLocation { get; set; }
-        GridCell[] Sections { get; }
+        BoardSpace[] Sections { get; }
 
-        void PlaceShip(Grid refGrid);
+        void PlaceShip(GameBoard refGrid);
         void UpdateSunkFlag();
     }
 }

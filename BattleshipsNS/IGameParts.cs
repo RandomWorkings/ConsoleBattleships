@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IGridCell
+    interface IGameParts
     {
-        string ID { get; }
-        bool Occupied { get; set; }
-        char? Contents { get; set; }
+        Ship[] Ships { get; }
+
+        bool CheckRosterSunk();
     }
 }

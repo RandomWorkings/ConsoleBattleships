@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    public class ShipRoster : IShipRoster
+    public class GameParts : IGameParts
     {
         // Fields, Properties
         public Ship[] Ships { get; private set; }
 
         // Constructor Declaration of Class
-        public ShipRoster(ShipTypes[] roster)
+        public GameParts(ShipTypes[] roster)
         {
             Ships = new Ship[roster.Length];
 

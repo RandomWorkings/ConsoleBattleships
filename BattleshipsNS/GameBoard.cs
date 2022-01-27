@@ -7,33 +7,33 @@ using System.Threading.Tasks;
 namespace BattleshipsNS
 {
 
-    public class Grid : IGrid
+    public class GameBoard : IGameBoard
     {
         // Fields, Properties
         public int Size { get; private set; }
-        public GridCell[,] PlayGrid { get; private set; }
+        public BoardSpace[,] PlayGrid { get; private set; }
 
         // Constructor Declaration of Class
-        public Grid(int gridSize)
+        public GameBoard(int gridSize)
         {
            //Parameter Assignment
            Size = gridSize;
             
             //Array Initialization and Population
-            PlayGrid = new GridCell[gridSize, gridSize];
+            PlayGrid = new BoardSpace[gridSize, gridSize];
             char columnLetter = 'A';
             for (int row = 0; row < gridSize; row++)
             {
                 for (int column = 0; column < gridSize; column++)
                 {
-                    PlayGrid[row, column] = new GridCell(row + 1, columnLetter);
+                    PlayGrid[row, column] = new BoardSpace(row + 1, columnLetter);
                 }
                 columnLetter++;
             }
         }
 
         // Methods, Events, Operators
-        public GridCell GetTargetGridCell(string gridCell)
-        { return new GridCell(1, 'A'); }
+        public BoardSpace GetTargetGridCell(string gridCell)
+        { return new BoardSpace(1, 'A'); }
     }
 }

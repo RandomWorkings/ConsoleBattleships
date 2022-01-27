@@ -43,15 +43,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameSetupTests.cs" />
+    <Compile Include="BattleshipsSetupTests.cs" />
     <Compile Include="GridCellTests.cs" />
     <Compile Include="InputHandlerTests.cs" />
     <Compile Include="OutputHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GridTests.cs" />
+    <Compile Include="PlayGridTests.cs" />
     <Compile Include="ShipRosterTests.cs" />
     <Compile Include="ShipTests.cs" />
-    <Compile Include="GamePlayTests.cs" />
+    <Compile Include="BattleshipsPlayTests.cs" />
     <Compile Include="ValueGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>

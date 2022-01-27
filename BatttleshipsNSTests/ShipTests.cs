@@ -106,13 +106,13 @@ namespace BatttleshipsNSTests
             bool actualSunkFlag = ship.SunkFlag;
             int actualOrientation = ship.Orientation;
             (int, int) actualLocation = ship.StartLocation;
-            GridCell[] actualSections = ship.Sections;
+            BoardSpace[] actualSections = ship.Sections;
 
             //Assess
             Assert.AreEqual(expectedSunkFlag, actualSunkFlag, ($@"ShipTests_Ship : Returned incorrect Default Sunk Flag value."));
             Assert.AreEqual(expectedOrientation, actualOrientation, ($@"ShipTests_Ship : Returned incorrect Default Orientation value."));
             Assert.AreEqual(expectedLocation, actualLocation, ($@"ShipTests_Ship : Returned incorrect Default Start Location value."));
-            Assert.IsInstanceOfType(actualSections, typeof(GridCell[]), ($@"ShipTests_Ship : Returned incorrect Default Section Array Type."));
+            Assert.IsInstanceOfType(actualSections, typeof(BoardSpace[]), ($@"ShipTests_Ship : Returned incorrect Default Section Array Type."));
             for (int i = 0; i < ship.Length; i++)
             {
                 Assert.AreEqual((actualSections[i]), null, ($@"GridTests_PlayGrid: Returned incorrect Default Array Contents Type"));

@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IShipRoster
+    interface IBattleshipsSetup
     {
-        Ship[] Ships { get; }
-
-        bool CheckRosterSunk();
     }
 }

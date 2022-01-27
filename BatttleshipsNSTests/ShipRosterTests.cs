@@ -17,7 +17,7 @@ namespace BatttleshipsNSTests
         {
             //Arrange
             int expectedSize = TestArrayLength;
-            ShipRoster roster = new ShipRoster(TestRoster);
+            GameParts roster = new GameParts(TestRoster);
 
             //Act
             int actualSize = roster.Ships.Length;
@@ -34,8 +34,8 @@ namespace BatttleshipsNSTests
         public void CheckRosterSunk_WhenCalled_WithUnSunkShips_SetSunkFlag()
         {
             bool expected = false;
-            ShipRoster roster = new ShipRoster(TestRoster);
-            Grid grid = new Grid(TestGridSize);
+            GameParts roster = new GameParts(TestRoster);
+            GameBoard grid = new GameBoard(TestGridSize);
             foreach (Ship ship in roster.Ships)
             {
                 ship.PlaceShip(grid);
@@ -50,9 +50,9 @@ namespace BatttleshipsNSTests
         public void CheckRosterSunk_WhenCalled_WithAllShipsSunk_SetSunkFlag()
         {
             bool expected = true;
-            ShipRoster roster = new ShipRoster(TestRoster);
+            GameParts roster = new GameParts(TestRoster);
 
-            Grid grid = new Grid(TestGridSize);
+            GameBoard grid = new GameBoard(TestGridSize);
             foreach (Ship ship in roster.Ships)
             {
                 ship.PlaceShip(grid);
@@ -63,7 +63,7 @@ namespace BatttleshipsNSTests
                 Ship ship = roster.Ships[i];
                 for (int j = 0; j < ship.Sections.Length; j++)
                 {
-                    GridCell cell = ship.Sections[j];
+                    BoardSpace cell = ship.Sections[j];
                     cell.Contents='x';
                 }
             }

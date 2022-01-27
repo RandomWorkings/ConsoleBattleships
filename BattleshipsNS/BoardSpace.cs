@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    public class GridCell : IGridCell
+    public class BoardSpace : IBoardSpace
     {
         public string ID { get; private set; }
         public bool Occupied { get; set; }
         public char? Contents { get; set; }
         
-        public GridCell(int row, char column)
+        public BoardSpace(int row, char column)
         {
             ID = "" + column + row + "";
             Occupied = false;

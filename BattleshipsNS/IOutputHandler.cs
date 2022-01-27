@@ -10,6 +10,6 @@ namespace BattleshipsNS
     {
         void GenerateMessage(int MessageID);
 
-        void DisplayPlayGrid(Grid playGrid);
+        void DisplayPlayGrid(GameBoard playGrid);
     }
 }

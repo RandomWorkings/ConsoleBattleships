@@ -17,7 +17,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void ID_WhenCalled_GetCellID()
         {
-            GridCell TestCell = new GridCell(TestNumber, TestLetter);
+            BoardSpace TestCell = new BoardSpace(TestNumber, TestLetter);
             string expected = TestString;
 
             string actual = TestCell.ID;
@@ -27,7 +27,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Occupied_WhenCalled_WithValidAssignment_SetCellOccupied()
         {
-            GridCell TestCell = new GridCell(TestNumber, TestLetter);
+            BoardSpace TestCell = new BoardSpace(TestNumber, TestLetter);
             bool expected = TestOccupied;
 
             TestCell.Occupied = TestOccupied;
@@ -38,7 +38,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Contents_WhenCalled_WithValidAssignment_SetCellContents()
         {
-            GridCell TestCell = new GridCell(TestNumber, TestLetter);
+            BoardSpace TestCell = new BoardSpace(TestNumber, TestLetter);
             char? expected = TestContents;
 
             TestCell.Contents = TestContents;
@@ -51,7 +51,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void GridCell_WhenCalled__WithValidParameters_InitializeDefaultCellValues()
         {
-            GridCell TestCell = new GridCell(TestNumber, TestLetter);
+            BoardSpace TestCell = new BoardSpace(TestNumber, TestLetter);
             bool expectedOccupied = false;
             char? expectedContents = null;
 

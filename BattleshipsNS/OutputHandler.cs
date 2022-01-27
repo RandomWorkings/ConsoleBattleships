@@ -18,7 +18,7 @@ namespace BattleshipsNS
         public void GenerateMessage(int MessageID)
         { }
 
-        public void DisplayPlayGrid(Grid UIGrid)
+        public void DisplayPlayGrid(GameBoard UIGrid)
         {
             char columnLetter = 'A';
             int rowNumber = 1;
@@ -49,7 +49,7 @@ namespace BattleshipsNS
 
                 for (int column = 0; column < UIGrid.Size; column++)
                 {
-                    GridCell cell = UIGrid.PlayGrid[row, column];
+                    BoardSpace cell = UIGrid.PlayGrid[row, column];
 
                     if(cell.Contents == null)
                     {
