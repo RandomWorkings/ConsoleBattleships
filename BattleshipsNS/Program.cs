@@ -66,7 +66,6 @@ namespace BattleshipsNS
                 Console.WriteLine();
                 Console.WriteLine("Press Enter to repeat");
                 Console.WriteLine("Press any other button to quit");
-                Console.WriteLine();
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 switch (keyInfo.Key)
                 {

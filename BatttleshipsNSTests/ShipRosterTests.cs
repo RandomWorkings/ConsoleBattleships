@@ -23,10 +23,10 @@ namespace BatttleshipsNSTests
             int actualSize = roster.Ships.Length;
 
             //Assess
-            Assert.AreEqual(expectedSize, actualSize, "ShipRosterTests_ShipRoster : Array incorrect size");
+            Assert.AreEqual(expectedSize, actualSize, ($@"ShipRosterTests_ShipRoster : Array incorrect size"));
             for (int i = 0; i < actualSize; i++)
             {
-                Assert.IsInstanceOfType((roster.Ships[i]), typeof(Ship), "ShipRosterTests_ShipRoster : Array contents incorrect type");
+                Assert.IsInstanceOfType((roster.Ships[i]), typeof(Ship), ($@"ShipRosterTests_ShipRoster : Array contents incorrect type"));
             }
         }
 
@@ -43,7 +43,7 @@ namespace BatttleshipsNSTests
 
             bool actual = roster.CheckRosterSunk();
 
-            Assert.AreEqual(expected, actual, "ShipRosterTests_CheckSunkFlag : Flag in incorrect state");
+            Assert.AreEqual(expected, actual, ($@"ShipRosterTests_CheckSunkFlag : Flag in incorrect state"));
         }
 
         [TestMethod]
@@ -70,7 +70,7 @@ namespace BatttleshipsNSTests
 
             bool actual = roster.CheckRosterSunk();
 
-            Assert.AreEqual(expected, actual, "ShipRosterTests_CheckSunkFlag : Flag in incorrect state");
+            Assert.AreEqual(expected, actual, ($@"ShipRosterTests_CheckSunkFlag : Flag in incorrect state"));
         }
 
     }
