@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GamePlay.cs" />
+    <Compile Include="GameSetup.cs" />
     <Compile Include="GridCell.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="IGridCell.cs" />

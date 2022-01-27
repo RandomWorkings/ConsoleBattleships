@@ -43,7 +43,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BattleshipNSTests.cs" />
+    <Compile Include="GameSetupTests.cs" />
     <Compile Include="GridCellTests.cs" />
     <Compile Include="InputHandlerTests.cs" />
     <Compile Include="OutputHandlerTests.cs" />
@@ -51,6 +51,7 @@
     <Compile Include="GridTests.cs" />
     <Compile Include="ShipRosterTests.cs" />
     <Compile Include="ShipTests.cs" />
+    <Compile Include="GamePlayTests.cs" />
     <Compile Include="ValueGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
