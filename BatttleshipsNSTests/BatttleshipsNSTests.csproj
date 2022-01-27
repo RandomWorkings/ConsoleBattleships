@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleshipsSetupTests.cs" />
-    <Compile Include="GridCellTests.cs" />
+    <Compile Include="BoardSpaceTests.cs" />
     <Compile Include="InputHandlerTests.cs" />
     <Compile Include="OutputHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

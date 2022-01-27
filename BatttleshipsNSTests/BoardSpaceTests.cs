@@ -5,7 +5,7 @@ using BattleshipsNS;
 namespace BatttleshipsNSTests
 {
     [TestClass]
-    public class GridCellTests
+    public class BoardSpaceTests
     {
         //Shared Test Inputs
         private static readonly bool TestOccupied = true;
@@ -22,7 +22,7 @@ namespace BatttleshipsNSTests
 
             string actual = TestCell.ID;
 
-            Assert.AreEqual(expected, actual, true, ($@"GridCellTests_ID : Incorrect ID returned"));
+            Assert.AreEqual(expected, actual, true, ($@"BoardSpaceTests_ID : Incorrect ID returned"));
         }
         [TestMethod]
         public void Occupied_WhenCalled_WithValidAssignment_SetCellOccupied()
@@ -33,7 +33,7 @@ namespace BatttleshipsNSTests
             TestCell.Occupied = TestOccupied;
             bool actual = TestCell.Occupied;
 
-            Assert.AreEqual(expected, actual, ($@"GridCellTests_Occupied : Incorrect Occupied value returned"));
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
         }
         [TestMethod]
         public void Contents_WhenCalled_WithValidAssignment_SetCellContents()
@@ -44,22 +44,22 @@ namespace BatttleshipsNSTests
             TestCell.Contents = TestContents;
             char? actual = TestCell.Contents;
 
-            Assert.AreEqual(expected, actual, ($@"GridCellTests_Contents : Incorrect Contents value returned"));
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect Contents value returned"));
         }
 
 
         [TestMethod]
-        public void GridCell_WhenCalled__WithValidParameters_InitializeDefaultCellValues()
+        public void BoardSpace_WhenCalled__WithValidParameters_InitializeDefaultCellValues()
         {
-            BoardSpace TestCell = new BoardSpace(TestNumber, TestLetter);
+            BoardSpace TestSpace = new BoardSpace(TestNumber, TestLetter);
             bool expectedOccupied = false;
             char? expectedContents = null;
 
-            bool actualOccupied = TestCell.Occupied;
-            char? actualContents = TestCell.Contents;
+            bool actualOccupied = TestSpace.Occupied;
+            char? actualContents = TestSpace.Contents;
 
-            Assert.AreEqual(expectedOccupied, actualOccupied, ($@"GridCellTests_GridCell : Incorrect Default Occupied returned"));
-            Assert.AreEqual(expectedContents, actualContents, ($@"GridCellTests_GridCell : Incorrect Default Contents returned"));
+            Assert.AreEqual(expectedOccupied, actualOccupied, ($@"BoardSpaceTests_BoardSpace : Incorrect Default Occupied returned"));
+            Assert.AreEqual(expectedContents, actualContents, ($@"BoardSpaceTests_BoardSpace : Incorrect Default Contents returned"));
         }
         
     }
