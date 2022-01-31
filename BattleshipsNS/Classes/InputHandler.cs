@@ -10,20 +10,17 @@ namespace BattleshipsNS
     {
         private char[] AcceptedCharacters;
         private int[] AcceptedIntegers;
-        private int AcceptedLength;
-        private int boardSize;
+        private int BoardSize;
 
-        public InputHandler(GameBoard gameBoard)
+        public InputHandler(int boardSize)
         {
-            boardSize = gameBoard.BoardSize;
+            BoardSize = boardSize;
             
-            AcceptedCharacters = new char[boardSize];
+            AcceptedCharacters = new char[BoardSize];
             SetAcceptedCharacters();
 
-            AcceptedIntegers = new int[boardSize];
+            AcceptedIntegers = new int[BoardSize];
             SetAcceptedIntegers();
-
-            SetAcceptedLength(); 
         }
 
         public string GetUserInput()
@@ -41,11 +38,10 @@ namespace BattleshipsNS
             int inputInteger = CollectInputInteger(userInput);
 
             //Input Checks
-            int lengthCheck = CheckValidLength(userInput);
             int characterCheck = CheckValidCharacter(inputCharacter);
             int integerCheck = CheckValidInteger(inputInteger);
 
-            return lengthCheck + characterCheck + integerCheck;
+            return characterCheck + integerCheck;
         }
 
         public (int, int) ConvertInputToTuple(string userInput)
@@ -63,7 +59,7 @@ namespace BattleshipsNS
         {
             char FirstAcceptedCharacter = 'A';
 
-            for(int i = 0; i < boardSize; i++)
+            for(int i = 0; i < BoardSize; i++)
             {
                 int CharacterAdjustment = 0 + i;
                 char nextValidCharacter = (Char)(Convert.ToInt32(FirstAcceptedCharacter) + CharacterAdjustment);
@@ -73,19 +69,12 @@ namespace BattleshipsNS
         private void SetAcceptedIntegers()
         {
             int FirstAcceptedInteger = 1;
-            for (int i = 0; i < boardSize; i++)
+            for (int i = 0; i < BoardSize; i++)
             {
                 int IntegerAdjustment = 0 + i;
                 int nextValidInteger = FirstAcceptedInteger + IntegerAdjustment;
                 AcceptedIntegers[i] = nextValidInteger;
             }
-        }
-        private void SetAcceptedLength()
-        {
-            char LastIDCharacter = AcceptedCharacters[AcceptedCharacters.Length - 1];
-            int LastIDInteger = AcceptedIntegers[AcceptedIntegers.Length - 1];
-            string LastSpaceID = ""+LastIDCharacter + LastIDInteger;
-            AcceptedLength = LastSpaceID.Length;
         }
         private char CollectInputCharacter(string userInput)
         {
@@ -97,21 +86,13 @@ namespace BattleshipsNS
             string inputNumber = userInput.Substring(1);            
             return int.Parse(inputNumber);
         }
-        private int CheckValidLength(string inputString)
-        {
-            bool validLength = (inputString.Length <= AcceptedLength);
-            if(validLength)
-            { return 0; }
-            else
-            { return 1; } // Output Enum Flags Messages - Input_InvalidLength
-        }
         private int CheckValidCharacter(char inputCharacter)
         {
             bool validCharacter = Array.Exists(AcceptedCharacters, c => c == inputCharacter);
             if (validCharacter)
             { return 0; }
             else
-            { return 2; } // Output Enum Flags Messages - Input_InvalidCharacter
+            { return 1; } // Output Enum Flags Messages - Input_InvalidColumn
         }
         private int CheckValidInteger(int inputInteger)
         {
@@ -119,7 +100,7 @@ namespace BattleshipsNS
             if (validInteger)
             { return 0; }
             else
-            { return 4; } // Output Enum Flags Messages - Input_InvalidInteger
+            { return 2; } // Output Enum Flags Messages - Input_InvalidRow
         }
     }
 }
