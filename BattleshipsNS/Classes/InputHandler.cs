@@ -36,7 +36,7 @@ namespace BattleshipsNS
 
         public int ValidateInput(string userInput)
         {
-            string strRegex = @"(. [0-9]{2}$)";
+            string strRegex = @"([A-Z][0-9]{2}$)";
             Regex re = new Regex(strRegex);
 
             int formatCheck = 0;
