@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BattleshipsNS
@@ -35,13 +36,15 @@ namespace BattleshipsNS
 
         public int ValidateInput(string userInput)
         {
+            string strRegex = @"(.[0-9]{2}$)";
+            Regex re = new Regex(strRegex);
+
             char inputCharacter = CollectInputCharacter(userInput);
             int inputInteger = CollectInputInteger(userInput);
 
             //Input Checks
             int characterCheck = CheckValidCharacter(inputCharacter);
             int integerCheck = CheckValidInteger(inputInteger);
-
             return characterCheck + integerCheck;
         }
 
@@ -93,7 +96,7 @@ namespace BattleshipsNS
             if (validCharacter)
             { return 0; }
             else
-            { return 1; } // Output Enum Flags Messages - Input_InvalidColumn
+            { return (int)Messages.Was_An_Invalid_Coulumn_Input; } // Output Enum Flags Messages - Input_InvalidColumn
         }
         private int CheckValidInteger(int inputInteger)
         {
@@ -101,7 +104,7 @@ namespace BattleshipsNS
             if (validInteger)
             { return 0; }
             else
-            { return 2; } // Output Enum Flags Messages - Input_InvalidRow
+            { return (int)Messages.Was_An_Invalid_Row_Input; } // Output Enum Flags Messages - Input_InvalidRow
         }
     }
 }

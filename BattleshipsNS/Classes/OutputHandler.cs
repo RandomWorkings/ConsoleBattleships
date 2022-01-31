@@ -10,12 +10,13 @@ namespace BattleshipsNS
     public enum Messages
     {
         None = 0,
-        Was_An_Invalid_Column_Input = 1,
-        Was_An_Invalid_Row_Input = 2,
-        Repeat = 4,
-        Missed = 8,
-        Hit = 16,
-        Winner = 32
+        Was_An_Invalid_Input = 1,
+        Was_An_Invalid_Coulumn_Input = 2,
+        Was_An_Invalid_Row_Input = 4,
+        Was_A_Repeat = 8,
+        Missed = 16,
+        Hit = 32,
+        You_Are_The_Winner = 64
     }
 
     public class OutputHandler : IOutputHandler

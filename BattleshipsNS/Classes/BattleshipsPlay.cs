@@ -41,29 +41,29 @@ namespace BattleshipsNS
                     //Assess Target Occupied
                     if (TargetCell.Occupied)
                     {
+                        updatedMessageCodes = messageCodes + (int)Messages.Hit
                         //Assess Target Content
                         if (TargetCell.Contents == 'x')
                         {
-                            updatedMessageCodes = messageCodes + 4 + 16; //MessageCode add Target_Repeat AND Target_Hit.
+                            updatedMessageCodes = messageCodes + (int)Messages.Was_A_Repeat;
                         }
                         else
                         {
                             TargetCell.Contents = 'x';
-                            updatedMessageCodes = messageCodes + 16; //MessageCode add Target_Hit.
                         }
 
                     }
                     else
                     {
+                        updatedMessageCodes = messageCodes + (int)Messages.Missed; //MessageCode add Target_Miss.
                         //Assess Target Content
                         if (TargetCell.Contents == 'o')
                         {
-                            updatedMessageCodes = messageCodes + 4 + 8; //MessageCode add Target_Repeat AND Target_Miss.
+                            updatedMessageCodes = messageCodes + (int)Messages.Was_A_Repeat; //MessageCode add Target_Repeat AND Target_Miss.
                         }
                         else
                         {
                             TargetCell.Contents = 'o';
-                            updatedMessageCodes = messageCodes + 8; //MessageCode add Target_Miss.
                         }
                     }
 
