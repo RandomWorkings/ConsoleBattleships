@@ -28,12 +28,15 @@ namespace BattleshipsNS
 
         private void IDGenerator(int row, int column)
         {
-            char StartingLetter = 'A';
-            // Adjust to match column;
+            // Adjust column letter to match column number;
+            char FirstColumnLetter = 'A';
             int LetterAdjustment = 0 + column;
-            char CurrentLetter = (Char)(Convert.ToInt32(StartingLetter) + LetterAdjustment);
+            char ColumnLetter = (Char)(Convert.ToInt32(FirstColumnLetter) + LetterAdjustment);
 
-            ID = ""+CurrentLetter + row + "";            
+            // Adjust row number to index 1;
+            int RowNumber = row + 1;
+
+            ID = ""+ColumnLetter + RowNumber + "";            
         }
 
     }

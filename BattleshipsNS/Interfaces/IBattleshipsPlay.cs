@@ -8,5 +8,7 @@ namespace BattleshipsNS
 {
     interface IBattleshipsPlay
     {
+        GameParts GameParts { get; }
+        GameBoard GameBoard { get; }
     }
 }

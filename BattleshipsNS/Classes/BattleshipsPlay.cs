@@ -8,11 +8,17 @@ namespace BattleshipsNS
 {
     class BattleshipsPlay : IBattleshipsPlay
     {
-        public BattleshipsPlay()
+        public GameParts GameParts { get; private set; }
+        public GameBoard GameBoard { get; private set; }
+        private InputHandler Inputs;
+        private OutputHandler Outputs;
+
+        public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts, InputHandler inputs, OutputHandler outputs)
         {
-            //Program Instances
-            //InputHandler Inputs = new InputHandler();
-            OutputHandler Outputs = new OutputHandler();
+            GameParts = gameParts;
+            GameBoard = gameBoard;
+            Inputs = inputs;
+            Outputs = outputs;
 
             // Receive and Validate User Input
             int targetRow = 0;
@@ -31,7 +37,7 @@ namespace BattleshipsNS
             }
 
             //Check Win Condition
-            GameParts.CheckRosterSunk();
+            GameParts.CheckAllShipsSunk();
 
             //Display Latest Board State
             Outputs.DisplayPlayGrid(GameBoard);

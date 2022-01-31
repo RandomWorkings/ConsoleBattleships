@@ -17,7 +17,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void ID_WhenCalled_GetCellID()
         {
-            BoardSpace TestCell = new BoardSpace(TestNumber, TestLetter);
+            BoardSpace TestCell = new BoardSpace(TestNumber, TestNumber);
             string expected = TestString;
 
             string actual = TestCell.ID;
@@ -27,7 +27,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Occupied_WhenCalled_WithValidAssignment_SetCellOccupied()
         {
-            BoardSpace TestCell = new BoardSpace(TestNumber, TestLetter);
+            BoardSpace TestCell = new BoardSpace(TestNumber, TestNumber);
             bool expected = TestOccupied;
 
             TestCell.Occupied = TestOccupied;
@@ -38,7 +38,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Contents_WhenCalled_WithValidAssignment_SetCellContents()
         {
-            BoardSpace TestCell = new BoardSpace(TestNumber, TestLetter);
+            BoardSpace TestCell = new BoardSpace(TestNumber, TestNumber);
             char? expected = TestContents;
 
             TestCell.Contents = TestContents;

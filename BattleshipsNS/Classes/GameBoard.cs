@@ -28,7 +28,7 @@ namespace BattleshipsNS
             {
                 for (int column = 0; column < columnCount; column++)
                 {
-                    PlayGrid[row, column] = new BoardSpace(row + 1, column);
+                    PlayGrid[row, column] = new BoardSpace(row, column);
                 }
             }
         }

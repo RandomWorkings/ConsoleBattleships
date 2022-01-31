@@ -16,7 +16,7 @@ namespace BatttleshipsNSTests
             int expected = TestSize;
             GameBoard TestGrid = new GameBoard(TestSize);
 
-            int actual = TestGrid.Size;
+            int actual = TestGrid.BoardSize;
 
             Assert.AreEqual(expected, actual, ($@"PlayGridTests_Size : Incorrect Grid Size Returned"));
         }
