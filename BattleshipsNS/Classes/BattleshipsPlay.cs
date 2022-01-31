@@ -77,16 +77,8 @@ namespace BattleshipsNS
                 }
 
             }
-            if (gameParts.CheckAllShipsSunk())
-            {
-                //Display Game Victory Message
-                Outputs.GenerateMessages(32);
-            }
-            else
-            {
-                //Display Game Quit Message
-                Outputs.GenerateMessages(64);
-            }
+            //Display Game Victory Message
+            Outputs.GenerateMessages((int)Messages.You_Are_The_Winner);
         }
     }
 }
