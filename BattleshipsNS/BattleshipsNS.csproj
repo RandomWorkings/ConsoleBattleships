@@ -43,26 +43,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BattleshipsPlay.cs" />
-    <Compile Include="BattleshipsSetup.cs" />
-    <Compile Include="BoardSpace.cs" />
-    <Compile Include="GameBoard.cs" />
-    <Compile Include="IBattleshipsPlay.cs" />
-    <Compile Include="IBattleshipsSetup.cs" />
-    <Compile Include="IBoardSpace.cs" />
-    <Compile Include="IGameBoard.cs" />
-    <Compile Include="IInputHandler.cs" />
-    <Compile Include="InputHandler.cs" />
-    <Compile Include="IOutputHandler.cs" />
-    <Compile Include="IShip.cs" />
-    <Compile Include="IGameParts.cs" />
-    <Compile Include="IValueGenerator.cs" />
-    <Compile Include="OutputHandler.cs" />
+    <Compile Include="Classes\BattleshipsPlay.cs" />
+    <Compile Include="Classes\BattleshipsSetup.cs" />
+    <Compile Include="Classes\BoardSpace.cs" />
+    <Compile Include="Classes\GameBoard.cs" />
+    <Compile Include="Interfaces\IBattleshipsPlay.cs" />
+    <Compile Include="Interfaces\IBattleshipsSetup.cs" />
+    <Compile Include="Interfaces\IBoardSpace.cs" />
+    <Compile Include="Interfaces\IGameBoard.cs" />
+    <Compile Include="Interfaces\IInputHandler.cs" />
+    <Compile Include="Classes\InputHandler.cs" />
+    <Compile Include="Interfaces\IOutputHandler.cs" />
+    <Compile Include="Interfaces\IShip.cs" />
+    <Compile Include="Interfaces\IGameParts.cs" />
+    <Compile Include="Interfaces\IValueGenerator.cs" />
+    <Compile Include="Classes\OutputHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ship.cs" />
-    <Compile Include="GameParts.cs" />
-    <Compile Include="ValueGenerator.cs" />
+    <Compile Include="Classes\Ship.cs" />
+    <Compile Include="Classes\GameParts.cs" />
+    <Compile Include="Classes\ValueGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
