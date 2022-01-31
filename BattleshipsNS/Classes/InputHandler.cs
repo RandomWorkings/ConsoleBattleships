@@ -39,13 +39,25 @@ namespace BattleshipsNS
             string strRegex = @"(.[0-9]{2}$)";
             Regex re = new Regex(strRegex);
 
-            char inputCharacter = CollectInputCharacter(userInput);
-            int inputInteger = CollectInputInteger(userInput);
+            int formatCheck = 0;
+            int characterCheck = 0;
+            int integerCheck = 0;
 
-            //Input Checks
-            int characterCheck = CheckValidCharacter(inputCharacter);
-            int integerCheck = CheckValidInteger(inputInteger);
-            return characterCheck + integerCheck;
+            if (re.IsMatch(userInput))
+            {
+                char inputCharacter = CollectInputCharacter(userInput);
+                int inputInteger = CollectInputInteger(userInput);
+
+                //Input Checks
+                characterCheck = CheckValidCharacter(inputCharacter);
+                integerCheck = CheckValidInteger(inputInteger);
+            }
+            else
+            {
+                formatCheck = (int)Messages.Was_An_Invalid_Format;
+            }
+
+            return formatCheck + characterCheck + integerCheck;
         }
 
         public (int, int) ConvertInputToTuple(string userInput)

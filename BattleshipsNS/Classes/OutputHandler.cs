@@ -10,7 +10,7 @@ namespace BattleshipsNS
     public enum Messages
     {
         None = 0,
-        Was_An_Invalid_Input = 1,
+        Was_An_Invalid_Format = 1,
         Was_An_Invalid_Coulumn_Input = 2,
         Was_An_Invalid_Row_Input = 4,
         Was_A_Repeat = 8,

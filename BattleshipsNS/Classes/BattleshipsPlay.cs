@@ -41,7 +41,7 @@ namespace BattleshipsNS
                     //Assess Target Occupied
                     if (TargetCell.Occupied)
                     {
-                        updatedMessageCodes = messageCodes + (int)Messages.Hit
+                        updatedMessageCodes = messageCodes + (int)Messages.Hit;
                         //Assess Target Content
                         if (TargetCell.Contents == 'x')
                         {
