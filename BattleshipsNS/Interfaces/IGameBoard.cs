@@ -11,7 +11,7 @@ namespace BattleshipsNS
         int BoardSize { get; }
         BoardSpace[,] PlayGrid { get; }
 
-        BoardSpace GetTargetGridCell(string gridCell);
+        BoardSpace GetTargetBoardSpace(string targetSpace);
 
     }
 }

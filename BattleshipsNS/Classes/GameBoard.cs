@@ -38,7 +38,7 @@ namespace BattleshipsNS
         }
 
         // Methods, Events, Operators
-        public BoardSpace GetTargetGridCell(string gridCell)
+        public BoardSpace GetTargetBoardSpace(string targetSpace)
         {
             return new BoardSpace(1, 'A');
         }

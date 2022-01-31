@@ -5,7 +5,7 @@ using BattleshipsNS;
 namespace BatttleshipsNSTests
 {
     [TestClass]
-    public class ShipRosterTests
+    public class GamePartsTests
     {
         //Shared Test Inputs
         private static readonly ShipTypes[] TestRoster = { ShipTypes.Battleship, ShipTypes.Destroyer };

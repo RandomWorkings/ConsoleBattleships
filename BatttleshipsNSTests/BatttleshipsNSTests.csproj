@@ -48,8 +48,8 @@
     <Compile Include="InputHandlerTests.cs" />
     <Compile Include="OutputHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PlayGridTests.cs" />
-    <Compile Include="ShipRosterTests.cs" />
+    <Compile Include="GameBoardTests.cs" />
+    <Compile Include="GamePartsTests.cs" />
     <Compile Include="ShipTests.cs" />
     <Compile Include="BattleshipsPlayTests.cs" />
     <Compile Include="ValueGeneratorTests.cs" />

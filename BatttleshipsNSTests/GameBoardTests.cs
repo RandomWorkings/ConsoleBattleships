@@ -5,13 +5,13 @@ using BattleshipsNS;
 namespace BatttleshipsNSTests
 {
     [TestClass]
-    public class PlayGridTests
+    public class GameBoardTests
     {
         //Shared Test Inputs
         private static readonly int TestSize = 10;
 
         [TestMethod]
-        public void Size_WhenCalled_WithoutArguments_GetSize()
+        public void BoardSize_WhenCalled_WithoutArguments_GetSize()
         {
             int expected = TestSize;
             GameBoard TestGrid = new GameBoard(TestSize);
@@ -21,7 +21,7 @@ namespace BatttleshipsNSTests
             Assert.AreEqual(expected, actual, ($@"PlayGridTests_Size : Incorrect Grid Size Returned"));
         }
         [TestMethod]
-        public void PlayGrid_WhenCalled_WithValidArguments_GetPlayGrid()
+        public void GameBoard_WhenCalled_WithValidArguments_GetPlayGrid()
         {
             int expectedRank = 2;
             int expectedRowCount = TestSize;
@@ -47,7 +47,7 @@ namespace BatttleshipsNSTests
 
         /*Code To Test Not Implemented*/
         [TestMethod]
-        public void GetTargetGridCell_WhenValidInput_GetTargetGridCell()
+        public void GetTargetBoardSpace_WhenValidInput_GetTargetGridCell()
         {
             //Arrange
 
