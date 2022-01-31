@@ -50,7 +50,7 @@ namespace BattleshipsNS
             {
                 if (ship.SunkFlag)
                 {
-                    SunkShipCount++;
+                    SunkShipCount--;
                 }
             }
             return SunkShipCount;
