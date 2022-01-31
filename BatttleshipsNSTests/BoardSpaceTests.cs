@@ -7,60 +7,118 @@ namespace BatttleshipsNSTests
     [TestClass]
     public class BoardSpaceTests
     {
-        //Shared Test Inputs
-        private static readonly bool TestOccupied = true;
-        private static readonly char TestLetter = 'A';
-        private static readonly char? TestContents = 'x';
-        private static readonly int TestNumber = 1;
-        private static readonly string TestString = ""+TestLetter+TestNumber;
-
         [TestMethod]
-        public void ID_WhenCalled_GetCellID()
+        public void ID_WhenSpaceCreatedWithNoArguments_WithNoArguments_ReturnsID()
         {
-            BoardSpace TestCell = new BoardSpace(TestNumber, TestNumber);
-            string expected = TestString;
+            string expected = "A1";
+            BoardSpace TestSpace = new BoardSpace();
 
-            string actual = TestCell.ID;
+            string actual = TestSpace.ID;
+
+            Assert.AreEqual(expected, actual, true, ($@"BoardSpaceTests_ID : Incorrect ID returned"));
+        }
+        public void ID_WhenSpaceCreatedWithTwoInts_WithNoArguments_ReturnsID()
+        {
+            string expected = "A1";
+            int row = 0;
+            int column = 0;
+            BoardSpace TestSpace = new BoardSpace(row, column);
+
+            string actual = TestSpace.ID;
 
             Assert.AreEqual(expected, actual, true, ($@"BoardSpaceTests_ID : Incorrect ID returned"));
         }
         [TestMethod]
-        public void Occupied_WhenCalled_WithValidAssignment_SetCellOccupied()
+        public void Occupied_WhenSpaceCreatedWithNoArguments_WithNoArguments_ReturnsOccupied()
         {
-            BoardSpace TestCell = new BoardSpace(TestNumber, TestNumber);
-            bool expected = TestOccupied;
+            bool expected = false;
+            BoardSpace TestSpace = new BoardSpace();
 
-            TestCell.Occupied = TestOccupied;
-            bool actual = TestCell.Occupied;
+            bool actual = TestSpace.Occupied;
 
             Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
         }
         [TestMethod]
-        public void Contents_WhenCalled_WithValidAssignment_SetCellContents()
+        public void Occupied_WhenSpaceCreatedWithTwoInts_WithNoArguments_ReturnsOccupied()
         {
-            BoardSpace TestCell = new BoardSpace(TestNumber, TestNumber);
-            char? expected = TestContents;
+            bool expected = false;
+            int row = 0;
+            int column = 0;
+            BoardSpace TestSpace = new BoardSpace(row, column);
 
-            TestCell.Contents = TestContents;
+            bool actual = TestSpace.Occupied;
+
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
+        }
+        [TestMethod]
+        public void Occupied_WhenSpaceCreatedWithNoArguments_WithSingleBool_ReturnsSameOccupied()
+        {
+            bool expected = true;
+            BoardSpace TestSpace = new BoardSpace();
+            TestSpace.Occupied = true;
+
+            bool actual = TestSpace.Occupied;
+
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
+        }
+        [TestMethod]
+        public void Occupied_WhenSpaceCreatedWithTwoInts_WithSingleBool_ReturnsSameOccupied()
+        {
+            bool expected = true;
+            int row = 0;
+            int column = 0;
+            BoardSpace TestSpace = new BoardSpace(row, column);
+            TestSpace.Occupied = true;
+
+            bool actual = TestSpace.Occupied;
+
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
+        }
+        [TestMethod]
+        public void Contents_WhenSpaceCreatedWithNoArguments_WithNoArguments_ReturnsContents()
+        {
+            char? expected = null;
+            BoardSpace TestSpace = new BoardSpace();
+
+            char? actual = TestSpace.Contents;
+
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect Contents value returned"));
+        }
+        [TestMethod]
+        public void Contents_WhenCellCreatedWithTwoInts_WithNoArguments_ReturnsContents()
+        {
+            char? expected = null;
+            int row = 0;
+            int column = 0;
+            BoardSpace TestCell = new BoardSpace(row, column);
+
             char? actual = TestCell.Contents;
 
             Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect Contents value returned"));
         }
-
-
         [TestMethod]
-        public void BoardSpace_WhenCalled__WithValidParameters_InitializeDefaultCellValues()
+        public void Contents_WhenCellCreatedWithNoArguments_WithSingleChar_ReturnsSameContents()
         {
-            BoardSpace TestSpace = new BoardSpace(TestNumber, TestLetter);
-            bool expectedOccupied = false;
-            char? expectedContents = null;
+            char? expected = 'a';
+            BoardSpace TestSpace = new BoardSpace();
+            TestSpace.Contents = 'a';
 
-            bool actualOccupied = TestSpace.Occupied;
-            char? actualContents = TestSpace.Contents;
+            char? actual = TestSpace.Contents;
 
-            Assert.AreEqual(expectedOccupied, actualOccupied, ($@"BoardSpaceTests_BoardSpace : Incorrect Default Occupied returned"));
-            Assert.AreEqual(expectedContents, actualContents, ($@"BoardSpaceTests_BoardSpace : Incorrect Default Contents returned"));
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect Contents value returned"));
         }
-        
+        [TestMethod]
+        public void Contents_WhenCellCreatedWithTwoInts_WithSingleChar_ReturnsSameContents()
+        {
+            char? expected = 'a';
+            int row = 0;
+            int column = 0;
+            BoardSpace TestSpace = new BoardSpace(row, column);
+            TestSpace.Contents = 'a';
+
+            char? actual = TestSpace.Contents;
+
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect Contents value returned"));
+        }
     }
 }
