@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BattleshipsNS
 {
     interface IInputHandler
-    {        
-        bool ValidateInput(int gridSize, string userInput);
+    {
+        int[] GetTargetSpace();
     }
 }
