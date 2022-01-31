@@ -8,9 +8,9 @@ namespace BattleshipsNS
 {
     public class InputHandler : IInputHandler
     {
-        private char[] AcceptedCharacters;
-        private int[] AcceptedIntegers;
-        private int BoardSize;
+        private readonly char[] AcceptedCharacters;
+        private readonly int[] AcceptedIntegers;
+        private readonly int BoardSize;
 
         public InputHandler(int boardSize)
         {

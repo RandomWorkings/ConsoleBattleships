@@ -54,9 +54,11 @@ namespace BatttleshipsNSTests
         public void Occupied_WhenSpaceCreatedWithNoArguments_WithSingleBool_ReturnsSameOccupied()
         {
             bool expected = true;
-            BoardSpace TestSpace = new BoardSpace();
-            TestSpace.Occupied = true;
-
+            BoardSpace TestSpace = new BoardSpace
+            {
+                Occupied = true
+            };
+            
             bool actual = TestSpace.Occupied;
 
             Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
@@ -67,8 +69,10 @@ namespace BatttleshipsNSTests
             bool expected = true;
             int row = 0;
             int column = 0;
-            BoardSpace TestSpace = new BoardSpace(row, column);
-            TestSpace.Occupied = true;
+            BoardSpace TestSpace = new BoardSpace(row, column) 
+            {
+                Occupied = true
+            };            
 
             bool actual = TestSpace.Occupied;
 
@@ -100,8 +104,10 @@ namespace BatttleshipsNSTests
         public void Contents_WhenCellCreatedWithNoArguments_WithSingleChar_ReturnsSameContents()
         {
             char? expected = 'a';
-            BoardSpace TestSpace = new BoardSpace();
-            TestSpace.Contents = 'a';
+            BoardSpace TestSpace = new BoardSpace
+            {
+                Contents = 'a'
+            };
 
             char? actual = TestSpace.Contents;
 
@@ -113,8 +119,10 @@ namespace BatttleshipsNSTests
             char? expected = 'a';
             int row = 0;
             int column = 0;
-            BoardSpace TestSpace = new BoardSpace(row, column);
-            TestSpace.Contents = 'a';
+            BoardSpace TestSpace = new BoardSpace(row, column)
+            {
+                Contents = 'a'
+            };
 
             char? actual = TestSpace.Contents;
 

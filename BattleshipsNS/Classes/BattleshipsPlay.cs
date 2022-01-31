@@ -10,8 +10,8 @@ namespace BattleshipsNS
     {
         public GameParts GameParts { get; private set; }
         public GameBoard GameBoard { get; private set; }
-        private InputHandler Inputs;
-        private OutputHandler Outputs = new OutputHandler();
+        private readonly InputHandler Inputs;
+        private readonly OutputHandler Outputs = new OutputHandler();
 
         public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts)
         {
@@ -22,11 +22,10 @@ namespace BattleshipsNS
 
             while(gameParts.CheckAllShipsSunk())
             {
-                int messageCodes = 0;
-                int updatedMessageCodes = 0;
+                int updatedMessageCodes;
 
                 string target = Inputs.GetUserInput();
-                messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
+                int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
 
                 if (messageCodes == 0)
                 {
