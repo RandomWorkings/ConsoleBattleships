@@ -30,9 +30,7 @@ namespace BattleshipsNS
             Console.WriteLine("Enter exit to quit the game");
             string userInput = Console.ReadLine();
             Console.WriteLine();
-            Console.WriteLine("Your target is: " + userInput);
-            Console.WriteLine();
-            return userInput;
+            return userInput.ToUpper();
         }
 
         public int ValidateInput(string userInput)
@@ -52,7 +50,7 @@ namespace BattleshipsNS
             char inputCharacter = CollectInputCharacter(userInput);
             int inputInteger = CollectInputInteger(userInput);
 
-            int column = Convert.ToInt32(inputCharacter) - 1;
+            int column = Array.IndexOf(AcceptedCharacters,inputCharacter);
             int row = inputInteger - 1;
 
             return (row, column);

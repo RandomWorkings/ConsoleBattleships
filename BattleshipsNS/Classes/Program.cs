@@ -10,7 +10,6 @@ namespace BattleshipsNS
     {
         static void Main()
         {
-
             bool Running = true;
             //Program Loop
             while (Running)
