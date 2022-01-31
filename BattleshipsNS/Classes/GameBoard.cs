@@ -10,14 +10,14 @@ namespace BattleshipsNS
     public class GameBoard : IGameBoard
     {
         // Fields, Properties
-        public int Size { get; private set; }
+        public int BoardSize { get; private set; }
         public BoardSpace[,] PlayGrid { get; private set; }
 
         // Constructor Declaration of Class
-        public GameBoard(int gridSize)
+        public GameBoard(int boardSize)
         {
            //Parameter Assignment
-           Size = gridSize;
+           this.BoardSize = boardSize;
             
             //Array Initialization and Population
             PlayGrid = new BoardSpace[gridSize, gridSize];

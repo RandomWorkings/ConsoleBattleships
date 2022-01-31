@@ -14,20 +14,23 @@ namespace BattleshipsNS
 
     class BattleshipsSetup : IBattleshipsSetup
     {
+        // Fields, Properties
+        public GameParts GameParts { get; private set; }
+        public GameBoard GameBoard { get; private set; }
+
         public BattleshipsSetup()
         {
             // Program Default settings
             int boardSize = 10;
             ShipTypes[] shipList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
 
-            GameParts GameParts = new GameParts(shipList);
-            GameBoard GameBoard = new GameBoard(boardSize);
+            GameParts = new GameParts(shipList);
+            GameBoard = new GameBoard(boardSize);
 
             foreach (Ship ship in GameParts.Ships)
             {
-                 ship.PlaceShip(GameBoard);
+                ship.PlaceShip(GameBoard);
             }
- }
-        
-}
+        }
+    }
 }
