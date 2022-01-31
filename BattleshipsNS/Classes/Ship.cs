@@ -9,7 +9,6 @@ namespace BattleshipsNS
     
     public class Ship : IShip
     {
-        // Fields, Properties
         public string ID { get; private set; }
         public ShipTypes Type { get; private set; }
         public int Length { get; private set; }
@@ -18,7 +17,6 @@ namespace BattleshipsNS
         public (int, int) StartLocation { get; set; }
         public BoardSpace[] Sections { get; private set; }
 
-        // Constructor Declaration of Class
         public Ship(ShipTypes ship, int shipCount)
 		{
             ID = ship + " - s" + shipCount;
@@ -36,7 +34,6 @@ namespace BattleshipsNS
             Sections = new BoardSpace[Length];
         }
 
-        // Methods, Events, Operators
         public void PlaceShip(GameBoard refGrid)
         {
             ValueGenerator generator = new ValueGenerator();

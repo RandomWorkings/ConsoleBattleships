@@ -9,11 +9,9 @@ namespace BattleshipsNS
 
     public class GameBoard : IGameBoard
     {
-        // Fields, Properties
         public int BoardSize { get; private set; }
         public BoardSpace[,] PlayGrid { get; private set; }
 
-        // Constructor Declaration of Class
         public GameBoard(int boardSize)
         {
            // Set Board Size
@@ -35,7 +33,6 @@ namespace BattleshipsNS
             }
         }
 
-        // Methods, Events, Operators
         public BoardSpace GetTargetBoardSpace(string targetSpace)
         {
             return new BoardSpace(1, 'A');
