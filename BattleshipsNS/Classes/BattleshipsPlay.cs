@@ -17,10 +17,10 @@ namespace BattleshipsNS
         {
             GameParts = gameParts;
             GameBoard = gameBoard;
-          
+
             Inputs = new InputHandler(GameBoard.BoardSize);
 
-            while(!gameParts.CheckAllShipsSunk())
+            while (!gameParts.CheckAllShipsSunk())
             {
                 int updatedMessageCodes;
 
@@ -29,7 +29,13 @@ namespace BattleshipsNS
 
 
                 string target = Inputs.GetUserInput();
+                if (target == "exit")
+                {
+                    break;
+                }
+
                 int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
+
 
                 if (messageCodes == 0)
                 {
@@ -41,7 +47,7 @@ namespace BattleshipsNS
                     if (TargetCell.Occupied)
                     {
                         //Assess Target Content
-                        if(TargetCell.Contents == 'x')
+                        if (TargetCell.Contents == 'x')
                         {
                             updatedMessageCodes = messageCodes + 4 + 16; //MessageCode add Target_Repeat AND Target_Hit.
                         }
@@ -76,8 +82,16 @@ namespace BattleshipsNS
                 }
 
             }
-            //Display Game Victory Message
-            Outputs.GenerateMessages(32);
+            if (gameParts.CheckAllShipsSunk())
+            {
+                //Display Game Victory Message
+                Outputs.GenerateMessages(32);
+            }
+            else
+            {
+                //Display Game Quit Message
+                Outputs.GenerateMessages(64);
+            }
         }
     }
 }

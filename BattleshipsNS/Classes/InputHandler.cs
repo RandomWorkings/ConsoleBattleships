@@ -25,9 +25,12 @@ namespace BattleshipsNS
 
         public string GetUserInput()
         {
-            Console.WriteLine("Enter Target Grid Space example: 'A1'");
+            Console.WriteLine();
+            Console.WriteLine("Enter Target Grid Space example: A1");
+            Console.WriteLine("Enter exit to quit the game");
             string userInput = Console.ReadLine();
-            Console.WriteLine("Target is: " + userInput);
+            Console.WriteLine();
+            Console.WriteLine("Your target is: " + userInput);
             Console.WriteLine();
             return userInput;
         }
