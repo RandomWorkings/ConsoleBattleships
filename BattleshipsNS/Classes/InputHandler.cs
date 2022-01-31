@@ -78,7 +78,7 @@ namespace BattleshipsNS
         }
         private char CollectInputCharacter(string userInput)
         {
-            string inputLetter = userInput.Substring(0, 0);
+            string inputLetter = userInput.Substring(0, 1);
             return char.Parse(inputLetter);        
         }
         private int CollectInputInteger(string userInput)

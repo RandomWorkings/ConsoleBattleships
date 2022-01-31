@@ -10,15 +10,15 @@ namespace BattleshipsNS
     {
         static void Main()
         {
-            InputHandler Inputs = new InputHandler();
-            OutputHandler Outputs = new OutputHandler();
             BattleshipsSetup GameSetup = new BattleshipsSetup();
+            OutputHandler Outputs = new OutputHandler();
+            InputHandler Inputs = new InputHandler(GameSetup.GameBoard.BoardSize);
 
             bool Running = true;
             //Program Loop
             while (Running)
             {
-                new BattleshipsPlay(GameSetup.GameBoard, GameSetup.GameParts, Inputs, Outputs);
+                 new BattleshipsPlay(GameSetup.GameBoard, GameSetup.GameParts, Inputs, Outputs);
 
                 //Repeat Program Option
                 Console.WriteLine();

@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    public interface IUserInput
+    public interface IInputHandler
     {
         string GetUserInput();
-    }
-    public interface IInputHandler : IUserInput
-    {
         int ValidateInput(string userInput);
         (int, int) ConvertInputToTuple(string userInput);
     }
