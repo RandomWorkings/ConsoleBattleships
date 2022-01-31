@@ -41,7 +41,7 @@ namespace BattleshipsNS
             while(true)
             {
                 Orientation = generator.GetRandomOrientation();
-                (int row, int column) = generator.GetRandomLocation(Orientation, Length, refGrid.Size);
+                (int row, int column) = generator.GetRandomLocation(Orientation, Length, refGrid.BoardSize);
                 
                 StartLocation = (row, column);
                 int sectionColumn = column;

@@ -12,7 +12,6 @@ namespace BattleshipsNS
         private static readonly Random Rand = new Random();
         private static readonly object Synclock = new object();
 
-
         // Constructor Declaration of Class
         public ValueGenerator()
         { }
@@ -26,22 +25,22 @@ namespace BattleshipsNS
             }
         }
         
-        public (int, int) GetRandomLocation(int refOrientation, int refLength, int refSize)
+        public (int, int) GetRandomLocation(int shipOrientation, int shipLength, int boardSize)
         {
             int columnLimit;
             int rowLimit;
 
-            switch (refOrientation)
+            switch (shipOrientation)
             {
                 case 2: //Vertical, Limit Rows
-                    columnLimit = refSize;
-                    rowLimit = refSize - refLength;
+                    columnLimit = boardSize;
+                    rowLimit = boardSize - shipLength;
 
                     break;
 
                 default: // Horizontal, Limit Columns
-                    columnLimit = refSize - refLength;
-                    rowLimit = refSize;
+                    columnLimit = boardSize - shipLength;
+                    rowLimit = boardSize;
                     break;
             }
             lock (Synclock)
