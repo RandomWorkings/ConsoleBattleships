@@ -6,6 +6,19 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
+    [Flags]
+    public enum Messages
+    {
+        None = 0,
+        Input_InvalidLength = 1,
+        Input_InvalidCharacter = 2,
+        Input_InvalidInteger = 4,
+        Target_Repeat = 8,
+        Target_Miss = 16,
+        Target_Hit = 32,
+        Winner = 62
+    }
+
     public class OutputHandler : IOutputHandler
     {
         // Fields, Properties

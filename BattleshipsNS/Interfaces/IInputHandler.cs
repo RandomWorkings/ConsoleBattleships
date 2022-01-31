@@ -8,6 +8,8 @@ namespace BattleshipsNS
 {
     public interface IInputHandler
     {
-        int[] GetTargetSpace();
+        string GetUserInput();
+        int ValidateInput(string userInput);
+        (int, int) ConvertInputToTuple(string userInput);
     }
 }

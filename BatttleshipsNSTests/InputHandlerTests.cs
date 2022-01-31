@@ -4,7 +4,18 @@ using BattleshipsNS;
 
 namespace BatttleshipsNSTests
 {
-    public class FakeUserInput : IInputHandler { }
+    public class FakeUserInput : IInputHandler
+    {
+        public string GetUserInput()
+        {
+            return "A1";
+        }
+        public int[] GetTargetSpace()
+        {
+            int[] fakeSpace = {0, 0, 0, 0, 0};
+            return fakeSpace;
+        }
+    }
 
     [TestClass]
     public class InputHandlerTests
@@ -14,7 +25,8 @@ namespace BatttleshipsNSTests
         {
             int[] expected = {0, 0, 0, 0, 0};
             int TestSize = 1;
-            string FakeInput = "A1";
+
+            
 
             string actual = TestSpace.ID;
 

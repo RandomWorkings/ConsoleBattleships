@@ -26,30 +26,37 @@ namespace BattleshipsNS
             SetAcceptedLength(); 
         }
 
-        public int[] GetTargetSpace()
+        public string GetUserInput()
         {
-            //Get User Input
-            Console.WriteLine("");
+            Console.WriteLine("Enter Target Grid Space example: 'A1'");
             string userInput = Console.ReadLine();
+            Console.WriteLine("Target is: " + userInput);
+            Console.WriteLine();
+            return userInput;
+        }
 
-            //Chop up input and covert to appropriate type for checks
-            string inputLetter = userInput.Substring(0, 0);
-            char inputCharacter = char.Parse(inputLetter);
-
-            string inputNumber = userInput.Substring(1);
-            int inputInteger = int.Parse(inputNumber);
+        public int ValidateInput(string userInput)
+        {
+            char inputCharacter = CollectInputCharacter(userInput);
+            int inputInteger = CollectInputInteger(userInput);
 
             //Input Checks
             int lengthCheck = CheckValidLength(userInput);
             int characterCheck = CheckValidCharacter(inputCharacter);
             int integerCheck = CheckValidInteger(inputInteger);
 
-            //Change input into Index 0 values
-            int row = inputInteger - 1;
-            int column = Convert.ToInt32(inputCharacter) - 1;
+            return lengthCheck + characterCheck + integerCheck;
+        }
 
-            int[] output = {row, column, lengthCheck, characterCheck, integerCheck};
-            return output;
+        public (int, int) ConvertInputToTuple(string userInput)
+        {
+            char inputCharacter = CollectInputCharacter(userInput);
+            int inputInteger = CollectInputInteger(userInput);
+
+            int column = Convert.ToInt32(inputCharacter) - 1;
+            int row = inputInteger - 1;
+
+            return (row, column);
         }
 
         private void SetAcceptedCharacters()
@@ -80,20 +87,39 @@ namespace BattleshipsNS
             string LastSpaceID = ""+LastIDCharacter + LastIDInteger;
             AcceptedLength = LastSpaceID.Length;
         }
+        private char CollectInputCharacter(string userInput)
+        {
+            string inputLetter = userInput.Substring(0, 0);
+            return char.Parse(inputLetter);        
+        }
+        private int CollectInputInteger(string userInput)
+        {
+            string inputNumber = userInput.Substring(1);            
+            return int.Parse(inputNumber);
+        }
         private int CheckValidLength(string inputString)
         {
             bool validLength = (inputString.Length <= AcceptedLength);
-            return Convert.ToInt32(validLength);
+            if(validLength)
+            { return 0; }
+            else
+            { return 1; } // Output Enum Flags Messages - Input_InvalidLength
         }
         private int CheckValidCharacter(char inputCharacter)
         {
             bool validCharacter = Array.Exists(AcceptedCharacters, c => c == inputCharacter);
-            return Convert.ToInt32(validCharacter);
+            if (validCharacter)
+            { return 0; }
+            else
+            { return 2; } // Output Enum Flags Messages - Input_InvalidCharacter
         }
         private int CheckValidInteger(int inputInteger)
         {
             bool validInteger = Array.Exists(AcceptedIntegers, i => i == inputInteger);
-            return Convert.ToInt32(validInteger);
+            if (validInteger)
+            { return 0; }
+            else
+            { return 4; } // Output Enum Flags Messages - Input_InvalidInteger
         }
     }
 }
