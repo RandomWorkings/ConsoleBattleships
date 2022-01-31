@@ -4,17 +4,10 @@ using BattleshipsNS;
 
 namespace BatttleshipsNSTests
 {
-    public class FakeUserInput : IInputHandler
+    public class FakeUserInput : IUserInput
     {
         public string GetUserInput()
-        {
-            return "A1";
-        }
-        public int[] GetTargetSpace()
-        {
-            int[] fakeSpace = {0, 0, 0, 0, 0};
-            return fakeSpace;
-        }
+        { return "A1"; }
     }
 
     [TestClass]
