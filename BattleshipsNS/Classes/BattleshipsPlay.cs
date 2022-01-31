@@ -79,7 +79,9 @@ namespace BattleshipsNS
                 }
             }
             //Display Game Victory Message
-            Outputs.GenerateMessages((int)Messages.You_Are_The_Winner);
+            gameParts.CheckSunkShipsCount(); 
+            Outputs.GenerateMessages((int)Messages.You_Are_The_Winner, gameParts.SunkShipCount);
+            Outputs.DisplayPlayGrid(GameBoard);
         }
     }
 }
