@@ -77,7 +77,6 @@ namespace BattleshipsNS
                     //Display Appropriate Messages based on code.
                     Outputs.GenerateMessages(messageCodes, gameParts.SunkShipCount);
                 }
-
             }
             //Display Game Victory Message
             Outputs.GenerateMessages((int)Messages.You_Are_The_Winner);
