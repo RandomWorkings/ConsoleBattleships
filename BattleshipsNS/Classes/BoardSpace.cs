@@ -19,11 +19,22 @@ namespace BattleshipsNS
             Contents = null;
         }
 
-        public BoardSpace(int row, char column)
+        public BoardSpace(int row, int column)
         {
-            ID = "" + column + row + "";
+            IDGenerator(row, column);
             Occupied = false;
             Contents = null;
         }
+
+        private void IDGenerator(int row, int column)
+        {
+            char StartingLetter = 'A';
+            // Adjust to match column;
+            int LetterAdjustment = 0 + column;
+            char CurrentLetter = (Char)(Convert.ToInt32(StartingLetter) + LetterAdjustment);
+
+            ID = ""+CurrentLetter + row + "";            
+        }
+
     }
 }
