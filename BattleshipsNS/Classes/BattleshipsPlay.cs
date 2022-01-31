@@ -27,13 +27,8 @@ namespace BattleshipsNS
                 //Display Latest Board State.
                 Outputs.DisplayPlayGrid(GameBoard);
 
-
                 string target = Inputs.GetUserInput();
-                if (target == "exit")
-                {
-                    break;
-                }
-
+                
                 int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
 
 

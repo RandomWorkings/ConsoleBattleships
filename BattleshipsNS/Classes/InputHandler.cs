@@ -27,7 +27,7 @@ namespace BattleshipsNS
         {
             Console.WriteLine();
             Console.WriteLine("Enter Target Grid Space example: A1");
-            Console.WriteLine("Enter exit to quit the game");
+            Console.WriteLine("Press CRTL + C to quit");
             string userInput = Console.ReadLine();
             Console.WriteLine();
             return userInput.ToUpper();
