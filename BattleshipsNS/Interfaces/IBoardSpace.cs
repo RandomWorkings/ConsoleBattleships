@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IBoardSpace
+    public interface IBoardSpace
     {
         string ID { get; }
         bool Occupied { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IShip
+    public interface IShip
     {
         string ID { get; }
         ShipTypes Type { get;}

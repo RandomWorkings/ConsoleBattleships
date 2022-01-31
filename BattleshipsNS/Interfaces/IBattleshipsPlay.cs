@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IBattleshipsPlay
+    public interface IBattleshipsPlay
     {
         GameParts GameParts { get; }
         GameBoard GameBoard { get; }

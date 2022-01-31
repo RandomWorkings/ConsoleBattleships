@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IGameBoard
+    public interface IGameBoard
     {
         int BoardSize { get; }
         BoardSpace[,] PlayGrid { get; }

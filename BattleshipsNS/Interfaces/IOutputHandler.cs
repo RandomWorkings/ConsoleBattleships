@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IOutputHandler
+    public interface IOutputHandler
     {
         void GenerateMessage(int MessageID);
 

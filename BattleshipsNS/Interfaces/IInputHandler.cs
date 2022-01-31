@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IInputHandler
+    public interface IInputHandler
     {
         int[] GetTargetSpace();
     }

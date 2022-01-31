@@ -4,39 +4,21 @@ using BattleshipsNS;
 
 namespace BatttleshipsNSTests
 {
+    public class FakeUserInput : IInputHandler { }
+
     [TestClass]
     public class InputHandlerTests
     {
         [TestMethod]
-        public void ValidateInput_WithValidInput_ReturnsTrue()
+        public void GetTargetSpace_WhenInputHandlerCreatedWithSingleIntger_WithNoArguments_ReturnsTargetSpace()
         {
-            //Arrange
-            int gridSize = 10;
-            InputHandler Inputs = new InputHandler();
-            string testInput = "A1";
-            bool expected = true;
+            int[] expected = {0, 0, 0, 0, 0};
+            int TestSize = 1;
+            string FakeInput = "A1";
 
-            //Act
-            var actual = Inputs.ValidateInput(gridSize, testInput);
+            string actual = TestSpace.ID;
 
-            //Assess
-            Assert.AreEqual(expected, actual, "Test input incorrecly validated - False when True");
-        }
-
-        [TestMethod]
-        public void ValidateInput_WithInvalidInput_ReturnsFalse()
-        {
-            //Arrange
-            int gridSize = 10;
-            InputHandler Inputs = new InputHandler();
-            bool expected = false;
-
-            //Act
-            string testInput = "Butts";
-            var actual = Inputs.ValidateInput(gridSize, testInput);
-
-            //Assess
-            Assert.AreEqual(expected, actual, "Test input incorrecly validated - True when False");
+            Assert.AreEqual(expected, actual, true, ($@"BoardSpaceTests_ID : Incorrect ID returned"));
         }
     }
 }

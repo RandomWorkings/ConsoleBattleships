@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    interface IValueGenerator
+    public interface IValueGenerator
     {
         int GetRandomOrientation();
         (int, int) GetRandomLocation(int shipOrientation, int shipLength, int boardSize);
