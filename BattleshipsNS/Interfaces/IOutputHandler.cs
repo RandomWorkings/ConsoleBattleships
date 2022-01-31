@@ -8,7 +8,7 @@ namespace BattleshipsNS
 {
     public interface IOutputHandler
     {
-        void GenerateMessage(int MessageID);
+        void GenerateMessages(int MessagesCode);
 
         void DisplayPlayGrid(GameBoard playGrid);
     }

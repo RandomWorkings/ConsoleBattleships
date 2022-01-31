@@ -27,8 +27,10 @@ namespace BattleshipsNS
         { }
 
         // Methods, Events, Operators
-        public void GenerateMessage(int MessageID)
-        { }
+        public void GenerateMessages(int MessagesCode)
+        {
+            Console.WriteLine("A message appears!");
+        }
 
         public void DisplayPlayGrid(GameBoard UIGrid)
         {
