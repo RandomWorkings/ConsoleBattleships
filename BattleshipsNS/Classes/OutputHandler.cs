@@ -10,11 +10,11 @@ namespace BattleshipsNS
     public enum Messages
     {
         None = 0,
-        Input_InvalidColumn = 1,
-        Input_InvalidRow = 2,
-        Target_Repeat = 4,
-        Target_Miss = 8,
-        Target_Hit = 16,
+        Was_An_Invalid_Column_Input = 1,
+        Was_An_Invalid_Row_Input = 2,
+        Repeat = 4,
+        Missed = 8,
+        Hit = 16,
         Winner = 32
     }
 
@@ -26,7 +26,8 @@ namespace BattleshipsNS
         // Methods, Events, Operators
         public void GenerateMessages(int MessagesCode)
         {
-            Console.WriteLine((Messages)MessagesCode);
+            Console.WriteLine("Your Shot: "+(Messages)MessagesCode);
+            Console.WriteLine();
         }
 
         public void DisplayPlayGrid(GameBoard UIGrid)
