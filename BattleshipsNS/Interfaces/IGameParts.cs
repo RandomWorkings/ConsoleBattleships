@@ -10,6 +10,6 @@ namespace BattleshipsNS
     {
         Ship[] Ships { get; }
 
-        bool CheckRosterSunk();
+        bool CheckAllShipsSunk();
     }
 }

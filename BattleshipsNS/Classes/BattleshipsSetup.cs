@@ -22,9 +22,9 @@ namespace BattleshipsNS
         {
             // Program Default settings
             int boardSize = 10;
-            ShipTypes[] shipList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
+            ShipTypes[] shipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
 
-            GameParts = new GameParts(shipList);
+            GameParts = new GameParts(shipsList);
             GameBoard = new GameBoard(boardSize);
 
             foreach (Ship ship in GameParts.Ships)

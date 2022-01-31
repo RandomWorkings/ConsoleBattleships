@@ -8,22 +8,22 @@ namespace BattleshipsNS
 {
     public class GameParts : IGameParts
     {
-        // Fields, Properties
         public Ship[] Ships { get; private set; }
 
-        // Constructor Declaration of Class
-        public GameParts(ShipTypes[] roster)
+        public GameParts(ShipTypes[] shipsList)
         {
-            Ships = new Ship[roster.Length];
+            int shipCount = shipsList.Length;
+            Ships = new Ship[shipCount];
 
-            for(int i = 0; i < roster.Length; i++)
+            // Fill Ship Array with Ships
+            for (int i = 0; i < shipCount; i++)
             {
-                Ships[i] = new Ship(roster[i], i+1);
+                ShipTypes shipType = shipsList[i];
+                Ships[i] = new Ship(shipType, i+1);
             }
         }
 
-        // Methods, Events, Operators
-        public bool CheckRosterSunk()
+        public bool CheckAllShipsSunk()
         {
             bool AllSunk = false;
            
@@ -39,7 +39,6 @@ namespace BattleshipsNS
                     AllSunk = false;
                 }
             }
-
             return AllSunk;
         }
 

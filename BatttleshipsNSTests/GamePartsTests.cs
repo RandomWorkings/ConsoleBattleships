@@ -8,16 +8,16 @@ namespace BatttleshipsNSTests
     public class GamePartsTests
     {
         //Shared Test Inputs
-        private static readonly ShipTypes[] TestRoster = { ShipTypes.Battleship, ShipTypes.Destroyer };
-        private static readonly int TestArrayLength = TestRoster.Length;
+        private static readonly ShipTypes[] TestShipList = { ShipTypes.Battleship, ShipTypes.Destroyer };
+        private static readonly int TestArrayLength = TestShipList.Length;
         private static readonly int TestGridSize = 10;
 
         [TestMethod]
-        public void ShipRoster_WhenCalled_WithValidInputs_SetsShipsArray()
+        public void Ships_WhenCalled_WithValidInputs_SetsShipsArray()
         {
             //Arrange
             int expectedSize = TestArrayLength;
-            GameParts roster = new GameParts(TestRoster);
+            GameParts roster = new GameParts(TestShipList);
 
             //Act
             int actualSize = roster.Ships.Length;
@@ -31,17 +31,17 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void CheckRosterSunk_WhenCalled_WithUnSunkShips_SetSunkFlag()
+        public void CheckAllShipsSunk_WhenCalled_WithUnSunkShips_SetSunkFlag()
         {
             bool expected = false;
-            GameParts roster = new GameParts(TestRoster);
+            GameParts roster = new GameParts(TestShipList);
             GameBoard grid = new GameBoard(TestGridSize);
             foreach (Ship ship in roster.Ships)
             {
                 ship.PlaceShip(grid);
             }
 
-            bool actual = roster.CheckRosterSunk();
+            bool actual = roster.CheckAllShipsSunk();
 
             Assert.AreEqual(expected, actual, ($@"ShipRosterTests_CheckSunkFlag : Flag in incorrect state"));
         }
@@ -50,7 +50,7 @@ namespace BatttleshipsNSTests
         public void CheckRosterSunk_WhenCalled_WithAllShipsSunk_SetSunkFlag()
         {
             bool expected = true;
-            GameParts roster = new GameParts(TestRoster);
+            GameParts roster = new GameParts(TestShipList);
 
             GameBoard grid = new GameBoard(TestGridSize);
             foreach (Ship ship in roster.Ships)
@@ -68,7 +68,7 @@ namespace BatttleshipsNSTests
                 }
             }
 
-            bool actual = roster.CheckRosterSunk();
+            bool actual = roster.CheckAllShipsSunk();
 
             Assert.AreEqual(expected, actual, ($@"ShipRosterTests_CheckSunkFlag : Flag in incorrect state"));
         }
