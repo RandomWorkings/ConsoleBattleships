@@ -27,14 +27,14 @@ namespace BattleshipsNS
 
         public void GenerateMessages(int MessagesCode)
         {
-            Console.WriteLine("Your Shot: " + (Messages)MessagesCode);
+            Console.WriteLine("\tYour Shot: " + (Messages)MessagesCode);
             Console.WriteLine();
         }
 
         public void GenerateMessages(int MessagesCode, int SunkShipCount)
         {
-            Console.WriteLine("Your Shot: "+(Messages)MessagesCode);
-            Console.WriteLine("" + SunkShipCount + " ships remain.");
+            Console.WriteLine("\tYour Shot: "+(Messages)MessagesCode);
+            Console.WriteLine("\t" + SunkShipCount + " ships remain.");
             Console.WriteLine();
         }
 
@@ -44,7 +44,7 @@ namespace BattleshipsNS
             int rowNumber = 1;
 
             //Top Corner
-            Console.Write("    |");
+            Console.Write("\t    |");
 
             //Column Headers
             for (int column = 1; column <= UIGrid.BoardSize; column++)
@@ -59,11 +59,11 @@ namespace BattleshipsNS
             {
                 if(row<9)
                 {
-                    Console.Write("  " + rowNumber + " |"); 
+                    Console.Write("\t  " + rowNumber + " |"); 
                 }
                 else
                 {
-                    Console.Write(" " + rowNumber + " |");
+                    Console.Write("\t " + rowNumber + " |");
                 }
                 rowNumber++;
 

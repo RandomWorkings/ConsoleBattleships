@@ -45,7 +45,7 @@ namespace BattleshipsNS
 
         public int CheckSunkShipsCount()
         {
-            SunkShipCount = 0;
+            SunkShipCount = Ships.Length;
             foreach (Ship ship in Ships)
             {
                 if (ship.SunkFlag)
