@@ -9,7 +9,9 @@ namespace BattleshipsNS
     public interface IGameParts
     {
         Ship[] Ships { get; }
-
+        int SunkShipCount { get; }
+        int CheckSunkShipsCount();
         bool CheckAllShipsSunk();
+
     }
 }

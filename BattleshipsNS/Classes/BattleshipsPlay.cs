@@ -22,6 +22,8 @@ namespace BattleshipsNS
 
             while (!gameParts.CheckAllShipsSunk())
             {
+                gameParts.CheckSunkShipsCount();
+
                 int updatedMessageCodes;
 
                 //Display Latest Board State.
@@ -68,12 +70,12 @@ namespace BattleshipsNS
                     }
 
                     //Display Appropriate Messages.
-                    Outputs.GenerateMessages(updatedMessageCodes);
+                    Outputs.GenerateMessages(updatedMessageCodes, gameParts.SunkShipCount);
                 }
                 else
                 {
                     //Display Appropriate Messages based on code.
-                    Outputs.GenerateMessages(messageCodes);
+                    Outputs.GenerateMessages(messageCodes, gameParts.SunkShipCount);
                 }
 
             }

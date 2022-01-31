@@ -16,7 +16,8 @@ namespace BattleshipsNS
         Was_A_Repeat = 8,
         Missed = 16,
         Hit = 32,
-        You_Are_The_Winner = 64
+        You_Are_The_Winner = 64,
+        Ships_Remain = 128
     }
 
     public class OutputHandler : IOutputHandler
@@ -24,10 +25,10 @@ namespace BattleshipsNS
         public OutputHandler()
         { }
 
-        // Methods, Events, Operators
-        public void GenerateMessages(int MessagesCode)
+        public void GenerateMessages(int MessagesCode, int SunkShipCount)
         {
             Console.WriteLine("Your Shot: "+(Messages)MessagesCode);
+            Console.WriteLine("" + SunkShipCount + " ships remain.");
             Console.WriteLine();
         }
 

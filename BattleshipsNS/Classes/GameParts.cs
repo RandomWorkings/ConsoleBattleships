@@ -9,6 +9,7 @@ namespace BattleshipsNS
     public class GameParts : IGameParts
     {
         public Ship[] Ships { get; private set; }
+        public int SunkShipCount { get; private set; }
 
         public GameParts(ShipTypes[] shipsList)
         {
@@ -41,6 +42,20 @@ namespace BattleshipsNS
             }
             return AllSunk;
         }
+
+        public int CheckSunkShipsCount()
+        {
+            SunkShipCount = 0;
+            foreach (Ship ship in Ships)
+            {
+                if (ship.SunkFlag)
+                {
+                    SunkShipCount++;
+                }
+            }
+            return SunkShipCount;
+        }
+
 
     }
 }
