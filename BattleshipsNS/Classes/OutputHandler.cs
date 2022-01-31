@@ -20,16 +20,13 @@ namespace BattleshipsNS
 
     public class OutputHandler : IOutputHandler
     {
-        // Fields, Properties
-
-        // Constructor Declaration of Class
         public OutputHandler()
         { }
 
         // Methods, Events, Operators
         public void GenerateMessages(int MessagesCode)
         {
-            Console.WriteLine("A message appears!");
+            Console.WriteLine((Messages)MessagesCode);
         }
 
         public void DisplayPlayGrid(GameBoard UIGrid)
