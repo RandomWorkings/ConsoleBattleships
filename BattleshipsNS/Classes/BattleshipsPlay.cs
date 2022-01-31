@@ -20,9 +20,13 @@ namespace BattleshipsNS
           
             Inputs = new InputHandler(GameBoard.BoardSize);
 
-            while(gameParts.CheckAllShipsSunk())
+            while(!gameParts.CheckAllShipsSunk())
             {
                 int updatedMessageCodes;
+
+                //Display Latest Board State.
+                Outputs.DisplayPlayGrid(GameBoard);
+
 
                 string target = Inputs.GetUserInput();
                 int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
@@ -64,9 +68,6 @@ namespace BattleshipsNS
 
                     //Display Appropriate Messages.
                     Outputs.GenerateMessages(updatedMessageCodes);
-
-                    //Display Latest Board State.
-                    Outputs.DisplayPlayGrid(GameBoard);
                 }
                 else
                 {
