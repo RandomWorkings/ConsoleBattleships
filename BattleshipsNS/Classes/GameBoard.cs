@@ -16,15 +16,20 @@ namespace BattleshipsNS
         // Constructor Declaration of Class
         public GameBoard(int boardSize)
         {
-           //Parameter Assignment
+           // Set Board Size
            this.BoardSize = boardSize;
             
-            //Array Initialization and Population
-            PlayGrid = new BoardSpace[gridSize, gridSize];
+            // Create Play Grid
+            PlayGrid = new BoardSpace[BoardSize, BoardSize];
+
+            // Fill Play Grid With uniquely ID'd Board Spaces 
+            int rowCount = PlayGrid.GetLength(0);
+            int columnCount = PlayGrid.GetLength(1);
             char columnLetter = 'A';
-            for (int row = 0; row < gridSize; row++)
+            
+            for (int row = 0; row < rowCount; row++)
             {
-                for (int column = 0; column < gridSize; column++)
+                for (int column = 0; column < columnCount; column++)
                 {
                     PlayGrid[row, column] = new BoardSpace(row + 1, columnLetter);
                 }
@@ -34,6 +39,8 @@ namespace BattleshipsNS
 
         // Methods, Events, Operators
         public BoardSpace GetTargetGridCell(string gridCell)
-        { return new BoardSpace(1, 'A'); }
+        {
+            return new BoardSpace(1, 'A');
+        }
     }
 }

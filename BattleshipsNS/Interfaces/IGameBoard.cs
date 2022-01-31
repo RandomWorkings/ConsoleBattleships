@@ -8,7 +8,7 @@ namespace BattleshipsNS
 {
     interface IGameBoard
     {
-        int Size { get; }
+        int BoardSize { get; }
         BoardSpace[,] PlayGrid { get; }
 
         BoardSpace GetTargetGridCell(string gridCell);
