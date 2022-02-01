@@ -20,7 +20,7 @@ namespace BattleshipsNS
 
             Inputs = new InputHandler(GameBoard.BoardSize);
 
-            while (!gameParts.CheckAllShipsSunk())
+            while (gameParts.ShipCount != 0)
             {
                 int updatedMessageCodes;
 
@@ -67,19 +67,18 @@ namespace BattleshipsNS
                     }
 
                     //Display Appropriate Messages.
-                    gameParts.CheckSunkShipsCount();
-                    Outputs.GenerateMessages(updatedMessageCodes, gameParts.SunkShipCount);
+                    gameParts.UpdateShipCount();
+                    Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
                 }
                 else
                 {
                     //Display Appropriate Messages based on code.
-                    gameParts.CheckSunkShipsCount();
-                    Outputs.GenerateMessages(messageCodes, gameParts.SunkShipCount);
+                    gameParts.UpdateShipCount();
+                    Outputs.GenerateMessages(messageCodes, gameParts.ShipCount);
                 }
             }
             //Display Game Victory Message
-            gameParts.CheckSunkShipsCount(); 
-            Outputs.GenerateMessages((int)Messages.You_Are_The_Winner, gameParts.SunkShipCount);
+            Outputs.GenerateMessages((int)Messages.You_Are_The_Winner, gameParts.ShipCount);
             Outputs.DisplayPlayGrid(GameBoard);
         }
     }

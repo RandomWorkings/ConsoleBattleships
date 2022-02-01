@@ -106,7 +106,7 @@ namespace BattleshipsNS
             {
                 foreach (BoardSpace section in Sections)
                 {
-                    if(section.Contents == 'x')
+                    if (section.Contents == 'x')
                     {
                         sunkSections++;
                     }
