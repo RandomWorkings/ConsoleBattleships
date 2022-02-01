@@ -24,7 +24,7 @@ namespace BattleshipsNS
             }
         }
 
-        public int UpdateShipCount()
+        public void UpdateShipCount()
         {
             ShipCount = Ships.Length;
 
@@ -36,7 +36,6 @@ namespace BattleshipsNS
                     ShipCount--;
                 }
             }
-            return ShipCount;
         }
     }
 }
