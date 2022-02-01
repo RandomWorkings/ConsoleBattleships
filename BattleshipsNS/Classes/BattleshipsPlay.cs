@@ -47,7 +47,7 @@ namespace BattleshipsNS
                         {
                             updatedMessageCodes = messageCodes + (int)Messages.Was_A_Repeat;
                         }
-                        else
+                        else4
                         {
                             TargetCell.Contents = 'x';
                         }

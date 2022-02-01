@@ -100,21 +100,23 @@ namespace BattleshipsNS
                  
         public void UpdateSunkFlag()
         {
-            foreach (BoardSpace section in Sections)
+            int sunkSections = 0;
+            
+            if (!SunkFlag)
             {
-                switch (section.Contents)
-                { 
-                    case null:
-                        SunkFlag = false;
-                        break;
+                foreach (BoardSpace section in Sections)
+                {
+                    if(section.Contents == 'x')
+                    {
+                        sunkSections++;
+                    }
+                }
 
-                    default:
-                        SunkFlag = true;
-                        break;
+                if (sunkSections == Length)
+                {
+                    SunkFlag = true;
                 }
             }
-
-        }
-        
+        }      
     }
 }
