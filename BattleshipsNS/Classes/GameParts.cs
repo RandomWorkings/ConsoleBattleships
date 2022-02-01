@@ -13,11 +13,12 @@ namespace BattleshipsNS
 
         public GameParts(ShipTypes[] shipsList)
         {
-            int shipCount = shipsList.Length;
-            Ships = new Ship[shipCount];
+            ShipCount = shipsList.Length;
+            
+            Ships = new Ship[ShipCount];
 
             // Fill Ship Array with Ships
-            for (int i = 0; i < shipCount; i++)
+            for (int i = 0; i < ShipCount; i++)
             {
                 ShipTypes shipType = shipsList[i];
                 Ships[i] = new Ship(shipType, i+1);
