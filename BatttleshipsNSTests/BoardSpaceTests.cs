@@ -58,7 +58,6 @@ namespace BatttleshipsNSTests
             {
                 Occupied = true
             };
-            
             bool actual = TestSpace.Occupied;
 
             Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));

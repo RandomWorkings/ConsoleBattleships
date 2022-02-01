@@ -17,11 +17,11 @@ namespace BattleshipsNS
         public (int, int) StartLocation { get; set; }
         public BoardSpace[] Sections { get; private set; }
 
-        public Ship(ShipTypes ship, int shipCount)
+        public Ship(ShipTypes shipType, int shipNumber)
 		{
-            ID = ship + " - s" + shipCount;
+            ID = shipType + " - s" + shipNumber;
 
-            Type = ship;
+            Type = shipType;
 
             Length = (int)Type;
 

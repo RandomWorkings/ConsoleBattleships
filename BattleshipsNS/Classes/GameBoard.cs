@@ -32,10 +32,5 @@ namespace BattleshipsNS
                 }
             }
         }
-
-        public BoardSpace GetTargetBoardSpace(string targetSpace)
-        {
-            return new BoardSpace(1, 'A');
-        }
     }
 }
