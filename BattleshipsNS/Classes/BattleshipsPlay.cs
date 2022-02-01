@@ -78,7 +78,7 @@ namespace BattleshipsNS
                 }
             }
             //Display Game Victory Message
-            Outputs.GenerateMessages((int)Messages.You_Are_The_Winner, gameParts.ShipCount);
+            Outputs.GenerateMessages((int)Messages.You_Are_The_Winner);
             Outputs.DisplayPlayGrid(GameBoard);
         }
     }

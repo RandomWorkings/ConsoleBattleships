@@ -24,6 +24,11 @@ namespace BattleshipsNS
     {
         public OutputHandler()
         { }
+        public void GenerateMessages(int MessagesCode)
+        {
+            Console.WriteLine("\t" + (Messages)MessagesCode);
+            Console.WriteLine();
+        }
 
         public void GenerateMessages(int MessagesCode, int SunkShipCount)
         {
