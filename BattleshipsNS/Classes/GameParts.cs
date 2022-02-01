@@ -55,7 +55,5 @@ namespace BattleshipsNS
             }
             return SunkShipCount;
         }
-
-
     }
 }
