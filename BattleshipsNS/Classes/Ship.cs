@@ -6,42 +6,38 @@ using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
-    
+
     public class Ship : IShip
     {
-        public string ID { get; private set; }
-        public ShipTypes Type { get; private set; }
-        public int Length { get; private set; }
-        public bool SunkFlag { get; private set; }
-        public int Orientation { get; set; }
-        public (int, int) StartLocation { get; set; }
+        public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
+        public int Length { get; private set; } = 4;
+        public bool SunkFlag { get; private set; } = false;
         public BoardSpace[] Sections { get; private set; }
+        public int Orientation { get; set; } = 1;
+        public (int, int) StartLocation { get; set; } = (0, 0);
 
-        public Ship(ShipTypes shipType, int shipNumber)
+        public Ship(ShipTypes shipType)
 		{
-            ID = shipType + " - s" + shipNumber;
-
             Type = shipType;
 
             Length = (int)Type;
 
-            SunkFlag = false;
-
-            Orientation = 1;
-
-            StartLocation = (0, 0);
-
             Sections = new BoardSpace[Length];
+
+            for (int s = 0; s < Length; s++)
+            {
+                Sections[s] = new BoardSpace();
+            }
         }
 
-        public void PlaceShip(GameBoard refGrid)
+        public void PlaceShip(GameBoard gameBoard)
         {
             ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
             while(true)
             {
                 Orientation = generator.GetRandomOrientation();
-                (int row, int column) = generator.GetRandomLocation(Orientation, Length, refGrid.BoardSize);
+                (int row, int column) = generator.GetRandomLocation(Orientation, Length, gameBoard.BoardSize);
                 
                 StartLocation = (row, column);
                 int sectionColumn = column;
@@ -53,7 +49,7 @@ namespace BattleshipsNS
                         
                         for (int v = 0; v < Length; v++)
                         {
-                            BoardSpace refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
                             if (refCell.Occupied)
                             {
                                 clearSpace = false;
@@ -68,7 +64,7 @@ namespace BattleshipsNS
                     default: // Horizontal
                         for (int h = 0; h < Length; h++)
                         {
-                            BoardSpace refCell = refGrid.PlayGrid[sectionRow, sectionColumn];
+                            BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
                             
                             if (refCell.Occupied)
                             {
@@ -89,7 +85,6 @@ namespace BattleshipsNS
                     for(int i = 0; i < Length; i++)
                     {
                         Sections[i].Occupied = true;
-                        //Sections[i].Contents = 'x';
                     }
                     break;
                 }
@@ -117,6 +112,6 @@ namespace BattleshipsNS
                     SunkFlag = true;
                 }
             }
-        }      
+        }
     }
 }

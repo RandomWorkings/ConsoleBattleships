@@ -8,15 +8,14 @@ namespace BattleshipsNS
 {
     public interface IShip
     {
-        string ID { get; }
         ShipTypes Type { get;}
         int Length { get; }
         bool SunkFlag { get; }
+        BoardSpace[] Sections { get; }
         int Orientation { get; set; }
         (int, int) StartLocation { get; set; }
-        BoardSpace[] Sections { get; }
 
-        void PlaceShip(GameBoard refGrid);
+        void PlaceShip(GameBoard gameBoard);
         void UpdateSunkFlag();
     }
 }

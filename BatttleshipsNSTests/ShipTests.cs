@@ -8,96 +8,44 @@ namespace BatttleshipsNSTests
     public class ShipTests
     {
         [TestMethod]
-        public void Ship_WhenShipCreated_WithShipTypeAndInt_SetsID()
-        {
-            string expected = "Battleship - s0";
-            ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
-
-            string actual = testShip.ID;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_ID : Returned incorrect computed ID value"));
-        }
-        [TestMethod]
-        public void Ship_WhenShipCreated_WithShipTypeAndInt_SetsType()
+        public void Ship_WhenShipCreated_WithValidShipType_SetType()
         {
             ShipTypes expected = ShipTypes.Battleship;
             ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
+            Ship testShip = new Ship(testShipType);
 
             ShipTypes actual = testShip.Type;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Type : Returned incorrect computed value"));
         }
         [TestMethod]
-        public void Ship_WhenShipCreated_WithShipTypeAndInt_SetsLength()
+        public void Ship_WhenShipCreated_WithValidShipType_SetLength()
         {
             int expected = 4;
             ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
+            Ship testShip = new Ship(testShipType);
 
             int actual = testShip.Length;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Length : Returned incorrect computed value"));
         }
         [TestMethod]
-        public void Ship_WhenShipCreated_WithShipTypeAndInt_SetsSunkFlag()
-        {
-            bool expected = false;
-            ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
-
-            bool actual = testShip.SunkFlag;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_SunkFlag : Returned incorrect set value"));
-        }
-        [TestMethod]
-        public void Ship_WhenShipCreated_WithShipTypeAndInt_SetsOrientation()
-        {
-            int expected = 1;
-            ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
-
-            int actual = testShip.Orientation;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Orientation : Returned incorrect set value"));
-        }
-        [TestMethod]
-        public void Ship_WhenShipCreated_WithShipTypeAndInt_SetsStartLocation()
-        {
-            (int, int) expected = (0, 0);
-            ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
-
-            (int, int) actual = testShip.StartLocation;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_StartLocation : Returned incorrect set value"));
-        }
-        [TestMethod]
-        public void Ship_WhenShipCreated_WithShipTypeAndInt_SetsSectionsLength()
+        public void Ship_WhenShipCreated_WithValidShipType_SetSectionsLength()
         {
             int expected = 4;
             ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
+            Ship testShip = new Ship(testShipType);
 
             int actual = testShip.Sections.Length;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_SectionLength : Returned incorrect computed value"));
         }
         [TestMethod]
-        public void Orientation_WhenCalled_AndAssignedValidAssignment_SetShipOrientation()
+        public void Orientation_WhenCalled_AndHasValidAssignment_SetOrientation()
         {
             int expected = 2;
             ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber)
+            Ship testShip = new Ship(testShipType)
             {
                 Orientation = 2
             };
@@ -107,12 +55,11 @@ namespace BatttleshipsNSTests
             Assert.AreEqual(expected, actual, ($@"ShipTests_Orientation : Returned incorrect set value"));
         }
         [TestMethod]
-        public void StartLocation_WhenCalled_AndAssignedValidAssignment_SetShipStartLocation()
+        public void StartLocation_WhenCalled_AndHasValidAssignment_SetStartLocation()
         {
             (int, int) expected = (1, 1);
             ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber)
+            Ship testShip = new Ship(testShipType)
             {
                 StartLocation = (1, 1)
             };
@@ -121,28 +68,29 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_StartLocation : Returned incorrect set value"));
         }
+        [TestMethod]
         public void UpdateSunkFlag_WhenCalled_AndShipSectionsNotAllHit_SetSunkFlag_False()
         {
             bool expected = false;
             ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
+            Ship testShip = new Ship(testShipType);
             testShip.UpdateSunkFlag();
 
             bool actual = testShip.SunkFlag;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_NotSunk : Returned incorrect computed value"));
         }
+        [TestMethod]
         public void UpdateSunkFlag_WhenCalled_AndShipSectionsAllHit_SetSunkFlag_True()
         {
             bool expected = true;
             ShipTypes testShipType = ShipTypes.Battleship;
-            int testShipNumber = 0;
-            Ship testShip = new Ship(testShipType, testShipNumber);
+            Ship testShip = new Ship(testShipType);
             foreach (BoardSpace section in testShip.Sections)
             {
-                section.Contents = 'o';
+                section.Contents = 'x';
             }
+            testShip.UpdateSunkFlag();
 
             bool actual = testShip.SunkFlag;
 

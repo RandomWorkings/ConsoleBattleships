@@ -21,7 +21,7 @@ namespace BattleshipsNS
             for (int i = 0; i < ShipCount; i++)
             {
                 ShipTypes shipType = shipsList[i];
-                Ships[i] = new Ship(shipType, i+1);
+                Ships[i] = new Ship(shipType);
             }
         }
 

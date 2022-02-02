@@ -10,7 +10,7 @@ namespace BatttleshipsNSTests
         //Shared Test Inputs
         private static readonly ShipTypes[] TestShipList = { ShipTypes.Battleship, ShipTypes.Destroyer };
         private static readonly int TestArrayLength = TestShipList.Length;
-        private static readonly int TestGridSize = 10;
+//        private static readonly int TestGridSize = 10;
 
         [TestMethod]
         public void Ships_WhenCalled_WithValidInputs_SetsShipsArray()
@@ -29,7 +29,7 @@ namespace BatttleshipsNSTests
                 Assert.IsInstanceOfType((roster.Ships[i]), typeof(Ship), ($@"ShipRosterTests_ShipRoster : Array contents incorrect type"));
             }
         }
-
+/*
         [TestMethod]
         public void CheckAllShipsSunk_WhenCalled_WithUnSunkShips_SetSunkFlag()
         {
@@ -72,6 +72,6 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"ShipRosterTests_CheckSunkFlag : Flag in incorrect state"));
         }
-
+*/
     }
 }
