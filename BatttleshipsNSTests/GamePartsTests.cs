@@ -16,7 +16,7 @@ namespace BatttleshipsNSTests
 
             int actual = testParts.ShipCount;
 
-            Assert.AreEqual(expected, actual, ($@"GameParts_SetShipCount : Incorrect Ship Count value returned"));
+            Assert.AreEqual(expected, actual, ($@"GamePartsTests_SetShipCount : Incorrect Ship Count value returned"));
         }
         
         [TestMethod]
@@ -28,7 +28,7 @@ namespace BatttleshipsNSTests
 
             int actual = testParts.Ships.Length;
 
-            Assert.AreEqual(expected, actual, ($@"GameParts_SetShipArrayLength : Incorrect Ship Array Length value returned"));
+            Assert.AreEqual(expected, actual, ($@"GamePartsTests_SetShipArrayLength : Incorrect Ship Array Length value returned"));
         }
         
         [TestMethod]
@@ -39,7 +39,7 @@ namespace BatttleshipsNSTests
 
             Ship actual = testParts.Ships[0];
 
-            Assert.IsNotNull(actual, $@"GameParts_SetArrayContent : No Array Contents exists");
+            Assert.IsNotNull(actual, $@"GamePartsTests_SetArrayContent : No Array Contents exists");
         }
         
         [TestMethod]
@@ -53,7 +53,7 @@ namespace BatttleshipsNSTests
 
             int actual = testParts.ShipCount;
 
-            Assert.AreEqual(expected, actual, ($@"GameParts_UpdateShipCount : Incorrect Ship Count value returned"));
+            Assert.AreEqual(expected, actual, ($@"GamePartsTests_UpdateShipCount : Incorrect Ship Count value returned"));
         }
 
         [TestMethod]
@@ -71,7 +71,7 @@ namespace BatttleshipsNSTests
 
             int actual = testParts.ShipCount;
 
-            Assert.AreEqual(expected, actual, ($@"GameParts_UpdateShipCount : Incorrect Ship Count value returned"));
+            Assert.AreEqual(expected, actual, ($@"GamePartsTests_UpdateShipCount : Incorrect Ship Count value returned"));
         }
 
     }
