@@ -8,7 +8,6 @@ namespace BatttleshipsNSTests
     public class InputHandlerTests
     {
         [TestMethod]
-
         public void ValidateInput_WithValidString_ReturnsZero()
         {
             int expected = 0;
@@ -20,6 +19,8 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, $@"InputHandlerTests_GetUserInput : Incorrect Input String Teturned");
         }
+
+        [TestMethod]
         public void ValidateInput_WithWrongCharacterString_ReturnsOne()
         {
             int expected = 1;
@@ -31,6 +32,8 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, $@"InputHandlerTests_ValidateInput_WrongCharacter : Incorrect Input String Teturned");
         }
+
+        [TestMethod]
         public void ValidateInput_WithWrongIntegerString_ReturnsTwo()
         {
             int expected = 2;
@@ -43,6 +46,7 @@ namespace BatttleshipsNSTests
             Assert.AreEqual(expected, actual, $@"InputHandlerTests_ValidateInput_WrongInteger : Incorrect Input String Teturned");
         }
 
+        [TestMethod]
         public void ConvertInputToTuple_WithValidString_ReturnsTuple()
         {
             (int, int) expected = (0,0);

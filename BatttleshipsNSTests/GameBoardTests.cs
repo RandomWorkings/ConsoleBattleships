@@ -20,6 +20,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"PlayGridTests_Size : Incorrect Grid Size Returned"));
         }
+
         [TestMethod]
         public void GameBoard_WhenCalled_WithValidArguments_GetPlayGrid()
         {

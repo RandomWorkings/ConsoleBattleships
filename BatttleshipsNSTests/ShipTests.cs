@@ -18,6 +18,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Type : Returned incorrect computed value"));
         }
+
         [TestMethod]
         public void Ship_WhenShipCreated_WithValidShipType_SetLength()
         {
@@ -29,6 +30,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Length : Returned incorrect computed value"));
         }
+        
         [TestMethod]
         public void Ship_WhenShipCreated_WithValidShipType_SetSectionsLength()
         {
@@ -40,6 +42,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_SectionLength : Returned incorrect computed value"));
         }
+        
         [TestMethod]
         public void Orientation_WhenCalled_AndHasValidAssignment_SetOrientation()
         {
@@ -54,6 +57,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Orientation : Returned incorrect set value"));
         }
+        
         [TestMethod]
         public void StartLocation_WhenCalled_AndHasValidAssignment_SetStartLocation()
         {
@@ -68,6 +72,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_StartLocation : Returned incorrect set value"));
         }
+        
         [TestMethod]
         public void UpdateSunkFlag_WhenCalled_AndShipSectionsNotAllHit_SetSunkFlag_False()
         {
@@ -80,6 +85,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_NotSunk : Returned incorrect computed value"));
         }
+        
         [TestMethod]
         public void UpdateSunkFlag_WhenCalled_AndShipSectionsAllHit_SetSunkFlag_True()
         {

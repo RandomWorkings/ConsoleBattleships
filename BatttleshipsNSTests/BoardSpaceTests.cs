@@ -17,6 +17,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
         }
+
         [TestMethod]
         public void Occupied_WhenCalled_WithValidAssignment_ReturnSameValue()
         {
@@ -29,6 +30,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
         }
+
         [TestMethod]
         public void Contents_WhenCalled_ReturnDefaultContents()
         {
@@ -39,6 +41,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect Contents value returned"));
         }
+
         [TestMethod]
         public void Contents_WhenCalled_WithValidAssignment_ReturnSameValue()
         {
