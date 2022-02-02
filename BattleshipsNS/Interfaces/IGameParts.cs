@@ -11,6 +11,5 @@ namespace BattleshipsNS
         Ship[] Ships { get; }
         int ShipCount { get; }
         void UpdateShipCount();
-        
     }
 }

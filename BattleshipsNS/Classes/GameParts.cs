@@ -9,7 +9,7 @@ namespace BattleshipsNS
     public class GameParts : IGameParts
     {
         public Ship[] Ships { get; private set; }
-        public int ShipCount { get; private set; }
+        public int ShipCount { get; private set; } = 0;
 
         public GameParts(ShipTypes[] shipsList)
         {

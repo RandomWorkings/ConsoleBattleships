@@ -7,71 +7,72 @@ namespace BatttleshipsNSTests
     [TestClass]
     public class GamePartsTests
     {
-        //Shared Test Inputs
-        private static readonly ShipTypes[] TestShipList = { ShipTypes.Battleship, ShipTypes.Destroyer };
-        private static readonly int TestArrayLength = TestShipList.Length;
-//        private static readonly int TestGridSize = 10;
+        [TestMethod]
+        public void GameParts_WhenCalled_WithValidArguments_SetShipCount()
+        {
+            int expected = 1;
+            ShipTypes[] testShipsList = { ShipTypes.Destroyer };
+            GameParts testParts = new GameParts(testShipsList);
+
+            int actual = testParts.ShipCount;
+
+            Assert.AreEqual(expected, actual, ($@"GameParts_SetShipCount : Incorrect Ship Count value returned"));
+        }
+        
+        [TestMethod]
+        public void GameParts_WhenCalled_WithValidArguments_SetShipArrayLength()
+        {
+            int expected = 1;
+            ShipTypes[] testShipsList = { ShipTypes.Destroyer };
+            GameParts testParts = new GameParts(testShipsList);
+
+            int actual = testParts.Ships.Length;
+
+            Assert.AreEqual(expected, actual, ($@"GameParts_SetShipArrayLength : Incorrect Ship Array Length value returned"));
+        }
+        
+        [TestMethod]
+        public void GameParts_WhenCalled_WithValidArguments_SetArrayContents()
+        {
+            ShipTypes[] testShipsList = { ShipTypes.Destroyer };
+            GameParts testParts = new GameParts(testShipsList);
+
+            Ship actual = testParts.Ships[0];
+
+            Assert.IsNotNull(actual, $@"GameParts_SetArrayContent : No Array Contents exists");
+        }
+        
+        [TestMethod]
+        public void UpdateShipCount_WhenCalled_AndNoNewShipSunk_DoNothing()
+        {
+            int expected = 1;
+            Ship testShip = new Ship(ShipTypes.Destroyer);
+            ShipTypes[] testShipsList = { ShipTypes.Destroyer };
+            GameParts testParts = new GameParts(testShipsList);
+            testParts.UpdateShipCount();
+
+            int actual = testParts.ShipCount;
+
+            Assert.AreEqual(expected, actual, ($@"GameParts_UpdateShipCount : Incorrect Ship Count value returned"));
+        }
 
         [TestMethod]
-        public void Ships_WhenCalled_WithValidInputs_SetsShipsArray()
+        public void UpdateShipCount_WhenCalled_AndANewShipSunk_ModifiyShipCount()
         {
-            //Arrange
-            int expectedSize = TestArrayLength;
-            GameParts roster = new GameParts(TestShipList);
-
-            //Act
-            int actualSize = roster.Ships.Length;
-
-            //Assess
-            Assert.AreEqual(expectedSize, actualSize, ($@"ShipRosterTests_ShipRoster : Array incorrect size"));
-            for (int i = 0; i < actualSize; i++)
-            {
-                Assert.IsInstanceOfType((roster.Ships[i]), typeof(Ship), ($@"ShipRosterTests_ShipRoster : Array contents incorrect type"));
+            int expected = 0;
+            Ship testShip = new Ship(ShipTypes.Destroyer);
+            ShipTypes[] testShipsList = { ShipTypes.Destroyer};
+            GameParts testParts = new GameParts(testShipsList);
+            for(int i = 0; i < testShip.Length, i++)
+            { 
+                testParts.Ships[0].Sections[i].Contents = 'x';
             }
-        }
-/*
-        [TestMethod]
-        public void CheckAllShipsSunk_WhenCalled_WithUnSunkShips_SetSunkFlag()
-        {
-            bool expected = false;
-            GameParts roster = new GameParts(TestShipList);
-            GameBoard grid = new GameBoard(TestGridSize);
-            foreach (Ship ship in roster.Ships)
-            {
-                ship.PlaceShip(grid);
-            }
+            testParts.UpdateShipCount();
 
-            bool actual = roster.CheckAllShipsSunk();
+            int actual = testParts.ShipCount;
 
-            Assert.AreEqual(expected, actual, ($@"ShipRosterTests_CheckSunkFlag : Flag in incorrect state"));
+            Assert.AreEqual(expected, actual, ($@"GameParts_UpdateShipCount : Incorrect Ship Count value returned"));
         }
 
-        [TestMethod]
-        public void CheckRosterSunk_WhenCalled_WithAllShipsSunk_SetSunkFlag()
-        {
-            bool expected = true;
-            GameParts roster = new GameParts(TestShipList);
-
-            GameBoard grid = new GameBoard(TestGridSize);
-            foreach (Ship ship in roster.Ships)
-            {
-                ship.PlaceShip(grid);
-            }
-
-            for (int i = 0; i < roster.Ships.Length; i++)
-            {
-                Ship ship = roster.Ships[i];
-                for (int j = 0; j < ship.Sections.Length; j++)
-                {
-                    BoardSpace cell = ship.Sections[j];
-                    cell.Contents='x';
-                }
-            }
-
-            bool actual = roster.CheckAllShipsSunk();
-
-            Assert.AreEqual(expected, actual, ($@"ShipRosterTests_CheckSunkFlag : Flag in incorrect state"));
-        }
-*/
     }
 }
