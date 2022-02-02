@@ -46,7 +46,6 @@ namespace BatttleshipsNSTests
         public void UpdateShipCount_WhenCalled_AndNoNewShipSunk_DoNothing()
         {
             int expected = 1;
-            Ship testShip = new Ship(ShipTypes.Destroyer);
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
             GameParts testParts = new GameParts(testShipsList);
             testParts.UpdateShipCount();
@@ -63,7 +62,7 @@ namespace BatttleshipsNSTests
             Ship testShip = new Ship(ShipTypes.Destroyer);
             ShipTypes[] testShipsList = { ShipTypes.Destroyer};
             GameParts testParts = new GameParts(testShipsList);
-            for(int i = 0; i < testShip.Length, i++)
+            for(int i = 0; i < testShip.Length; i++)
             { 
                 testParts.Ships[0].Sections[i].Contents = 'x';
             }
