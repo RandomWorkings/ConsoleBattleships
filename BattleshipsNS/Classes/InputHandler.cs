@@ -36,7 +36,7 @@ namespace BattleshipsNS
 
         public int ValidateInput(string userInput)
         {
-            string strRegex = @"(\b[A-Z]{1}[0-9]{1,2}\b$)"; //A0 to Z99 accepted.
+            string strRegex = @"(^[^\b[A-Z]{1}[0-9]{1,2}\b]{3}$)"; //A0 to Z99 accepted.
             Regex re = new Regex(strRegex);
 
             int formatCheck = 0;
