@@ -28,6 +28,10 @@ namespace BattleshipsNS
         {
             Console.WriteLine("\t" + (Messages)MessagesCode);
             Console.WriteLine();
+
+            Messages messageSwitch = (Messages)MessagesCode;
+            if (messageSwitch.HasFlag(Messages.You_Are_The_Winner)){Console.WriteLine("You Won the game, Congratulations");}
+             
         }
 
         public void GenerateMessages(int MessagesCode, int SunkShipCount)
