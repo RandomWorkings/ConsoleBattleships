@@ -99,6 +99,9 @@ namespace BattleshipsNS
             
             if (!SunkFlag)
             {
+                sunkSections = Sections.Count(section => section.Contents == 'x');
+               
+                /*
                 foreach (BoardSpace section in Sections)
                 {
                     if (section.Contents == 'x')
@@ -106,12 +109,16 @@ namespace BattleshipsNS
                         sunkSections++;
                     }
                 }
+                */
 
                 if (sunkSections == Length)
                 {
                     SunkFlag = true;
                 }
             }
+
+
+
         }
     }
 }

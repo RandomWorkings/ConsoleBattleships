@@ -20,14 +20,14 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void GameBoard_WhenCalled_WithValidArguments__Set2DArrayContents()
+        public void GameBoard_WhenCalled_WithValidArguments_Set2DArrayContents()
         {
             int testSize = 1;
             GameBoard testGrid = new GameBoard(testSize);
 
             BoardSpace actual = testGrid.PlayGrid[0,0];
 
-            Assert.IsNull(actual, ($@"GameBoardTests_PlayGrid : No 2-Dimensional Array Contents exists returned"));
+            Assert.IsNotNull(actual, ($@"GameBoardTests_PlayGrid : No 2-Dimensional Array Contents exists returned"));
         }
     }
 }

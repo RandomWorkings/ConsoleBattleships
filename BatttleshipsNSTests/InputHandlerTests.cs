@@ -23,7 +23,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void ValidateInput_WithWrongCharacterString_ReturnsOne()
         {
-            int expected = 1;
+            int expected = (int)Messages.Invalid_Column;
             int testBoardSize = 1;
             string testUserInput = "B1";
             InputHandler inputHandler = new InputHandler(testBoardSize);
@@ -36,7 +36,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void ValidateInput_WithWrongIntegerString_ReturnsTwo()
         {
-            int expected = 2;
+            int expected = (int)Messages.Invalid_Row;
             int testBoardSize = 1;
             string testUserInput = "A2";
             InputHandler inputHandler = new InputHandler(testBoardSize);
