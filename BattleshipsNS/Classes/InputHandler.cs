@@ -36,14 +36,14 @@ namespace BattleshipsNS
 
         public int ValidateInput(string userInput)
         {
-            string strRegex = @"(^\b[A-Z]{1}[0-9]{1,2}\b$)"; //A0 to Z99 accepted.
-            Regex re = new Regex(strRegex);
+            string validFormat = @"(^\b[A-Z]{1}[0-9]{1,2}\b$)"; //A0 to Z99 accepted.
+            Regex validInput = new Regex(validFormat);
 
             int formatCheck = 0;
             int characterCheck = 0;
             int integerCheck = 0;
 
-            if (re.IsMatch(userInput))
+            if (validInput.IsMatch(userInput))
             {
                 char inputCharacter = CollectInputCharacter(userInput);
                 int inputInteger = CollectInputInteger(userInput);
