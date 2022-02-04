@@ -27,7 +27,7 @@ namespace BattleshipsNS
         public string GetUserInput()
         {
             Console.WriteLine();
-            Console.WriteLine("\tEnter Target Grid Space example: A1");
+            Console.WriteLine("\tEnter Target Grid Space. Example target: A1");
             Console.WriteLine("\tPress CRTL + C to quit");
             string userInput = Console.ReadLine();
             Console.WriteLine();
