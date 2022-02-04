@@ -21,9 +21,6 @@ namespace BattleshipsNS
 
     public class OutputHandler : IOutputHandler
     {
-        public OutputHandler()
-        { }
-
         public void GenerateMessages(int MessagesCode, int SunkShipCount)
         {
             Messages messageSwitch = (Messages)MessagesCode;

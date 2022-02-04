@@ -31,7 +31,6 @@ namespace BattleshipsNS
                 
                 int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
 
-
                 if (messageCodes == 0)
                 {
                     //Get Target

@@ -8,20 +8,14 @@ namespace BattleshipsNS
 {
     public class ValueGenerator : IValueGenerator
     {
-        // Fields, Properties
         private static readonly Random Rand = new Random();
         private static readonly object Synclock = new object();
 
-        // Constructor Declaration of Class
-        public ValueGenerator()
-        { }
-
-        // Methods, Events, Operators
         public int GetRandomOrientation()
         {
             lock(Synclock)
             { 
-            return Rand.Next(1, 3); // number between 1 and 2
+                return Rand.Next(1, 3); // number between 1 and 2
             }
         }
         
@@ -35,7 +29,6 @@ namespace BattleshipsNS
                 case 2: //Vertical, Limit Rows
                     columnLimit = boardSize;
                     rowLimit = boardSize - shipLength;
-
                     break;
 
                 default: // Horizontal, Limit Columns
