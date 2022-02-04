@@ -45,7 +45,7 @@ namespace BattleshipsNS
                         //Assess Target Content
                         if (TargetCell.Contents == 'x')
                         {
-                            updatedMessageCodes = messageCodes + (int)Messages.Was_A_Repeat;
+                            updatedMessageCodes = messageCodes + (int)Messages.Repeat;
                         }
                         else
                         {
@@ -58,7 +58,7 @@ namespace BattleshipsNS
                         //Assess Target Content
                         if (TargetCell.Contents == 'o')
                         {
-                            updatedMessageCodes = messageCodes + (int)Messages.Was_A_Repeat; //MessageCode add Target_Repeat AND Target_Miss.
+                            updatedMessageCodes = messageCodes + (int)Messages.Repeat; //MessageCode add Target_Repeat AND Target_Miss.
                         }
                         else
                         {
@@ -78,7 +78,7 @@ namespace BattleshipsNS
                 }
             }
             //Display Game Victory Message
-            Outputs.GenerateMessages((int)Messages.You_Are_The_Winner);
+            Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
             Outputs.DisplayPlayGrid(GameBoard);
         }
     }

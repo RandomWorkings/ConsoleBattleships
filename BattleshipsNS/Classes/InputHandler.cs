@@ -54,7 +54,7 @@ namespace BattleshipsNS
             }
             else
             {
-                formatCheck = (int)Messages.Was_An_Invalid_Format;
+                formatCheck = (int)Messages.Invalid_Format;
             }
 
             return formatCheck + characterCheck + integerCheck;
@@ -108,7 +108,7 @@ namespace BattleshipsNS
             if (validCharacter)
             { return 0; }
             else
-            { return (int)Messages.Was_An_Invalid_Coulumn_Input; } // Output Enum Flags Messages - Input_InvalidColumn
+            { return (int)Messages.Invalid_Column; } // Output Enum Flags Messages - Input_InvalidColumn
         }
         private int CheckValidInteger(int inputInteger)
         {
@@ -116,7 +116,7 @@ namespace BattleshipsNS
             if (validInteger)
             { return 0; }
             else
-            { return (int)Messages.Was_An_Invalid_Row_Input; } // Output Enum Flags Messages - Input_InvalidRow
+            { return (int)Messages.Invalid_Row; } // Output Enum Flags Messages - Input_InvalidRow
         }
     }
 }

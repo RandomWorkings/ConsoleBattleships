@@ -10,34 +10,60 @@ namespace BattleshipsNS
     public enum Messages
     {
         None = 0,
-        Was_An_Invalid_Format = 1,
-        Was_An_Invalid_Coulumn_Input = 2,
-        Was_An_Invalid_Row_Input = 4,
-        Was_A_Repeat = 8,
+        Invalid_Format = 1,
+        Invalid_Column = 2,
+        Invalid_Row = 4,
+        Repeat = 8,
         Missed = 16,
         Hit = 32,
-        You_Are_The_Winner = 64,
-        Ships_Remain = 128
+        Winner = 64,
     }
 
     public class OutputHandler : IOutputHandler
     {
         public OutputHandler()
         { }
-        public void GenerateMessages(int MessagesCode)
-        {
-            Console.WriteLine("\t" + (Messages)MessagesCode);
-            Console.WriteLine();
-
-            Messages messageSwitch = (Messages)MessagesCode;
-            if (messageSwitch.HasFlag(Messages.You_Are_The_Winner)){Console.WriteLine("You Won the game, Congratulations");}
-             
-        }
 
         public void GenerateMessages(int MessagesCode, int SunkShipCount)
         {
-            Console.WriteLine("\tYour Shot: "+(Messages)MessagesCode);
+            Messages messageSwitch = (Messages)MessagesCode;
+            if (messageSwitch.HasFlag(Messages.Invalid_Format))
+            {
+                Console.WriteLine("\tYour Input is invalid.\n\tIt was not the correct format.\n");
+            }
+
+            if (messageSwitch.HasFlag(Messages.Invalid_Column))
+            {
+                Console.WriteLine("\tYour Input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n");
+            }
+
+            if (messageSwitch.HasFlag(Messages.Invalid_Row))
+            {
+                Console.WriteLine("\tYour Input is invalid.\n\tThe row number provided doesnt exist on this grid.\n");
+            }
+
+            if (messageSwitch.HasFlag(Messages.Repeat))
+            {
+                Console.WriteLine("\tYou shot at that target already.\n\tYou won't win the game that way.\n");
+            }
+
+            if (messageSwitch.HasFlag(Messages.Missed))
+            {
+                Console.WriteLine("\tYou shot splashes harmlessly into the sea.\n\tMaybe next time.\n");
+            }
+
+            if (messageSwitch.HasFlag(Messages.Hit))
+            {
+                Console.WriteLine("\tYou Hit something.\n\tWell Done!\n");
+            }
+
             Console.WriteLine("\t" + SunkShipCount + " ships remain.");
+            
+            if (messageSwitch.HasFlag(Messages.Winner))
+            {
+                Console.WriteLine("\tYou Won the game.\n\tCongratulations\n");
+            }
+            
             Console.WriteLine();
         }
 
