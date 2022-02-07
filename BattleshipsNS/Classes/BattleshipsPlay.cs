@@ -5,7 +5,8 @@
         public GameParts GameParts { get; private set; }
         public GameBoard GameBoard { get; private set; }
         private readonly InputHandler Inputs;
-        private readonly OutputHandler Outputs = new OutputHandler();
+        private readonly OutputGenerator Outputs = new OutputGenerator();
+        private readonly ConsoleIO ConsoleIO = new ConsoleIO();
 
         public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts)
         {
@@ -19,7 +20,8 @@
                 int updatedMessageCodes;
 
                 //Display Latest Board State.
-                Outputs.DisplayPlayGrid(GameBoard);
+                string UI = Outputs.GeneratePlayGrid(GameBoard);
+                ConsoleIO.WriteLine(UI);
 
                 string target = Inputs.GetUserInput();
 
@@ -72,7 +74,7 @@
             }
             //Display Game Victory Message
             Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
-            Outputs.DisplayPlayGrid(GameBoard);
+            Outputs.GeneratePlayGrid(GameBoard);
         }
     }
 }

@@ -16,10 +16,12 @@ namespace BattleshipsNS
         Winner = 64,
     }
 
-    public class OutputHandler : IOutputHandler
+    public class OutputGenerator : IOutputGenerator
     {
-        public void GenerateMessages(int MessagesCode, int SunkShipCount)
+        public string GenerateMessages(int MessagesCode, int SunkShipCount)
         {
+            //StringBuilder messagesBuilder = new StringBuilder("");
+
             Messages messageSwitch = (Messages)MessagesCode;
             if (messageSwitch.HasFlag(Messages.Winner))
             {
@@ -81,33 +83,35 @@ namespace BattleshipsNS
                 }
             }
             Console.WriteLine();
+
+            return "butt";
         }
 
-        public void DisplayPlayGrid(GameBoard gameBoard)
+        public string GeneratePlayGrid(GameBoard gameBoard)
         {
             char columnLetter = 'A';
             int rowNumber = 1;
 
-            StringBuilder displayBuilder = new StringBuilder("\t    |", 45);
+            StringBuilder playGridBuilder = new StringBuilder("\t    |", 45);
 
             //Column Headers
             for (int column = 1; column <= gameBoard.BoardSize; column++)
             {
-                displayBuilder.Append(" " + columnLetter + " |");
+                playGridBuilder.Append(" " + columnLetter + " |");
                 columnLetter++;
             }
-            displayBuilder.AppendLine("");
+            playGridBuilder.AppendLine("");
 
             //
             for (int row = 0; row < gameBoard.BoardSize; row++)
             {
                 if (row < 9)
                 {
-                    displayBuilder.Append("\t  " + rowNumber + " |");
+                    playGridBuilder.Append("\t  " + rowNumber + " |");
                 }
                 else
                 {
-                    displayBuilder.Append("\t " + rowNumber + " |");
+                    playGridBuilder.Append("\t " + rowNumber + " |");
                 }
                 rowNumber++;
 
@@ -117,19 +121,19 @@ namespace BattleshipsNS
 
                     if (cell.Contents == null)
                     {
-                        displayBuilder.Append("   |");
+                        playGridBuilder.Append("   |");
                     }
                     else
                     {
-                        displayBuilder.Append(" " + cell.Contents + " |");
+                        playGridBuilder.Append(" " + cell.Contents + " |");
                     }
 
                 }
-                displayBuilder.AppendLine("");
+                playGridBuilder.AppendLine("");
             }
 
-            string Display = displayBuilder.ToString();
-            Console.Write(Display);
+            string Display = playGridBuilder.ToString();
+            return(Display);
         }
     }
 }
