@@ -48,7 +48,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void ConvertInputToTuple_WithValidString_ReturnsTuple()
         {
-            (int, int) expected = (0,0);
+            (int, int) expected = (0, 0);
             int testBoardSize = 1;
             string testUserInput = "A1";
             InputHandler inputHandler = new InputHandler(testBoardSize);

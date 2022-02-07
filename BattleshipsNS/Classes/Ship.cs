@@ -2,7 +2,6 @@
 
 namespace BattleshipsNS
 {
-
     public class Ship : IShip
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
@@ -30,6 +29,7 @@ namespace BattleshipsNS
         {
             ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
+
             while(true)
             {
                 Orientation = generator.GetRandomOrientation();
@@ -83,11 +83,9 @@ namespace BattleshipsNS
                     }
                     break;
                 }
-
             }
-
         }
-                 
+
         public void UpdateSunkFlag()
         {
             int sunkSections = 0;
@@ -101,9 +99,6 @@ namespace BattleshipsNS
                     SunkFlag = true;
                 }
             }
-
-
-
         }
     }
 }

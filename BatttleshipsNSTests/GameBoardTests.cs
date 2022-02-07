@@ -38,7 +38,7 @@ namespace BatttleshipsNSTests
             int testSize = 1;
             GameBoard testGrid = new GameBoard(testSize);
 
-            BoardSpace actual = testGrid.PlayGrid[0,0];
+            BoardSpace actual = testGrid.PlayGrid[0, 0];
 
             Assert.IsNotNull(actual, ($@"GameBoardTests_PlayGrid : No 2-dimensional array contents exists returned"));
         }

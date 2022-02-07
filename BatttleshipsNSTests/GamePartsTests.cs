@@ -17,7 +17,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"GamePartsTests_SetShipCount : Incorrect Ship Count value returned"));
         }
-        
+
         [TestMethod]
         public void GameParts_WhenCalled_WithValidArguments_SetShipArrayLength()
         {
@@ -29,7 +29,7 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"GamePartsTests_SetShipArrayLength : Incorrect Ship Array Length value returned"));
         }
-        
+
         [TestMethod]
         public void GameParts_WhenCalled_WithValidArguments_SetArrayContents()
         {
@@ -40,7 +40,7 @@ namespace BatttleshipsNSTests
 
             Assert.IsNotNull(actual, $@"GamePartsTests_SetArrayContent : No Array Contents exists");
         }
-        
+
         [TestMethod]
         public void UpdateShipCount_WhenCalled_AndNoNewShipSunk_DoNothing()
         {
@@ -59,10 +59,10 @@ namespace BatttleshipsNSTests
         {
             int expected = 0;
             Ship testShip = new Ship(ShipTypes.Destroyer);
-            ShipTypes[] testShipsList = { ShipTypes.Destroyer};
+            ShipTypes[] testShipsList = { ShipTypes.Destroyer };
             GameParts testParts = new GameParts(testShipsList);
-            for(int i = 0; i < testShip.Length; i++)
-            { 
+            for (int i = 0; i < testShip.Length; i++)
+            {
                 testParts.Ships[0].Sections[i].Contents = 'x';
             }
             testParts.UpdateShipCount();

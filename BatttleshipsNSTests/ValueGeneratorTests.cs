@@ -35,7 +35,7 @@ namespace BatttleshipsNSTests
 
             (int actualRow, int actualColumn) = TestGenerator.GetRandomLocation(TestOrientation, TestShipLength, TestGridSize);
 
-            Assert.IsTrue(ExpectedRowMax >= actualRow && actualRow >= ExpectedRowMin, ($@"ValueGenerator_GetRandomLocation : Returned incorrect Firdt Tuple value")); 
+            Assert.IsTrue(ExpectedRowMax >= actualRow && actualRow >= ExpectedRowMin, ($@"ValueGenerator_GetRandomLocation : Returned incorrect Firdt Tuple value"));
             Assert.IsTrue(ExpectedColMax >= actualColumn && actualColumn >= ExpectedColMin, ($@"ValueGenerator_GetRandomLocation : Returned incorrect Second Tuple value"));
         }
 
