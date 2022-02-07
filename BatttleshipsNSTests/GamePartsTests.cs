@@ -71,6 +71,5 @@ namespace BatttleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"GamePartsTests_UpdateShipCount : Incorrect Ship Count value returned"));
         }
-
     }
 }
