@@ -20,8 +20,8 @@
                 int updatedMessageCodes;
 
                 //Display Latest Board State.
-                string UI = Outputs.GeneratePlayGrid(GameBoard);
-                ConsoleIO.WriteLine(UI);
+                string ui = Outputs.GeneratePlayGrid(GameBoard);
+                ConsoleIO.WriteLine(ui);
 
                 string target = Inputs.GetUserInput();
 
@@ -63,17 +63,21 @@
 
                     //Display Appropriate Messages.
                     gameParts.UpdateShipCount();
-                    Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
+                    string feedback = Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
+                    ConsoleIO.WriteLine(feedback);                    
                 }
                 else
                 {
                     //Display Appropriate Messages based on code.
                     gameParts.UpdateShipCount();
-                    Outputs.GenerateMessages(messageCodes, gameParts.ShipCount);
+                    string feedback = Outputs.GenerateMessages(messageCodes, gameParts.ShipCount);
+                    ConsoleIO.WriteLine(feedback);
                 }
             }
             //Display Game Victory Message
-            Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
+            gameParts.UpdateShipCount();
+            string finalFeedback = Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
+            ConsoleIO.WriteLine(finalFeedback);
             Outputs.GeneratePlayGrid(GameBoard);
         }
     }

@@ -20,71 +20,51 @@ namespace BattleshipsNS
     {
         public string GenerateMessages(int MessagesCode, int SunkShipCount)
         {
-            //StringBuilder messagesBuilder = new StringBuilder("");
+            StringBuilder messagesBuilder = new StringBuilder("");
 
             Messages messageSwitch = (Messages)MessagesCode;
-            if (messageSwitch.HasFlag(Messages.Winner))
+
+            if (messageSwitch.HasFlag(Messages.Invalid_Format))
             {
-                Console.WriteLine("\tYou won the game.");
-                Console.WriteLine("\tCongratulations");
-                Console.WriteLine();
+                messagesBuilder.AppendLine("\tYour input is invalid.\n\tIt was not the correct format.\n");
+            }
+            if (messageSwitch.HasFlag(Messages.Invalid_Column))
+            {
+                messagesBuilder.AppendLine("\tYour input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n");
+            }
+            if (messageSwitch.HasFlag(Messages.Invalid_Row))
+            {
+                messagesBuilder.AppendLine("\tYour input is invalid.\n\tThe row number provided doesnt exist on this grid.\n");
+            }
+            if (messageSwitch.HasFlag(Messages.Repeat))
+            {
+                messagesBuilder.AppendLine("\tYou shot at that target already.\n\tYou won't win the game that way.\n");
+            }
+            if (messageSwitch.HasFlag(Messages.Missed))
+            {
+                messagesBuilder.AppendLine("\tYou shot splashes harmlessly into the sea.\n\tMaybe next time.\n");
+            }
+            if (messageSwitch.HasFlag(Messages.Hit))
+            {
+                messagesBuilder.AppendLine("\tYou hit something.\n\tWell done!\n");
+            }
+
+            if (SunkShipCount == 1)
+            {
+                messagesBuilder.AppendLine("\tThere is " + SunkShipCount + " ship left.");
             }
             else
             {
-                if (messageSwitch.HasFlag(Messages.Invalid_Format))
-                {
-                    Console.WriteLine("\tYour input is invalid.");
-                    Console.WriteLine("\tIt was not the correct format.");
-                    Console.WriteLine();
-                }
-
-                if (messageSwitch.HasFlag(Messages.Invalid_Column))
-                {
-                    Console.WriteLine("\tYour input is invalid.");
-                    Console.WriteLine("\tThe column letter provided doesnt exist on this grid.");
-                    Console.WriteLine();
-                }
-
-                if (messageSwitch.HasFlag(Messages.Invalid_Row))
-                {
-                    Console.WriteLine("\tYour input is invalid.");
-                    Console.WriteLine("\tThe row number provided doesnt exist on this grid.");
-                    Console.WriteLine();
-                }
-
-                if (messageSwitch.HasFlag(Messages.Repeat))
-                {
-                    Console.WriteLine("\tYou shot at that target already.");
-                    Console.WriteLine("\tYou won't win the game that way.");
-                    Console.WriteLine();
-                }
-
-                if (messageSwitch.HasFlag(Messages.Missed))
-                {
-                    Console.WriteLine("\tYou shot splashes harmlessly into the sea.");
-                    Console.WriteLine("\tMaybe next time.");
-                    Console.WriteLine();
-                }
-
-                if (messageSwitch.HasFlag(Messages.Hit))
-                {
-                    Console.WriteLine("\tYou hit something.");
-                    Console.WriteLine("\tWell done!");
-                    Console.WriteLine();
-                }
-
-                if (SunkShipCount == 1)
-                {
-                    Console.WriteLine("\tThere is " + SunkShipCount + " ship left.");
-                }
-                else
-                {
-                    Console.WriteLine("\tThere are " + SunkShipCount + " ship(s) left.");
-                }
+                messagesBuilder.AppendLine("\tThere are " + SunkShipCount + " ship(s) left.");
             }
-            Console.WriteLine();
 
-            return "butt";
+            if (messageSwitch.HasFlag(Messages.Winner))
+            {
+                messagesBuilder.AppendLine("\tYou won the game.\n\tCongratulations");
+            }
+
+            string message = messagesBuilder.ToString();
+            return message;
         }
 
         public string GeneratePlayGrid(GameBoard gameBoard)
@@ -132,8 +112,8 @@ namespace BattleshipsNS
                 playGridBuilder.AppendLine("");
             }
 
-            string Display = playGridBuilder.ToString();
-            return(Display);
+            string ui = playGridBuilder.ToString();
+            return(ui);
         }
     }
 }
