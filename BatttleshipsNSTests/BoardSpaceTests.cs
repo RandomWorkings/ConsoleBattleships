@@ -14,7 +14,7 @@ namespace BatttleshipsNSTests
 
             bool actual = TestSpace.Occupied;
 
-            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect occupied value returned"));
         }
 
         [TestMethod]
@@ -27,7 +27,7 @@ namespace BatttleshipsNSTests
             };
             bool actual = TestSpace.Occupied;
 
-            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect Occupied value returned"));
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Occupied : Incorrect occupied value returned"));
         }
 
         [TestMethod]
@@ -38,7 +38,7 @@ namespace BatttleshipsNSTests
 
             char? actual = TestSpace.Contents;
 
-            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect Contents value returned"));
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect contents value returned"));
         }
 
         [TestMethod]
@@ -52,7 +52,7 @@ namespace BatttleshipsNSTests
 
             char? actual = TestSpace.Contents;
 
-            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect Contents value returned"));
+            Assert.AreEqual(expected, actual, ($@"BoardSpaceTests_Contents : Incorrect contents value returned"));
         }
     }
 }

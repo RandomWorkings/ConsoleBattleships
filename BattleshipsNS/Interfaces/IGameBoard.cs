@@ -4,6 +4,5 @@
     {
         int BoardSize { get; }
         BoardSpace[,] PlayGrid { get; }
-
     }
 }
