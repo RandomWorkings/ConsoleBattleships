@@ -12,7 +12,7 @@ namespace BattleshipsNS
         public InputHandler(int boardSize)
         {
             BoardSize = boardSize;
-            
+
             AcceptedCharacters = new char[BoardSize];
             SetAcceptedCharacters();
 
@@ -61,7 +61,7 @@ namespace BattleshipsNS
             char inputCharacter = CollectInputCharacter(userInput);
             int inputInteger = CollectInputInteger(userInput);
 
-            int column = Array.IndexOf(AcceptedCharacters,inputCharacter);
+            int column = Array.IndexOf(AcceptedCharacters, inputCharacter);
             int row = inputInteger - 1;
 
             return (row, column);
@@ -71,7 +71,7 @@ namespace BattleshipsNS
         {
             char FirstAcceptedCharacter = 'A';
 
-            for(int i = 0; i < BoardSize; i++)
+            for (int i = 0; i < BoardSize; i++)
             {
                 int CharacterAdjustment = 0 + i;
                 char nextValidCharacter = (Char)(Convert.ToInt32(FirstAcceptedCharacter) + CharacterAdjustment);

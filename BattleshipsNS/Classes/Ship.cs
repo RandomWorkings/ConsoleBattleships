@@ -12,7 +12,7 @@ namespace BattleshipsNS
         public (int, int) StartLocation { get; set; } = (0, 0);
 
         public Ship(ShipTypes shipType)
-		{
+        {
             Type = shipType;
 
             Length = (int)Type;
@@ -30,11 +30,11 @@ namespace BattleshipsNS
             ValueGenerator generator = new ValueGenerator();
             bool clearSpace = true;
 
-            while(true)
+            while (true)
             {
                 Orientation = generator.GetRandomOrientation();
                 (int row, int column) = generator.GetRandomLocation(Orientation, Length, gameBoard.BoardSize);
-                
+
                 StartLocation = (row, column);
                 int sectionColumn = column;
                 int sectionRow = row;
@@ -42,7 +42,7 @@ namespace BattleshipsNS
                 switch (Orientation)
                 {
                     case 2: //Vertical
-                        
+
                         for (int v = 0; v < Length; v++)
                         {
                             BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
@@ -61,7 +61,7 @@ namespace BattleshipsNS
                         for (int h = 0; h < Length; h++)
                         {
                             BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
-                            
+
                             if (refCell.Occupied)
                             {
                                 clearSpace = false;
@@ -76,8 +76,8 @@ namespace BattleshipsNS
 
                 //Loop breaker
                 if (clearSpace)
-                {                 
-                    for(int i = 0; i < Length; i++)
+                {
+                    for (int i = 0; i < Length; i++)
                     {
                         Sections[i].Occupied = true;
                     }
@@ -89,7 +89,7 @@ namespace BattleshipsNS
         public void UpdateSunkFlag()
         {
             int sunkSections = 0;
-            
+
             if (!SunkFlag)
             {
                 sunkSections = Sections.Count(section => section.Contents == 'x');

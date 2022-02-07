@@ -9,12 +9,12 @@ namespace BattleshipsNS
 
         public int GetRandomOrientation()
         {
-            lock(Synclock)
-            { 
+            lock (Synclock)
+            {
                 return Rand.Next(1, 3); // number between 1 and 2
             }
         }
-        
+
         public (int, int) GetRandomLocation(int shipOrientation, int shipLength, int boardSize)
         {
             int columnLimit;
@@ -37,8 +37,8 @@ namespace BattleshipsNS
                 int column = Rand.Next(0, columnLimit);
                 int row = Rand.Next(0, rowLimit);
                 return (row, column);
-            }  
-            
+            }
+
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace BattleshipsNS
-{ 
+{
     class Program
     {
         static void Main()
@@ -11,7 +11,7 @@ namespace BattleshipsNS
             while (Running)
             {
                 Console.WriteLine();
-                BattleshipsSetup GameSetup = new BattleshipsSetup();            
+                BattleshipsSetup GameSetup = new BattleshipsSetup();
                 new BattleshipsPlay(GameSetup.GameBoard, GameSetup.GameParts);
 
                 //Repeat Program Option

@@ -8,7 +8,7 @@
         {
             // Set grid size
             BoardSize = boardSize;
-            
+
             // Create grid
             PlayGrid = new BoardSpace[BoardSize, BoardSize];
 

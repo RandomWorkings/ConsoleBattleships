@@ -22,7 +22,7 @@
                 Outputs.DisplayPlayGrid(GameBoard);
 
                 string target = Inputs.GetUserInput();
-                
+
                 int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
 
                 if (messageCodes == 0)

@@ -2,7 +2,7 @@
 {
     public interface IShip
     {
-        ShipTypes Type { get;}
+        ShipTypes Type { get; }
         int Length { get; }
         bool SunkFlag { get; }
         BoardSpace[] Sections { get; }

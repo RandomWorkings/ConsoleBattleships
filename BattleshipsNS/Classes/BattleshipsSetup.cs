@@ -15,7 +15,7 @@
         {
             // Program Default settings
             int boardSize = 10;
-            ShipTypes[] shipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer};
+            ShipTypes[] shipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
 
             GameParts = new GameParts(shipsList);
             GameBoard = new GameBoard(boardSize);

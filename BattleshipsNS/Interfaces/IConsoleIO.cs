@@ -2,8 +2,8 @@
 {
     interface IConsoleIO
     {
-		void WriteLine(string s);
-		string ReadLine();
+        void WriteLine(string s);
+        string ReadLine();
 
-	}
+    }
 }

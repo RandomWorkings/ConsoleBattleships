@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace BattleshipsNS
 {
@@ -70,7 +71,7 @@ namespace BattleshipsNS
                     Console.WriteLine();
                 }
 
-                if(SunkShipCount==1)
+                if (SunkShipCount == 1)
                 {
                     Console.WriteLine("\tThere is " + SunkShipCount + " ship left.");
                 }
@@ -78,7 +79,7 @@ namespace BattleshipsNS
                 {
                     Console.WriteLine("\tThere are " + SunkShipCount + " ship(s) left.");
                 }
-            }            
+            }
             Console.WriteLine();
         }
 
@@ -87,27 +88,26 @@ namespace BattleshipsNS
             char columnLetter = 'A';
             int rowNumber = 1;
 
-            //Top Corner
-            Console.Write("\t    |");
+            StringBuilder displayBuilder = new StringBuilder("\t    |", 45);
 
             //Column Headers
             for (int column = 1; column <= gameBoard.BoardSize; column++)
             {
-                Console.Write(" " + columnLetter + " |");
+                displayBuilder.Append(" " + columnLetter + " |");
                 columnLetter++;
             }
-            Console.WriteLine();
+            displayBuilder.AppendLine("");
 
             //
             for (int row = 0; row < gameBoard.BoardSize; row++)
             {
-                if(row<9)
+                if (row < 9)
                 {
-                    Console.Write("\t  " + rowNumber + " |"); 
+                    displayBuilder.Append("\t  " + rowNumber + " |");
                 }
                 else
                 {
-                    Console.Write("\t " + rowNumber + " |");
+                    displayBuilder.Append("\t " + rowNumber + " |");
                 }
                 rowNumber++;
 
@@ -115,18 +115,21 @@ namespace BattleshipsNS
                 {
                     BoardSpace cell = gameBoard.PlayGrid[row, column];
 
-                    if(cell.Contents == null)
+                    if (cell.Contents == null)
                     {
-                        Console.Write("   |"); 
+                        displayBuilder.Append("   |");
                     }
                     else
                     {
-                        Console.Write(" " + cell.Contents + " |");
+                        displayBuilder.Append(" " + cell.Contents + " |");
                     }
-                    
+
                 }
-                Console.WriteLine("");
+                displayBuilder.AppendLine("");
             }
+
+            string Display = displayBuilder.ToString();
+            Console.Write(Display);
         }
     }
 }
