@@ -20,16 +20,6 @@ namespace BattleshipsNS
             SetAcceptedIntegers();
         }
 
-        public string GetUserInput()
-        {
-            Console.WriteLine();
-            Console.WriteLine("\tEnter Target Grid Space. Example target: A1");
-            Console.WriteLine("\tPress CRTL + C to quit");
-            string userInput = Console.ReadLine();
-            Console.WriteLine();
-            return userInput.ToUpper();
-        }
-
         public int ValidateInput(string userInput)
         {
             string validFormat = @"(^\b[A-Z]{1}[0-9]{1,2}\b$)"; //A0 to Z99 accepted.

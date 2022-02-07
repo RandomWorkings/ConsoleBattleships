@@ -18,6 +18,16 @@ namespace BattleshipsNS
 
     public class OutputGenerator : IOutputGenerator
     {
+        public string GenerateInputRequest()
+        {
+            StringBuilder requestBuilder = new StringBuilder("");
+
+            requestBuilder.AppendLine("\tEnter Target Grid Space. Example target: A1\n\tPress CRTL + C to quit");
+
+            string request = requestBuilder.ToString();
+            return request;
+        }
+
         public string GenerateMessages(int MessagesCode, int SunkShipCount)
         {
             StringBuilder messagesBuilder = new StringBuilder("");

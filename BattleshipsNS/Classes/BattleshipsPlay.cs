@@ -23,8 +23,12 @@
                 string playGridUI = Outputs.GeneratePlayGridUI(GameBoard);
                 ConsoleIO.WriteLine(playGridUI);
 
-                string target = Inputs.GetUserInput();
+                string inputRequest = Outputs.GenerateInputRequest();
+                ConsoleIO.WriteLine(inputRequest);
 
+                string userInput = ConsoleIO.ReadLine();
+                string target = userInput.ToUpper();
+                
                 int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
 
                 if (messageCodes == 0)
