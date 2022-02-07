@@ -2,8 +2,8 @@
 {
     public enum ShipTypes
     {
-        Battleship = 4,
-        Destroyer = 3
+        Battleship = 5,
+        Destroyer = 4
     };
 
     class BattleshipsSetup : IBattleshipsSetup
@@ -15,7 +15,7 @@
         {
             // Program Default settings
             int boardSize = 10;
-            ShipTypes[] shipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
+            ShipTypes[] shipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer};
 
             GameParts = new GameParts(shipsList);
             GameBoard = new GameBoard(boardSize);
