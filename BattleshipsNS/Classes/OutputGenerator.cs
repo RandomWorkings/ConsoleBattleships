@@ -48,19 +48,20 @@ namespace BattleshipsNS
             {
                 messagesBuilder.AppendLine("\tYou hit something.\n\tWell done!\n");
             }
-
-            if (SunkShipCount == 1)
-            {
-                messagesBuilder.AppendLine("\tThere is " + SunkShipCount + " ship left.");
-            }
-            else
-            {
-                messagesBuilder.AppendLine("\tThere are " + SunkShipCount + " ship(s) left.");
-            }
-
             if (messageSwitch.HasFlag(Messages.Winner))
             {
                 messagesBuilder.AppendLine("\tYou won the game.\n\tCongratulations");
+            }
+            else
+            {
+                if (SunkShipCount == 1)
+                {
+                    messagesBuilder.AppendLine("\tThere is " + SunkShipCount + " ship left.");
+                }
+                else
+                {
+                    messagesBuilder.AppendLine("\tThere are " + SunkShipCount + " ship(s) left.");
+                }
             }
 
             string message = messagesBuilder.ToString();

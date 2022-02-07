@@ -15,7 +15,6 @@ namespace BattleshipsNS
                 new BattleshipsPlay(GameSetup.GameBoard, GameSetup.GameParts);
 
                 //Repeat Program Option
-                Console.WriteLine();
                 Console.WriteLine("\tThe Program Battleships has finished!");
                 Console.WriteLine("\tPress Enter to repeat program");
                 Console.WriteLine("\tPress any other button to quit");
