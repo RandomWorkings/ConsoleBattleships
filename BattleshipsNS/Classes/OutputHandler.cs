@@ -22,38 +22,52 @@ namespace BattleshipsNS
             Messages messageSwitch = (Messages)MessagesCode;
             if (messageSwitch.HasFlag(Messages.Winner))
             {
-                Console.WriteLine("\tYou won the game.\n\tCongratulations\n");
+                Console.WriteLine("\tYou won the game.");
+                Console.WriteLine("\tCongratulations");
+                Console.WriteLine();
             }
             else
             {
                 if (messageSwitch.HasFlag(Messages.Invalid_Format))
                 {
-                    Console.WriteLine("\tYour input is invalid.\n\tIt was not the correct format.\n");
+                    Console.WriteLine("\tYour input is invalid.");
+                    Console.WriteLine("\tIt was not the correct format.");
+                    Console.WriteLine();
                 }
 
                 if (messageSwitch.HasFlag(Messages.Invalid_Column))
                 {
-                    Console.WriteLine("\tYour input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n");
+                    Console.WriteLine("\tYour input is invalid.");
+                    Console.WriteLine("\tThe column letter provided doesnt exist on this grid.");
+                    Console.WriteLine();
                 }
 
                 if (messageSwitch.HasFlag(Messages.Invalid_Row))
                 {
-                    Console.WriteLine("\tYour input is invalid.\n\tThe row number provided doesnt exist on this grid.\n");
+                    Console.WriteLine("\tYour input is invalid.");
+                    Console.WriteLine("\tThe row number provided doesnt exist on this grid.");
+                    Console.WriteLine();
                 }
 
                 if (messageSwitch.HasFlag(Messages.Repeat))
                 {
-                    Console.WriteLine("\tYou shot at that target already.\n\tYou won't win the game that way.\n");
+                    Console.WriteLine("\tYou shot at that target already.");
+                    Console.WriteLine("\tYou won't win the game that way.");
+                    Console.WriteLine();
                 }
 
                 if (messageSwitch.HasFlag(Messages.Missed))
                 {
-                    Console.WriteLine("\tYou shot splashes harmlessly into the sea.\n\tMaybe next time.\n");
+                    Console.WriteLine("\tYou shot splashes harmlessly into the sea.");
+                    Console.WriteLine("\tMaybe next time.");
+                    Console.WriteLine();
                 }
 
                 if (messageSwitch.HasFlag(Messages.Hit))
                 {
-                    Console.WriteLine("\tYou hit something.\n\tWell done!\n");
+                    Console.WriteLine("\tYou hit something.");
+                    Console.WriteLine("\tWell done!");
+                    Console.WriteLine();
                 }
 
                 if(SunkShipCount==1)
@@ -68,7 +82,7 @@ namespace BattleshipsNS
             Console.WriteLine();
         }
 
-        public void DisplayPlayGrid(GameBoard UIGrid)
+        public void DisplayPlayGrid(GameBoard gameBoard)
         {
             char columnLetter = 'A';
             int rowNumber = 1;
@@ -77,7 +91,7 @@ namespace BattleshipsNS
             Console.Write("\t    |");
 
             //Column Headers
-            for (int column = 1; column <= UIGrid.BoardSize; column++)
+            for (int column = 1; column <= gameBoard.BoardSize; column++)
             {
                 Console.Write(" " + columnLetter + " |");
                 columnLetter++;
@@ -85,7 +99,7 @@ namespace BattleshipsNS
             Console.WriteLine();
 
             //
-            for (int row = 0; row < UIGrid.BoardSize; row++)
+            for (int row = 0; row < gameBoard.BoardSize; row++)
             {
                 if(row<9)
                 {
@@ -97,9 +111,9 @@ namespace BattleshipsNS
                 }
                 rowNumber++;
 
-                for (int column = 0; column < UIGrid.BoardSize; column++)
+                for (int column = 0; column < gameBoard.BoardSize; column++)
                 {
-                    BoardSpace cell = UIGrid.PlayGrid[row, column];
+                    BoardSpace cell = gameBoard.PlayGrid[row, column];
 
                     if(cell.Contents == null)
                     {

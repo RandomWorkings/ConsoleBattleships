@@ -46,10 +46,12 @@
     <Compile Include="Classes\BattleshipsPlay.cs" />
     <Compile Include="Classes\BattleshipsSetup.cs" />
     <Compile Include="Classes\BoardSpace.cs" />
+    <Compile Include="Classes\ConsoleIO.cs" />
     <Compile Include="Classes\GameBoard.cs" />
     <Compile Include="Interfaces\IBattleshipsPlay.cs" />
     <Compile Include="Interfaces\IBattleshipsSetup.cs" />
     <Compile Include="Interfaces\IBoardSpace.cs" />
+    <Compile Include="Interfaces\IConsoleIO.cs" />
     <Compile Include="Interfaces\IGameBoard.cs" />
     <Compile Include="Interfaces\IInputHandler.cs" />
     <Compile Include="Classes\InputHandler.cs" />
