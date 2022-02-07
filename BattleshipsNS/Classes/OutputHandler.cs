@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BattleshipsNS
 {
@@ -26,23 +22,23 @@ namespace BattleshipsNS
             Messages messageSwitch = (Messages)MessagesCode;
             if (messageSwitch.HasFlag(Messages.Winner))
             {
-                Console.WriteLine("\tYou Won the game.\n\tCongratulations\n");
+                Console.WriteLine("\tYou won the game.\n\tCongratulations\n");
             }
             else
             {
                 if (messageSwitch.HasFlag(Messages.Invalid_Format))
                 {
-                    Console.WriteLine("\tYour Input is invalid.\n\tIt was not the correct format.\n");
+                    Console.WriteLine("\tYour input is invalid.\n\tIt was not the correct format.\n");
                 }
 
                 if (messageSwitch.HasFlag(Messages.Invalid_Column))
                 {
-                    Console.WriteLine("\tYour Input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n");
+                    Console.WriteLine("\tYour input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n");
                 }
 
                 if (messageSwitch.HasFlag(Messages.Invalid_Row))
                 {
-                    Console.WriteLine("\tYour Input is invalid.\n\tThe row number provided doesnt exist on this grid.\n");
+                    Console.WriteLine("\tYour input is invalid.\n\tThe row number provided doesnt exist on this grid.\n");
                 }
 
                 if (messageSwitch.HasFlag(Messages.Repeat))
@@ -57,10 +53,17 @@ namespace BattleshipsNS
 
                 if (messageSwitch.HasFlag(Messages.Hit))
                 {
-                    Console.WriteLine("\tYou hit something.\n\tWell Done!\n");
+                    Console.WriteLine("\tYou hit something.\n\tWell done!\n");
                 }
 
-                Console.WriteLine("\tThere are " + SunkShipCount + " ship(s) left.");
+                if(SunkShipCount==1)
+                {
+                    Console.WriteLine("\tThere is " + SunkShipCount + " ship left.");
+                }
+                else
+                {
+                    Console.WriteLine("\tThere are " + SunkShipCount + " ship(s) left.");
+                }
             }            
             Console.WriteLine();
         }

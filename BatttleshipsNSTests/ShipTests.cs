@@ -1,6 +1,5 @@
-﻿using BattleshipsNS;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BattleshipsNS;
 
 namespace BatttleshipsNSTests
 {

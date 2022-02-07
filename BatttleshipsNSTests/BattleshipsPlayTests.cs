@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using BattleshipsNS;
 
 namespace BatttleshipsNSTests
 {
