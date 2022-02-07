@@ -20,8 +20,8 @@
                 int updatedMessageCodes;
 
                 //Display Latest Board State.
-                string ui = Outputs.GeneratePlayGrid(GameBoard);
-                ConsoleIO.WriteLine(ui);
+                string playGridUI = Outputs.GeneratePlayGridUI(GameBoard);
+                ConsoleIO.WriteLine(playGridUI);
 
                 string target = Inputs.GetUserInput();
 
@@ -78,7 +78,7 @@
             gameParts.UpdateShipCount();
             string finalFeedback = Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
             ConsoleIO.WriteLine(finalFeedback);
-            Outputs.GeneratePlayGrid(GameBoard);
+            //Outputs.GeneratePlayGridUI(GameBoard);
         }
     }
 }

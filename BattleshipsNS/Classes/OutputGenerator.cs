@@ -68,7 +68,7 @@ namespace BattleshipsNS
             return message;
         }
 
-        public string GeneratePlayGrid(GameBoard gameBoard)
+        public string GeneratePlayGridUI(GameBoard gameBoard)
         {
             char columnLetter = 'A';
             int rowNumber = 1;
