@@ -34,29 +34,33 @@ namespace BattleshipsNS
 
             Messages messageSwitch = (Messages)MessagesCode;
 
+            if (messageSwitch.HasFlag(Messages.Invalid_Format) || messageSwitch.HasFlag(Messages.Invalid_Column) || messageSwitch.HasFlag(Messages.Invalid_Row))
+            {
+                messagesBuilder.AppendLine("\tYour input is invalid.");
+            }
             if (messageSwitch.HasFlag(Messages.Invalid_Format))
             {
-                messagesBuilder.AppendLine("\tYour input is invalid.\n\tIt was not the correct format.\n");
+                messagesBuilder.AppendLine("\tThe input was not in the correct format.");
             }
             if (messageSwitch.HasFlag(Messages.Invalid_Column))
             {
-                messagesBuilder.AppendLine("\tYour input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n");
+                messagesBuilder.AppendLine("\tThe column letter provided doesnt exist on this grid.");
             }
             if (messageSwitch.HasFlag(Messages.Invalid_Row))
             {
-                messagesBuilder.AppendLine("\tYour input is invalid.\n\tThe row number provided doesnt exist on this grid.\n");
+                messagesBuilder.AppendLine("\tThe row number provided doesnt exist on this grid.");
             }
             if (messageSwitch.HasFlag(Messages.Repeat))
             {
-                messagesBuilder.AppendLine("\tYou shot at that target already.\n\tYou won't win the game that way.\n");
+                messagesBuilder.AppendLine("\tYou shot at that target already.\n\tYou won't win the game that way.");
             }
             if (messageSwitch.HasFlag(Messages.Missed))
             {
-                messagesBuilder.AppendLine("\tYou shot splashes harmlessly into the sea.\n\tMaybe next time.\n");
+                messagesBuilder.AppendLine("\tYou shot splashes harmlessly into the sea.\n\tMaybe next time.");
             }
             if (messageSwitch.HasFlag(Messages.Hit))
             {
-                messagesBuilder.AppendLine("\tYou hit something.\n\tWell done!\n");
+                messagesBuilder.AppendLine("\tYou hit something.\n\tWell done!");
             }
             if (messageSwitch.HasFlag(Messages.Winner))
             {
@@ -66,11 +70,11 @@ namespace BattleshipsNS
             {
                 if (SunkShipCount == 1)
                 {
-                    messagesBuilder.AppendLine("\tThere is " + SunkShipCount + " ship left.");
+                    messagesBuilder.AppendLine("\n\tThere is " + SunkShipCount + " ship left.");
                 }
                 else
                 {
-                    messagesBuilder.AppendLine("\tThere are " + SunkShipCount + " ship(s) left.");
+                    messagesBuilder.AppendLine("\n\tThere are " + SunkShipCount + " ship(s) left.");
                 }
             }
 
