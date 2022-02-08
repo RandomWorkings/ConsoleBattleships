@@ -1,11 +1,5 @@
 ﻿namespace BattleshipsNS
 {
-    public enum ShipTypes
-    {
-        Battleship = 5,
-        Destroyer = 4
-    };
-
     class BattleshipsSetup : IBattleshipsSetup
     {
         public GameParts GameParts { get; private set; }

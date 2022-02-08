@@ -2,6 +2,12 @@
 
 namespace BattleshipsNS
 {
+    public enum ShipTypes
+    {
+        Battleship = 5,
+        Destroyer = 4
+    };
+
     public class Ship : IShip
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
@@ -32,8 +38,23 @@ namespace BattleshipsNS
 
             while (true)
             {
-                Orientation = generator.GetRandomOrientation();
-                (int row, int column) = generator.GetRandomLocation(Orientation, Length, gameBoard.BoardSize);
+                Orientation = generator.GetRandomInt();
+                int columnLimit;
+                int rowLimit;
+
+                switch (Orientation)
+                {
+                    case 2: //Vertical, Limit Rows
+                        columnLimit = gameBoard.BoardSize;
+                        rowLimit = gameBoard.BoardSize - Length;
+                        break;
+
+                    default: // Horizontal, Limit Columns
+                        columnLimit = gameBoard.BoardSize - Length;
+                        rowLimit = gameBoard.BoardSize;
+                        break;
+                }
+                (int row, int column) = generator.GetRandomTuple(Orientation, Length, gameBoard.BoardSize);
 
                 StartLocation = (row, column);
                 int sectionColumn = column;

@@ -21,7 +21,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Ship_WhenCalled_WithValidArguments_SetLength()
         {
-            int expected = 4;
+            int expected = (int)ShipTypes.Battleship;  //Enum associated value
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
 
@@ -33,7 +33,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Ship_WhenCalled_WithValidArguments_SetSectionsLength()
         {
-            int expected = 4;
+            int expected = (int)ShipTypes.Battleship;  //Enum associated value
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
 
@@ -75,7 +75,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void PlaceShip_WhenCalled__WithValidArguments_SetSectionContent()
         {
-            int testSize = 4;
+            int testSize = (int)ShipTypes.Battleship; //Enum associated value
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
             GameBoard testBoard = new GameBoard(testSize);
@@ -90,7 +90,7 @@ namespace BatttleshipsNSTests
         {
             // On a 4 by 4 grid the length 4 battleship can only start on play grid [0, 0].
             bool expected = true;
-            int testSize = 4;
+            int testSize = (int)ShipTypes.Battleship;  //Enum associated value
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
             GameBoard testBoard = new GameBoard(testSize);
@@ -102,7 +102,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void UpdateSunkFlag_WhenCalled_AndShipSectionsNotAllHit_SetSunkFlag_False()
+        public void UpdateSunkFlag_WhenCalled_AndShipNotSunk_AndShipSectionsNotAllHit_DoNothing()
         {
             bool expected = false;
             ShipTypes testShipType = ShipTypes.Battleship;
@@ -115,7 +115,7 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void UpdateSunkFlag_WhenCalled_AndShipSectionsAllHit_SetSunkFlag_True()
+        public void UpdateSunkFlag_WhenCalled_AndShipNotSunk_AndShipSectionsAllHit_SetSunkFlag_True()
         {
             bool expected = true;
             ShipTypes testShipType = ShipTypes.Battleship;
@@ -125,6 +125,24 @@ namespace BatttleshipsNSTests
                 section.Contents = 'x';
             }
             testShip.UpdateSunkFlag();
+
+            bool actual = testShip.SunkFlag;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_Sunk : Returned computed set value."));
+        }
+
+        [TestMethod]
+        public void UpdateSunkFlag_WhenCalled_AndShipSunk_DoNothing()
+        {
+            bool expected = true;
+            ShipTypes testShipType = ShipTypes.Battleship;
+            Ship testShip = new Ship(testShipType);
+            foreach (BoardSpace section in testShip.Sections)
+            {
+                section.Contents = 'x';
+            }
+            testShip.UpdateSunkFlag(); // Sets up a sunk flag
+            testShip.UpdateSunkFlag(); // Method with already sunk ship
 
             bool actual = testShip.SunkFlag;
 

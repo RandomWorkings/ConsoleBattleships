@@ -7,38 +7,22 @@ namespace BattleshipsNS
         private static readonly Random Rand = new Random();
         private static readonly object Synclock = new object();
 
-        public int GetRandomOrientation()
+        public int GetRandomInt(int limit)
         {
             lock (Synclock)
             {
-                return Rand.Next(1, 3); // number between 1 and 2
+                return Rand.Next(1, (limit+1));
             }
         }
 
-        public (int, int) GetRandomLocation(int shipOrientation, int shipLength, int boardSize)
-        {
-            int columnLimit;
-            int rowLimit;
-
-            switch (shipOrientation)
-            {
-                case 2: //Vertical, Limit Rows
-                    columnLimit = boardSize;
-                    rowLimit = boardSize - shipLength;
-                    break;
-
-                default: // Horizontal, Limit Columns
-                    columnLimit = boardSize - shipLength;
-                    rowLimit = boardSize;
-                    break;
-            }
+        public (int, int) GetRandomTuple(int leftLimit, int rightLimit)
+        {          
             lock (Synclock)
             {
-                int column = Rand.Next(0, columnLimit);
-                int row = Rand.Next(0, rowLimit);
-                return (row, column);
+                int left = Rand.Next(0, leftLimit);
+                int right = Rand.Next(0, rightLimit);
+                return (left, right);
             }
-
         }
     }
 }

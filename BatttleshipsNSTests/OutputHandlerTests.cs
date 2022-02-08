@@ -7,7 +7,7 @@ namespace BatttleshipsNSTests
     [TestClass]
     public class OutputHandlerTests
     {
-        [DataTestMethod]
+        /*[DataTestMethod]
         [DataRow(1, 0, "\tYour input is invalid.\n\tIt was not the correct format.\n")]
         [DataRow(2, 0, "\tYour input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n")]
         [DataRow(4, 0, "\tYour input is invalid.\n\tThe row number provided doesnt exist on this grid.\n")]
@@ -26,5 +26,6 @@ namespace BatttleshipsNSTests
         }
 
         //public void DisplayPlayGrid(GameBoard gameBoard)
+        */
     }
 }
