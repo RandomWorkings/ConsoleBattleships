@@ -6,6 +6,8 @@ namespace BattleshipsNS
     {
         static void Main()
         {
+            string Tab = "\t";
+
             bool Running = true;
             //Program Loop
             while (Running)
@@ -15,9 +17,9 @@ namespace BattleshipsNS
                 new BattleshipsPlay(GameSetup.GameBoard, GameSetup.GameParts);
 
                 //Repeat Program Option
-                Console.WriteLine("\tThe Program Battleships has finished!");
-                Console.WriteLine("\tPress Enter to repeat program");
-                Console.WriteLine("\tPress any other button to quit");
+                Console.WriteLine($"{Tab}The Program Battleships has finished!");
+                Console.WriteLine($"{Tab}Press Enter to repeat program");
+                Console.WriteLine($"{Tab}Press any other button to quit");
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 switch (keyInfo.Key)
                 {

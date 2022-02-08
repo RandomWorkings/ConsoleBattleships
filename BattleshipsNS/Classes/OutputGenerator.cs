@@ -18,11 +18,14 @@ namespace BattleshipsNS
 
     public class OutputGenerator : IOutputGenerator
     {
+        private readonly string NewLine = Environment.NewLine;
+        private readonly string Tab = "\t";
+
         public string GenerateInputRequest()
         {
             StringBuilder requestBuilder = new StringBuilder("");
 
-            requestBuilder.AppendLine("\tEnter Target Grid Space. Example target: A1\n\tPress CRTL + C to quit");
+            requestBuilder.AppendLine($@"{Tab}Enter Target Grid Space. Example target: A1{NewLine}{Tab}Press CRTL + C to quit");
 
             string request = requestBuilder.ToString();
             return request;
@@ -37,46 +40,46 @@ namespace BattleshipsNS
             // Input Feedback
             if (messageSwitch.HasFlag(Messages.Invalid_Format) || messageSwitch.HasFlag(Messages.Invalid_Column) || messageSwitch.HasFlag(Messages.Invalid_Row))
             {
-                messagesBuilder.AppendLine("\tYour input is invalid.");
+                messagesBuilder.AppendLine($@"{Tab}Your input is invalid.");
             }
             if (messageSwitch.HasFlag(Messages.Invalid_Format))
             {
-                messagesBuilder.AppendLine("\tThe input was not in the correct format.");
+                messagesBuilder.AppendLine($@"{Tab}The input was not in the correct format.");
             }
             if (messageSwitch.HasFlag(Messages.Invalid_Column))
             {
-                messagesBuilder.AppendLine("\tThe column letter provided doesnt exist on this grid.");
+                messagesBuilder.AppendLine($@"{Tab}The column letter provided doesnt exist on this grid.");
             }
             if (messageSwitch.HasFlag(Messages.Invalid_Row))
             {
-                messagesBuilder.AppendLine("\tThe row number provided doesnt exist on this grid.");
+                messagesBuilder.AppendLine($@"{Tab}The row number provided doesnt exist on this grid.");
             }
             // Game Feedback
             if (messageSwitch.HasFlag(Messages.Repeat))
             {
-                messagesBuilder.AppendLine("\tYou shot at that target already.\n\tYou won't win the game that way.");
+                messagesBuilder.AppendLine($@"{Tab}You shot at that target already.{NewLine}{Tab}You won't win the game that way.");
             }
             if (messageSwitch.HasFlag(Messages.Missed))
             {
-                messagesBuilder.AppendLine("\tYou shot splashes harmlessly into the sea.\n\tMaybe next time.");
+                messagesBuilder.AppendLine($@"{Tab}You shot splashes harmlessly into the sea.{NewLine}{Tab}Maybe next time.");
             }
             if (messageSwitch.HasFlag(Messages.Hit))
             {
-                messagesBuilder.AppendLine("\tYou hit something.\n\tWell done!");
+                messagesBuilder.AppendLine($@"{Tab}You hit something.{NewLine}{Tab}Well done!");
             }
             if (messageSwitch.HasFlag(Messages.Winner))
             {
-                messagesBuilder.AppendLine("\tYou won the game.\n\tCongratulations");
+                messagesBuilder.AppendLine($@"{Tab}You won the game.{NewLine}{Tab}Congratulations");
             }
             else
             {
                 if (SunkShipCount == 1)
                 {
-                    messagesBuilder.AppendLine("\n\tThere is " + SunkShipCount + " ship left.");
+                    messagesBuilder.AppendLine($@"{NewLine}{Tab}There is {SunkShipCount} ship left.");
                 }
                 else
                 {
-                    messagesBuilder.AppendLine("\n\tThere are " + SunkShipCount + " ship(s) left.");
+                    messagesBuilder.AppendLine($@"{NewLine}{Tab}There are {SunkShipCount} ship(s) left.");
                 }
             }
 
@@ -89,26 +92,26 @@ namespace BattleshipsNS
             char columnLetter = 'A';
             int rowNumber = 1;
 
-            StringBuilder playGridBuilder = new StringBuilder("\t    |", 45);
+            StringBuilder playGridBuilder = new StringBuilder($"{Tab}    |");
 
             //Column Headers
             for (int column = 1; column <= gameBoard.BoardSize; column++)
             {
-                playGridBuilder.Append(" " + columnLetter + " |");
+                playGridBuilder.Append($" {columnLetter} |");
                 columnLetter++;
             }
-            playGridBuilder.AppendLine("");
+            playGridBuilder.AppendLine($"");
 
             //
             for (int row = 0; row < gameBoard.BoardSize; row++)
             {
                 if (row < 9)
                 {
-                    playGridBuilder.Append("\t  " + rowNumber + " |");
+                    playGridBuilder.Append($"{Tab}  {rowNumber} |");
                 }
                 else
                 {
-                    playGridBuilder.Append("\t " + rowNumber + " |");
+                    playGridBuilder.Append($"{Tab} {rowNumber} |");
                 }
                 rowNumber++;
 
@@ -118,15 +121,15 @@ namespace BattleshipsNS
 
                     if (cell.Contents == null)
                     {
-                        playGridBuilder.Append("   |");
+                        playGridBuilder.Append($"   |");
                     }
                     else
                     {
-                        playGridBuilder.Append(" " + cell.Contents + " |");
+                        playGridBuilder.Append($" {cell.Contents} |");
                     }
 
                 }
-                playGridBuilder.AppendLine("");
+                playGridBuilder.AppendLine($"");
             }
 
             string ui = playGridBuilder.ToString();
