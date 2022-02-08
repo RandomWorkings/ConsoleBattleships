@@ -2,7 +2,7 @@
 {
     public interface IValueGenerator
     {
-        int GetRandomInt(int limitInclusive);
+        int GetRandomInt(int limit);
         (int, int) GetRandomTuple(int leftLimit, int rightLimit);
     }
 }

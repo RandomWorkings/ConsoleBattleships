@@ -7,17 +7,15 @@ namespace BattleshipsNS
         private static readonly Random Rand = new Random();
         private static readonly object Synclock = new object();
 
-        public int GetRandomInt(int limitInclusive)
+        public int GetRandomInt(int limit)
         {
-            int limitExclusive = limitInclusive + 1;
-
-            lock (Synclock)
+             lock (Synclock)
             {
-                return Rand.Next(1, limitExclusive);
+                return Rand.Next(0, limit);
             }
         }
 
-        public (int, int) GetRandomTuple(int leftLimitInclusive, int rightLimitInclusive)
+        public (int, int) GetRandomTuple(int leftLimit, int rightLimit)
         {          
             lock (Synclock)
             {
