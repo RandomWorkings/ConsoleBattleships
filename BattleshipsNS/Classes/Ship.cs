@@ -19,7 +19,8 @@ namespace BattleshipsNS
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
         public int Length { get; private set; } = 4;
-        public bool SunkFlag { get; private set; } = false;
+        public bool Sunk { get; private set; } = false;
+        public bool Placed { get; private set; } = false;
         public BoardSpace[] Sections { get; private set; }
         public int Orientation { get; set; } = 1;
         public (int, int) StartLocation { get; set; } = (0, 0);
@@ -40,11 +41,10 @@ namespace BattleshipsNS
         }
 
         public void PlaceShip(GameBoard gameBoard)
-        {
-            bool shipPlaced = false;
-            bool clearSpace = true;
+        {         
+            bool allSpacesClear = true;
 
-            while (!shipPlaced)
+            while (!Placed)
             {
                 GenerateOrientation();
                 GenerateStartLocation(gameBoard.BoardSize);
@@ -58,7 +58,7 @@ namespace BattleshipsNS
                     BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
                     if (refCell.Occupied)
                     {
-                        clearSpace = false;
+                        allSpacesClear = false;
                         break;
                     }
 
@@ -79,29 +79,30 @@ namespace BattleshipsNS
                     }
                 }
 
-                // Place ship, and mark board spaces as occupied.
-                if (clearSpace)
+                // Place ship, and updated board spaces.
+                if (allSpacesClear)
                 {
                     for (int i = 0; i < Length; i++)
                     {
                         Sections[i].Occupied = true;
                     }
-                    shipPlaced = true;
+                    Placed = true;
                 }
             }
         }
 
-        public void UpdateSunkFlag()
+        public void UpdateSunk()
+
         {
             int sunkSections = 0;
 
-            if (!SunkFlag)
+            if (!Sunk)
             {
                 sunkSections = Sections.Count(section => section.Contents == 'x');
 
                 if (sunkSections == Length)
                 {
-                    SunkFlag = true;
+                    Sunk = true;
                 }
             }
         }

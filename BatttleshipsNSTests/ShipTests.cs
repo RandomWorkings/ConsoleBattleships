@@ -107,9 +107,9 @@ namespace BatttleshipsNSTests
             bool expected = false;
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
-            testShip.UpdateSunkFlag();
+            testShip.UpdateSunk();
 
-            bool actual = testShip.SunkFlag;
+            bool actual = testShip.Sunk;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_NotSunk : Returned incorrect computed value."));
         }
@@ -124,9 +124,9 @@ namespace BatttleshipsNSTests
             {
                 section.Contents = 'x';
             }
-            testShip.UpdateSunkFlag();
+            testShip.UpdateSunk();
 
-            bool actual = testShip.SunkFlag;
+            bool actual = testShip.Sunk;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_Sunk : Returned computed set value."));
         }
@@ -141,10 +141,10 @@ namespace BatttleshipsNSTests
             {
                 section.Contents = 'x';
             }
-            testShip.UpdateSunkFlag(); // Sets up a sunk flag
-            testShip.UpdateSunkFlag(); // Method with already sunk ship
+            testShip.UpdateSunk(); // Sets up a sunk flag
+            testShip.UpdateSunk(); // Method with already sunk ship
 
-            bool actual = testShip.SunkFlag;
+            bool actual = testShip.Sunk;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_Sunk : Returned computed set value."));
         }
