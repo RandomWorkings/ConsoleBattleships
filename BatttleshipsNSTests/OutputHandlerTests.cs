@@ -7,7 +7,7 @@ namespace BatttleshipsNSTests
     [TestClass]
     public class OutputHandlerTests
     {
-        /*[DataTestMethod]
+/*        [DataTestMethod]
         [DataRow(1, 0, "\tYour input is invalid.\n\tIt was not the correct format.\n")]
         [DataRow(2, 0, "\tYour input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n")]
         [DataRow(4, 0, "\tYour input is invalid.\n\tThe row number provided doesnt exist on this grid.\n")]
@@ -15,17 +15,15 @@ namespace BatttleshipsNSTests
         [DataRow(16, 0, "\tYou shot splashes harmlessly into the sea.\n\tMaybe next time.\n")]
         [DataRow(32, 0, "\tYou hit something.\n\tWell done!\n")]
         [DataRow(64, 0, "\tYou won the game.\n\tCongratulations\n")]
-        public void GenerateMessage_WithValidMessageID_OutputMessage(int testMessagesCode, int testSunkShipCount, string expected)
+        public void GenerateMessage_WithValidArguments_ReturnString(int testMessagesCode, int testSunkShipCount, string expected)
         {
-            OutputHandler testOutputs = new OutputHandler();
+            ConsoleIO ConsoleIO = new ConsoleIO();
+            OutputGenerator testOutputs = new OutputGenerator();
             testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
             
-            string actual = Console.ReadLine();
 
-            //Assert.AreEqual(expected, actual, true, "Correct message ouput to console");
+            Assert.AreEqual(expected, actual, true, "Correct message ouput to console");
         }
-
-        //public void DisplayPlayGrid(GameBoard gameBoard)
-        */
+*/
     }
 }
