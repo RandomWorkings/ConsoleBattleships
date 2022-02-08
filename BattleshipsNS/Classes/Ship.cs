@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System;
 
 namespace BattleshipsNS
 {
@@ -6,6 +7,12 @@ namespace BattleshipsNS
     {
         Battleship = 5,
         Destroyer = 4
+    };
+
+    public enum ShipOrientations
+    {
+        Horizontal = 1,
+        Vertical
     };
 
     public class Ship : IShip
@@ -16,6 +23,7 @@ namespace BattleshipsNS
         public BoardSpace[] Sections { get; private set; }
         public int Orientation { get; set; } = 1;
         public (int, int) StartLocation { get; set; } = (0, 0);
+        public ValueGenerator generator = new ValueGenerator();
 
         public Ship(ShipTypes shipType)
         {
@@ -33,32 +41,16 @@ namespace BattleshipsNS
 
         public void PlaceShip(GameBoard gameBoard)
         {
-            ValueGenerator generator = new ValueGenerator();
+            
             bool clearSpace = true;
 
             while (true)
             {
-                Orientation = generator.GetRandomInt();
-                int columnLimit;
-                int rowLimit;
+                GenerateOrientation();
+                GenerateStartLocation(gameBoard.BoardSize);
 
-                switch (Orientation)
-                {
-                    case 2: //Vertical, Limit Rows
-                        columnLimit = gameBoard.BoardSize;
-                        rowLimit = gameBoard.BoardSize - Length;
-                        break;
-
-                    default: // Horizontal, Limit Columns
-                        columnLimit = gameBoard.BoardSize - Length;
-                        rowLimit = gameBoard.BoardSize;
-                        break;
-                }
-                (int row, int column) = generator.GetRandomTuple(Orientation, Length, gameBoard.BoardSize);
-
-                StartLocation = (row, column);
-                int sectionColumn = column;
-                int sectionRow = row;
+                int sectionRow = StartLocation.Item1;
+                int sectionColumn = StartLocation.Item2;
 
                 switch (Orientation)
                 {
@@ -120,6 +112,33 @@ namespace BattleshipsNS
                     SunkFlag = true;
                 }
             }
+        }
+
+        private void GenerateOrientation()
+        {
+            int orientationOptionsCount = Enum.GetNames(typeof(ShipOrientations)).Length;
+            Orientation = generator.GetRandomInt(orientationOptionsCount);           
+        }
+
+        private void GenerateStartLocation(int boardSize)
+        {
+            int columnLimit;
+            int rowLimit;
+
+            switch (Orientation)
+            {
+                case 2: //Vertical, Limit Rows
+                    columnLimit = boardSize;
+                    rowLimit = boardSize - Length;
+                    break;
+
+                default: // Horizontal, Limit Columns
+                    columnLimit = boardSize - Length;
+                    rowLimit = boardSize;
+                    break;
+            }
+
+            StartLocation = generator.GetRandomTuple(rowLimit, columnLimit);
         }
     }
 }
