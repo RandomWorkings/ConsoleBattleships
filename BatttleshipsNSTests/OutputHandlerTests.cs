@@ -2,7 +2,7 @@
 using System;
 using BattleshipsNS;
 
-namespace BatttleshipsNSTests
+namespace BattleshipsNSTests
 {
     [TestClass]
     public class OutputHandlerTests

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleshipsNS", "BattleshipsNS\BattleshipsNS.csproj", "{E08DBC65-66AB-4A13-B512-6948EA0B7F9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatttleshipsNSTests", "BatttleshipsNSTests\BatttleshipsNSTests.csproj", "{8D29721B-532D-4BFD-99A9-55A493DD2CC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleshipsNSTests", "BatttleshipsNSTests\BattleshipsNSTests.csproj", "{8D29721B-532D-4BFD-99A9-55A493DD2CC1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E08DBC65-66AB-4A13-B512-6948EA0B7F9D} = {E08DBC65-66AB-4A13-B512-6948EA0B7F9D}
 	EndProjectSection

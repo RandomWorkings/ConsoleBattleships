@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BattleshipsNS;
 
-namespace BatttleshipsNSTests
+namespace BattleshipsNSTests
 {
     [TestClass]
     public class BoardSpaceTests
