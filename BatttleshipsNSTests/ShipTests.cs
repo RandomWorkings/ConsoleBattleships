@@ -21,7 +21,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Ship_WhenCalled_WithValidArguments_SetLength()
         {
-            int expected = (int)ShipTypes.Battleship;  //Enum associated value
+            int expected = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
 
@@ -33,7 +33,7 @@ namespace BatttleshipsNSTests
         [TestMethod]
         public void Ship_WhenCalled_WithValidArguments_SetSectionsLength()
         {
-            int expected = (int)ShipTypes.Battleship;  //Enum associated value
+            int expected = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
 
@@ -73,9 +73,9 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void PlaceShip_WhenCalled__WithValidArguments_SetSectionContent()
+        public void PlaceShip_WhenCalled_WithValidArguments_SetSectionContent()
         {
-            int testSize = (int)ShipTypes.Battleship; //Enum associated value
+            int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
             GameBoard testBoard = new GameBoard(testSize);
@@ -86,11 +86,11 @@ namespace BatttleshipsNSTests
         }
 
         [TestMethod]
-        public void PlaceShip_WhenCalled__WithValidArguments_TestLocationPlaced()
+        public void PlaceShip_WhenCalled_WithValidArguments_SetsValidStartLocation()
         {
             // On a 4 by 4 grid the length 4 battleship can only start on play grid [0, 0].
             bool expected = true;
-            int testSize = (int)ShipTypes.Battleship;  //Enum associated value
+            int testSize = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
             GameBoard testBoard = new GameBoard(testSize);

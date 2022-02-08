@@ -11,7 +11,7 @@ namespace BattleshipsNS
 
     public enum ShipOrientations
     {
-        Horizontal = 1,
+        Horizontal,
         Vertical
     };
 
@@ -41,9 +41,10 @@ namespace BattleshipsNS
 
         public void PlaceShip(GameBoard gameBoard)
         {
+            bool shipPlaced = false;
             bool clearSpace = true;
 
-            while (true)
+            while (!shipPlaced)
             {
                 GenerateOrientation();
                 GenerateStartLocation(gameBoard.BoardSize);
@@ -51,48 +52,41 @@ namespace BattleshipsNS
                 int sectionRow = StartLocation.Item1;
                 int sectionColumn = StartLocation.Item2;
 
-                switch (Orientation)
+                // Link Sections to Board Spaces, and check if occupied.
+                for (int section = 0; section < Length; section++)
                 {
-                    case 2: //Vertical
+                    BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
+                    if (refCell.Occupied)
+                    {
+                        clearSpace = false;
+                        break;
+                    }
 
-                        for (int v = 0; v < Length; v++)
-                        {
-                            BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
-                            if (refCell.Occupied)
+                    Sections[section] = refCell;
+
+                    switch (Orientation)
+                    {
+                        case (int)ShipOrientations.Vertical:
                             {
-                                clearSpace = false;
+                                sectionRow++;
                                 break;
                             }
-                            Sections[v] = refCell;
-                            clearSpace = true;
-                            sectionRow++;
-                        }
-                        break;
-
-                    default: // Horizontal
-                        for (int h = 0; h < Length; h++)
-                        {
-                            BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
-                            if (refCell.Occupied)
+                        default:// Horizontal
                             {
-                                clearSpace = false;
+                                sectionColumn++;
                                 break;
                             }
-                            Sections[h] = refCell;
-                            clearSpace = true;
-                            sectionColumn++;
-                        }
-                        break;
+                    }
                 }
 
-                //Loop breaker
+                // Place ship, and mark board spaces as occupied.
                 if (clearSpace)
                 {
                     for (int i = 0; i < Length; i++)
                     {
                         Sections[i].Occupied = true;
                     }
-                    break;
+                    shipPlaced = true;
                 }
             }
         }
@@ -115,9 +109,8 @@ namespace BattleshipsNS
         private void GenerateOrientation()
         {
             int orientationOptionsCount = Enum.GetNames(typeof(ShipOrientations)).Length;
-            int generateValue = generator.GetRandomInt(orientationOptionsCount);
-            int indexAdjustment = generateValue + 1;
-            Orientation = indexAdjustment;
+            int generatedOrientation = generator.GetRandomInt(orientationOptionsCount);
+            Orientation = generatedOrientation;
         }
 
         private void GenerateStartLocation(int boardSize)
@@ -127,7 +120,7 @@ namespace BattleshipsNS
 
             switch (Orientation)
             {
-                case 2: //Vertical, Limit Rows
+                case (int)ShipOrientations.Vertical: //Limit Rows
                     columnLimit = boardSize;
                     rowLimit = boardSize - Length;
                     break;
@@ -141,4 +134,4 @@ namespace BattleshipsNS
             StartLocation = generator.GetRandomTuple(rowLimit, columnLimit);
         }
     }
-  }
+}
