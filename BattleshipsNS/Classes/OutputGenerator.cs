@@ -34,6 +34,7 @@ namespace BattleshipsNS
 
             Messages messageSwitch = (Messages)MessagesCode;
 
+            // Input Feedback
             if (messageSwitch.HasFlag(Messages.Invalid_Format) || messageSwitch.HasFlag(Messages.Invalid_Column) || messageSwitch.HasFlag(Messages.Invalid_Row))
             {
                 messagesBuilder.AppendLine("\tYour input is invalid.");
@@ -50,6 +51,7 @@ namespace BattleshipsNS
             {
                 messagesBuilder.AppendLine("\tThe row number provided doesnt exist on this grid.");
             }
+            // Game Feedback
             if (messageSwitch.HasFlag(Messages.Repeat))
             {
                 messagesBuilder.AppendLine("\tYou shot at that target already.\n\tYou won't win the game that way.");
