@@ -73,7 +73,6 @@ namespace BattleshipsNS
                         for (int h = 0; h < Length; h++)
                         {
                             BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
-
                             if (refCell.Occupied)
                             {
                                 clearSpace = false;
@@ -141,4 +140,5 @@ namespace BattleshipsNS
 
             StartLocation = generator.GetRandomTuple(rowLimit, columnLimit);
         }
-}
+    }
+  }
