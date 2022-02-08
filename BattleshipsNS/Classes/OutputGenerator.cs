@@ -130,7 +130,7 @@ namespace BattleshipsNS
             }
 
             string ui = playGridBuilder.ToString();
-            return(ui);
+            return (ui);
         }
     }
 }

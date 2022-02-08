@@ -94,7 +94,7 @@ namespace BatttleshipsNSTests
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
             GameBoard testBoard = new GameBoard(testSize);
-            
+
             testShip.PlaceShip(testBoard);
             bool actual = testShip.Sections[0].Occupied;
 

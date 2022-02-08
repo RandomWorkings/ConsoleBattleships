@@ -41,7 +41,6 @@ namespace BattleshipsNS
 
         public void PlaceShip(GameBoard gameBoard)
         {
-            
             bool clearSpace = true;
 
             while (true)
@@ -117,7 +116,9 @@ namespace BattleshipsNS
         private void GenerateOrientation()
         {
             int orientationOptionsCount = Enum.GetNames(typeof(ShipOrientations)).Length;
-            Orientation = generator.GetRandomInt(orientationOptionsCount);           
+            int generateValue = generator.GetRandomInt(orientationOptionsCount);
+            int indexAdjustment = generateValue + 1;
+            Orientation = indexAdjustment;
         }
 
         private void GenerateStartLocation(int boardSize)
@@ -140,5 +141,4 @@ namespace BattleshipsNS
 
             StartLocation = generator.GetRandomTuple(rowLimit, columnLimit);
         }
-    }
 }

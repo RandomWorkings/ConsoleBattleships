@@ -28,7 +28,7 @@
 
                 string userInput = ConsoleIO.ReadLine();
                 string target = userInput.ToUpper();
-                
+
                 int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
 
                 if (messageCodes == 0)
@@ -68,7 +68,7 @@
                     //Display Appropriate Messages.
                     gameParts.UpdateShipCount();
                     string feedback = Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
-                    ConsoleIO.WriteLine(feedback);                    
+                    ConsoleIO.WriteLine(feedback);
                 }
                 else
                 {

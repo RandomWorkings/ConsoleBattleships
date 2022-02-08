@@ -9,14 +9,14 @@ namespace BattleshipsNS
 
         public int GetRandomInt(int limit)
         {
-             lock (Synclock)
+            lock (Synclock)
             {
                 return Rand.Next(0, limit);
             }
         }
 
         public (int, int) GetRandomTuple(int leftLimit, int rightLimit)
-        {          
+        {
             lock (Synclock)
             {
                 int left = Rand.Next(0, leftLimit);
