@@ -25,8 +25,8 @@
 
             foreach (Ship ship in Ships)
             {
-                ship.UpdateSunkFlag();
-                if (ship.SunkFlag)
+                ship.UpdateSunk();
+                if (ship.Sunk)
                 {
                     ShipCount--;
                 }
