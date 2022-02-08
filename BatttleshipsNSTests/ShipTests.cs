@@ -72,6 +72,21 @@ namespace BatttleshipsNSTests
             Assert.AreEqual(expected, actual, ($@"ShipTests_StartLocation : Returned incorrect set value."));
         }
 
+        public void PlaceShip_WhenCalled_WithValidArguments_SetPlaced()
+        {
+            bool expected = true;
+            int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
+            ShipTypes testShipType = ShipTypes.Battleship;
+            Ship testShip = new Ship(testShipType);
+            GameBoard testBoard = new GameBoard(testSize);
+            testShip.PlaceShip(testBoard);
+
+            bool actual = testShip.Placed;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_PlaceShip : ship not placed."));
+        }
+
+
         [TestMethod]
         public void PlaceShip_WhenCalled_WithValidArguments_SetSectionContent()
         {
