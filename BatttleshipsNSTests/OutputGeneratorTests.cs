@@ -8,146 +8,26 @@ namespace BattleshipsNSTests
     [TestClass]
     public class OutputGeneratorTests
     {
-        [TestMethod]
-        public void GenerateMessage_WithInputInvalidFormatAndNoShips_ReturnString()
+        [DataTestMethod]
+        [DataRow((int)Messages.Invalid_Format, 0, "\tYour input is invalid.\n\tThe input was not in the correct format.\n\n\tThere are 0 ship(s) left.\n", "Incorrect invalid format string ouput by generator")]
+        [DataRow((int)Messages.Invalid_Column, 0, "\tYour input is invalid.\n\tThe column letter provided doesnt exist on this grid.\n\n\tThere are 0 ship(s) left.\n", "Incorrect invalid column string ouput by generator")]
+        [DataRow((int)Messages.Invalid_Row, 0, "\tYour input is invalid.\n\tThe row number provided doesnt exist on this grid.\n\n\tThere are 0 ship(s) left.\n", "Incorrect invalid row string ouput by generator")]
+        [DataRow((int)Messages.Repeat, 0, "\tYou shot at that target already.\n\tYou won't win the game that way.\n\n\tThere are {testSunkShipCount} ship(s) left.\n", "Incorrect repeat string ouput by generator")]
+        [DataRow((int)Messages.Missed, 0, "\tYou shot splashes harmlessly into the sea.\n\t{Tab}Maybe next time.\n\n\tThere are 0 ship(s) left.", "Incorrect missed string ouput by generator")]
+        [DataRow((int)Messages.Hit, 0, "\tYou hit something.\n\tWell done!\n\n\tThere are {testSunkShipCount} ship(s) left.\n", "Incorrect hit string ouput by generator")]
+        [DataRow((int)Messages.Winner, 0, "\tYou won the game.\n\tCongratulations\n", "Incorrect winner string ouput by generator")]
+        [DataRow(((int)Messages.Invalid_Format + (int)Messages.Invalid_Column), 1,
+            "\tYour input is invalid.\n\tThe input was not in the correct format.\n\tThe column letter provided doesnt exist on this grid.\n\n\tThere is 1 ship left.\n", "Incorrect mass string ouput by generator")]
+        public void DataTest_GenerateMessage_WithValidArguments_ReturnAppropriateString(int testMessagesCode, int testShipCount, string expectedAlmost, string failMessage)
         {
             OutputGenerator testOutputs = new OutputGenerator();
-            int testMessagesCode = (int)Messages.Invalid_Format;
-            int testSunkShipCount = 0;
-            string NewLine = Environment.NewLine;
-            string Tab = "\t";
-            StringBuilder testBuilder = new StringBuilder("");
-            testBuilder.AppendLine($"{Tab}Your input is invalid.");
-            testBuilder.AppendLine($"{Tab}The input was not in the correct format.");
-            testBuilder.AppendLine($"{NewLine}{Tab}There are {testSunkShipCount} ship(s) left.");
-            string expected = testBuilder.ToString();
+            string expected = expectedAlmost.Replace("\n", "\r\n");
 
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);        
+            string actual = testOutputs.GenerateMessages(testMessagesCode, testShipCount);
 
-            Assert.AreEqual(expected, actual, true, "Incorrect invalid format string ouput by generator");
+            Assert.AreEqual(expected, actual, true, failMessage);
         }
-        [TestMethod]
-        public void GenerateMessage_WithInputInvalidColumnAndNoShips_ReturnString()
-        {
-            OutputGenerator testOutputs = new OutputGenerator();
-            int testMessagesCode = (int)Messages.Invalid_Column;
-            int testSunkShipCount = 0;
-            string NewLine = Environment.NewLine;
-            string Tab = "\t";
-            StringBuilder testBuilder = new StringBuilder("");
-            testBuilder.AppendLine($"{Tab}Your input is invalid.");
-            testBuilder.AppendLine($"{Tab}The column letter provided doesnt exist on this grid.");
-            testBuilder.AppendLine($"{NewLine}{Tab}There are {testSunkShipCount} ship(s) left.");
-            string expected = testBuilder.ToString();
 
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
-
-            Assert.AreEqual(expected, actual, true, "Incorrect invalid column string ouput by generator");
-        }
-        [TestMethod]
-        public void GenerateMessage_WithInputInvalidRowAndNoShips_ReturnString()
-        {
-            OutputGenerator testOutputs = new OutputGenerator();
-            int testMessagesCode = (int)Messages.Invalid_Row;
-            int testSunkShipCount = 0;
-            string NewLine = Environment.NewLine;
-            string Tab = "\t";
-            StringBuilder testBuilder = new StringBuilder("");
-            testBuilder.AppendLine($"{Tab}Your input is invalid.");
-            testBuilder.AppendLine($"{Tab}The row number provided doesnt exist on this grid.");
-            testBuilder.AppendLine($"{NewLine}{Tab}There are {testSunkShipCount} ship(s) left.");
-            string expected = testBuilder.ToString();
-
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
-
-            Assert.AreEqual(expected, actual, true, "Incorrect invalid row string ouput by generator");
-        }
-        [TestMethod]
-        public void GenerateMessage_WithInputRepeatAndNoShips_ReturnString()
-        {
-            OutputGenerator testOutputs = new OutputGenerator();
-            int testMessagesCode = (int)Messages.Repeat;
-            int testSunkShipCount = 0;
-            string NewLine = Environment.NewLine;
-            string Tab = "\t";
-            StringBuilder testBuilder = new StringBuilder("");
-            testBuilder.AppendLine($"{Tab}You shot at that target already.{NewLine}{Tab}You won't win the game that way.");
-            testBuilder.AppendLine($"{NewLine}{Tab}There are {testSunkShipCount} ship(s) left.");
-            string expected = testBuilder.ToString();
-
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
-
-            Assert.AreEqual(expected, actual, true, "Incorrect repeat string ouput by generator");
-        }
-        [TestMethod]
-        public void GenerateMessage_WithInputMissedAndNoShips_ReturnString()
-        {
-            OutputGenerator testOutputs = new OutputGenerator();
-            int testMessagesCode = (int)Messages.Missed;
-            int testSunkShipCount = 0;
-            string NewLine = Environment.NewLine;
-            string Tab = "\t";
-            StringBuilder testBuilder = new StringBuilder("");
-            testBuilder.AppendLine($"{Tab}You shot splashes harmlessly into the sea.{NewLine}{Tab}Maybe next time.");
-            testBuilder.AppendLine($"{NewLine}{Tab}There are {testSunkShipCount} ship(s) left.");
-            string expected = testBuilder.ToString();
-
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
-
-            Assert.AreEqual(expected, actual, true, "Incorrect missed string ouput by generator");
-        }
-        [TestMethod]
-        public void GenerateMessage_WithHitWinnerAndNoShips_ReturnString()
-        {
-            OutputGenerator testOutputs = new OutputGenerator();
-            int testMessagesCode = (int)Messages.Hit;
-            int testSunkShipCount = 0;
-                    string NewLine = Environment.NewLine;
-            string Tab = "\t";
-            StringBuilder testBuilder = new StringBuilder("");
-            testBuilder.AppendLine($"{Tab}You hit something.{NewLine}{Tab}Well done!");
-            testBuilder.AppendLine($"{NewLine}{Tab}There are {testSunkShipCount} ship(s) left.");
-            string expected = testBuilder.ToString();
-
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
-
-            Assert.AreEqual(expected, actual, true, "Incorrect hit string ouput by generator");
-        }
-        [TestMethod]
-        public void GenerateMessage_WithInputWinnerAndNoShips_ReturnString()
-        {
-            OutputGenerator testOutputs = new OutputGenerator();
-            int testMessagesCode = (int)Messages.Winner;
-            int testSunkShipCount = 0;
-            string NewLine = Environment.NewLine;
-            string Tab = "\t";
-            StringBuilder testBuilder = new StringBuilder("");
-            testBuilder.AppendLine($"{Tab}You won the game.{NewLine}{Tab}Congratulations");
-            string expected = testBuilder.ToString();
-
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
-
-            Assert.AreEqual(expected, actual, true, "Incorrect winner string ouput by generator");
-        }
-        [TestMethod]
-        public void GenerateMessage_WithMultipleFlagsAndOneShip_ReturnString()
-        {
-            OutputGenerator testOutputs = new OutputGenerator();
-            int testMessagesCode = (int)Messages.Invalid_Format + (int)Messages.Invalid_Column;
-            int testSunkShipCount = 1;
-            string NewLine = Environment.NewLine;
-            string Tab = "\t";
-            StringBuilder testBuilder = new StringBuilder("");
-            testBuilder.AppendLine($"{Tab}Your input is invalid.");
-            testBuilder.AppendLine($"{Tab}The input was not in the correct format.");
-            testBuilder.AppendLine($"{Tab}The column letter provided doesnt exist on this grid.");
-            testBuilder.AppendLine($"{NewLine}{Tab}There is {testSunkShipCount} ship left.");
-            string expected = testBuilder.ToString();
-
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
-
-            Assert.AreEqual(expected, actual, true, "Incorrect mass string ouput by generator");
-        }
         [TestMethod]
         public void GenerateInputRequest_ReturnString() 
         {
@@ -162,6 +42,7 @@ namespace BattleshipsNSTests
 
             Assert.AreEqual(expected, actual, true, "Incorrect input request string ouput by generator");
         }
+
         [TestMethod]
         public void GeneratePlayGridUI_ReturnString()
         {
