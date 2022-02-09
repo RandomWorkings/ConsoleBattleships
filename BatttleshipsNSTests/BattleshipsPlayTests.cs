@@ -5,13 +5,14 @@ namespace BattleshipsNSTests
 {
     public class FakeConsoleIO : ITextIO
     {
-        private string[] ReturnList = {"A1","A2","A3","A4", "A1", "B1", "C1", "D1"};
         private static int FakeUserInput = 0;
         public void WriteLine(string s)
         {           
         }
         public string ReadLine()
         {
+            if (FakeUserInput >= 26) {FakeUserInput = 0;}
+            string[] ReturnList = { "A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4", "B5", "C1", "C2", "C3", "C4", "C5", "D1", "D2", "D3", "D4", "D5", "E1", "E2", "E3", "E4", "E5", "a" };
             string fakeUserInput = ReturnList[FakeUserInput];
             FakeUserInput++;
             return fakeUserInput;
@@ -24,12 +25,10 @@ namespace BattleshipsNSTests
         [TestMethod]
         public void BattleshipsPlayTests_GivenPlayWasCalled_WithValidArguments_GamePartsSet()
         {
-            int testBoardSize = 4;
+            int testBoardSize = 5;
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
-            BattleshipsSetup testSetup = new BattleshipsSetup(testBoardSize, testShipsList);
-
+            BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
             FakeConsoleIO testConsoleIO = new FakeConsoleIO();
-            BattleshipsSetup testGameSetup = new BattleshipsSetup();
             GameBoard testGameBoard = testGameSetup.GameBoard;
             GameParts testGameParts = testGameSetup.GameParts;
             BattleshipsPlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard,testGameParts,testConsoleIO);
@@ -42,14 +41,16 @@ namespace BattleshipsNSTests
         [TestMethod]
         public void BattleshipsPlayTests_GivenPlayWasCalled_WithValidArguments_GameBoardSet()
         {
+            int testBoardSize = 5;
+            ShipTypes[] testShipsList = { ShipTypes.Battleship };
+            BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
             FakeConsoleIO testConsoleIO = new FakeConsoleIO();
-            BattleshipsSetup testGameSetup = new BattleshipsSetup();
             GameBoard testGameBoard = testGameSetup.GameBoard;
             GameParts testGameParts = testGameSetup.GameParts;
-            BattleshipsPlay testBattleshipsSetup = new BattleshipsPlay(testGameBoard, testGameParts, testConsoleIO);
+            BattleshipsPlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard, testGameParts, testConsoleIO);
             var expected = testGameBoard;
 
-            var actual = testBattleshipsSetup.GameBoard;
+            var actual = testBattleshipsPlay.GameBoard;
 
             Assert.AreEqual(expected, actual, "BattleshipsSetupTests_GameBoardSet : Game Board Not Set");
         }
