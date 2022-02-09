@@ -1,10 +1,14 @@
-﻿namespace BattleshipsNS
+﻿using ProgramNS;
+
+namespace BattleshipsNS
 {
     //Interfaces for a Battleship Game
+    public interface IBattleshipsGameSetup : IGameSetup { }
+    public interface IBattleshipsGamePlay : IGamePlay { }
     public interface IBattleshipsBoard : IGameBoard
     {
         int BoardSize { get; }
-        BoardSpace[,] PlayGrid { get; }
+        BattleshipsBoardSpace[,] PlayGrid { get; }
     }
     public interface IBattleshipsBoardSpace : IGameBoardSpace
     {
@@ -13,7 +17,7 @@
     }
     public interface IBattleshipsShips : IGameComponents
     {
-        Ship[] Ships { get; }
+        BattleshipsShip[] Ships { get; }
         int ShipCount { get; }
         int UpdateShipCount();
     }
@@ -23,10 +27,10 @@
         int Length { get; }
         bool Sunk { get; }
         bool Placed { get; }
-        BoardSpace[] Sections { get; }
+        BattleshipsBoardSpace[] Sections { get; }
         int Orientation { get; set; }
         (int, int) StartLocation { get; set; }
-        void PlaceShip(GameBoard gameBoard);
+        void PlaceShip(BattleshipsBoard gameBoard);
         void UpdateSunk();
     }
     public interface IBattleshipsInputHandler : IGameInputHandler
@@ -38,6 +42,6 @@
     {
         string GenerateInputRequest();
         string GenerateMessages(int MessagesCode, int SunkShipCount);
-        string GeneratePlayGridUI(GameBoard playGrid);
+        string GeneratePlayGridUI(BattleshipsBoard playGrid);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BattleshipsNS
+namespace ProgramNS
 {
     public class ConsoleIO : ITextIO
     {

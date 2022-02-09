@@ -1,4 +1,4 @@
-﻿namespace BattleshipsNS
+﻿namespace ProgramNS
 {
     public interface IValueGenerators
     {

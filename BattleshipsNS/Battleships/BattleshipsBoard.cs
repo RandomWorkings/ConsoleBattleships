@@ -1,13 +1,18 @@
 ﻿namespace BattleshipsNS
 {
-    public class GameBoard : IBattleshipsGameBoard
+    public class BattleshipsBoard : IBattleshipsBoard
     {
-        public int BoardSize { get; private set; } = 10;
-        public BoardSpace[,] PlayGrid { get; private set; }
-        public GameBoard(int boardSize)
+        public int BoardSize { get; private set; }
+        public BattleshipsBoardSpace[,] PlayGrid { get; private set; }
+
+        public BattleshipsBoard(int boardSize)
         {
             BoardSize = boardSize;
-            PlayGrid = new BoardSpace[BoardSize, BoardSize];
+        }
+
+        public void GeneratePlayGrid()
+        {
+            PlayGrid = new BattleshipsBoardSpace[BoardSize, BoardSize];
 
             // Set game board limits
             int rowCount = PlayGrid.GetLength(0);
@@ -18,7 +23,7 @@
             {
                 for (int column = 0; column < columnCount; column++)
                 {
-                    PlayGrid[row, column] = new BoardSpace();
+                    PlayGrid[row, column] = new BattleshipsBoardSpace();
                 }
             }
         }

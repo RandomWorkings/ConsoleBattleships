@@ -1,6 +1,7 @@
 ﻿using System;
+using BattleshipsNS;
 
-namespace BattleshipsNS
+namespace ProgramNS
 {
     class Program
     {
@@ -15,16 +16,20 @@ namespace BattleshipsNS
                 Console.WriteLine();
 
                 //### MAIN PROGRAM STARTS HERE ###
+                //Program Defaults
+                int boardSize = 10;
+                ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
 
                 // Construct Parts
-                IGameBoard board = new BattleshipsBoard();
-                IGameComponents components = new BattleshipsShips();
-                IGameInputHandler inputHandler = new BattleshipsInputHandler();
+                IGameBoard board = new BattleshipsBoard(boardSize);
+                IGameComponents components = new BattleshipsShips(ShipsList);
+                IGameInputHandler inputHandler = new BattleshipsInputHandler(boardSize);
                 IGameOutputGenerator outputGenerator = new BattleshipsOutputGenerator();
                 ITextIO textIO = new ConsoleIO();
                 IValueGenerators valueGenerator = new RandomGenerator();
-                IGameSetup gameSetup = new GameSetup(board, components, valueGenerator);
-                IGamePlay gamePlay = new GamePlay(gameSetup, textIO, inputHandler, outputGenerator);
+
+                IGameSetup gameSetup = new BattleshipsGameSetup(board, components, valueGenerator);
+                IGamePlay gamePlay = new BattleshipsGamePlay(gameSetup, textIO, inputHandler, outputGenerator);
 
                 // Setup Game
 

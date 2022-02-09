@@ -11,7 +11,7 @@ namespace BattleshipsNSTests
         {
             ShipTypes expected = ShipTypes.Battleship;
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
 
             ShipTypes actual = testShip.Type;
 
@@ -23,7 +23,7 @@ namespace BattleshipsNSTests
         {
             int expected = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
 
             int actual = testShip.Length;
 
@@ -35,7 +35,7 @@ namespace BattleshipsNSTests
         {
             int expected = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
 
             int actual = testShip.Sections.Length;
 
@@ -47,7 +47,7 @@ namespace BattleshipsNSTests
         {
             int expected = 2;
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType)
+            BattleshipsShip testShip = new BattleshipsShip(testShipType)
             {
                 Orientation = 2
             };
@@ -62,7 +62,7 @@ namespace BattleshipsNSTests
         {
             (int, int) expected = (1, 1);
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType)
+            BattleshipsShip testShip = new BattleshipsShip(testShipType)
             {
                 StartLocation = (1, 1)
             };
@@ -77,8 +77,8 @@ namespace BattleshipsNSTests
             bool expected = true;
             int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            GameBoard testBoard = new GameBoard(testSize);
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
             testShip.PlaceShip(testBoard);
 
             bool actual = testShip.Placed;
@@ -92,8 +92,8 @@ namespace BattleshipsNSTests
         {
             int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            GameBoard testBoard = new GameBoard(testSize);
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
 
             testShip.PlaceShip(testBoard);
 
@@ -107,8 +107,8 @@ namespace BattleshipsNSTests
             bool expected = true;
             int testSize = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            GameBoard testBoard = new GameBoard(testSize);
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
 
             testShip.PlaceShip(testBoard);
             bool actual = testShip.Sections[0].Occupied;
@@ -121,7 +121,7 @@ namespace BattleshipsNSTests
         {
             bool expected = false;
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
             testShip.UpdateSunk();
 
             bool actual = testShip.Sunk;
@@ -134,8 +134,8 @@ namespace BattleshipsNSTests
         {
             bool expected = true;
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            foreach (BoardSpace section in testShip.Sections)
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
+            foreach (BattleshipsBoardSpace section in testShip.Sections)
             {
                 section.Contents = 'x';
             }
@@ -151,8 +151,8 @@ namespace BattleshipsNSTests
         {
             bool expected = true;
             ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            foreach (BoardSpace section in testShip.Sections)
+            BattleshipsShip testShip = new BattleshipsShip(testShipType);
+            foreach (BattleshipsBoardSpace section in testShip.Sections)
             {
                 section.Contents = 'x';
             }

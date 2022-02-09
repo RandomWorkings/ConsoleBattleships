@@ -1,4 +1,4 @@
-﻿namespace BattleshipsNS
+﻿namespace ProgramNS
 {
     //Interfaces for Input Output Interfaces
     public interface ITextIO

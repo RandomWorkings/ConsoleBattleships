@@ -3,13 +3,13 @@ using System.Text.RegularExpressions;
 
 namespace BattleshipsNS
 {
-    public class InputHandler : IBattleshipsInputHandler
+    public class BattleshipsInputHandler : IBattleshipsInputHandler
     {
         private readonly char[] AcceptedCharacters;
         private readonly int[] AcceptedIntegers;
         private readonly int BoardSize;
 
-        public InputHandler(int boardSize)
+        public BattleshipsInputHandler(int boardSize)
         {
             BoardSize = boardSize;
 
