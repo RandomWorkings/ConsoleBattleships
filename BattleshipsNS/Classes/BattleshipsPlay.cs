@@ -1,6 +1,6 @@
 ﻿namespace BattleshipsNS
 {
-    class BattleshipsPlay : IBattleshipsPlay
+    public class BattleshipsPlay : IBattleshipsPlay
     {
         public GameParts GameParts { get; private set; }
         public GameBoard GameBoard { get; private set; }
