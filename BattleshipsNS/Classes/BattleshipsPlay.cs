@@ -2,8 +2,8 @@
 {
     public class BattleshipsPlay : IBattleshipsPlay
     {
-        public GameParts GameParts { get; private set; }
         public GameBoard GameBoard { get; private set; }
+        public GameParts GameParts { get; private set; }
         private readonly InputHandler Inputs;
         private readonly OutputGenerator Outputs = new OutputGenerator();
         private readonly ConsoleIO ConsoleIO;

@@ -170,13 +170,11 @@ namespace BattleshipsNSTests
             GameBoard testBoard = new GameBoard(testSize);
             string Tab = "\t";
             StringBuilder testBuilder = new StringBuilder($"{Tab}    |");
-/*          testBuilder.Append($" A |");
+            testBuilder.Append($" A |");
             testBuilder.AppendLine($"");
             testBuilder.Append($"{Tab}  1 |");
             testBuilder.Append($"   |");
             testBuilder.AppendLine($"");
-*/
-            testBuilder.Append($" A |\n{Tab}  1 |\n   |\n");
 
             string expected = testBuilder.ToString();
 
