@@ -15,8 +15,8 @@ namespace BattleshipsNS
                 Console.WriteLine();
                 
                 //Battleship Program
-                ITextIO consoleIO = new ConsoleIO();
-                IBattleshipsSetup GameSetup = new BattleshipsSetup();
+                ConsoleIO consoleIO = new ConsoleIO();
+                BattleshipsSetup GameSetup = new BattleshipsSetup();
                 new BattleshipsPlay(GameSetup.GameBoard, GameSetup.GameParts, consoleIO);
 
                 //Repeat Program Option

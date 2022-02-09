@@ -6,9 +6,9 @@
         public GameParts GameParts { get; private set; }
         private readonly InputHandler Inputs;
         private readonly OutputGenerator Outputs = new OutputGenerator();
-        private readonly ITextIO ConsoleIO;
+        private readonly ConsoleIO ConsoleIO;
 
-        public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts, ITextIO consoleIO)
+        public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts, ConsoleIO consoleIO)
         {
             ConsoleIO = consoleIO;
             GameParts = gameParts;

@@ -8,18 +8,6 @@ namespace BattleshipsNSTests
     [TestClass]
     public class OutputGeneratorTests
     {
-        [DataTestMethod]
-        [DataRow ((int)Messages.Invalid_Format, 0, "\tYour input is invalid.\n\tThe input was not in the correct format.\n\n\tThere are 0 ship(s) left.\n")]
-        public void DataTest_GenerateMessage_WithInputInvalidFormatAndNoShips_ReturnString(int testMessagesCode, int testSunkShipCount, string expectedAlmost)
-        {
-            OutputGenerator testOutputs = new OutputGenerator();
-            string expected = expectedAlmost.Replace("\n", "\r\n");
-
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testSunkShipCount);
-
-            Assert.AreEqual(expected, actual, true, "Incorrect invalid format string ouput by generator");
-        }
-
         [TestMethod]
         public void GenerateMessage_WithInputInvalidFormatAndNoShips_ReturnString()
         {

@@ -3,13 +3,13 @@ using BattleshipsNS;
 
 namespace BattleshipsNSTests
 {
-    public class FakeConsoleIO : ITextIO
+    public class FakeConsoleIO : ConsoleIO
     {
         private static int FakeUserInput = 0;
-        public void WriteLine(string s)
+        public override void WriteLine(string s)
         {           
         }
-        public string ReadLine()
+        public override string ReadLine()
         {
             if (FakeUserInput >= 26) {FakeUserInput = 0;}
             string[] ReturnList = { "A1", "A2", "A3", "A4", "A5", "B1", "B2", "B3", "B4", "B5", "C1", "C2", "C3", "C4", "C5", "D1", "D2", "D3", "D4", "D5", "E1", "E2", "E3", "E4", "E5", "a" };
