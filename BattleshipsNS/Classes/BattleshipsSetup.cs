@@ -1,8 +1,8 @@
 ﻿namespace BattleshipsNS
 {
-    public class BattleshipsSetup : IBattleshipsSetup
+    public class BattleshipsSetup : IGameSetup
     {
-        public GameParts GameParts { get; private set; }
+        public GameComponents GameParts { get; private set; }
         public GameBoard GameBoard { get; private set; }
         private int BoardSize;
         private ShipTypes[] ShipsList;
@@ -14,7 +14,7 @@
             ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
 
             // Create Game Components
-            GameParts = new GameParts(ShipsList);
+            GameParts = new GameComponents(ShipsList);
             GameBoard = new GameBoard(BoardSize);
 
             // Setup Game Components
@@ -30,7 +30,7 @@
             ShipsList = shipsList;
 
             // Create Game Components
-            GameParts = new GameParts(ShipsList);
+            GameParts = new GameComponents(ShipsList);
             GameBoard = new GameBoard(BoardSize);
 
             // Setup Game Components

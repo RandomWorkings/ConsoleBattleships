@@ -11,7 +11,7 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            GameParts testParts = new GameParts(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
 
             int actual = testParts.ShipCount;
 
@@ -23,7 +23,7 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            GameParts testParts = new GameParts(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
 
             int actual = testParts.Ships.Length;
 
@@ -34,7 +34,7 @@ namespace BattleshipsNSTests
         public void GameParts_WhenCalled_WithValidArguments_SetArrayContents()
         {
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            GameParts testParts = new GameParts(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
 
             Ship actual = testParts.Ships[0];
 
@@ -46,7 +46,7 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            GameParts testParts = new GameParts(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
             testParts.UpdateShipCount();
 
             int actual = testParts.ShipCount;
@@ -60,7 +60,7 @@ namespace BattleshipsNSTests
             int expected = 0;
             Ship testShip = new Ship(ShipTypes.Destroyer);
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            GameParts testParts = new GameParts(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
             for (int i = 0; i < testShip.Length; i++)
             {
                 testParts.Ships[0].Sections[i].Contents = 'x';

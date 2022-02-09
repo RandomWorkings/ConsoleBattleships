@@ -1,6 +1,6 @@
 ﻿namespace BattleshipsNS
 {
-    public class GameBoard : IGameBoard
+    public class GameBoard : IBattleshipsGameBoard
     {
         public int BoardSize { get; private set; } = 10;
         public BoardSpace[,] PlayGrid { get; private set; }

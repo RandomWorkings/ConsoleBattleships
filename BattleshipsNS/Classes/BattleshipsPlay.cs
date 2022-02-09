@@ -1,14 +1,14 @@
 ﻿namespace BattleshipsNS
 {
-    public class BattleshipsPlay : IBattleshipsPlay
+    public class BattleshipsPlay : IBattleshipsGamePlay
     {
         public GameBoard GameBoard { get; private set; }
-        public GameParts GameParts { get; private set; }
+        public GameComponents GameParts { get; private set; }
         private readonly InputHandler Inputs;
         private readonly OutputGenerator Outputs = new OutputGenerator();
         private readonly ConsoleIO ConsoleIO;
 
-        public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts, ConsoleIO consoleIO)
+        public BattleshipsPlay(GameBoard gameBoard, GameComponents gameParts, ConsoleIO consoleIO)
         {
             ConsoleIO = consoleIO;
             GameParts = gameParts;
@@ -21,12 +21,12 @@
                 int finalMessageCodes;
                 //Display Latest Board State.
                 string playGridUI = Outputs.GeneratePlayGridUI(GameBoard);
-                ConsoleIO.WriteLine(playGridUI);
+                ConsoleIO.OutputText(playGridUI);
 
                 // User Input retreival and validation
                 string inputRequest = Outputs.GenerateInputRequest();
-                ConsoleIO.WriteLine(inputRequest);
-                string userInput = ConsoleIO.ReadLine();
+                ConsoleIO.OutputText(inputRequest);
+                string userInput = ConsoleIO.InputText();
                 string target = userInput.ToUpper();
                 int messageCodes = Inputs.ValidateInput(target);
                 
@@ -68,20 +68,20 @@
                     //Display appropriate output messages.                    
                     finalMessageCodes = updatedMessageCodes + gameParts.UpdateShipCount();
                     string feedback = Outputs.GenerateMessages(finalMessageCodes, gameParts.ShipCount);
-                    ConsoleIO.WriteLine(feedback);
+                    ConsoleIO.OutputText(feedback);
                 }
                 else
                 {
                     //Display appropriate output messages.
                     updatedMessageCodes = messageCodes + gameParts.UpdateShipCount();
                     string feedback = Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
-                    ConsoleIO.WriteLine(feedback);
+                    ConsoleIO.OutputText(feedback);
                 }
             }
             //Display appropriate output messages.
             gameParts.UpdateShipCount();
             string finalFeedback = Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
-            ConsoleIO.WriteLine(finalFeedback);
+            ConsoleIO.OutputText(finalFeedback);
         }
     }
 }

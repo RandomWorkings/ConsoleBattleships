@@ -11,7 +11,7 @@ namespace BattleshipsNSTests
         {
             int expected = 0;
             int testLimit = 1;
-            ValueGenerator TestGenerator = new ValueGenerator();
+            RandomGenerator TestGenerator = new RandomGenerator();
 
             int actual = TestGenerator.GetRandomInt(testLimit);
 
@@ -23,7 +23,7 @@ namespace BattleshipsNSTests
         {
             (int,int) expected = (0,0);
             int testLimit = 1;
-            ValueGenerator TestGenerator = new ValueGenerator();
+            RandomGenerator TestGenerator = new RandomGenerator();
 
             (int,int) actual = TestGenerator.GetRandomTuple(testLimit,testLimit);
 
