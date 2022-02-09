@@ -6,10 +6,11 @@
         public GameBoard GameBoard { get; private set; }
         private readonly InputHandler Inputs;
         private readonly OutputGenerator Outputs = new OutputGenerator();
-        private ConsoleIO ConsoleIO;
+        private readonly ConsoleIO ConsoleIO;
 
-        public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts)
+        public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts, ConsoleIO consoleIO)
         {
+            ConsoleIO = consoleIO;
             GameParts = gameParts;
             GameBoard = gameBoard;
 
@@ -83,10 +84,6 @@
             string finalFeedback = Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
             ConsoleIO.WriteLine(finalFeedback);
             //Outputs.GeneratePlayGridUI(GameBoard);
-        }
-        public void SetConsoleIO(ConsoleIO consoleIO)
-        {
-            ConsoleIO = consoleIO;
         }
     }
 }
