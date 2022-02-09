@@ -2,7 +2,7 @@
 
 namespace BattleshipsNS
 {
-    public class ConsoleIO : IConsoleIO
+    public class ConsoleIO : ITextIO
     {
         public virtual void WriteLine(string s)
         {

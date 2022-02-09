@@ -51,7 +51,7 @@
     <Compile Include="Interfaces\IBattleshipsPlay.cs" />
     <Compile Include="Interfaces\IBattleshipsSetup.cs" />
     <Compile Include="Interfaces\IBoardSpace.cs" />
-    <Compile Include="Interfaces\IConsoleIO.cs" />
+    <Compile Include="Interfaces\ITextIO.cs" />
     <Compile Include="Interfaces\IGameBoard.cs" />
     <Compile Include="Interfaces\IInputHandler.cs" />
     <Compile Include="Classes\InputHandler.cs" />

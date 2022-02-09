@@ -1,6 +1,6 @@
 ﻿namespace BattleshipsNS
 {
-    public interface IConsoleIO
+    public interface ITextIO
     {
         void WriteLine(string s);
         string ReadLine();
