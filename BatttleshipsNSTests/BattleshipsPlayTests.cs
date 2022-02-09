@@ -3,16 +3,18 @@ using BattleshipsNS;
 
 namespace BattleshipsNSTests
 {
-    public class FakeConsoleIO : IConsoleIO
+    public class FakeConsoleIO : ConsoleIO
     {
-        private string[] ReturnList = { "A1","A2","A3","A4", "A1", "B1", "C1", "D1", };
-
-        public void WriteLine(string s)
+        private string[] ReturnList = {"A1","A2","A3","A4", "A1", "B1", "C1", "D1"};
+        private static int FakeUserInput = 0;
+        public override void WriteLine(string s)
         {           
         }
-        public string ReadLine()
+        public override string ReadLine()
         {
-            return "A1";
+            string fakeUserInput = ReturnList[FakeUserInput];
+            FakeUserInput++;
+            return fakeUserInput;
         }
     }
 
@@ -40,7 +42,7 @@ namespace BattleshipsNSTests
         [TestMethod]
         public void BattleshipsPlayTests_GivenPlayWasCalled_WithValidArguments_GameBoardSet()
         {
-            ConsoleIO testConsoleIO = new ConsoleIO();
+            FakeConsoleIO testConsoleIO = new FakeConsoleIO();
             BattleshipsSetup testGameSetup = new BattleshipsSetup();
             GameBoard testGameBoard = testGameSetup.GameBoard;
             GameParts testGameParts = testGameSetup.GameParts;
