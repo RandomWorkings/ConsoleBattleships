@@ -13,7 +13,8 @@ namespace BattleshipsNS
         Repeat = 8,
         Missed = 16,
         Hit = 32,
-        Winner = 64,
+        Sunk = 64,
+        Winner = 128
     }
 
     public class OutputGenerator : IOutputGenerator
@@ -66,6 +67,10 @@ namespace BattleshipsNS
             if (messageSwitch.HasFlag(Messages.Hit))
             {
                 messagesBuilder.AppendLine($@"{Tab}You hit something.{NewLine}{Tab}Well done!");
+            }
+            if (messageSwitch.HasFlag(Messages.Sunk))
+            {
+                messagesBuilder.AppendLine($@"{NewLine}{Tab}You sunk a vessel.");
             }
             if (messageSwitch.HasFlag(Messages.Winner))
             {

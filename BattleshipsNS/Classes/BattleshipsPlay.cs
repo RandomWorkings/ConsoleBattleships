@@ -18,7 +18,7 @@
             while (gameParts.ShipCount != 0)
             {
                 int updatedMessageCodes;
-
+                int finalMessageCodes;
                 //Display Latest Board State.
                 string playGridUI = Outputs.GeneratePlayGridUI(GameBoard);
                 ConsoleIO.WriteLine(playGridUI);
@@ -65,16 +65,16 @@
                         }
                     }
 
-                    //Display appropriate output messages.
-                    gameParts.UpdateShipCount();
-                    string feedback = Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
+                    //Display appropriate output messages.                    
+                    finalMessageCodes = updatedMessageCodes + gameParts.UpdateShipCount();
+                    string feedback = Outputs.GenerateMessages(finalMessageCodes, gameParts.ShipCount);
                     ConsoleIO.WriteLine(feedback);
                 }
                 else
                 {
                     //Display appropriate output messages.
-                    gameParts.UpdateShipCount();
-                    string feedback = Outputs.GenerateMessages(messageCodes, gameParts.ShipCount);
+                    updatedMessageCodes = messageCodes + gameParts.UpdateShipCount();
+                    string feedback = Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
                     ConsoleIO.WriteLine(feedback);
                 }
             }

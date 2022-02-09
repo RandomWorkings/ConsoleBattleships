@@ -18,18 +18,21 @@
             }
         }
 
-        public void UpdateShipCount()
+        public int UpdateShipCount()
         {
+            int returnValue = 0;
             ShipCount = Ships.Length;
 
             foreach (Ship ship in Ships)
             {
                 ship.UpdateSunk();
-                if (ship.Sunk)
+                if(ship.Sunk)
                 {
                     ShipCount--;
+                    returnValue = (int)Messages.Sunk;
                 }
             }
+            return returnValue;
         }
     }
 }

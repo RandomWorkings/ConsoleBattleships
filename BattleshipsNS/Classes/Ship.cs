@@ -91,7 +91,6 @@ namespace BattleshipsNS
         }
 
         public void UpdateSunk()
-
         {
             int sunkSections = 0;
 
