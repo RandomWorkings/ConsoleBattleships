@@ -54,7 +54,7 @@ namespace BattleshipsNS
             {
                 messagesBuilder.AppendLine($@"{Tab}The row number provided doesnt exist on this grid.");
             }
-            // Game Feedback
+            // Action Outcome Feedback
             if (messageSwitch.HasFlag(Messages.Repeat))
             {
                 messagesBuilder.AppendLine($@"{Tab}You shot at that target already.{NewLine}{Tab}You won't win the game that way.");
@@ -71,6 +71,7 @@ namespace BattleshipsNS
             {
                 messagesBuilder.AppendLine($@"{Tab}You won the game.{NewLine}{Tab}Congratulations");
             }
+            // Board State Feedback
             else
             {
                 if (SunkShipCount == 1)
@@ -92,9 +93,10 @@ namespace BattleshipsNS
             char columnLetter = 'A';
             int rowNumber = 1;
 
+            // Top Left Corner
             StringBuilder playGridBuilder = new StringBuilder($"{Tab}    |");
 
-            //Column Headers
+            // Table Header and Column Titles
             for (int column = 1; column <= gameBoard.BoardSize; column++)
             {
                 playGridBuilder.Append($" {columnLetter} |");
@@ -102,7 +104,7 @@ namespace BattleshipsNS
             }
             playGridBuilder.AppendLine($"");
 
-            //
+            // Row Titles and Content
             for (int row = 0; row < gameBoard.BoardSize; row++)
             {
                 if (row < 9)

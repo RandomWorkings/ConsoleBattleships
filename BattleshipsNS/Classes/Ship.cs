@@ -29,11 +29,10 @@ namespace BattleshipsNS
         public Ship(ShipTypes shipType)
         {
             Type = shipType;
-
             Length = (int)Type;
-
             Sections = new BoardSpace[Length];
 
+            //Populate Sections with Boardspaces
             for (int s = 0; s < Length; s++)
             {
                 Sections[s] = new BoardSpace();
@@ -52,7 +51,7 @@ namespace BattleshipsNS
                 int sectionRow = StartLocation.Item1;
                 int sectionColumn = StartLocation.Item2;
 
-                // Link Sections to Board Spaces, and check if occupied.
+                // Link Ship Sections to Game Board Spaces, and check if occupied.
                 for (int section = 0; section < Length; section++)
                 {
                     BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
@@ -98,7 +97,7 @@ namespace BattleshipsNS
 
             if (!Sunk)
             {
-                sunkSections = Sections.Count(section => section.Contents == 'x');
+                sunkSections = Sections.Count(section => section.Contents == 'x'); // x indicates a targeted and occupied location.
 
                 if (sunkSections == Length)
                 {

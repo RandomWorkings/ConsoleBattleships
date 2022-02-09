@@ -13,6 +13,8 @@ namespace BattleshipsNS
             while (Running)
             {
                 Console.WriteLine();
+                
+                //Battleship Program
                 ConsoleIO consoleIO = new ConsoleIO();
                 BattleshipsSetup GameSetup = new BattleshipsSetup();
                 new BattleshipsPlay(GameSetup.GameBoard, GameSetup.GameParts, consoleIO);

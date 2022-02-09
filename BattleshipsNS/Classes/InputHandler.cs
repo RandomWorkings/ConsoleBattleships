@@ -22,19 +22,21 @@ namespace BattleshipsNS
 
         public int ValidateInput(string userInput)
         {
-            string validFormat = @"(^\b[A-Z]{1}[0-9]{1,2}\b$)"; //A0 to Z99 accepted.
-            Regex validInput = new Regex(validFormat);
-
             int formatCheck = 0;
             int characterCheck = 0;
             int integerCheck = 0;
 
+            // Input string validation
+            string validFormat = @"(^\b[A-Z]{1}[0-9]{1,2}\b$)"; //A0 to Z99 accepted.
+            Regex validInput = new Regex(validFormat);
+
             if (validInput.IsMatch(userInput))
             {
+                // Input string split into elements
                 char inputCharacter = CollectInputCharacter(userInput);
                 int inputInteger = CollectInputInteger(userInput);
 
-                //Input Checks
+                // Element validation
                 characterCheck = CheckValidCharacter(inputCharacter);
                 integerCheck = CheckValidInteger(inputInteger);
             }
@@ -48,9 +50,11 @@ namespace BattleshipsNS
 
         public (int, int) ConvertInputToTuple(string userInput)
         {
+            // Input string split into elements
             char inputCharacter = CollectInputCharacter(userInput);
             int inputInteger = CollectInputInteger(userInput);
 
+            // Adjustment and conversion of elements
             int column = Array.IndexOf(AcceptedCharacters, inputCharacter);
             int row = inputInteger - 1;
 
@@ -92,17 +96,25 @@ namespace BattleshipsNS
         {
             bool validCharacter = Array.Exists(AcceptedCharacters, c => c == inputCharacter);
             if (validCharacter)
-            { return 0; }
+            {
+                return 0;
+            }
             else
-            { return (int)Messages.Invalid_Column; } // Output Enum Flags Messages - Input_InvalidColumn
+            {
+                return (int)Messages.Invalid_Column;
+            }
         }
         private int CheckValidInteger(int inputInteger)
         {
             bool validInteger = Array.Exists(AcceptedIntegers, i => i == inputInteger);
             if (validInteger)
-            { return 0; }
+            {
+                return 0;
+            }
             else
-            { return (int)Messages.Invalid_Row; } // Output Enum Flags Messages - Input_InvalidRow
+            {
+                return (int)Messages.Invalid_Row;
+            }
         }
     }
 }

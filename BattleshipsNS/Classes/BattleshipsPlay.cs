@@ -13,7 +13,6 @@
             ConsoleIO = consoleIO;
             GameParts = gameParts;
             GameBoard = gameBoard;
-
             Inputs = new InputHandler(GameBoard.BoardSize);
 
             while (gameParts.ShipCount != 0)
@@ -24,66 +23,65 @@
                 string playGridUI = Outputs.GeneratePlayGridUI(GameBoard);
                 ConsoleIO.WriteLine(playGridUI);
 
+                // User Input retreival and validation
                 string inputRequest = Outputs.GenerateInputRequest();
                 ConsoleIO.WriteLine(inputRequest);
-
                 string userInput = ConsoleIO.ReadLine();
                 string target = userInput.ToUpper();
-
-                int messageCodes = Inputs.ValidateInput(target); //MessageCode add Input_InvalidColumn OR Input_InvalidRow.
-
-                if (messageCodes == 0)
+                int messageCodes = Inputs.ValidateInput(target);
+                
+                if (messageCodes == 0) // Only possible with a valid input.
                 {
-                    //Get Target
+                    //Get target value from input.
                     (int targetRow, int targetColumn) = Inputs.ConvertInputToTuple(target);
                     BoardSpace TargetCell = GameBoard.PlayGrid[targetRow, targetColumn];
 
-                    //Assess Target Occupied
+                    //Assess target occupied and respond.
                     if (TargetCell.Occupied)
                     {
                         updatedMessageCodes = messageCodes + (int)Messages.Hit;
-                        //Assess Target Content
-                        if (TargetCell.Contents == 'x')
+                        //Assess target content and respond.
+                        if (TargetCell.Contents == 'x') // x indicates a targeted and occupied location.
                         {
                             updatedMessageCodes = messageCodes + (int)Messages.Repeat;
                         }
                         else
                         {
-                            TargetCell.Contents = 'x';
+                            TargetCell.Contents = 'x'; // x indicates a targeted and occupied location.
                         }
                     }
                     else
                     {
-                        updatedMessageCodes = messageCodes + (int)Messages.Missed; //MessageCode add Target_Miss.
-                        //Assess Target Content
-                        if (TargetCell.Contents == 'o')
+                        updatedMessageCodes = messageCodes + (int)Messages.Missed;
+
+                        //Assess target content and respond.
+                        if (TargetCell.Contents == 'o') // o indicates a targeted and vacant location.
                         {
-                            updatedMessageCodes = messageCodes + (int)Messages.Repeat; //MessageCode add Target_Repeat AND Target_Miss.
+                            updatedMessageCodes = messageCodes + (int)Messages.Repeat;
                         }
                         else
                         {
-                            TargetCell.Contents = 'o';
+                            TargetCell.Contents = 'o'; // o indicates a targeted and vacant location.
                         }
                     }
 
-                    //Display Appropriate Messages.
+                    //Display appropriate output messages.
                     gameParts.UpdateShipCount();
                     string feedback = Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
                     ConsoleIO.WriteLine(feedback);
                 }
                 else
                 {
-                    //Display Appropriate Messages based on code.
+                    //Display appropriate output messages.
                     gameParts.UpdateShipCount();
                     string feedback = Outputs.GenerateMessages(messageCodes, gameParts.ShipCount);
                     ConsoleIO.WriteLine(feedback);
                 }
             }
-            //Display Game Victory Message
+            //Display appropriate output messages.
             gameParts.UpdateShipCount();
             string finalFeedback = Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
             ConsoleIO.WriteLine(finalFeedback);
-            //Outputs.GeneratePlayGridUI(GameBoard);
         }
     }
 }

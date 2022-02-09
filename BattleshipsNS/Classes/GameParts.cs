@@ -8,10 +8,9 @@
         public GameParts(ShipTypes[] shipsList)
         {
             ShipCount = shipsList.Length;
-
             Ships = new Ship[ShipCount];
 
-            // Fill Ship Array with Ships
+            // Populate Ships Array with Ships
             for (int i = 0; i < ShipCount; i++)
             {
                 ShipTypes shipType = shipsList[i];
