@@ -18,26 +18,31 @@ namespace BattleshipsNSTests
             return fakeUserInput;
         }
     }
-
-    [TestClass]
+[TestClass]
     public class BattleshipsGameTests
     {
+    
         [TestMethod]
-        public void BattleshipsPlayTests_GivenPlayWasCalled_WithValidArguments_GamePartsSet()
+        public void BattleshipsGameTests_FOCUS_Given_When_Then()
         {
-            int testBoardSize = 5;
-            ShipTypes[] testShipsList = { ShipTypes.Battleship };
-            BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
-            FakeUserIO testConsoleIO = new FakeUserIO();
-            BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
-            BattleshipsParts testGameParts = testGameSetup.GameParts;
-            BattleshipsGame testBattleshipsPlay = new BattleshipsPlay(testGameBoard,testGameParts,testConsoleIO);
-            var expected = testGameParts;
+            IBattleshipsBoard testBoard = new BattleshipsBoard();
+            IBattleshipsParts testParts = new BattleshipsParts();
+            ITextIO testTextIO = new FakeUserIO();
+            IInputHandler testInputHandler = new InputHandler(testBoard.BoardSize);
+            IOutputGenerator testOutputGenerator = new OutputGenerator();
+            IValueGenerator testValueGenerator = new ValueGenerator();
+            IBattleshipsSetup testGameSetup = new BattleshipsSetup(testBoard, testParts, testValueGenerator);
+            testGameSetup.RunSetup();
+            IBattleshipsGame battleshipsGame = new BattleshipsGame(testGameSetup, testTextIO, testInputHandler, testOutputGenerator);
 
-            var actual = testBattleshipsPlay.GameParts;
+            var expected = "butts";
 
-            Assert.AreEqual(expected, actual, "BattleshipsSetupTests_GamePartsSet : Game Board Not Set");
+            var actual = "moreButts";
+
+            Assert.AreEqual(expected, actual, "BattleshipsGameTests_GamePartsSet : Game Board Not Set");
         }
+
+        /*
         [TestMethod]
         public void BattleshipsPlayTests_GivenPlayWasCalled_WithValidArguments_GameBoardSet()
         {
@@ -54,5 +59,6 @@ namespace BattleshipsNSTests
 
             Assert.AreEqual(expected, actual, "BattleshipsSetupTests_GameBoardSet : Game Board Not Set");
         }
+        */
     }
 }
