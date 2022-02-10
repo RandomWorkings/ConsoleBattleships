@@ -6,7 +6,7 @@
         IBattleshipsParts Parts { get; }
         ITextIO TextIO { get; }
         IInputHandler InputHandler { get; }
-        IOutputGenerator OutputGenerator { get; }
+        IOutputGenerator UI { get; }
         void RunGame();
     }
 }
