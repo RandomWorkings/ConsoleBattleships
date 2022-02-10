@@ -3,7 +3,7 @@ using BattleshipsNS;
 
 namespace BattleshipsNSTests
 {
-    public class FakeConsoleIO : ConsoleIO
+    public class FakeUserIO : ConsoleIO
     {
         private static int FakeUserInput = 0;
         public override void OutputText(string s)
@@ -28,7 +28,7 @@ namespace BattleshipsNSTests
             int testBoardSize = 5;
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
             BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
-            FakeConsoleIO testConsoleIO = new FakeConsoleIO();
+            FakeUserIO testConsoleIO = new FakeUserIO();
             BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
             BattleshipsParts testGameParts = testGameSetup.GameParts;
             BattleshipsGame testBattleshipsPlay = new BattleshipsPlay(testGameBoard,testGameParts,testConsoleIO);
@@ -44,7 +44,7 @@ namespace BattleshipsNSTests
             int testBoardSize = 5;
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
             BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
-            FakeConsoleIO testConsoleIO = new FakeConsoleIO();
+            FakeUserIO testConsoleIO = new FakeUserIO();
             BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
             BattleshipsParts testGameParts = testGameSetup.GameParts;
             BattleshipsGame testBattleshipsPlay = new BattleshipsPlay(testGameBoard, testGameParts, testConsoleIO);

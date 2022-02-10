@@ -59,6 +59,7 @@
     <Compile Include="BattleshipsPartsTests.cs" />
     <Compile Include="ShipTests.cs" />
     <Compile Include="BattleshipsGameTests.cs" />
+    <Compile Include="ConsoleIOTests.cs" />
     <Compile Include="ValueGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
