@@ -8,93 +8,56 @@ namespace BattleshipsNSTests
     public class BattleshipsSetupTests
     {
         [TestMethod]
-        public void BattleshipsSetupTests_GivenSetupWasCalled_WhenSetupEnds_ThenAGridIsCreated()
-        {
-            BattleshipsSetup testSetup = new BattleshipsSetup();
+        public void BattleshipsSetup_WhenCalled_GivenValidArguments_ThenSetsGameBoardValue()
+       {
+            IBattleshipsBoard testBoard = new BattleshipsBoard();
+            IBattleshipsParts testParts = new BattleshipsParts();
+            IValueGenerator testValueGenerator = new ValueGenerator();
+            IBattleshipsSetup testSetup = new BattleshipsSetup(testBoard, testParts, testValueGenerator);
+            IBattleshipsBoard expected = testBoard;
 
-            BattleshipsBoard actual = testSetup.GameBoard;
+            IBattleshipsBoard actual = testSetup.GameBoard;
 
-            Assert.IsNotNull(actual, "BattleshipsSetupTests_AGridIsCreated : Grid Not Created");
+            Assert.AreEqual(expected, actual, "BattleshipsSetup_BattleshipsSetup_GameBoard : Incorrect value returned");
         }
-
         [TestMethod]
-        public void BattleshipsSetupTests_GivenSetupWasCalled_WhenSetupEnds_ThenAllShipsArePlaced()
+        public void BattleshipsSetup_WhenCalled_GivenValidArguments_ThenSetsGamePartsValue()
         {
-            int expected = 0;
-            BattleshipsSetup testSetup = new BattleshipsSetup();
+            IBattleshipsBoard testBoard = new BattleshipsBoard();
+            IBattleshipsParts testParts = new BattleshipsParts();
+            IValueGenerator testValueGenerator = new ValueGenerator();
+            IBattleshipsSetup testSetup = new BattleshipsSetup(testBoard, testParts, testValueGenerator);
+            IBattleshipsParts expected = testParts;
+
+            IBattleshipsParts actual = testSetup.GameParts;
+
+            Assert.AreEqual(expected, actual, "BattleshipsSetup_BattleshipsSetup_GameParts : Incorrect value returned");
+        }
+        [TestMethod]
+        public void BattleshipsSetup_WhenCalled_GivenValidArguments_ThenSetsValueGeneratorValue()
+        {
+            IBattleshipsBoard testBoard = new BattleshipsBoard();
+            IBattleshipsParts testParts = new BattleshipsParts();
+            IValueGenerator testValueGenerator = new ValueGenerator();
+            IBattleshipsSetup testSetup = new BattleshipsSetup(testBoard, testParts, testValueGenerator);
+            IValueGenerator expected = testValueGenerator;
+
+            IValueGenerator actual = testSetup.ValueGenerator;
+
+            Assert.AreEqual(expected, actual, "BattleshipsSetup_BattleshipsSetup_ValueGenerator : Incorrect value returned");
+        }
+        [TestMethod]
+        public void BattleshipsSetupTests_RunSetup_WhenCalled_GivenMethodReturns_ThenAllShipsArePlaced()
+        {
+            IBattleshipsBoard testBoard = new BattleshipsBoard();
+            IBattleshipsParts testParts = new BattleshipsParts();
+            IValueGenerator testValueGenerator = new ValueGenerator();
+            IBattleshipsSetup testSetup = new BattleshipsSetup(testBoard, testParts, testValueGenerator);
+            int expected = testSetup.GameParts.Ships.Length;
 
             int actual = testSetup.GameParts.Ships.Count(Ship => Ship.Placed == false);
 
             Assert.AreEqual(expected, actual, "BattleshipsSetupTests_AllShipsArePlaced : Ships left unplaced");
-        }
-
-        [TestMethod]
-        public void BattleshipsSetupTests_GivenSetupWasCalled_WithValidArguments_WhenSetupEnds_ThenAGridIsCreated()
-        {
-            int testBoardSize = 10;
-            ShipTypes[] testShipsList = { ShipTypes.Battleship };
-            BattleshipsSetup testSetup = new BattleshipsSetup(testBoardSize, testShipsList);
-
-            BattleshipsBoard actual = testSetup.GameBoard;
-
-            Assert.IsNotNull(actual, "BattleshipsSetupTests_AGridIsCreated : Grid Not Created");
-        }
-
-        [TestMethod]
-        public void BattleshipsSetupTests_GivenSetupWasCalled_WithValidArguments_ThenAllShipsArePlaced()
-        {
-            int expected = 0;
-            int testBoardSize = 10;
-            ShipTypes[] testShipsList = { ShipTypes.Battleship };
-            BattleshipsSetup testSetup = new BattleshipsSetup(testBoardSize, testShipsList);
-
-            int actual = testSetup.GameParts.Ships.Count(Ship => Ship.Placed == false);
-
-            Assert.AreEqual(expected, actual, "BattleshipsSetupTests_AllShipsArePlaced : Ships left unplaced");
-        }
-
-        public void PlaceShip_WhenCalled_WithValidArguments_SetPlaced()
-        {
-            bool expected = true;
-            int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
-            testShip.PlaceShip(testBoard);
-
-            bool actual = testShip.Placed;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_PlaceShip : ship not placed."));
-        }
-
-
-        [TestMethod]
-        public void PlaceShip_WhenCalled_WithValidArguments_SetSectionContent()
-        {
-            int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
-
-            testShip.PlaceShip(testBoard);
-
-            Assert.IsNotNull(testShip.Sections[0], ($@"ShipTests_PlaceShip : Incorrect section assignment."));
-        }
-
-        [TestMethod]
-        public void PlaceShip_WhenCalled_WithValidArguments_SetsValidStartLocation()
-        {
-            // On a 4 by 4 grid the length 4 battleship can only start on play grid [0, 0].
-            bool expected = true;
-            int testSize = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
-
-            testShip.PlaceShip(testBoard);
-            bool actual = testShip.Sections[0].Occupied;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_PlaceShip : Incorrect section assignment."));
         }
     }
 }

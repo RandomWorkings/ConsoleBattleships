@@ -19,9 +19,9 @@ namespace BattleshipsNSTests
         [DataRow((int)Messages.Winner, 0, "\tYou won the game.\n\tCongratulations\n", "Incorrect winner string ouput by generator")]
         [DataRow(((int)Messages.Invalid_Format + (int)Messages.Invalid_Column), 1,
             "\tYour input is invalid.\n\tThe input was not in the correct format.\n\tThe column letter provided doesnt exist on this grid.\n\n\tThere is 1 ship left.\n", "Incorrect mass string ouput by generator")]
-        public void DataTest_GenerateMessage_WithValidArguments_ReturnCorrectString(int testMessagesCode, int testShipCount, string expectedAlmost, string failMessage)
+        public void DataTest_OutputGenerator_GenerateFeedbackMessage_WhenCalled_WithValidArguments_ReturnCorrectString(int testMessagesCode, int testShipCount, string expectedAlmost, string failMessage)
         {
-            OutputGenerator testOutputs = new OutputGenerator();
+            IOutputGenerator testOutputs = new OutputGenerator();
             string expected = expectedAlmost.Replace("\n", "\r\n");
 
             string actual = testOutputs.GenerateFeedbackMessage(testMessagesCode, testShipCount);
@@ -30,9 +30,9 @@ namespace BattleshipsNSTests
         }
 
         [TestMethod]
-        public void GenerateInputRequest_ReturnString() 
+        public void OutputGenerator_GenerateInputRequestMessage_WhenCalled_WithValidArguments_ThenReturnCorrectString() 
         {
-            OutputGenerator testOutputs = new OutputGenerator();
+            IOutputGenerator testOutputs = new OutputGenerator();
             string NewLine = Environment.NewLine;
             string Tab = "\t";
             StringBuilder testBuilder = new StringBuilder("");
@@ -45,11 +45,11 @@ namespace BattleshipsNSTests
         }
 
         [TestMethod]
-        public void GeneratePlayGridUI_ReturnString()
+        public void OutputGenerator_GenerateGameUI_WhenCalled_WithValidArguments_ThenReturnCorrectString()
         {
-            OutputGenerator testOutputs = new OutputGenerator();
+            IOutputGenerator testOutputs = new OutputGenerator();
             int testSize = 1;
-            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
+            IBattleshipsBoard testBoard = new BattleshipsBoard(testSize);
             string Tab = "\t";
             StringBuilder testBuilder = new StringBuilder($"{Tab}    |");
             testBuilder.Append($" A |");
