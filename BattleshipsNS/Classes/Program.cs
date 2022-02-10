@@ -7,7 +7,6 @@ namespace BattleshipsNS
         static void Main()
         {
             string Tab = "\t";
-
             bool Running = true;
             //Program Loop
             while (Running)
@@ -28,8 +27,9 @@ namespace BattleshipsNS
                 // Run Game
                 battleshipsGame.RunGame();
 
-                //Repeat Program Option
-                Console.WriteLine($"{Tab}The Program Battleships has finished!");
+                // NOT PART OF BATTLESHIPS GAME
+                // Program Loop Control
+                Console.WriteLine($"{Tab}The program has completed it's current run");
                 Console.WriteLine($"{Tab}Press Enter to repeat program");
                 Console.WriteLine($"{Tab}Press any other button to quit");
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
