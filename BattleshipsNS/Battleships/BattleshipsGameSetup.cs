@@ -1,16 +1,17 @@
 ﻿using ProgramNS;
 namespace BattleshipsNS
 {
-    public class BattleshipsGameSetup : IGameSetup
+    public class BattleshipsGameSetup : IBattleshipsGameSetup
     {
-        public IGameComponents GameParts { get; private set; }
-        public IGameBoard GameBoard { get; private set; }
+        public BattleshipsShips GameParts { get; private set; }
+        public BattleshipsBoard GameBoard { get; private set; }
         private int BoardSize;
         private ShipTypes[] ShipsList;
 
         public BattleshipsGameSetup()
         {
             // Program Default settings
+
 
             // Create Game Components
             GameParts = new BattleshipsShips(ShipsList);

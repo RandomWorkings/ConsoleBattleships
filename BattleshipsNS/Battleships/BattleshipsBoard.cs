@@ -1,7 +1,7 @@
 ﻿using ProgramNS;
 namespace BattleshipsNS
 {
-    public class BattleshipsBoard : IBoard
+    public class BattleshipsBoard : IBattleshipsBoard
     {
         public int BoardSize { get; private set; }
         public BattleshipsBoardSpace[,] PlayGrid { get; private set; }

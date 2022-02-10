@@ -2,7 +2,7 @@
 
 namespace BattleshipsNS
 {
-    public class BattleshipsShips : IShips
+    public class BattleshipsShips : IBattleshipsShips
     {
         public BattleshipsShip[] Ships { get; private set; }
         public int ShipCount { get; private set; } = 0;

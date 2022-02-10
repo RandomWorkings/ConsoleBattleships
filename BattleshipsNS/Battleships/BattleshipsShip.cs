@@ -16,7 +16,7 @@ namespace BattleshipsNS
         Vertical
     };
 
-    public class BattleshipsShip : IShip
+    public class BattleshipsShip : IBattleshipsShip
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
         public int Length { get; private set; } = 4;

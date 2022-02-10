@@ -18,7 +18,7 @@ namespace BattleshipsNS
         Winner = 128
     }
 
-    public class BattleshipsOutputGenerator : IOutputGenerator
+    public class BattleshipsOutputGenerator : IBattleshipsOutputGenerator
     {
         private readonly string NewLine = Environment.NewLine;
         private readonly string Tab = "\t";

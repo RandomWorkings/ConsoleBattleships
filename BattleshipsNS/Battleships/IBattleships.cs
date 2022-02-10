@@ -3,34 +3,25 @@
 namespace BattleshipsNS
 {
     //Interfaces for a Battleship Game
-
-    public interface IGameSetup
-    {
-        IGameComponents GameParts { get; }
-        IGameBoard GameBoard { get; }
-    }
-    public interface IGamePlay
-    {
-        IGameSetup GameSetup { get; set; }
-    }
-
-    public interface IBoard
+    public interface IBattleshipsGameSetup : IGameSetup { }
+    public interface IBattleshipsGamePlay : IGamePlay { }
+    public interface IBattleshipsBoard : IGameBoard
     {
         int BoardSize { get; }
         BattleshipsBoardSpace[,] PlayGrid { get; }
     }
-    public interface IBoardSpace
+    public interface IBattleshipsBoardSpace : IGameBoardSpace
     {
         bool Occupied { get; set; }
         char? Contents { get; set; }
     }
-    public interface IShips
+    public interface IBattleshipsShips : IGameComponents
     {
         BattleshipsShip[] Ships { get; }
         int ShipCount { get; }
         int UpdateShipCount();
     }
-    public interface IShip
+    public interface IBattleshipsShip : IGameComponent
     {
         ShipTypes Type { get; }
         int Length { get; }
@@ -42,12 +33,12 @@ namespace BattleshipsNS
         void PlaceShip(BattleshipsBoard gameBoard);
         void UpdateSunk();
     }
-    public interface IInputHandler
+    public interface IBattleshipsInputHandler : IGameInputHandler
     {
         int ValidateInput(string userInput);
         (int, int) ConvertInputToTuple(string userInput);
     }
-    public interface IOutputGenerator
+    public interface IBattleshipsOutputGenerator : IGameOutputGenerator
     {
         string GenerateInputRequest();
         string GenerateMessages(int MessagesCode, int SunkShipCount);
