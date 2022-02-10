@@ -15,7 +15,7 @@ namespace BattleshipsNS
         Vertical
     };
 
-    public class Ship : IBattleshipsShip
+    public class Ship : IShip
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
         public int Length { get; private set; } = 4;
@@ -24,7 +24,7 @@ namespace BattleshipsNS
         public BoardSpace[] Sections { get; private set; }
         public int Orientation { get; set; } = 1;
         public (int, int) StartLocation { get; set; } = (0, 0);
-        public RandomGenerator generator = new RandomGenerator();
+        public ValueGenerator generator = new ValueGenerator();
 
         public Ship(ShipTypes shipType)
         {

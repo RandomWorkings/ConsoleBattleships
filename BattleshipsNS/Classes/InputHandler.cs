@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace BattleshipsNS
 {
-    public class InputHandler : IBattleshipsInputHandler
+    public class InputHandler : IInputHandler
     {
         private readonly char[] AcceptedCharacters;
         private readonly int[] AcceptedIntegers;

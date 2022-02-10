@@ -1,13 +1,8 @@
 ﻿namespace BattleshipsNS
 {
-    public interface IValueGenerators
-    {
-    }
-
-    public interface IRandomGenerator : IValueGenerators
+    public interface IValueGenerator
     {
         int GetRandomInt(int limit);
         (int, int) GetRandomTuple(int leftLimit, int rightLimit);
     }
-
 }

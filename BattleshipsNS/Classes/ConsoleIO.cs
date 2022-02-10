@@ -2,13 +2,13 @@
 
 namespace BattleshipsNS
 {
-    public class ConsoleIO : ITextIO
+    public class ConsoleIO : IConsoleIO
     {
-        public virtual void OutputText(string s)
+        public virtual void WriteLine(string s)
         {
             Console.WriteLine(s);
         }
-        public virtual string InputText()
+        public virtual string ReadLine()
         {
             return Console.ReadLine();
         }

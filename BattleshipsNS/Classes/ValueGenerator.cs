@@ -2,7 +2,7 @@
 
 namespace BattleshipsNS
 {
-    public class RandomGenerator : IValueGenerators
+    public class ValueGenerator : IValueGenerator
     {
         private static readonly Random Rand = new Random();
         private static readonly object Synclock = new object();
