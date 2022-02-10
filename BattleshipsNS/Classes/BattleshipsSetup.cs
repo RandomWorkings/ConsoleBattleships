@@ -27,8 +27,8 @@
 
             while (!ship.Placed)
             {
-                GenerateOrientation();
-                GenerateStartLocation(ship);
+                ship.Orientation = GenerateOrientation();
+                ship.StartLocation = GenerateStartLocation(ship);
 
                 int sectionRow = ship.StartLocation.Item1;
                 int sectionColumn = ship.StartLocation.Item2;
