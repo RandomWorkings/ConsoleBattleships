@@ -20,6 +20,7 @@ namespace BattleshipsNS
                 // Setup Parts
                 IGameBoard Board = new GameBoard();
                 IGameParts Parts = new GameParts();
+
                 ITextIO ConsoleIO = new ConsoleIO();
 
 

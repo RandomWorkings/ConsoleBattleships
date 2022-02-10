@@ -6,10 +6,10 @@
         int Length { get; }
         bool Sunk { get; }
         bool Placed { get; }
-        BoardSpace[] Sections { get; }
+        IBoardSpace[] Sections { get; }
         int Orientation { get; set; }
         (int, int) StartLocation { get; set; }
-        void PlaceShip(GameBoard gameBoard);
+        void PlaceShip(IGameBoard gameBoard);
         void UpdateSunk();
     }
 }
