@@ -2,8 +2,24 @@
 {
     public class GameParts : IGameParts
     {
-        public Ship[] Ships { get; private set; }
+        public IShip[] Ships { get; private set; }
         public int ShipCount { get; private set; } = 0;
+
+        public GameParts()
+        {
+            ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
+
+            ShipCount = ShipsList.Length;
+
+            Ships = new Ship[ShipCount];
+
+            // Populate Ships Array with Ships
+            for (int i = 0; i < ShipCount; i++)
+            {
+                ShipTypes shipType = ShipsList[i];
+                Ships[i] = new Ship(shipType);
+            }
+        }
 
         public GameParts(ShipTypes[] shipsList)
         {

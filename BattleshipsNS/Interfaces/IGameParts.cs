@@ -2,7 +2,7 @@
 {
     public interface IGameParts
     {
-        Ship[] Ships { get; }
+        IShip[] Ships { get; }
         int ShipCount { get; }
         int UpdateShipCount();
     }
