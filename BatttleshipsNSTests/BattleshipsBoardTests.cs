@@ -7,11 +7,10 @@ namespace BattleshipsNSTests
     public class BattleshipsBoardTests
     {
         [TestMethod]
-        public void GameBoard_WhenCalled_WithValidArguments_SetBoardSize()
+        public void BattleshipsBoard_BattleshipsBoard_WhenCalled_GivenNoArguments_ThenSetDefaultBoardSize()
         {
-            int expected = 1;
-            int testSize = 1;
-            BattleshipsBoard TestGrid = new BattleshipsBoard(testSize);
+            int expected = 10;
+            IBattleshipsBoard TestGrid = new BattleshipsBoard();
 
             int actual = TestGrid.BoardSize;
 
@@ -19,11 +18,35 @@ namespace BattleshipsNSTests
         }
 
         [TestMethod]
-        public void GameBoard_WhenCalled_WithValidArguments_Set2DArraySize()
+        public void BattleshipsBoard_BattleshipsBoard_WhenCalled_GivenValidArguments_ThenSetBoardSize()
+        {
+            int expected = 1;
+            int testSize = 1;
+            IBattleshipsBoard TestGrid = new BattleshipsBoard(testSize);
+
+            int actual = TestGrid.BoardSize;
+
+            Assert.AreEqual(expected, actual, ($@"GameBoardTests_Size : Incorrect grid size returned"));
+        }
+
+        [TestMethod]
+        public void BattleshipsBoard_BattleshipsBoard_WhenCalled_GivenNoArguments_ThenSetDefault2DArraySize()
+        {
+            int expected = 20;
+            IBattleshipsBoard testGrid = new BattleshipsBoard();
+            int arrayRows = testGrid.PlayGrid.GetLength(0);
+            int arrayCols = testGrid.PlayGrid.GetLength(1);
+
+            int actual = arrayRows + arrayCols;
+
+            Assert.AreEqual(expected, actual, ($@"GameBoardTests_PlayGrid : 2-Dimensional array size incorrect"));
+        }
+        [TestMethod]
+        public void BattleshipsBoard_BattleshipsBoard_WhenCalled_GivenValidArguments_ThenSet2DArraySize()
         {
             int expected = 2;
             int testSize = 1;
-            BattleshipsBoard testGrid = new BattleshipsBoard(testSize);
+            IBattleshipsBoard testGrid = new BattleshipsBoard(testSize);
             int arrayRows = testGrid.PlayGrid.GetLength(0);
             int arrayCols = testGrid.PlayGrid.GetLength(1);
 
@@ -33,14 +56,24 @@ namespace BattleshipsNSTests
         }
 
         [TestMethod]
-        public void GameBoard_WhenCalled_WithValidArguments_Set2DArrayContents()
+        public void BattleshipsBoard_BattleshipsBoard_WhenCalled_GivenNoArguments_ThenSetDefault2DArrayContents()
+        {
+            int testSize = 10;
+            IBattleshipsBoard testGrid = new BattleshipsBoard(testSize);
+
+            IBoardSpace actual = testGrid.PlayGrid[0, 0];
+
+            Assert.IsNotNull(actual, ($@"GameBoardTests_PlayGrid : No 2-dimensional array contents exists"));
+        }
+        [TestMethod]
+        public void BattleshipsBoard_BattleshipsBoard_WhenCalled_GivenValidArguments_ThenSet2DArrayContents()
         {
             int testSize = 1;
-            BattleshipsBoard testGrid = new BattleshipsBoard(testSize);
+            IBattleshipsBoard testGrid = new BattleshipsBoard(testSize);
 
-            BoardSpace actual = testGrid.PlayGrid[0, 0];
+            IBoardSpace actual = testGrid.PlayGrid[0, 0];
 
-            Assert.IsNotNull(actual, ($@"GameBoardTests_PlayGrid : No 2-dimensional array contents exists returned"));
+            Assert.IsNotNull(actual, ($@"GameBoardTests_PlayGrid : No 2-dimensional array contents exists"));
         }
     }
 }
