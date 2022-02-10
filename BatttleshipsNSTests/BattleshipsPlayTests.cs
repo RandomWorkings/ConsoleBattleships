@@ -29,8 +29,8 @@ namespace BattleshipsNSTests
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
             BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
             FakeConsoleIO testConsoleIO = new FakeConsoleIO();
-            GameBoard testGameBoard = testGameSetup.GameBoard;
-            GameParts testGameParts = testGameSetup.GameParts;
+            BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
+            BattleshipsParts testGameParts = testGameSetup.GameParts;
             BattleshipsPlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard,testGameParts,testConsoleIO);
             var expected = testGameParts;
 
@@ -45,8 +45,8 @@ namespace BattleshipsNSTests
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
             BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
             FakeConsoleIO testConsoleIO = new FakeConsoleIO();
-            GameBoard testGameBoard = testGameSetup.GameBoard;
-            GameParts testGameParts = testGameSetup.GameParts;
+            BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
+            BattleshipsParts testGameParts = testGameSetup.GameParts;
             BattleshipsPlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard, testGameParts, testConsoleIO);
             var expected = testGameBoard;
 

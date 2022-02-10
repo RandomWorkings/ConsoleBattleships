@@ -1,11 +1,11 @@
 ﻿namespace BattleshipsNS
 {
-    public class GameParts : IGameParts
+    public class BattleshipsParts : IGameParts
     {
         public IShip[] Ships { get; private set; }
         public int ShipCount { get; private set; } = 0;
 
-        public GameParts()
+        public BattleshipsParts()
         {
             ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
 
@@ -21,7 +21,7 @@
             }
         }
 
-        public GameParts(ShipTypes[] shipsList)
+        public BattleshipsParts(ShipTypes[] shipsList)
         {
             ShipCount = shipsList.Length;
             Ships = new Ship[ShipCount];

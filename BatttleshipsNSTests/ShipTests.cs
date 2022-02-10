@@ -78,7 +78,7 @@ namespace BattleshipsNSTests
             int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
-            GameBoard testBoard = new GameBoard(testSize);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
             testShip.PlaceShip(testBoard);
 
             bool actual = testShip.Placed;
@@ -93,7 +93,7 @@ namespace BattleshipsNSTests
             int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
-            GameBoard testBoard = new GameBoard(testSize);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
 
             testShip.PlaceShip(testBoard);
 
@@ -108,7 +108,7 @@ namespace BattleshipsNSTests
             int testSize = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
             ShipTypes testShipType = ShipTypes.Battleship;
             Ship testShip = new Ship(testShipType);
-            GameBoard testBoard = new GameBoard(testSize);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
 
             testShip.PlaceShip(testBoard);
             bool actual = testShip.Sections[0].Occupied;

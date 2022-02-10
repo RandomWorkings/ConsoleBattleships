@@ -49,7 +49,7 @@ namespace BattleshipsNSTests
         {
             OutputGenerator testOutputs = new OutputGenerator();
             int testSize = 1;
-            GameBoard testBoard = new GameBoard(testSize);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
             string Tab = "\t";
             StringBuilder testBuilder = new StringBuilder($"{Tab}    |");
             testBuilder.Append($" A |");

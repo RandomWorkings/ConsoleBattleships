@@ -21,7 +21,7 @@ namespace BattleshipsNS
         public bool Sunk { get; private set; } = false;
         public bool Placed { get; set; } = false;
         public IBoardSpace[] Sections { get; private set; }
-        public int Orientation { get; set; } = 1;
+        public int Orientation { get; set; } = (int) ShipOrientations.Horizontal;
         public (int, int) StartLocation { get; set; } = (0, 0);
 
         public Ship()

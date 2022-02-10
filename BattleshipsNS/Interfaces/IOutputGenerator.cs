@@ -4,6 +4,6 @@
     {
         string GenerateInputRequest();
         string GenerateMessages(int MessagesCode, int SunkShipCount);
-        string GeneratePlayGridUI(GameBoard playGrid);
+        string GeneratePlayGridUI(BattleshipsBoard playGrid);
     }
 }

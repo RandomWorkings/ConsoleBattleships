@@ -14,16 +14,16 @@ namespace BattleshipsNS
             {
                 Console.WriteLine();
 
-                // Setup
-                IGameBoard board = new GameBoard();
-                IGameParts parts = new GameParts();
+                // Setup Game
+                IGameBoard board = new BattleshipsBoard(); //Creates and manages collection of BoardSpaces.
+                IGameParts parts = new BattleshipsParts(); //Creates and manages collection of Ships.
                 IValueGenerator valueGenerator = new ValueGenerator();
+                BattleshipsSetup GameSetup = new BattleshipsSetup(board, parts, valueGenerator); //Creates and manages inteactions between Game Board and Game Parts.
 
-                BattleshipsSetup GameSetup = new BattleshipsSetup(board, parts, valueGenerator);
+                ITextIO textIO = new ConsoleIO(); //Manages Console Based Interfaces
 
-                // Play
-                ITextIO textIO = new ConsoleIO();
-                
+                // Run Game
+
 
                 /*
                 //Battleship Program

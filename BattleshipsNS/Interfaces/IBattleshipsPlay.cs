@@ -2,7 +2,7 @@
 {
     public interface IBattleshipsPlay
     {
-        GameParts GameParts { get; }
-        GameBoard GameBoard { get; }
+        BattleshipsParts GameParts { get; }
+        BattleshipsBoard GameBoard { get; }
     }
 }

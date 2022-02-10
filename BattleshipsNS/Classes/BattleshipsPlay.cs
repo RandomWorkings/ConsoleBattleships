@@ -2,13 +2,13 @@
 {
     public class BattleshipsPlay : IBattleshipsPlay
     {
-        public GameBoard GameBoard { get; private set; }
-        public GameParts GameParts { get; private set; }
+        public BattleshipsBoard GameBoard { get; private set; }
+        public BattleshipsParts GameParts { get; private set; }
         private readonly InputHandler Inputs;
         private readonly OutputGenerator Outputs = new OutputGenerator();
         private readonly ConsoleIO ConsoleIO;
 
-        public BattleshipsPlay(GameBoard gameBoard, GameParts gameParts, ConsoleIO consoleIO)
+        public BattleshipsPlay(BattleshipsBoard gameBoard, BattleshipsParts gameParts, ConsoleIO consoleIO)
         {
             ConsoleIO = consoleIO;
             GameParts = gameParts;

@@ -11,7 +11,7 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             int testSize = 1;
-            GameBoard TestGrid = new GameBoard(testSize);
+            BattleshipsBoard TestGrid = new BattleshipsBoard(testSize);
 
             int actual = TestGrid.BoardSize;
 
@@ -23,7 +23,7 @@ namespace BattleshipsNSTests
         {
             int expected = 2;
             int testSize = 1;
-            GameBoard testGrid = new GameBoard(testSize);
+            BattleshipsBoard testGrid = new BattleshipsBoard(testSize);
             int arrayRows = testGrid.PlayGrid.GetLength(0);
             int arrayCols = testGrid.PlayGrid.GetLength(1);
 
@@ -36,7 +36,7 @@ namespace BattleshipsNSTests
         public void GameBoard_WhenCalled_WithValidArguments_Set2DArrayContents()
         {
             int testSize = 1;
-            GameBoard testGrid = new GameBoard(testSize);
+            BattleshipsBoard testGrid = new BattleshipsBoard(testSize);
 
             BoardSpace actual = testGrid.PlayGrid[0, 0];
 

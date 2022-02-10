@@ -12,7 +12,7 @@ namespace BattleshipsNSTests
         {
             BattleshipsSetup testSetup = new BattleshipsSetup();
 
-            GameBoard actual = testSetup.GameBoard;
+            BattleshipsBoard actual = testSetup.GameBoard;
 
             Assert.IsNotNull(actual, "BattleshipsSetupTests_AGridIsCreated : Grid Not Created");
         }
@@ -35,7 +35,7 @@ namespace BattleshipsNSTests
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
             BattleshipsSetup testSetup = new BattleshipsSetup(testBoardSize, testShipsList);
 
-            GameBoard actual = testSetup.GameBoard;
+            BattleshipsBoard actual = testSetup.GameBoard;
 
             Assert.IsNotNull(actual, "BattleshipsSetupTests_AGridIsCreated : Grid Not Created");
         }
