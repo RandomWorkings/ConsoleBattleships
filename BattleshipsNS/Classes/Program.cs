@@ -14,18 +14,16 @@ namespace BattleshipsNS
             {
                 Console.WriteLine();
 
-                //Default Inputs
-                ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
-
-                // Setup Parts
+                // Setup
                 IGameBoard board = new GameBoard();
                 IGameParts parts = new GameParts();
                 IValueGenerator valueGenerator = new ValueGenerator();
 
                 BattleshipsSetup GameSetup = new BattleshipsSetup(board, parts, valueGenerator);
 
+                // Play
                 ITextIO textIO = new ConsoleIO();
-
+                
 
                 /*
                 //Battleship Program

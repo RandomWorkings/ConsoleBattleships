@@ -14,10 +14,94 @@
         }
 
         public void GenerateGame()
-        { 
+        {
             foreach (IShip ship in GameParts.Ships)
             {
-                ship.PlaceShip(GameBoard, ValueGenerator);
+                PlaceShip(ship);
             }
         }
+
+        private void PlaceShip(IShip ship)
+        {
+            bool allSpacesClear = true;
+
+            while (!ship.Placed)
+            {
+                GenerateOrientation();
+                GenerateStartLocation(ship);
+
+                int sectionRow = ship.StartLocation.Item1;
+                int sectionColumn = ship.StartLocation.Item2;
+
+                // Link Ship Sections to Game Board Spaces, and check if occupied.
+                for (int section = 0; section < ship.Length; section++)
+                {
+                    IBoardSpace refCell = GameBoard.PlayGrid[sectionRow, sectionColumn];
+                    if (refCell.Occupied)
+                    {
+                        allSpacesClear = false;
+                        break;
+                    }
+
+                    ship.Sections[section] = refCell;
+
+                    switch (ship.Orientation)
+                    {
+                        case (int)ShipOrientations.Vertical:
+                            {
+                                sectionRow++;
+                                break;
+                            }
+                        default:// Horizontal
+                            {
+                                sectionColumn++;
+                                break;
+                            }
+                    }
+                }
+
+                // Place ship, and updated board spaces.
+                if (allSpacesClear)
+                {
+                    for (int i = 0; i < ship.Length; i++)
+                    {
+                        ship.Sections[i].Occupied = true;
+                    }
+                    ship.Placed = true;
+                }
+            }
+        }
+
+        private int GenerateOrientation()
+        {
+            int orientationOptionsCount = ShipOrientations.GetNames(typeof(ShipOrientations)).Length;
+            int generatedOrientation = ValueGenerator.GetRandomInt(orientationOptionsCount);
+            return generatedOrientation;
+        }
+
+        private (int, int) GenerateStartLocation(IShip ship)
+        {
+            int shipLength = ship.Length;
+            int shipOrientation = ship.Orientation;
+            int columnLimit;
+            int rowLimit;
+
+            switch (shipOrientation)
+            {
+                case (int)ShipOrientations.Vertical: //Limit Rows
+                    columnLimit = GameBoard.BoardSize;
+                    rowLimit = GameBoard.BoardSize - shipLength;
+                    break;
+
+                default: // Horizontal, Limit Columns
+                    columnLimit = GameBoard.BoardSize - shipLength;
+                    rowLimit = GameBoard.BoardSize;
+                    break;
+            }
+
+            (int, int) generatedStartLocation = ValueGenerator.GetRandomTuple(rowLimit, columnLimit);
+            return generatedStartLocation;
+        }
+
+    }
 }
