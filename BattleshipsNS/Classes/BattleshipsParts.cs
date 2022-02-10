@@ -1,6 +1,8 @@
-﻿namespace BattleshipsNS
+﻿using System.Linq;
+
+namespace BattleshipsNS
 {
-    public class BattleshipsParts : IGameParts
+    public class BattleshipsParts : IBattleshipsParts
     {
         public IShip[] Ships { get; private set; }
         public int ShipCount { get; private set; } = 0;
@@ -39,9 +41,9 @@
             int returnValue = 0;
             ShipCount = Ships.Length;
 
-            foreach (Ship ship in Ships)
+            foreach (IShip ship in Ships)
             {
-                ship.UpdateSunk();
+                UpdateShipSunk(ship);
                 if(ship.Sunk)
                 {
                     ShipCount--;
@@ -49,6 +51,21 @@
                 }
             }
             return returnValue;
+        }
+
+        private void UpdateShipSunk(IShip ship)
+        {
+            int sunkSections = 0;
+
+            if (!ship.Sunk)
+            {
+                sunkSections = ship.Sections.Count(section => section.Contents == 'x'); // x indicates a targeted and occupied location.
+
+                if (sunkSections == ship.Length)
+                {
+                    ship.Sunk = true;
+                }
+            }
         }
     }
 }

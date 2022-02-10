@@ -52,12 +52,12 @@
     <Compile Include="Interfaces\IBattleshipsSetup.cs" />
     <Compile Include="Interfaces\IBoardSpace.cs" />
     <Compile Include="Interfaces\ITextIO.cs" />
-    <Compile Include="Interfaces\IGameBoard.cs" />
+    <Compile Include="Interfaces\IBattleshipsBoard.cs" />
     <Compile Include="Interfaces\IInputHandler.cs" />
     <Compile Include="Classes\InputHandler.cs" />
     <Compile Include="Interfaces\IOutputGenerator.cs" />
     <Compile Include="Interfaces\IShip.cs" />
-    <Compile Include="Interfaces\IGameParts.cs" />
+    <Compile Include="Interfaces\IBattleshipsParts.cs" />
     <Compile Include="Interfaces\IValueGenerator.cs" />
     <Compile Include="Classes\OutputGenerator.cs" />
     <Compile Include="Classes\Program.cs" />

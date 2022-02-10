@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace BattleshipsNS
+﻿namespace BattleshipsNS
 {
     public enum ShipTypes
     {
@@ -18,7 +16,7 @@ namespace BattleshipsNS
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
         public int Length { get; private set; } = 4;
-        public bool Sunk { get; private set; } = false;
+        public bool Sunk { get; set; } = false;
         public bool Placed { get; set; } = false;
         public IBoardSpace[] Sections { get; private set; }
         public int Orientation { get; set; } = (int) ShipOrientations.Horizontal;
@@ -34,21 +32,6 @@ namespace BattleshipsNS
             Type = shipType;
             Length = (int)Type;
             Sections = new IBoardSpace[Length];
-        }
-
-        public void UpdateSunk()
-        {
-            int sunkSections = 0;
-
-            if (!Sunk)
-            {
-                sunkSections = Sections.Count(section => section.Contents == 'x'); // x indicates a targeted and occupied location.
-
-                if (sunkSections == Length)
-                {
-                    Sunk = true;
-                }
-            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BattleshipsNS
 {
-    public interface IGameBoard
+    public interface IBattleshipsBoard
     {
         int BoardSize { get; }
         IBoardSpace[,] PlayGrid { get; }

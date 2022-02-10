@@ -1,6 +1,6 @@
 ﻿namespace BattleshipsNS
 {
-    public interface IGameParts
+    public interface IBattleshipsParts
     {
         IShip[] Ships { get; }
         int ShipCount { get; }

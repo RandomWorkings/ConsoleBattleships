@@ -15,8 +15,8 @@ namespace BattleshipsNS
                 Console.WriteLine();
 
                 // Setup Game
-                IGameBoard board = new BattleshipsBoard(); //Creates and manages collection of BoardSpaces.
-                IGameParts parts = new BattleshipsParts(); //Creates and manages collection of Ships.
+                IBattleshipsBoard board = new BattleshipsBoard(); //Creates and manages collection of BoardSpaces.
+                IBattleshipsParts parts = new BattleshipsParts(); //Creates and manages collection of Ships.
                 IValueGenerator valueGenerator = new ValueGenerator();
                 BattleshipsSetup GameSetup = new BattleshipsSetup(board, parts, valueGenerator); //Creates and manages inteactions between Game Board and Game Parts.
 

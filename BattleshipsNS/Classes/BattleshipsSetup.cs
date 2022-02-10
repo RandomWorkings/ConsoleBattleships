@@ -2,11 +2,11 @@
 {
     public class BattleshipsSetup : IBattleshipsSetup
     {
-        public IGameBoard GameBoard { get; private set; }
-        public IGameParts GameParts { get; private set; }
+        public IBattleshipsBoard GameBoard { get; private set; }
+        public IBattleshipsParts GameParts { get; private set; }
         public IValueGenerator ValueGenerator { get; private set; }
 
-        public BattleshipsSetup(IGameBoard board, IGameParts parts, IValueGenerator valueGenerator)
+        public BattleshipsSetup(IBattleshipsBoard board, IBattleshipsParts parts, IValueGenerator valueGenerator)
         {
             GameBoard = board;
             GameParts = parts;
