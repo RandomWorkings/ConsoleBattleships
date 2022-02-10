@@ -22,124 +22,124 @@ namespace BattleshipsNS
         private readonly string NewLine = Environment.NewLine;
         private readonly string Tab = "\t";
 
-        public string GenerateInputRequest()
+        public string GenerateInputRequestMessage()
         {
-            StringBuilder requestBuilder = new StringBuilder("");
+            StringBuilder RequestBuilder = new StringBuilder("");
 
-            requestBuilder.AppendLine($@"{Tab}Enter Target Grid Space. Example target: A1{NewLine}{Tab}Press CRTL + C to quit");
+            RequestBuilder.AppendLine($@"{Tab}Enter Target Grid Space. Example target: A1{NewLine}{Tab}Press CRTL + C to quit");
 
-            string request = requestBuilder.ToString();
+            string request = RequestBuilder.ToString();
             return request;
         }
 
-        public string GenerateMessages(int MessagesCode, int SunkShipCount)
+        public string GenerateFeedbackMessage(int MessagesCode, int SunkShipCount)
         {
-            StringBuilder messagesBuilder = new StringBuilder("");
+            StringBuilder FeedbackMessagesBuilder = new StringBuilder("");
 
             Messages messageSwitch = (Messages)MessagesCode;
 
             // Input Feedback
             if (messageSwitch.HasFlag(Messages.Invalid_Format) || messageSwitch.HasFlag(Messages.Invalid_Column) || messageSwitch.HasFlag(Messages.Invalid_Row))
             {
-                messagesBuilder.AppendLine($@"{Tab}Your input is invalid.");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}Your input is invalid.");
             }
             if (messageSwitch.HasFlag(Messages.Invalid_Format))
             {
-                messagesBuilder.AppendLine($@"{Tab}The input was not in the correct format.");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}The input was not in the correct format.");
             }
             if (messageSwitch.HasFlag(Messages.Invalid_Column))
             {
-                messagesBuilder.AppendLine($@"{Tab}The column letter provided doesnt exist on this grid.");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}The column letter provided doesnt exist on this grid.");
             }
             if (messageSwitch.HasFlag(Messages.Invalid_Row))
             {
-                messagesBuilder.AppendLine($@"{Tab}The row number provided doesnt exist on this grid.");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}The row number provided doesnt exist on this grid.");
             }
             // Action Outcome Feedback
             if (messageSwitch.HasFlag(Messages.Repeat))
             {
-                messagesBuilder.AppendLine($@"{Tab}You shot at that target already.{NewLine}{Tab}You won't win the game that way.");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}You shot at that target already.{NewLine}{Tab}You won't win the game that way.");
             }
             if (messageSwitch.HasFlag(Messages.Missed))
             {
-                messagesBuilder.AppendLine($@"{Tab}You shot splashes harmlessly into the sea.{NewLine}{Tab}Maybe next time.");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}You shot splashes harmlessly into the sea.{NewLine}{Tab}Maybe next time.");
             }
             if (messageSwitch.HasFlag(Messages.Hit))
             {
-                messagesBuilder.AppendLine($@"{Tab}You hit something.{NewLine}{Tab}Well done!");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}You hit something.{NewLine}{Tab}Well done!");
             }
             if (messageSwitch.HasFlag(Messages.Sunk))
             {
-                messagesBuilder.AppendLine($@"{NewLine}{Tab}You sunk a vessel.");
+                FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}You sunk a vessel.");
             }
             if (messageSwitch.HasFlag(Messages.Winner))
             {
-                messagesBuilder.AppendLine($@"{Tab}You won the game.{NewLine}{Tab}Congratulations");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}You won the game.{NewLine}{Tab}Congratulations");
             }
             // Board State Feedback
             else
             {
                 if (SunkShipCount == 1)
                 {
-                    messagesBuilder.AppendLine($@"{NewLine}{Tab}There is {SunkShipCount} ship left.");
+                    FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}There is {SunkShipCount} ship left.");
                 }
                 else
                 {
-                    messagesBuilder.AppendLine($@"{NewLine}{Tab}There are {SunkShipCount} ship(s) left.");
+                    FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}There are {SunkShipCount} ship(s) left.");
                 }
             }
 
-            string message = messagesBuilder.ToString();
+            string message = FeedbackMessagesBuilder.ToString();
             return message;
         }
 
-        public string GeneratePlayGridUI(BattleshipsBoard gameBoard)
+        public string GenerateGameUI(IBattleshipsBoard gameBoard)
         {
             char columnLetter = 'A';
             int rowNumber = 1;
 
             // Top Left Corner
-            StringBuilder playGridBuilder = new StringBuilder($"{Tab}    |");
+            StringBuilder GameUIBuilder = new StringBuilder($"{Tab}    |");
 
             // Table Header and Column Titles
             for (int column = 1; column <= gameBoard.BoardSize; column++)
             {
-                playGridBuilder.Append($" {columnLetter} |");
+                GameUIBuilder.Append($" {columnLetter} |");
                 columnLetter++;
             }
-            playGridBuilder.AppendLine($"");
+            GameUIBuilder.AppendLine($"");
 
             // Row Titles and Content
             for (int row = 0; row < gameBoard.BoardSize; row++)
             {
                 if (row < 9)
                 {
-                    playGridBuilder.Append($"{Tab}  {rowNumber} |");
+                    GameUIBuilder.Append($"{Tab}  {rowNumber} |");
                 }
                 else
                 {
-                    playGridBuilder.Append($"{Tab} {rowNumber} |");
+                    GameUIBuilder.Append($"{Tab} {rowNumber} |");
                 }
                 rowNumber++;
 
                 for (int column = 0; column < gameBoard.BoardSize; column++)
                 {
-                    BoardSpace cell = gameBoard.PlayGrid[row, column];
+                    IBoardSpace cell = gameBoard.PlayGrid[row, column];
 
                     if (cell.Contents == null)
                     {
-                        playGridBuilder.Append($"   |");
+                        GameUIBuilder.Append($"   |");
                     }
                     else
                     {
-                        playGridBuilder.Append($" {cell.Contents} |");
+                        GameUIBuilder.Append($" {cell.Contents} |");
                     }
 
                 }
-                playGridBuilder.AppendLine($"");
+                GameUIBuilder.AppendLine($"");
             }
 
-            string ui = playGridBuilder.ToString();
+            string ui = GameUIBuilder.ToString();
             return (ui);
         }
     }

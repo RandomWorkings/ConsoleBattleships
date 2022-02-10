@@ -20,11 +20,11 @@
                 int updatedMessageCodes;
                 int finalMessageCodes;
                 //Display Latest Board State.
-                string playGridUI = Outputs.GeneratePlayGridUI(GameBoard);
+                string playGridUI = Outputs.GenerateGameUI(GameBoard);
                 ConsoleIO.OutputText(playGridUI);
 
                 // User Input retreival and validation
-                string inputRequest = Outputs.GenerateInputRequest();
+                string inputRequest = Outputs.GenerateInputRequestMessage();
                 ConsoleIO.OutputText(inputRequest);
                 string userInput = ConsoleIO.InputText();
                 string target = userInput.ToUpper();
@@ -67,20 +67,20 @@
 
                     //Display appropriate output messages.                    
                     finalMessageCodes = updatedMessageCodes + gameParts.UpdateShipCount();
-                    string feedback = Outputs.GenerateMessages(finalMessageCodes, gameParts.ShipCount);
+                    string feedback = Outputs.GenerateFeedbackMessage(finalMessageCodes, gameParts.ShipCount);
                     ConsoleIO.OutputText(feedback);
                 }
                 else
                 {
                     //Display appropriate output messages.
                     updatedMessageCodes = messageCodes + gameParts.UpdateShipCount();
-                    string feedback = Outputs.GenerateMessages(updatedMessageCodes, gameParts.ShipCount);
+                    string feedback = Outputs.GenerateFeedbackMessage(updatedMessageCodes, gameParts.ShipCount);
                     ConsoleIO.OutputText(feedback);
                 }
             }
             //Display appropriate output messages.
             gameParts.UpdateShipCount();
-            string finalFeedback = Outputs.GenerateMessages((int)Messages.Winner, gameParts.ShipCount);
+            string finalFeedback = Outputs.GenerateFeedbackMessage((int)Messages.Winner, gameParts.ShipCount);
             ConsoleIO.OutputText(finalFeedback);
         }
     }

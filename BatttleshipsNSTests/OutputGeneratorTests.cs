@@ -24,7 +24,7 @@ namespace BattleshipsNSTests
             OutputGenerator testOutputs = new OutputGenerator();
             string expected = expectedAlmost.Replace("\n", "\r\n");
 
-            string actual = testOutputs.GenerateMessages(testMessagesCode, testShipCount);
+            string actual = testOutputs.GenerateFeedbackMessage(testMessagesCode, testShipCount);
 
             Assert.AreEqual(expected, actual, true, failMessage);
         }
@@ -39,7 +39,7 @@ namespace BattleshipsNSTests
             testBuilder.AppendLine($@"{Tab}Enter Target Grid Space. Example target: A1{NewLine}{Tab}Press CRTL + C to quit");
             string expected = testBuilder.ToString();
 
-            string actual = testOutputs.GenerateInputRequest();
+            string actual = testOutputs.GenerateInputRequestMessage();
 
             Assert.AreEqual(expected, actual, true, "Incorrect input request string ouput by generator");
         }
@@ -60,7 +60,7 @@ namespace BattleshipsNSTests
 
             string expected = testBuilder.ToString();
 
-            string actual = testOutputs.GeneratePlayGridUI(testBoard);
+            string actual = testOutputs.GenerateGameUI(testBoard);
 
             Assert.AreEqual(expected, actual, true, "Incorrect play grid UI string ouput by generator");
         }

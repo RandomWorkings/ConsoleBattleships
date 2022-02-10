@@ -2,8 +2,8 @@
 {
     public interface IOutputGenerator
     {
-        string GenerateInputRequest();
-        string GenerateMessages(int MessagesCode, int SunkShipCount);
-        string GeneratePlayGridUI(BattleshipsBoard playGrid);
+        string GenerateInputRequestMessage();
+        string GenerateFeedbackMessage(int MessagesCode, int SunkShipCount);
+        string GenerateGameUI(IBattleshipsBoard gameBoard);
     }
 }
