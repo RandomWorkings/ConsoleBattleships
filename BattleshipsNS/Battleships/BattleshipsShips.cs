@@ -1,6 +1,4 @@
-﻿using ProgramNS;
-
-namespace BattleshipsNS
+﻿namespace BattleshipsNS
 {
     public class BattleshipsShips : IBattleshipsShips
     {

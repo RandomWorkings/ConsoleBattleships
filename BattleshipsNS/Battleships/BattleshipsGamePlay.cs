@@ -1,5 +1,4 @@
-﻿using ProgramNS;
-namespace BattleshipsNS
+﻿namespace BattleshipsNS
 {
     public class BattleshipsGamePlay : IBattleshipsGamePlay
     {

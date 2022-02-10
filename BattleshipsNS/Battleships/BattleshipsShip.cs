@@ -1,5 +1,4 @@
-﻿using ProgramNS;
-using System.Linq;
+﻿using System.Linq;
 using System;
 
 namespace BattleshipsNS
