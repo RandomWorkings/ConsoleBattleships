@@ -7,28 +7,11 @@ namespace BattleshipsNS
         private static readonly Random Rand = new Random();
         private static readonly object Synclock = new object();
 
-        public int GetRandomInt()
-        {
-            lock (Synclock)
-            {
-                return Rand.Next();
-            }
-        }
         public int GetRandomInt(int rangeLimit)
         {
             lock (Synclock)
             {
                 return Rand.Next(0, rangeLimit);
-            }
-        }
-
-        public (int, int) GetRandomTuple()
-        {
-            lock (Synclock)
-            {
-                int left = Rand.Next();
-                int right = Rand.Next();
-                return (left, right);
             }
         }
 

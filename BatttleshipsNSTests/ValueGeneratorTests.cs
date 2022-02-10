@@ -7,7 +7,7 @@ namespace BattleshipsNSTests
     public class ValueGeneratorTests
     {
         [TestMethod]
-        public void GetRandomInt_WhenCalled_WithValidArguments_ReturnsAnInt()
+        public void ValueGenerator_GetRandomInt_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
         {
             int expected = 0;
             int testLimit = 1;
@@ -19,7 +19,7 @@ namespace BattleshipsNSTests
         }
 
         [TestMethod]
-        public void GetRandomTuple_WhenCalled_WithValidArguments_ReturnsATuple()
+        public void ValueGenerator_GetRandomTuple_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
         {
             (int,int) expected = (0,0);
             int testLimit = 1;
