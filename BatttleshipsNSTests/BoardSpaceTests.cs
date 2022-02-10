@@ -7,7 +7,7 @@ namespace BattleshipsNSTests
     public class BoardSpaceTests
     {
         [TestMethod]
-        public void Occupied_WhenCalled_ReturnsDefaultValue()
+        public void BoardSpaceTests_PropertyOccupied_WhenCalled_GivenNoArguments_ThenReturnsDefaultValue()
         {
             bool expected = false;
             BoardSpace TestSpace = new BoardSpace();
@@ -18,7 +18,7 @@ namespace BattleshipsNSTests
         }
 
         [TestMethod]
-        public void Occupied_WhenCalled_WithValidAssignment_ReturnSameValue()
+        public void BoardSpaceTests_PropertyOccupied_WhenCalled_GivenValidArguments_ThenReturnsDefaultValue()
         {
             bool expected = true;
             BoardSpace TestSpace = new BoardSpace
@@ -31,7 +31,7 @@ namespace BattleshipsNSTests
         }
 
         [TestMethod]
-        public void Contents_WhenCalled_ReturnDefaultContents()
+        public void BoardSpaceTests_Contents_WhenCalled_GivenNoArguments_ThenReturnsDefaultValue()
         {
             char? expected = null;
             BoardSpace TestSpace = new BoardSpace();
@@ -42,7 +42,7 @@ namespace BattleshipsNSTests
         }
 
         [TestMethod]
-        public void Contents_WhenCalled_WithValidAssignment_ReturnSameValue()
+        public void BoardSpaceTests_Contents_WhenCalled_GivenValidArguments_ThenReturnsDefaultValue()
         {
             char? expected = 'a';
             BoardSpace TestSpace = new BoardSpace
