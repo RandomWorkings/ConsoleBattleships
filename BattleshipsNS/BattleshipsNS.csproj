@@ -43,12 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\BattleshipsPlay.cs" />
+    <Compile Include="Classes\BattleshipsGame.cs" />
     <Compile Include="Classes\BattleshipsSetup.cs" />
     <Compile Include="Classes\BoardSpace.cs" />
     <Compile Include="Classes\ConsoleIO.cs" />
     <Compile Include="Classes\BattleshipsBoard.cs" />
-    <Compile Include="Interfaces\IBattleshipsPlay.cs" />
+    <Compile Include="Interfaces\IBattleshipsGame.cs" />
     <Compile Include="Interfaces\IBattleshipsSetup.cs" />
     <Compile Include="Interfaces\IBoardSpace.cs" />
     <Compile Include="Interfaces\ITextIO.cs" />

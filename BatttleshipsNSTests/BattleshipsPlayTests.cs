@@ -31,7 +31,7 @@ namespace BattleshipsNSTests
             FakeConsoleIO testConsoleIO = new FakeConsoleIO();
             BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
             BattleshipsParts testGameParts = testGameSetup.GameParts;
-            BattleshipsPlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard,testGameParts,testConsoleIO);
+            BattleshipsGame testBattleshipsPlay = new BattleshipsPlay(testGameBoard,testGameParts,testConsoleIO);
             var expected = testGameParts;
 
             var actual = testBattleshipsPlay.GameParts;
@@ -47,7 +47,7 @@ namespace BattleshipsNSTests
             FakeConsoleIO testConsoleIO = new FakeConsoleIO();
             BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
             BattleshipsParts testGameParts = testGameSetup.GameParts;
-            BattleshipsPlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard, testGameParts, testConsoleIO);
+            BattleshipsGame testBattleshipsPlay = new BattleshipsPlay(testGameBoard, testGameParts, testConsoleIO);
             var expected = testGameBoard;
 
             var actual = testBattleshipsPlay.GameBoard;
