@@ -7,7 +7,16 @@ namespace BattleshipsNS
     {
         private readonly char[] AcceptedCharacters;
         private readonly int[] AcceptedIntegers;
-        private readonly int BoardSize;
+        private readonly int BoardSize = 10;
+
+        public InputHandler()
+        {
+            AcceptedCharacters = new char[BoardSize];
+            SetAcceptedCharacters();
+
+            AcceptedIntegers = new int[BoardSize];
+            SetAcceptedIntegers();
+        }
 
         public InputHandler(int boardSize)
         {

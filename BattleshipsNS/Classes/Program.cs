@@ -21,16 +21,12 @@ namespace BattleshipsNS
                 BattleshipsSetup GameSetup = new BattleshipsSetup(board, parts, valueGenerator); //Creates and manages inteactions between Game Board and Game Parts.
 
                 ITextIO textIO = new ConsoleIO(); //Manages Console Based Interfaces
+                IInputHandler inputHandler = new InputHandler(); //Creates and manages input validation and conversion.
+                IOutputGenerator output = new OutputGenerator(); //Creates and manages output construction.
 
                 // Run Game
 
 
-                /*
-                //Battleship Program
-
-                BattleshipsSetup GameSetup = new BattleshipsSetup();
-                new BattleshipsPlay(GameSetup.GameBoard, GameSetup.GameParts, consoleIO);
-                */
                 //Repeat Program Option
                 Console.WriteLine($"{Tab}The Program Battleships has finished!");
                 Console.WriteLine($"{Tab}Press Enter to repeat program");
