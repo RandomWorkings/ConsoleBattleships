@@ -4,8 +4,8 @@
     {
         public GameParts GameParts { get; private set; }
         public GameBoard GameBoard { get; private set; }
-        private int BoardSize;
-        private ShipTypes[] ShipsList;
+        private readonly int BoardSize;
+        private readonly ShipTypes[] ShipsList;
 
         public BattleshipsSetup()
         {
