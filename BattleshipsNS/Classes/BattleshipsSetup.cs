@@ -13,7 +13,7 @@
             ValueGenerator = valueGenerator;
         }
 
-        public void GenerateGame()
+        public void RunSetup()
         {
             foreach (IShip ship in GameParts.Ships)
             {
