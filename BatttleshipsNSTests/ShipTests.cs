@@ -7,62 +7,156 @@ namespace BattleshipsNSTests
     public class ShipTests
     {
         [TestMethod]
-        public void Ship_WhenCalled_WithValidArguments_SetType()
+        public void ShipTests_Type_WhenCalled_GivenNoArguments_ThenReturnsDefaultValue()
         {
             ShipTypes expected = ShipTypes.Battleship;
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
+            IShip testShip = new Ship();
 
             ShipTypes actual = testShip.Type;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Type : Returned incorrect computed value."));
         }
-
         [TestMethod]
-        public void Ship_WhenCalled_WithValidArguments_SetLength()
+        public void ShipTests_Type_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
+        {
+            ShipTypes expected = ShipTypes.Destroyer;
+            ShipTypes testShipType = ShipTypes.Destroyer;
+            IShip testShip = new Ship(testShipType);
+
+            ShipTypes actual = testShip.Type;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Type : Returned incorrect computed value."));
+        }
+        [TestMethod]
+        public void ShipTests_Length_WhenCalled_GivenNoArguments_ThenReturnsDefaultValue()
         {
             int expected = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
+            IShip testShip = new Ship();
 
             int actual = testShip.Length;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Length : Returned incorrect computed value."));
         }
-
         [TestMethod]
-        public void Ship_WhenCalled_WithValidArguments_SetSectionsLength()
+        public void ShipTests_Length_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
+        {
+            int expected = (int)ShipTypes.Destroyer;  //Enum associated value, the length of the ship
+            ShipTypes testShipType = ShipTypes.Destroyer;
+            IShip testShip = new Ship(testShipType);
+
+            int actual = testShip.Length;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_Length : Returned incorrect computed value."));
+        }
+        [TestMethod]
+        public void ShipTests_Sunk_WhenCalled_GivenNoArguments_ThenReturnsDefaultValue()
+        {
+            bool expected = false;
+            Ship testShip = new Ship();
+
+            bool actual = testShip.Sunk;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Sunk : Returned incorrect set value."));
+        }
+        [TestMethod]
+        public void ShipTests_Sunk_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
+        {
+            bool expected = true;
+            ShipTypes testShipType = ShipTypes.Destroyer;
+            IShip testShip = new Ship(testShipType)
+            {
+                Sunk = true
+            };
+
+            bool actual = testShip.Sunk;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Sunk : Returned incorrect set value."));
+        }
+        [TestMethod]
+        public void ShipTests_Placed_WhenCalled_GivenNoArguments_ThenReturnsDefaultValue()
+        {
+            bool expected = false;
+            IShip testShip = new Ship();
+
+            bool actual = testShip.Placed;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Placed : Returned incorrect set value."));
+        }
+        [TestMethod]
+        public void ShipTests_Placed_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
+        {
+            bool expected = true;
+            ShipTypes testShipType = ShipTypes.Destroyer;
+            IShip testShip = new Ship(testShipType)
+            {
+                Placed = true
+            };
+
+            bool actual = testShip.Placed;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Placed : Returned incorrect set value."));
+        }
+        [TestMethod]
+        public void ShipTests_Section_WhenCalled_GivenNoArguments_ThenSetDefaultArrayLength()
         {
             int expected = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
+            IShip testShip = new Ship();
 
             int actual = testShip.Sections.Length;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_SectionLength : Returned incorrect computed value."));
         }
-
         [TestMethod]
-        public void Orientation_WhenCalled_WithValidAssignment_SetOrientation()
+        public void ShipTests_Section_WhenCalled_GivenValidArguments_ThenSetCorrectArrayLength()
         {
-            int expected = 2;
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType)
+            int expected = (int)ShipTypes.Destroyer;  //Enum associated value, the length of the ship
+            ShipTypes testShipType = ShipTypes.Destroyer;
+            IShip testShip = new Ship(testShipType);
+
+            int actual = testShip.Sections.Length;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Ship_SectionLength : Returned incorrect computed value."));
+        }
+        [TestMethod]
+        public void ShipTests_Orientation_WhenCalled_GivenNoArguments_ThenReturnsDefaultValue()
+        {
+            int expected = (int)ShipOrientations.Horizontal;
+            IShip testShip = new Ship();
+
+            int actual = testShip.Orientation;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_Orientation : Returned incorrect set value."));
+        }
+        [TestMethod]
+        public void ShipTests_Orientation_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
+        {
+            int expected = (int)ShipOrientations.Vertical;
+            ShipTypes testShipType = ShipTypes.Destroyer;
+            IShip testShip = new Ship(testShipType)
             {
-                Orientation = 2
+                Orientation = (int)ShipOrientations.Vertical
             };
 
             int actual = testShip.Orientation;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_Orientation : Returned incorrect set value."));
         }
-
         [TestMethod]
-        public void StartLocation_WhenCalled_WithValidAssignment_SetStartLocation()
+        public void ShipTests_StartLocation_WhenCalled_GivenNoArguments_ThenReturnsDefaultValue()
+        {
+            (int, int) expected = (0, 0);
+            IShip testShip = new Ship();
+
+            (int, int) actual = testShip.StartLocation;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_StartLocation : Returned incorrect set value."));
+        }
+        [TestMethod]
+        public void ShipTests_StartLocation_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
         {
             (int, int) expected = (1, 1);
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType)
+            ShipTypes testShipType = ShipTypes.Destroyer;
+            IShip testShip = new Ship(testShipType)
             {
                 StartLocation = (1, 1)
             };
@@ -70,98 +164,6 @@ namespace BattleshipsNSTests
             (int, int) actual = testShip.StartLocation;
 
             Assert.AreEqual(expected, actual, ($@"ShipTests_StartLocation : Returned incorrect set value."));
-        }
-
-        public void PlaceShip_WhenCalled_WithValidArguments_SetPlaced()
-        {
-            bool expected = true;
-            int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
-            testShip.PlaceShip(testBoard);
-
-            bool actual = testShip.Placed;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_PlaceShip : ship not placed."));
-        }
-
-
-        [TestMethod]
-        public void PlaceShip_WhenCalled_WithValidArguments_SetSectionContent()
-        {
-            int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
-
-            testShip.PlaceShip(testBoard);
-
-            Assert.IsNotNull(testShip.Sections[0], ($@"ShipTests_PlaceShip : Incorrect section assignment."));
-        }
-
-        [TestMethod]
-        public void PlaceShip_WhenCalled_WithValidArguments_SetsValidStartLocation()
-        {
-            // On a 4 by 4 grid the length 4 battleship can only start on play grid [0, 0].
-            bool expected = true;
-            int testSize = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
-
-            testShip.PlaceShip(testBoard);
-            bool actual = testShip.Sections[0].Occupied;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_PlaceShip : Incorrect section assignment."));
-        }
-
-        [TestMethod]
-        public void UpdateSunkFlag_WhenCalled_AndShipNotSunk_AndShipSectionsNotAllHit_DoNothing()
-        {
-            bool expected = false;
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            testShip.UpdateSunk();
-
-            bool actual = testShip.Sunk;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_NotSunk : Returned incorrect computed value."));
-        }
-
-        [TestMethod]
-        public void UpdateSunkFlag_WhenCalled_AndShipNotSunk_AndShipSectionsAllHit_SetSunkFlag_True()
-        {
-            bool expected = true;
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            foreach (BoardSpace section in testShip.Sections)
-            {
-                section.Contents = 'x';
-            }
-            testShip.UpdateSunk();
-
-            bool actual = testShip.Sunk;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_Sunk : Returned computed set value."));
-        }
-
-        [TestMethod]
-        public void UpdateSunkFlag_WhenCalled_AndShipSunk_DoNothing()
-        {
-            bool expected = true;
-            ShipTypes testShipType = ShipTypes.Battleship;
-            Ship testShip = new Ship(testShipType);
-            foreach (BoardSpace section in testShip.Sections)
-            {
-                section.Contents = 'x';
-            }
-            testShip.UpdateSunk(); // Sets up a sunk flag
-            testShip.UpdateSunk(); // Method with already sunk ship
-
-            bool actual = testShip.Sunk;
-
-            Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_Sunk : Returned computed set value."));
         }
     }
 }

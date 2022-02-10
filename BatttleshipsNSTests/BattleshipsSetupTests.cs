@@ -52,5 +52,49 @@ namespace BattleshipsNSTests
 
             Assert.AreEqual(expected, actual, "BattleshipsSetupTests_AllShipsArePlaced : Ships left unplaced");
         }
+
+        public void PlaceShip_WhenCalled_WithValidArguments_SetPlaced()
+        {
+            bool expected = true;
+            int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
+            ShipTypes testShipType = ShipTypes.Battleship;
+            Ship testShip = new Ship(testShipType);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
+            testShip.PlaceShip(testBoard);
+
+            bool actual = testShip.Placed;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_PlaceShip : ship not placed."));
+        }
+
+
+        [TestMethod]
+        public void PlaceShip_WhenCalled_WithValidArguments_SetSectionContent()
+        {
+            int testSize = (int)ShipTypes.Battleship; //Enum associated value, the length of the ship
+            ShipTypes testShipType = ShipTypes.Battleship;
+            Ship testShip = new Ship(testShipType);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
+
+            testShip.PlaceShip(testBoard);
+
+            Assert.IsNotNull(testShip.Sections[0], ($@"ShipTests_PlaceShip : Incorrect section assignment."));
+        }
+
+        [TestMethod]
+        public void PlaceShip_WhenCalled_WithValidArguments_SetsValidStartLocation()
+        {
+            // On a 4 by 4 grid the length 4 battleship can only start on play grid [0, 0].
+            bool expected = true;
+            int testSize = (int)ShipTypes.Battleship;  //Enum associated value, the length of the ship
+            ShipTypes testShipType = ShipTypes.Battleship;
+            Ship testShip = new Ship(testShipType);
+            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
+
+            testShip.PlaceShip(testBoard);
+            bool actual = testShip.Sections[0].Occupied;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_PlaceShip : Incorrect section assignment."));
+        }
     }
 }

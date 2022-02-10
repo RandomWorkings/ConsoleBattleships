@@ -20,7 +20,7 @@ namespace BattleshipsNSTests
     }
 
     [TestClass]
-    public class BattleshipsPlayTests
+    public class BattleshipsGameTests
     {
         [TestMethod]
         public void BattleshipsPlayTests_GivenPlayWasCalled_WithValidArguments_GamePartsSet()

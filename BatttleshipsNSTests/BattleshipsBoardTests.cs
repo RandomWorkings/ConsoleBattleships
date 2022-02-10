@@ -4,7 +4,7 @@ using BattleshipsNS;
 namespace BattleshipsNSTests
 {
     [TestClass]
-    public class GameBoardTests
+    public class BattleshipsBoardTests
     {
         [TestMethod]
         public void GameBoard_WhenCalled_WithValidArguments_SetBoardSize()

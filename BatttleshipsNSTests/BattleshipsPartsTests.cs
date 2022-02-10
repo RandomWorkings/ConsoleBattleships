@@ -4,7 +4,7 @@ using BattleshipsNS;
 namespace BattleshipsNSTests
 {
     [TestClass]
-    public class GamePartsTests
+    public class BattleshipsPartsTests
     {
         [TestMethod]
         public void GameParts_WhenCalled_WithValidArguments_SetShipCount()
@@ -71,5 +71,53 @@ namespace BattleshipsNSTests
 
             Assert.AreEqual(expected, actual, ($@"GamePartsTests_UpdateShipCount : Incorrect Ship Count value returned"));
         }
+        [TestMethod]
+        public void UpdateSunkFlag_WhenCalled_AndShipNotSunk_AndShipSectionsNotAllHit_DoNothing()
+        {
+            bool expected = false;
+            ShipTypes testShipType = ShipTypes.Battleship;
+            Ship testShip = new Ship(testShipType);
+            testShip.UpdateSunk();
+
+            bool actual = testShip.Sunk;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_NotSunk : Returned incorrect computed value."));
+        }
+
+        [TestMethod]
+        public void UpdateSunkFlag_WhenCalled_AndShipNotSunk_AndShipSectionsAllHit_SetSunkFlag_True()
+        {
+            bool expected = true;
+            ShipTypes testShipType = ShipTypes.Battleship;
+            Ship testShip = new Ship(testShipType);
+            foreach (BoardSpace section in testShip.Sections)
+            {
+                section.Contents = 'x';
+            }
+            testShip.UpdateSunk();
+
+            bool actual = testShip.Sunk;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_Sunk : Returned computed set value."));
+        }
+
+        [TestMethod]
+        public void UpdateSunkFlag_WhenCalled_AndShipSunk_DoNothing()
+        {
+            bool expected = true;
+            ShipTypes testShipType = ShipTypes.Battleship;
+            Ship testShip = new Ship(testShipType);
+            foreach (BoardSpace section in testShip.Sections)
+            {
+                section.Contents = 'x';
+            }
+            testShip.UpdateSunk(); // Sets up a sunk flag
+            testShip.UpdateSunk(); // Method with already sunk ship
+
+            bool actual = testShip.Sunk;
+
+            Assert.AreEqual(expected, actual, ($@"ShipTests_UpdateSunkFlag_Sunk : Returned computed set value."));
+        }
+
     }
 }

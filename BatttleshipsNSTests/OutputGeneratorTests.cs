@@ -19,7 +19,7 @@ namespace BattleshipsNSTests
         [DataRow((int)Messages.Winner, 0, "\tYou won the game.\n\tCongratulations\n", "Incorrect winner string ouput by generator")]
         [DataRow(((int)Messages.Invalid_Format + (int)Messages.Invalid_Column), 1,
             "\tYour input is invalid.\n\tThe input was not in the correct format.\n\tThe column letter provided doesnt exist on this grid.\n\n\tThere is 1 ship left.\n", "Incorrect mass string ouput by generator")]
-        public void DataTest_GenerateMessage_WithValidArguments_ReturnAppropriateString(int testMessagesCode, int testShipCount, string expectedAlmost, string failMessage)
+        public void DataTest_GenerateMessage_WithValidArguments_ReturnCorrectString(int testMessagesCode, int testShipCount, string expectedAlmost, string failMessage)
         {
             OutputGenerator testOutputs = new OutputGenerator();
             string expected = expectedAlmost.Replace("\n", "\r\n");
