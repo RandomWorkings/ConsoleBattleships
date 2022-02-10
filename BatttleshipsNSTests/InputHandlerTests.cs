@@ -6,52 +6,26 @@ namespace BattleshipsNSTests
     [TestClass]
     public class InputHandlerTests
     {
-        [TestMethod]
-        public void ValidateInput_WithValidString_ReturnsInt()
+        [DataTestMethod]
+        [DataRow(0,"A1",1,"InputHandlerTests_ValidateInput_ValidString : Incorrect value returned")]
+        [DataRow((int)Messages.Invalid_Format, "A1#1a", 1, "InputHandlerTests_ValidateInput_IncorrectFormat : Incorrect value returned")]
+        [DataRow((int)Messages.Invalid_Column, "B1", 1, "InputHandlerTests_ValidateInput_IncorrectColumn : Incorrect value returned")]
+        [DataRow((int)Messages.Invalid_Row, "A2", 1, "InputHandlerTests_ValidateInput_IncorrectRow : Incorrect value returned")]
+        public void InputHandlerTests_ValidateInput_WhenCalled_GivenArgument_ThenReturnCorrectValue(int expected, string testUserInput, int testBoardSize, string failMessage)
         {
-            int expected = 0;
-            int testBoardSize = 1;
-            string testUserInput = "A1";
-            InputHandler inputHandler = new InputHandler(testBoardSize);
+            IInputHandler inputHandler = new InputHandler(testBoardSize);
 
             int actual = inputHandler.ValidateInput(testUserInput);
 
-            Assert.AreEqual(expected, actual, $@"InputHandlerTests_GetUserInput : Incorrect Input String Teturned");
+            Assert.AreEqual(expected, actual, failMessage);
         }
-
         [TestMethod]
-        public void ValidateInput_WithWrongCharacterString_ReturnsInt()
-        {
-            int expected = (int)Messages.Invalid_Column;
-            int testBoardSize = 1;
-            string testUserInput = "B1";
-            InputHandler inputHandler = new InputHandler(testBoardSize);
-
-            int actual = inputHandler.ValidateInput(testUserInput);
-
-            Assert.AreEqual(expected, actual, $@"InputHandlerTests_ValidateInput_WrongCharacter : Incorrect Input String Teturned");
-        }
-
-        [TestMethod]
-        public void ValidateInput_WithWrongIntegerString_ReturnsInt()
-        {
-            int expected = (int)Messages.Invalid_Row;
-            int testBoardSize = 1;
-            string testUserInput = "A2";
-            InputHandler inputHandler = new InputHandler(testBoardSize);
-
-            int actual = inputHandler.ValidateInput(testUserInput);
-
-            Assert.AreEqual(expected, actual, $@"InputHandlerTests_ValidateInput_WrongInteger : Incorrect Input String Teturned");
-        }
-
-        [TestMethod]
-        public void ConvertInputToTuple_WithValidString_ReturnsTuple()
+        public void ConvertInputToTuple_WhenCalled_GivenValidArgument_ThenReturnCorrectValue()
         {
             (int, int) expected = (0, 0);
             int testBoardSize = 1;
             string testUserInput = "A1";
-            InputHandler inputHandler = new InputHandler(testBoardSize);
+            IInputHandler inputHandler = new InputHandler(testBoardSize);
 
             (int, int) actual = inputHandler.ConvertInputToTuple(testUserInput);
 
