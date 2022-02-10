@@ -11,7 +11,7 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             int testSize = 1;
-            BattleshipsBoard TestGrid = new BattleshipsBoard(testSize);
+            GameBoard TestGrid = new GameBoard(testSize);
 
             int actual = TestGrid.BoardSize;
 
@@ -23,7 +23,7 @@ namespace BattleshipsNSTests
         {
             int expected = 2;
             int testSize = 1;
-            BattleshipsBoard testGrid = new BattleshipsBoard(testSize);
+            GameBoard testGrid = new GameBoard(testSize);
             int arrayRows = testGrid.PlayGrid.GetLength(0);
             int arrayCols = testGrid.PlayGrid.GetLength(1);
 
@@ -36,9 +36,9 @@ namespace BattleshipsNSTests
         public void GameBoard_WhenCalled_WithValidArguments_Set2DArrayContents()
         {
             int testSize = 1;
-            BattleshipsBoard testGrid = new BattleshipsBoard(testSize);
+            GameBoard testGrid = new GameBoard(testSize);
 
-            BattleshipsBoardSpace actual = testGrid.PlayGrid[0, 0];
+            BoardSpace actual = testGrid.PlayGrid[0, 0];
 
             Assert.IsNotNull(actual, ($@"GameBoardTests_PlayGrid : No 2-dimensional array contents exists returned"));
         }

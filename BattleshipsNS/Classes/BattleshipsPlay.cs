@@ -1,19 +1,19 @@
 ﻿namespace BattleshipsNS
 {
-    public class BattleshipsGamePlay : IBattleshipsGamePlay
+    public class BattleshipsPlay : IBattleshipsGamePlay
     {
-        public BattleshipsBoard GameBoard { get; private set; }
-        public BattleshipsShips GameParts { get; private set; }
-        private readonly BattleshipsInputHandler Inputs;
-        private readonly BattleshipsOutputGenerator Outputs = new BattleshipsOutputGenerator();
-        private readonly ITextIO textIO;
+        public GameBoard GameBoard { get; private set; }
+        public GameComponents GameParts { get; private set; }
+        private readonly InputHandler Inputs;
+        private readonly OutputGenerator Outputs = new OutputGenerator();
+        private readonly ConsoleIO ConsoleIO;
 
-        public BattleshipsGamePlay(BattleshipsBoard gameBoard, BattleshipsShips gameParts, ITextIO textIO)
+        public BattleshipsPlay(GameBoard gameBoard, GameComponents gameParts, ConsoleIO consoleIO)
         {
             ConsoleIO = consoleIO;
             GameParts = gameParts;
             GameBoard = gameBoard;
-            Inputs = new BattleshipsInputHandler(GameBoard.BoardSize);
+            Inputs = new InputHandler(GameBoard.BoardSize);
 
             while (gameParts.ShipCount != 0)
             {
@@ -34,7 +34,7 @@
                 {
                     //Get target value from input.
                     (int targetRow, int targetColumn) = Inputs.ConvertInputToTuple(target);
-                    BattleshipsBoardSpace TargetCell = GameBoard.PlayGrid[targetRow, targetColumn];
+                    BoardSpace TargetCell = GameBoard.PlayGrid[targetRow, targetColumn];
 
                     //Assess target occupied and respond.
                     if (TargetCell.Occupied)

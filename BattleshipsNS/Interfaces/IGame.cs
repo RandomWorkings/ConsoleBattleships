@@ -1,14 +1,14 @@
-﻿namespace ProgramNS
+﻿namespace BattleshipsNS
 {
     // Interfaces for Basic Game Creation
+    public interface IGamePlay
+    {
+        IGameSetup GameSetup { get; set; }
+    }
     public interface IGameSetup
     {
         IGameComponents GameParts { get; }
         IGameBoard GameBoard { get; }
-    }
-    public interface IGamePlay
-    {
-        IGameSetup GameSetup { get; set; }
     }
     public interface IGameBoard { }
     public interface IGameBoardSpace { }

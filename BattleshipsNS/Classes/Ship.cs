@@ -15,31 +15,31 @@ namespace BattleshipsNS
         Vertical
     };
 
-    public class BattleshipsShip : IBattleshipsShip
+    public class Ship : IBattleshipsShip
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
         public int Length { get; private set; } = 4;
         public bool Sunk { get; private set; } = false;
         public bool Placed { get; private set; } = false;
-        public BattleshipsBoardSpace[] Sections { get; private set; }
+        public BoardSpace[] Sections { get; private set; }
         public int Orientation { get; set; } = 1;
         public (int, int) StartLocation { get; set; } = (0, 0);
         public RandomGenerator generator = new RandomGenerator();
 
-        public BattleshipsShip(ShipTypes shipType)
+        public Ship(ShipTypes shipType)
         {
             Type = shipType;
             Length = (int)Type;
-            Sections = new BattleshipsBoardSpace[Length];
+            Sections = new BoardSpace[Length];
 
             //Populate Sections with Boardspaces
             for (int s = 0; s < Length; s++)
             {
-                Sections[s] = new BattleshipsBoardSpace();
+                Sections[s] = new BoardSpace();
             }
         }
 
-        public void PlaceShip(BattleshipsBoard gameBoard)
+        public void PlaceShip(GameBoard gameBoard)
         {         
             bool allSpacesClear = true;
 
@@ -54,7 +54,7 @@ namespace BattleshipsNS
                 // Link Ship Sections to Game Board Spaces, and check if occupied.
                 for (int section = 0; section < Length; section++)
                 {
-                    BattleshipsBoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
+                    BoardSpace refCell = gameBoard.PlayGrid[sectionRow, sectionColumn];
                     if (refCell.Occupied)
                     {
                         allSpacesClear = false;

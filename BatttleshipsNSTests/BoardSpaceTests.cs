@@ -10,7 +10,7 @@ namespace BattleshipsNSTests
         public void Occupied_WhenCalled_ReturnsDefaultValue()
         {
             bool expected = false;
-            BattleshipsBoardSpace TestSpace = new BattleshipsBoardSpace();
+            BoardSpace TestSpace = new BoardSpace();
 
             bool actual = TestSpace.Occupied;
 
@@ -21,7 +21,7 @@ namespace BattleshipsNSTests
         public void Occupied_WhenCalled_WithValidAssignment_ReturnSameValue()
         {
             bool expected = true;
-            BattleshipsBoardSpace TestSpace = new BattleshipsBoardSpace
+            BoardSpace TestSpace = new BoardSpace
             {
                 Occupied = true
             };
@@ -34,7 +34,7 @@ namespace BattleshipsNSTests
         public void Contents_WhenCalled_ReturnDefaultContents()
         {
             char? expected = null;
-            BattleshipsBoardSpace TestSpace = new BattleshipsBoardSpace();
+            BoardSpace TestSpace = new BoardSpace();
 
             char? actual = TestSpace.Contents;
 
@@ -45,7 +45,7 @@ namespace BattleshipsNSTests
         public void Contents_WhenCalled_WithValidAssignment_ReturnSameValue()
         {
             char? expected = 'a';
-            BattleshipsBoardSpace TestSpace = new BattleshipsBoardSpace
+            BoardSpace TestSpace = new BoardSpace
             {
                 Contents = 'a'
             };

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProgramNS
+namespace BattleshipsNS
 {
     public class RandomGenerator : IValueGenerators
     {

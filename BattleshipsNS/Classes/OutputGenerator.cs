@@ -17,7 +17,7 @@ namespace BattleshipsNS
         Winner = 128
     }
 
-    public class BattleshipsOutputGenerator : IBattleshipsOutputGenerator
+    public class OutputGenerator : IBattleshipsOutputGenerator
     {
         private readonly string NewLine = Environment.NewLine;
         private readonly string Tab = "\t";
@@ -93,7 +93,7 @@ namespace BattleshipsNS
             return message;
         }
 
-        public string GeneratePlayGridUI(BattleshipsBoard gameBoard)
+        public string GeneratePlayGridUI(GameBoard gameBoard)
         {
             char columnLetter = 'A';
             int rowNumber = 1;
@@ -124,7 +124,7 @@ namespace BattleshipsNS
 
                 for (int column = 0; column < gameBoard.BoardSize; column++)
                 {
-                    BattleshipsBoardSpace cell = gameBoard.PlayGrid[row, column];
+                    BoardSpace cell = gameBoard.PlayGrid[row, column];
 
                     if (cell.Contents == null)
                     {

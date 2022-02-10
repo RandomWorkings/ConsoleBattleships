@@ -12,7 +12,7 @@ namespace BattleshipsNSTests
             int expected = 0;
             int testBoardSize = 1;
             string testUserInput = "A1";
-            BattleshipsInputHandler inputHandler = new BattleshipsInputHandler(testBoardSize);
+            InputHandler inputHandler = new InputHandler(testBoardSize);
 
             int actual = inputHandler.ValidateInput(testUserInput);
 
@@ -25,7 +25,7 @@ namespace BattleshipsNSTests
             int expected = (int)Messages.Invalid_Column;
             int testBoardSize = 1;
             string testUserInput = "B1";
-            BattleshipsInputHandler inputHandler = new BattleshipsInputHandler(testBoardSize);
+            InputHandler inputHandler = new InputHandler(testBoardSize);
 
             int actual = inputHandler.ValidateInput(testUserInput);
 
@@ -38,7 +38,7 @@ namespace BattleshipsNSTests
             int expected = (int)Messages.Invalid_Row;
             int testBoardSize = 1;
             string testUserInput = "A2";
-            BattleshipsInputHandler inputHandler = new BattleshipsInputHandler(testBoardSize);
+            InputHandler inputHandler = new InputHandler(testBoardSize);
 
             int actual = inputHandler.ValidateInput(testUserInput);
 
@@ -51,7 +51,7 @@ namespace BattleshipsNSTests
             (int, int) expected = (0, 0);
             int testBoardSize = 1;
             string testUserInput = "A1";
-            BattleshipsInputHandler inputHandler = new BattleshipsInputHandler(testBoardSize);
+            InputHandler inputHandler = new InputHandler(testBoardSize);
 
             (int, int) actual = inputHandler.ConvertInputToTuple(testUserInput);
 

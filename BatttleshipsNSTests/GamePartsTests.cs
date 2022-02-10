@@ -11,7 +11,7 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            BattleshipsShips testParts = new BattleshipsShips(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
 
             int actual = testParts.ShipCount;
 
@@ -23,7 +23,7 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            BattleshipsShips testParts = new BattleshipsShips(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
 
             int actual = testParts.Ships.Length;
 
@@ -34,9 +34,9 @@ namespace BattleshipsNSTests
         public void GameParts_WhenCalled_WithValidArguments_SetArrayContents()
         {
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            BattleshipsShips testParts = new BattleshipsShips(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
 
-            BattleshipsShip actual = testParts.Ships[0];
+            Ship actual = testParts.Ships[0];
 
             Assert.IsNotNull(actual, $@"GamePartsTests_SetArrayContent : No Array Contents exists");
         }
@@ -46,7 +46,7 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            BattleshipsShips testParts = new BattleshipsShips(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
             testParts.UpdateShipCount();
 
             int actual = testParts.ShipCount;
@@ -58,9 +58,9 @@ namespace BattleshipsNSTests
         public void UpdateShipCount_WhenCalled_AndANewShipSunk_ModifiyShipCount()
         {
             int expected = 0;
-            BattleshipsShip testShip = new BattleshipsShip(ShipTypes.Destroyer);
+            Ship testShip = new Ship(ShipTypes.Destroyer);
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
-            BattleshipsShips testParts = new BattleshipsShips(testShipsList);
+            GameComponents testParts = new GameComponents(testShipsList);
             for (int i = 0; i < testShip.Length; i++)
             {
                 testParts.Ships[0].Sections[i].Contents = 'x';

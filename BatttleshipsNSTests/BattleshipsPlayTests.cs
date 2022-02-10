@@ -27,11 +27,11 @@ namespace BattleshipsNSTests
         {
             int testBoardSize = 5;
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
-            BattleshipsGameSetup testGameSetup = new BattleshipsGameSetup(testBoardSize, testShipsList);
+            BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
             FakeConsoleIO testConsoleIO = new FakeConsoleIO();
-            BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
-            BattleshipsShips testGameParts = testGameSetup.GameParts;
-            BattleshipsGamePlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard,testGameParts,testConsoleIO);
+            GameBoard testGameBoard = testGameSetup.GameBoard;
+            GameComponents testGameParts = testGameSetup.GameParts;
+            BattleshipsPlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard,testGameParts,testConsoleIO);
             var expected = testGameParts;
 
             var actual = testBattleshipsPlay.GameParts;
@@ -43,11 +43,11 @@ namespace BattleshipsNSTests
         {
             int testBoardSize = 5;
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
-            BattleshipsGameSetup testGameSetup = new BattleshipsGameSetup(testBoardSize, testShipsList);
+            BattleshipsSetup testGameSetup = new BattleshipsSetup(testBoardSize, testShipsList);
             FakeConsoleIO testConsoleIO = new FakeConsoleIO();
-            BattleshipsBoard testGameBoard = testGameSetup.GameBoard;
-            BattleshipsShips testGameParts = testGameSetup.GameParts;
-            BattleshipsGamePlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard, testGameParts, testConsoleIO);
+            GameBoard testGameBoard = testGameSetup.GameBoard;
+            GameComponents testGameParts = testGameSetup.GameParts;
+            BattleshipsPlay testBattleshipsPlay = new BattleshipsPlay(testGameBoard, testGameParts, testConsoleIO);
             var expected = testGameBoard;
 
             var actual = testBattleshipsPlay.GameBoard;

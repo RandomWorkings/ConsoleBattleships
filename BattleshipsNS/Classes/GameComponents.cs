@@ -1,20 +1,20 @@
 ﻿namespace BattleshipsNS
 {
-    public class BattleshipsShips : IBattleshipsShips
+    public class GameComponents : IBattleshipComponents
     {
-        public BattleshipsShip[] Ships { get; private set; }
+        public Ship[] Ships { get; private set; }
         public int ShipCount { get; private set; } = 0;
 
-        public BattleshipsShips(ShipTypes[] shipsList)
+        public GameComponents(ShipTypes[] shipsList)
         {
             ShipCount = shipsList.Length;
-            Ships = new BattleshipsShip[ShipCount];
+            Ships = new Ship[ShipCount];
 
             // Populate Ships Array with Ships
             for (int i = 0; i < ShipCount; i++)
             {
                 ShipTypes shipType = shipsList[i];
-                Ships[i] = new BattleshipsShip(shipType);
+                Ships[i] = new Ship(shipType);
             }
         }
 
@@ -23,7 +23,7 @@
             int returnValue = 0;
             ShipCount = Ships.Length;
 
-            foreach (BattleshipsShip ship in Ships)
+            foreach (Ship ship in Ships)
             {
                 ship.UpdateSunk();
                 if(ship.Sunk)

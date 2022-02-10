@@ -10,9 +10,9 @@ namespace BattleshipsNSTests
         [TestMethod]
         public void BattleshipsSetupTests_GivenSetupWasCalled_WhenSetupEnds_ThenAGridIsCreated()
         {
-            BattleshipsGameSetup testSetup = new BattleshipsGameSetup();
+            BattleshipsSetup testSetup = new BattleshipsSetup();
 
-            BattleshipsBoard actual = testSetup.GameBoard;
+            GameBoard actual = testSetup.GameBoard;
 
             Assert.IsNotNull(actual, "BattleshipsSetupTests_AGridIsCreated : Grid Not Created");
         }
@@ -21,7 +21,7 @@ namespace BattleshipsNSTests
         public void BattleshipsSetupTests_GivenSetupWasCalled_WhenSetupEnds_ThenAllShipsArePlaced()
         {
             int expected = 0;
-            BattleshipsGameSetup testSetup = new BattleshipsGameSetup();
+            BattleshipsSetup testSetup = new BattleshipsSetup();
 
             int actual = testSetup.GameParts.Ships.Count(Ship => Ship.Placed == false);
 
@@ -33,9 +33,9 @@ namespace BattleshipsNSTests
         {
             int testBoardSize = 10;
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
-            BattleshipsGameSetup testSetup = new BattleshipsGameSetup(testBoardSize, testShipsList);
+            BattleshipsSetup testSetup = new BattleshipsSetup(testBoardSize, testShipsList);
 
-            BattleshipsBoard actual = testSetup.GameBoard;
+            GameBoard actual = testSetup.GameBoard;
 
             Assert.IsNotNull(actual, "BattleshipsSetupTests_AGridIsCreated : Grid Not Created");
         }
@@ -46,7 +46,7 @@ namespace BattleshipsNSTests
             int expected = 0;
             int testBoardSize = 10;
             ShipTypes[] testShipsList = { ShipTypes.Battleship };
-            BattleshipsGameSetup testSetup = new BattleshipsGameSetup(testBoardSize, testShipsList);
+            BattleshipsSetup testSetup = new BattleshipsSetup(testBoardSize, testShipsList);
 
             int actual = testSetup.GameParts.Ships.Count(Ship => Ship.Placed == false);
 

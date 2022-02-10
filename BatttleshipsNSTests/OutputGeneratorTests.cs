@@ -21,7 +21,7 @@ namespace BattleshipsNSTests
             "\tYour input is invalid.\n\tThe input was not in the correct format.\n\tThe column letter provided doesnt exist on this grid.\n\n\tThere is 1 ship left.\n", "Incorrect mass string ouput by generator")]
         public void DataTest_GenerateMessage_WithValidArguments_ReturnAppropriateString(int testMessagesCode, int testShipCount, string expectedAlmost, string failMessage)
         {
-            BattleshipsOutputGenerator testOutputs = new BattleshipsOutputGenerator();
+            OutputGenerator testOutputs = new OutputGenerator();
             string expected = expectedAlmost.Replace("\n", "\r\n");
 
             string actual = testOutputs.GenerateMessages(testMessagesCode, testShipCount);
@@ -32,7 +32,7 @@ namespace BattleshipsNSTests
         [TestMethod]
         public void GenerateInputRequest_ReturnString() 
         {
-            BattleshipsOutputGenerator testOutputs = new BattleshipsOutputGenerator();
+            OutputGenerator testOutputs = new OutputGenerator();
             string NewLine = Environment.NewLine;
             string Tab = "\t";
             StringBuilder testBuilder = new StringBuilder("");
@@ -47,9 +47,9 @@ namespace BattleshipsNSTests
         [TestMethod]
         public void GeneratePlayGridUI_ReturnString()
         {
-            BattleshipsOutputGenerator testOutputs = new BattleshipsOutputGenerator();
+            OutputGenerator testOutputs = new OutputGenerator();
             int testSize = 1;
-            BattleshipsBoard testBoard = new BattleshipsBoard(testSize);
+            GameBoard testBoard = new GameBoard(testSize);
             string Tab = "\t";
             StringBuilder testBuilder = new StringBuilder($"{Tab}    |");
             testBuilder.Append($" A |");
