@@ -24,7 +24,6 @@ namespace BattleshipsNS
         public IBoardSpace[] Sections { get; private set; }
         public int Orientation { get; set; } = 1;
         public (int, int) StartLocation { get; set; } = (0, 0);
-        public ValueGenerator generator = new ValueGenerator();
 
         public Ship()
         {
@@ -38,14 +37,14 @@ namespace BattleshipsNS
             Sections = new IBoardSpace[Length];
         }
 
-        public void PlaceShip(IGameBoard gameBoard)
-        {         
+        public void PlaceShip(IGameBoard gameBoard, IValueGenerator valueGenerator)
+        {
             bool allSpacesClear = true;
 
             while (!Placed)
             {
-                GenerateOrientation();
-                GenerateStartLocation(gameBoard.BoardSize);
+                GenerateOrientation(valueGenerator);
+                GenerateStartLocation(valueGenerator, gameBoard.BoardSize);
 
                 int sectionRow = StartLocation.Item1;
                 int sectionColumn = StartLocation.Item2;
@@ -104,14 +103,14 @@ namespace BattleshipsNS
             }
         }
 
-        private void GenerateOrientation()
+        private void GenerateOrientation(IValueGenerator valueGenerator)
         {
             int orientationOptionsCount = Enum.GetNames(typeof(ShipOrientations)).Length;
-            int generatedOrientation = generator.GetRandomInt(orientationOptionsCount);
+            int generatedOrientation = valueGenerator.GetRandomInt(orientationOptionsCount);
             Orientation = generatedOrientation;
         }
 
-        private void GenerateStartLocation(int boardSize)
+        private void GenerateStartLocation(IValueGenerator valueGenerator, int boardSize)
         {
             int columnLimit;
             int rowLimit;
@@ -129,7 +128,7 @@ namespace BattleshipsNS
                     break;
             }
 
-            StartLocation = generator.GetRandomTuple(rowLimit, columnLimit);
+            StartLocation = valueGenerator.GetRandomTuple(rowLimit, columnLimit);
         }
     }
 }

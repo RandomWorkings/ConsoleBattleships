@@ -2,42 +2,22 @@
 {
     public class BattleshipsSetup : IBattleshipsSetup
     {
-        public GameParts GameParts { get; private set; }
-        public GameBoard GameBoard { get; private set; }
-        private readonly int BoardSize;
-        private readonly ShipTypes[] ShipsList;
+        public IGameBoard GameBoard { get; private set; }
+        public IGameParts GameParts { get; private set; }
+        public IValueGenerator ValueGenerator { get; private set; }
 
-        public BattleshipsSetup()
+        public BattleshipsSetup(IGameBoard board, IGameParts parts, IValueGenerator valueGenerator)
         {
-            // Program Default settings
-            BoardSize = 10;
-            ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
-
-            // Create Game Components
-            GameParts = new GameParts(ShipsList);
-            GameBoard = new GameBoard(BoardSize);
-
-            // Setup Game Components
-            foreach (Ship ship in GameParts.Ships)
-            {
-                ship.PlaceShip(GameBoard);
-            }
+            GameBoard = board;
+            GameParts = parts;
+            ValueGenerator = valueGenerator;
         }
 
-        public BattleshipsSetup(int boardSize, ShipTypes[] shipsList)
-        {
-            BoardSize = boardSize;
-            ShipsList = shipsList;
-
-            // Create Game Components
-            GameParts = new GameParts(ShipsList);
-            GameBoard = new GameBoard(BoardSize);
-
-            // Setup Game Components
-            foreach (Ship ship in GameParts.Ships)
+        public void GenerateGame()
+        { 
+            foreach (IShip ship in GameParts.Ships)
             {
-                ship.PlaceShip(GameBoard);
+                ship.PlaceShip(GameBoard, ValueGenerator);
             }
         }
-    }
 }

@@ -2,7 +2,9 @@
 {
     public interface IBattleshipsSetup
     {
-        GameBoard GameBoard { get; }
-        GameParts GameParts { get; }
+        IGameBoard GameBoard { get; }
+        IGameParts GameParts { get; }
+        IValueGenerator ValueGenerator { get; }
+        void GenerateGame();
     }
 }
