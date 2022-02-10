@@ -64,7 +64,6 @@
     <Compile Include="Program\ConsoleIO.cs" />
     <Compile Include="Battleships\BattleshipsBoard.cs" />
     <Compile Include="Battleships\IBattleships.cs" />
-    <Compile Include="Program\IGame.cs" />
     <Compile Include="Program\IInterfaceIO.cs" />
     <Compile Include="Battleships\BattleshipsInputHandler.cs" />
     <Compile Include="Program\IValueGenerators.cs" />

@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace BattleshipsNS
 {
-    public class BattleshipsInputHandler : IBattleshipsInputHandler
+    public class BattleshipsInputHandler : IInputHandler
     {
         private readonly char[] AcceptedCharacters;
         private readonly int[] AcceptedIntegers;
