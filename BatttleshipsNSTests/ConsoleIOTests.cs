@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BattleshipsNS;
+using System;
 
 namespace BatttleshipsNSTests
 {
@@ -8,6 +9,7 @@ namespace BatttleshipsNSTests
         private static int FakeUserInput = 0;
         public override void OutputText(string s)
         {
+            Console.Write(s);
         }
         public override string InputText()
         {
@@ -18,13 +20,28 @@ namespace BatttleshipsNSTests
             return fakeUserInput;
         }
     }
+    public class LoopIO : ConsoleIO
+    {
+        private static string OutIn;
+
+        public override void OutputText(string s)
+        {
+            OutIn = s;
+        }
+        public override string InputText()
+        {
+            
+            return OutIn;
+        }
+    }
+
     [TestClass]
     public class ConsoleIOTests
     {
         [TestMethod]
         public void ConsoleIOTests_OutputText_WhenCalled_GivenValidArguments_ThenReturnsCorrectValue()
         {
-            ITextIO testIO = new ConsoleIO();
+            ITextIO testIO = new LoopIO();
             string expected = "hello";
 
             testIO.OutputText(expected);

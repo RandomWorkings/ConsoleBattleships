@@ -9,7 +9,7 @@ namespace BattleshipsNS
 
         public BattleshipsParts()
         {
-            ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer };
+            ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer};
 
             ShipCount = ShipsList.Length;
 

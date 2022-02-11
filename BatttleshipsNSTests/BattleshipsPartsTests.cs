@@ -73,7 +73,11 @@ namespace BattleshipsNSTests
         {
             int expected = 1;
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
+            IBattleshipsBoard testBoard = new BattleshipsBoard();
             IBattleshipsParts testParts = new BattleshipsParts(testShipsList);
+            IValueGenerator testValueGenerator = new ValueGenerator();
+            IBattleshipsSetup testGameSetup = new BattleshipsSetup(testBoard, testParts, testValueGenerator);
+            testGameSetup.RunSetup();
             testParts.UpdateShipCount();
 
             int actual = testParts.ShipCount;
@@ -85,7 +89,11 @@ namespace BattleshipsNSTests
         {
             int expected = 0;
             ShipTypes[] testShipsList = { ShipTypes.Destroyer };
+            IBattleshipsBoard testBoard = new BattleshipsBoard();
             IBattleshipsParts testParts = new BattleshipsParts(testShipsList);
+            IValueGenerator testValueGenerator = new ValueGenerator();
+            IBattleshipsSetup testGameSetup = new BattleshipsSetup(testBoard, testParts, testValueGenerator);
+            testGameSetup.RunSetup();
             for (int i = 0; i < testParts.Ships[0].Length; i++)
             {
                 testParts.Ships[0].Sections[i].Contents = 'x';

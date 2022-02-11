@@ -18,10 +18,24 @@ namespace BattleshipsNSTests
             return fakeUserInput;
         }
     }
-[TestClass]
-    public class BattleshipsGameTests
+    public class LoopIO : ConsoleIO
     {
-    
+        private static string OutIn;
+
+        public override void OutputText(string s)
+        {
+            OutIn = s;
+        }
+        public override string InputText()
+        {
+
+            return OutIn;
+        }
+    }
+
+    [TestClass]
+    public class BattleshipsGameTests
+    {    
         [TestMethod]
         public void BattleshipsGameTests_Board_GivenBattleshipsGameCalled_WhenSuppliedValidArguments_ThenSetBoard()
         {
@@ -94,7 +108,7 @@ namespace BattleshipsNSTests
 
             var expected = testInputHandler;
 
-            var actual = testGame.InputHandler ;
+            var actual = testGame.InputHandler;
 
             Assert.AreEqual(expected, actual, "BattleshipsGameTests_InputHandler : Incorrect Value returned");
         }
@@ -116,30 +130,6 @@ namespace BattleshipsNSTests
             var actual = testGame.TextIO;
 
             Assert.AreEqual(expected, actual, "BattleshipsGameTests_TextIO : Incorrect Value returned");
-        }
-        [TestMethod]
-        public void BattleshipsGameTests_RunGame_GivenCalled_WhenUserWinsGame_ThenCorrectFinalMessageIsDisplayed()
-        {
-            ITextIO testerIO = new ConsoleIO();
-            int testBoardSize = 4;
-            ShipTypes[] testShipsList = { ShipTypes.Destroyer};
-            IBattleshipsBoard testBoard = new BattleshipsBoard(testBoardSize);
-            IBattleshipsParts testParts = new BattleshipsParts(testShipsList);
-            ITextIO testTextIO = new FakeUserIO();
-            IInputHandler testInputHandler = new InputHandler(testBoard.BoardSize);
-            IOutputGenerator testOutputGenerator = new OutputGenerator();
-            IValueGenerator testValueGenerator = new ValueGenerator();
-            IBattleshipsSetup testGameSetup = new BattleshipsSetup(testBoard, testParts, testValueGenerator);
-            testGameSetup.RunSetup();
-            IBattleshipsGame testGame = new BattleshipsGame(testGameSetup, testTextIO, testInputHandler, testOutputGenerator);
-            testGame.RunGame();
-
-            var expectedAlmost = "\tYou won the game.\n\tCongratulations\n";
-            var expected = expectedAlmost.Replace("\n", "\r\n");
-
-            var actual = testerIO.InputText();
-
-            Assert.AreEqual(expected, actual, "BattleshipsGameTests_RunGame : Final message not displayed.");
         }
     }
 }

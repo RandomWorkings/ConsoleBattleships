@@ -3,7 +3,7 @@
     public enum ShipTypes
     {
         Battleship = 5,
-        Destroyer = 4
+        Destroyer = 4,
     };
 
     public enum ShipOrientations
@@ -15,7 +15,7 @@
     public class Ship : IShip
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
-        public int Length { get; private set; } = 4;
+        public int Length { get; private set; } = (int)ShipTypes.Battleship;
         public bool Sunk { get; set; } = false;
         public bool Placed { get; set; } = false;
         public IBoardSpace[] Sections { get; private set; }

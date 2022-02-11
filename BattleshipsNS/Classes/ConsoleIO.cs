@@ -6,7 +6,7 @@ namespace BattleshipsNS
     {
         public virtual void OutputText(string s)
         {
-            Console.WriteLine(s);
+            Console.Write(s);
         }
         public virtual string InputText()
         {
