@@ -15,7 +15,7 @@ namespace BattleshipsNSTests
         {
             IInputHandler inputHandler = new InputHandler(testBoardSize);
 
-            int actual = inputHandler.ValidateInput(testUserInput);
+            Messages actual = inputHandler.ValidateInput(testUserInput);
 
             Assert.AreEqual(expected, actual, failMessage);
         }
