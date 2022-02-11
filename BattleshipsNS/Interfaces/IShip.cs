@@ -8,6 +8,6 @@
         bool Placed { get; set; }
         IBoardSpace[] Sections { get; }
         int Orientation { get; set; }
-        (int, int) StartLocation { get; set; }
+        (int row, int col) StartLocation { get; set; }
     }
 }

@@ -30,8 +30,9 @@
                 ship.Orientation = GenerateOrientation();
                 ship.StartLocation = GenerateStartLocation(ship);
 
-                int sectionRow = ship.StartLocation.Item1;
-                int sectionColumn = ship.StartLocation.Item2;
+                //int sectionRow = ship.StartLocation.Item1;
+                int sectionRow = ship.StartLocation.row;
+                int sectionColumn = ship.StartLocation.col;
 
                 // Link Ship Sections to Game Board Spaces, and check if occupied.
                 for (int section = 0; section < ship.Length; section++)
@@ -102,6 +103,5 @@
             (int, int) generatedStartLocation = ValueGenerator.GetRandomTuple(rowLimit, columnLimit);
             return generatedStartLocation;
         }
-
     }
 }
