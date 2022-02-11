@@ -7,10 +7,8 @@ namespace BattleshipsNS
     {
         public IShip[] Ships { get; private set; }
         private int _ShipCount;
-        public int ShipCount {  get { return _ShipCount; } set { OnShipCountChanged();}}
+        public int ShipCount {  get { return _ShipCount; } set { _ShipCount--; OnShipCountChanged();}}
         public Messages ShipCountChange;
-
-        public event EventHandler ShipCountChanged;
 
         protected virtual void OnShipCountChanged()
         {
