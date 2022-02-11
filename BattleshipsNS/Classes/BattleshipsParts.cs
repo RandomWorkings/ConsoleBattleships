@@ -1,17 +1,27 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace BattleshipsNS
 {
     public class BattleshipsParts : IBattleshipsParts
     {
         public IShip[] Ships { get; private set; }
-        public int ShipCount { get; private set; } = 0;
+        private int _ShipCount;
+        public int ShipCount {  get { return _ShipCount; } set { OnShipCountChanged();}}
+        public Messages ShipCountChange;
+
+        public event EventHandler ShipCountChanged;
+
+        protected virtual void OnShipCountChanged()
+        {
+            ShipCountChange = Messages.Sunk;
+        }
 
         public BattleshipsParts()
         {
             ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer};
 
-            ShipCount = ShipsList.Length;
+            _ShipCount = ShipsList.Length;
 
             Ships = new Ship[ShipCount];
 
@@ -25,7 +35,7 @@ namespace BattleshipsNS
 
         public BattleshipsParts(ShipTypes[] shipsList)
         {
-            ShipCount = shipsList.Length;
+            _ShipCount = shipsList.Length;
             Ships = new Ship[ShipCount];
 
             // Populate Ships Array with Ships
@@ -38,8 +48,8 @@ namespace BattleshipsNS
 
         public Messages UpdateShipCount()
         {
-            Messages returnValue = 0;
-            ShipCount = Ships.Length;
+            Messages ShipCountChange = 0;
+            _ShipCount = Ships.Length;
 
             foreach (IShip ship in Ships)
             {
@@ -47,10 +57,9 @@ namespace BattleshipsNS
                 if(ship.Sunk)
                 {
                     ShipCount--;
-                    returnValue = Messages.Sunk;
                 }
             }
-            return returnValue;
+            return ShipCountChange;
         }
 
         private void UpdateShipSunk(IShip ship)

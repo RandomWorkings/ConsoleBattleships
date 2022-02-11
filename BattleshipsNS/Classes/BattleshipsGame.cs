@@ -9,6 +9,7 @@
         public IOutputGenerator UI { get; private set; }
         private string UserInput;
         private Messages Feedback;
+
         public BattleshipsGame(IBattleshipsSetup gameSetup, ITextIO textIO, IInputHandler inputHandler, IOutputGenerator outputGenerator)
         {
             TextIO = textIO;
