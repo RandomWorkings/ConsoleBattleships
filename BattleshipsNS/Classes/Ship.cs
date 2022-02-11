@@ -2,24 +2,18 @@
 {
     public enum ShipTypes
     {
-        Battleship = 5,
-        Destroyer = 4,
-    };
-
-    public enum ShipOrientations
-    {
-        Horizontal,
-        Vertical
+        Battleship,
+        Destroyer,
     };
 
     public class Ship : IShip
     {
         public ShipTypes Type { get; private set; } = ShipTypes.Battleship;
-        public int Length { get; private set; } = (int)ShipTypes.Battleship;
+        public int Length { get; private set; } = 0;
         public bool Sunk { get; set; } = false;
         public bool Placed { get; set; } = false;
         public IBoardSpace[] Sections { get; private set; }
-        public int Orientation { get; set; } = (int) ShipOrientations.Horizontal;
+        public int Orientation { get; set; } = 1;
         public (int row, int col) StartLocation { get; set; } = (0, 0);
 
         public Ship()
@@ -30,7 +24,19 @@
         public Ship(ShipTypes shipType)
         {
             Type = shipType;
-            Length = (int)Type;
+
+            switch (Type)
+            {
+                case ShipTypes.Battleship:
+                    Length = 5;
+                    break;
+                case ShipTypes.Destroyer:
+                    Length = 4;
+                    break;
+                default:
+                    break;
+            }
+
             Sections = new IBoardSpace[Length];
         }
     }

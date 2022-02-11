@@ -48,7 +48,7 @@
 
                     switch (ship.Orientation)
                     {
-                        case (int)ShipOrientations.Vertical:
+                        case 1:
                             {
                                 sectionRow++;
                                 break;
@@ -75,7 +75,7 @@
 
         private int GenerateOrientation()
         {
-            int orientationOptionsCount = ShipOrientations.GetNames(typeof(ShipOrientations)).Length;
+            int orientationOptionsCount = 2;
             int generatedOrientation = ValueGenerator.GetRandomInt(orientationOptionsCount);
             return generatedOrientation;
         }
@@ -89,7 +89,7 @@
 
             switch (shipOrientation)
             {
-                case (int)ShipOrientations.Vertical: //Limit Rows
+                case 1: //Limit Rows
                     columnLimit = GameBoard.BoardSize;
                     rowLimit = GameBoard.BoardSize - shipLength;
                     break;
