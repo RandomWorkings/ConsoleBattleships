@@ -6,20 +6,14 @@ namespace BattleshipsNS
     public class BattleshipsParts : IBattleshipsParts
     {
         public IShip[] Ships { get; private set; }
-        private int _ShipCount;
-        public int ShipCount {  get { return _ShipCount; } set { _ShipCount--; OnShipCountChanged();}}
-        public Messages ShipCountChange;
-
-        protected virtual void OnShipCountChanged()
-        {
-            ShipCountChange = Messages.Sunk;
-        }
+        public int ShipCount { get; private set; }
+        public Messages ShipSunk;
 
         public BattleshipsParts()
         {
             ShipTypes[] ShipsList = { ShipTypes.Battleship, ShipTypes.Destroyer, ShipTypes.Destroyer};
 
-            _ShipCount = ShipsList.Length;
+            ShipCount = ShipsList.Length;
 
             Ships = new Ship[ShipCount];
 
@@ -33,7 +27,7 @@ namespace BattleshipsNS
 
         public BattleshipsParts(ShipTypes[] shipsList)
         {
-            _ShipCount = shipsList.Length;
+            ShipCount = shipsList.Length;
             Ships = new Ship[ShipCount];
 
             // Populate Ships Array with Ships
@@ -46,8 +40,8 @@ namespace BattleshipsNS
 
         public Messages UpdateShipCount()
         {
-            Messages ShipCountChange = 0;
-            _ShipCount = Ships.Length;
+            ShipSunk = Messages.None;
+            ShipCount = Ships.Length;
 
             foreach (IShip ship in Ships)
             {
@@ -57,7 +51,7 @@ namespace BattleshipsNS
                     ShipCount--;
                 }
             }
-            return ShipCountChange;
+            return ShipSunk;
         }
 
         private void UpdateShipSunk(IShip ship)
@@ -71,6 +65,7 @@ namespace BattleshipsNS
                 if (sunkSections == ship.Length)
                 {
                     ship.Sunk = true;
+                    ShipSunk = Messages.Sunk;
                 }
             }
         }
