@@ -4,6 +4,6 @@
     {
         IShip[] Ships { get; }
         int ShipCount { get; }
-        int UpdateShipCount();
+        Messages UpdateShipCount();
     }
 }

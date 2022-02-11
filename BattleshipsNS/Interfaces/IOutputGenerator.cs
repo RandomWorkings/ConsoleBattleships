@@ -3,7 +3,7 @@
     public interface IOutputGenerator
     {
         string GenerateInputRequestMessage();
-        string GenerateFeedbackMessage(int MessagesCode, int SunkShipCount);
+        string GenerateFeedbackMessage(Messages MessageSwitch, int SunkShipCount);
         string GenerateGameUI(IBattleshipsBoard gameBoard);
     }
 }

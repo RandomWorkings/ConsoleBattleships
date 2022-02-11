@@ -32,47 +32,45 @@ namespace BattleshipsNS
             return request;
         }
 
-        public string GenerateFeedbackMessage(int MessagesCode, int SunkShipCount)
+        public string GenerateFeedbackMessage(Messages MessageSwitch, int SunkShipCount)
         {
             StringBuilder FeedbackMessagesBuilder = new StringBuilder("");
 
-            Messages messageSwitch = (Messages)MessagesCode;
-
             // Input Feedback
-            if (messageSwitch.HasFlag(Messages.Invalid_Format) || messageSwitch.HasFlag(Messages.Invalid_Column) || messageSwitch.HasFlag(Messages.Invalid_Row))
+            if (MessageSwitch.HasFlag(Messages.Invalid_Format) || MessageSwitch.HasFlag(Messages.Invalid_Column) || MessageSwitch.HasFlag(Messages.Invalid_Row))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{Tab}Your input is invalid.");
             }
-            if (messageSwitch.HasFlag(Messages.Invalid_Format))
+            if (MessageSwitch.HasFlag(Messages.Invalid_Format))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{Tab}The input was not in the correct format.");
             }
-            if (messageSwitch.HasFlag(Messages.Invalid_Column))
+            if (MessageSwitch.HasFlag(Messages.Invalid_Column))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{Tab}The column letter provided doesnt exist on this grid.");
             }
-            if (messageSwitch.HasFlag(Messages.Invalid_Row))
+            if (MessageSwitch.HasFlag(Messages.Invalid_Row))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{Tab}The row number provided doesnt exist on this grid.");
             }
             // Action Outcome Feedback
-            if (messageSwitch.HasFlag(Messages.Repeat))
+            if (MessageSwitch.HasFlag(Messages.Repeat))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{Tab}You shot at that target already.{NewLine}{Tab}You won't win the game that way.");
             }
-            if (messageSwitch.HasFlag(Messages.Missed))
+            if (MessageSwitch.HasFlag(Messages.Missed))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{Tab}You shot splashes harmlessly into the sea.{NewLine}{Tab}Maybe next time.");
             }
-            if (messageSwitch.HasFlag(Messages.Hit))
+            if (MessageSwitch.HasFlag(Messages.Hit))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{Tab}You hit something.{NewLine}{Tab}Well done!");
             }
-            if (messageSwitch.HasFlag(Messages.Sunk))
+            if (MessageSwitch.HasFlag(Messages.Sunk))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}You sunk a vessel.");
             }
-            if (messageSwitch.HasFlag(Messages.Winner))
+            if (MessageSwitch.HasFlag(Messages.Winner))
             {
                 FeedbackMessagesBuilder.AppendLine($@"{Tab}You won the game.{NewLine}{Tab}Congratulations");
             }

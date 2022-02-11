@@ -29,11 +29,11 @@ namespace BattleshipsNS
             SetAcceptedIntegers();
         }
 
-        public int ValidateInput(string userInput)
+        public Messages ValidateInput(string userInput)
         {
-            int formatCheck = 0;
-            int characterCheck = 0;
-            int integerCheck = 0;
+            Messages formatCheck = 0;
+            Messages characterCheck = 0;
+            Messages integerCheck = 0;
 
             // Input string validation
             string validFormat = @"(^\b[A-Z]{1}[0-9]{1,2}\b$)"; //A0 to Z99 accepted.
@@ -51,10 +51,11 @@ namespace BattleshipsNS
             }
             else
             {
-                formatCheck = (int)Messages.Invalid_Format;
+                formatCheck = Messages.Invalid_Format;
             }
 
-            return formatCheck + characterCheck + integerCheck;
+            Messages returnMessage = formatCheck | characterCheck | integerCheck;
+            return returnMessage;
         }
 
         public (int, int) ConvertInputToTuple(string userInput)
@@ -101,7 +102,7 @@ namespace BattleshipsNS
             string inputNumber = userInput.Substring(1);
             return int.Parse(inputNumber);
         }
-        private int CheckValidCharacter(char inputCharacter)
+        private Messages CheckValidCharacter(char inputCharacter)
         {
             bool validCharacter = Array.Exists(AcceptedCharacters, c => c == inputCharacter);
             if (validCharacter)
@@ -110,10 +111,10 @@ namespace BattleshipsNS
             }
             else
             {
-                return (int)Messages.Invalid_Column;
+                return Messages.Invalid_Column;
             }
         }
-        private int CheckValidInteger(int inputInteger)
+        private Messages CheckValidInteger(int inputInteger)
         {
             bool validInteger = Array.Exists(AcceptedIntegers, i => i == inputInteger);
             if (validInteger)
@@ -122,7 +123,7 @@ namespace BattleshipsNS
             }
             else
             {
-                return (int)Messages.Invalid_Row;
+                return Messages.Invalid_Row;
             }
         }
     }

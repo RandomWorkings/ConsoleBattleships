@@ -2,7 +2,7 @@
 {
     public interface IInputHandler
     {
-        int ValidateInput(string userInput);
+        Messages ValidateInput(string userInput);
         (int, int) ConvertInputToTuple(string userInput);
     }
 }

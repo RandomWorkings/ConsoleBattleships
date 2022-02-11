@@ -7,7 +7,8 @@
         public ITextIO TextIO { get; private set; }
         public IInputHandler InputHandler { get; private set; }
         public IOutputGenerator UI { get; private set; }
-
+        private string UserInput;
+        private Messages Feedback;
         public BattleshipsGame(IBattleshipsSetup gameSetup, ITextIO textIO, IInputHandler inputHandler, IOutputGenerator outputGenerator)
         {
             TextIO = textIO;
@@ -21,71 +22,77 @@
         {
             while (Parts.ShipCount != 0)
             {
-                int updatedMessageCodes;
-                int finalMessageCodes;
-                //Display Latest Board State.
-                string boardUI = UI.GenerateGameUI(Board);
-                TextIO.OutputText(boardUI);
+                Feedback = 0;
 
-                // User Input retreival and validation
-                string inputRequest = UI.GenerateInputRequestMessage();
-                TextIO.OutputText(inputRequest);
-                string userInput = TextIO.InputText();
-                string target = userInput.ToUpper();
-                int messageCodes = InputHandler.ValidateInput(target);
-                
-                if (messageCodes == 0) // Only possible with a valid input.
+                InteractWithUser();
+                Feedback |= InputHandler.ValidateInput(UserInput);
+
+                if (Feedback == 0) // Only possible with a valid input.
                 {
-                    //Get target value from input.
-                    (int targetRow, int targetColumn) = InputHandler.ConvertInputToTuple(target);
-                    IBoardSpace TargetCell = Board.PlayGrid[targetRow, targetColumn];
-
-                    //Assess target occupied and respond.
-                    if (TargetCell.Occupied)
-                    {
-                        updatedMessageCodes = messageCodes + (int)Messages.Hit;
-                        //Assess target content and respond.
-                        if (TargetCell.Contents == 'x') // x indicates a targeted and occupied location.
-                        {
-                            updatedMessageCodes = messageCodes + (int)Messages.Repeat;
-                        }
-                        else
-                        {
-                            TargetCell.Contents = 'x'; // x indicates a targeted and occupied location.
-                        }
-                    }
-                    else
-                    {
-                        updatedMessageCodes = messageCodes + (int)Messages.Missed;
-
-                        //Assess target content and respond.
-                        if (TargetCell.Contents == 'o') // o indicates a targeted and vacant location.
-                        {
-                            updatedMessageCodes = messageCodes + (int)Messages.Repeat;
-                        }
-                        else
-                        {
-                            TargetCell.Contents = 'o'; // o indicates a targeted and vacant location.
-                        }
-                    }
-
-                    //Display appropriate output messages.
-                    finalMessageCodes = updatedMessageCodes + Parts.UpdateShipCount();
-                    string feedback = UI.GenerateFeedbackMessage(finalMessageCodes, Parts.ShipCount);
-                    TextIO.OutputText(feedback);
+                    CheckTargetStatus();
+                    DisplayFeedback();
                 }
                 else
                 {
-                    //Display appropriate output messages.
-                    updatedMessageCodes = messageCodes + Parts.UpdateShipCount();
-                    string feedback = UI.GenerateFeedbackMessage(updatedMessageCodes, Parts.ShipCount);
-                    TextIO.OutputText(feedback);
+                    DisplayFeedback();
                 }
             }
-            //Display appropriate output messages.
-            Parts.UpdateShipCount();
-            string finalFeedback = UI.GenerateFeedbackMessage((int)Messages.Winner, Parts.ShipCount);
-            TextIO.OutputText(finalFeedback);
+            Feedback |= Messages.Winner;
+            DisplayFeedback();
         }
-    }
+
+        private void InteractWithUser()
+        {
+            string boardUI = UI.GenerateGameUI(Board);
+            TextIO.OutputText(boardUI);
+
+            string inputRequest = UI.GenerateInputRequestMessage();
+            TextIO.OutputText(inputRequest);
+
+            string userInput = TextIO.InputText();           
+            UserInput = userInput.ToUpper();
+        }
+        private void CheckTargetStatus()
+        {
+            //Get target value from input.
+            (int targetRow, int targetColumn) = InputHandler.ConvertInputToTuple(UserInput);
+            IBoardSpace TargetCell = Board.PlayGrid[targetRow, targetColumn];
+
+            //Assess target occupied and respond.
+            if (TargetCell.Occupied)
+            {
+                Feedback |= Messages.Hit;
+                //Assess target content and respond.
+                if (TargetCell.Contents == 'x') // x indicates a targeted and occupied location.
+                {
+                    Feedback |= Messages.Repeat;
+                }
+                else
+                {
+                    TargetCell.Contents = 'x'; // x indicates a targeted and occupied location.
+                }
+            }
+            else
+            {
+                Feedback |= Messages.Missed;
+
+                //Assess target content and respond.
+                if (TargetCell.Contents == 'o') // o indicates a targeted and vacant location.
+                {
+                    Feedback |= Messages.Repeat;
+                }
+                else
+                {
+                    TargetCell.Contents = 'o'; // o indicates a targeted and vacant location.
+                }
+            }
+        }
+
+        private void DisplayFeedback()
+        {
+            Feedback |= Parts.UpdateShipCount();
+            string outputs = UI.GenerateFeedbackMessage(Feedback, Parts.ShipCount);
+            TextIO.OutputText(outputs);
+        }
+    }   
 }

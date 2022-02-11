@@ -36,9 +36,9 @@ namespace BattleshipsNS
             }
         }
 
-        public int UpdateShipCount()
+        public Messages UpdateShipCount()
         {
-            int returnValue = 0;
+            Messages returnValue = 0;
             ShipCount = Ships.Length;
 
             foreach (IShip ship in Ships)
@@ -47,7 +47,7 @@ namespace BattleshipsNS
                 if(ship.Sunk)
                 {
                     ShipCount--;
-                    returnValue = (int)Messages.Sunk;
+                    returnValue = Messages.Sunk;
                 }
             }
             return returnValue;
