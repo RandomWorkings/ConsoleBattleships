@@ -3,6 +3,6 @@
     public interface IInputHandler
     {
         Messages ValidateInput(string userInput);
-        (int, int) ConvertInputToTuple(string userInput);
+        (int row, int col) ConvertInputToTuple(string userInput);
     }
 }

@@ -58,7 +58,7 @@ namespace BattleshipsNS
             return returnMessage;
         }
 
-        public (int, int) ConvertInputToTuple(string userInput)
+        public (int row, int col) ConvertInputToTuple(string userInput)
         {
             // Input string split into elements
             char inputCharacter = CollectInputCharacter(userInput);

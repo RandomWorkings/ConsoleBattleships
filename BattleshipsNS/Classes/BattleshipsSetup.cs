@@ -80,7 +80,7 @@
             return generatedOrientation;
         }
 
-        private (int, int) GenerateStartLocation(IShip ship)
+        private (int row, int col) GenerateStartLocation(IShip ship)
         {
             int shipLength = ship.Length;
             int shipOrientation = ship.Orientation;
@@ -100,7 +100,7 @@
                     break;
             }
 
-            (int, int) generatedStartLocation = ValueGenerator.GetRandomTuple(rowLimit, columnLimit);
+            (int row, int col) generatedStartLocation = ValueGenerator.GetRandomTuple(rowLimit, columnLimit);
             return generatedStartLocation;
         }
     }
