@@ -8,7 +8,7 @@
         public IInputHandler InputHandler { get; private set; }
         public IOutputGenerator UI { get; private set; }
         private string UserInput;
-        private Messages Feedback;
+        private Messages Feedback = 0;
 
         public BattleshipsGame(IBattleshipsSetup gameSetup, ITextIO textIO, IInputHandler inputHandler, IOutputGenerator outputGenerator)
         {
@@ -23,8 +23,6 @@
         {
             while (Parts.ShipCount != 0)
             {
-                Feedback = 0;
-
                 InteractWithUser();
                 Feedback |= InputHandler.ValidateInput(UserInput);
 
@@ -37,6 +35,7 @@
                 {
                     DisplayFeedback();
                 }
+                Feedback = 0;
             }
             Feedback |= Messages.Winner;
             DisplayFeedback();

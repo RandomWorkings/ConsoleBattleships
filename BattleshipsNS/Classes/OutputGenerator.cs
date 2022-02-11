@@ -72,18 +72,18 @@ namespace BattleshipsNS
             }
             if (MessageSwitch.HasFlag(Messages.Winner))
             {
-                FeedbackMessagesBuilder.AppendLine($@"{Tab}You won the game.{NewLine}{Tab}Congratulations");
+                FeedbackMessagesBuilder.AppendLine($@"{Tab}You won the game.{NewLine}{Tab}Congratulations!!!{NewLine}");
             }
             // Board State Feedback
             else
             {
                 if (SunkShipCount == 1)
                 {
-                    FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}There is {SunkShipCount} ship left.");
+                    FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}There is {SunkShipCount} ship left.{NewLine}");
                 }
                 else
                 {
-                    FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}There are {SunkShipCount} ship(s) left.");
+                    FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}There are {SunkShipCount} ship(s) left.{NewLine}");
                 }
             }
 
