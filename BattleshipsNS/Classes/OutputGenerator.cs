@@ -39,32 +39,32 @@ namespace BattleshipsNS
             // Input Feedback
             if (MessageSwitch.HasFlag(Messages.Invalid_Format) || MessageSwitch.HasFlag(Messages.Invalid_Column) || MessageSwitch.HasFlag(Messages.Invalid_Row))
             {
-                FeedbackMessagesBuilder.AppendLine($@"{Tab}Your input is invalid.");
+                FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}Your input is invalid.");
             }
             if (MessageSwitch.HasFlag(Messages.Invalid_Format))
             {
-                FeedbackMessagesBuilder.AppendLine($@"{Tab}The input was not in the correct format.");
+                FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}The input was not in the correct format.");
             }
             if (MessageSwitch.HasFlag(Messages.Invalid_Column))
             {
-                FeedbackMessagesBuilder.AppendLine($@"{Tab}The column letter provided doesnt exist on this grid.");
+                FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}The column letter provided doesnt exist on this grid.");
             }
             if (MessageSwitch.HasFlag(Messages.Invalid_Row))
             {
-                FeedbackMessagesBuilder.AppendLine($@"{Tab}The row number provided doesnt exist on this grid.");
+                FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}The row number provided doesnt exist on this grid.");
             }
             // Action Outcome Feedback
             if (MessageSwitch.HasFlag(Messages.Repeat))
             {
-                FeedbackMessagesBuilder.AppendLine($@"{Tab}You shot at that target already.{NewLine}{Tab}You won't win the game that way.");
+                FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}You shot at that target already.{NewLine}{Tab}You won't win the game that way.");
             }
             if (MessageSwitch.HasFlag(Messages.Missed))
             {
-                FeedbackMessagesBuilder.AppendLine($@"{Tab}You shot splashes harmlessly into the sea.{NewLine}{Tab}Maybe next time.");
+                FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}You shot splashes harmlessly into the sea.{NewLine}{Tab}Maybe next time.");
             }
             if (MessageSwitch.HasFlag(Messages.Hit))
             {
-                FeedbackMessagesBuilder.AppendLine($@"{Tab}You hit something.{NewLine}{Tab}Well done!");
+                FeedbackMessagesBuilder.AppendLine($@"{NewLine}{Tab}You hit something.{NewLine}{Tab}Well done!");
             }
             if (MessageSwitch.HasFlag(Messages.Sunk))
             {
