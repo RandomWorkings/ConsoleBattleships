@@ -4,7 +4,7 @@
 - Liz Larkman, [GitHub](https://github.com/RandomWorkings)
 
 **Project Specifications**
-- .Net Framework 4.72
+- .Net Framework 4.7.2
 - Console Application Project
 
 **Project Purpose(s):**
